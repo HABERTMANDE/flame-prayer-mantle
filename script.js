@@ -93,3 +93,9 @@ function checkAnswer(btn, isCorrect){
     quizBox.classList.add('shake');
   }
 }
+function showQuiz(){
+  var enterBtn = document.getElementById('enterBtn');
+  var quizBox = document.getElementById('quiz-box');
+  if(enterBtn){ enterBtn.style.display = 'none'; }
+  if(quizBox){ quizBox.style.display = 'block'; }
+}
