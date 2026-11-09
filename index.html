@@ -7,7 +7,6 @@
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600;800&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
 <style>
-  /* HOME = SHORT - HIDE OTHER PAGES UNTIL MENU TAPPED */
   .page-section{display:none !important}
   .page-section.active{display:block !important}
   #home-sections.active{display:block !important}
@@ -21,12 +20,12 @@
   .splash-inner{position:relative !important;z-index:2 !important}
   .btn-enter{background:#1e3cff !important;background-color:#1e3cff !important;border:1px solid #fff !important;color:#fff !important;padding:16px 70px !important;letter-spacing:6px !important;font-size:15px !important;font-weight:800 !important;border-radius:2px !important;box-shadow:none !important;cursor:pointer !important}
   .splash-verse{margin-top:18px !important}
-  /* ? + BUBBLE - ACCESS STYLE */
   .help-wrap{position:absolute !important;bottom:28px !important;left:20px !important;right:20px !important;z-index:5 !important;display:flex !important;align-items:center !important;gap:12px !important}
   .help-btn{position:static !important;width:64px !important;height:64px !important;min-width:64px !important;border-radius:50% !important;background:#2563EB !important;background-color:#2563EB !important;border:none !important;font-size:38px !important;box-shadow:0 0 25px rgba(37,99,235,.8) !important;display:flex !important;align-items:center !important;justify-content:center !important}
   .help-bubble{background:#fff !important;color:#000 !important;padding:14px 18px !important;border-radius:14px !important;font-size:17px !important;font-weight:500 !important;max-width:260px !important;text-align:center !important;cursor:pointer !important;box-shadow:0 8px 30px rgba(0,0,0,.4) !important}
-  /* FAQ POPUP - ACCESS STYLE */
-  .faq-popup{position:absolute !important;inset:0 !important;z-index:10 !important;display:flex !important;flex-direction:column !important;justify-content:flex-end !important;padding:12px !important}
+  /* FAQ - FIXED: HIDDEN UNTIL ? TAPPED */
+  .faq-popup{position:absolute !important;inset:0 !important;z-index:10 !important;display:none !important;flex-direction:column !important;justify-content:flex-end !important;padding:12px !important}
+  .faq-popup.open{display:flex !important}
   .faq-card{background:#fff !important;border-radius:18px !important;overflow:hidden !important;color:#000 !important;text-align:left !important;max-height:78vh !important;overflow-y:auto !important;width:100% !important}
   .faq-top{background:#000 !important;color:#fff !important;padding:24px !important;display:flex !important;justify-content:space-between !important;gap:12px !important}
   .faq-top h2{font-family:'Inter',sans-serif !important;font-size:34px !important;font-weight:800 !important;margin:0 !important;color:#fff !important}
@@ -37,10 +36,10 @@
   .faq-item .faq-ans{display:none !important;font-weight:400 !important;color:#333 !important;font-size:14px !important;line-height:1.6 !important;margin-top:8px !important}
   .faq-item.open .faq-ans{display:block !important}
   .faq-close-bottom{width:64px !important;height:64px !important;border-radius:50% !important;background:#2563EB !important;color:#fff !important;border:none !important;font-size:26px !important;margin:16px auto 10px !important;cursor:pointer !important}
-  /* HERO - NO POSTER HERE */
   .hero{background:#000 !important;background-image:none !important}
-  /* NAIROBI POSTER - FULL, NOT ZOOMED - ONLY HERE */
   .event img{width:100% !important;height:auto !important;object-fit:contain !important;display:block !important;background:#000 !important}
+  #quiz-msg.ok{color:#2aff7a}
+  #quiz-msg.bad{color:#ff3b3b}
 </style>
 </head>
 <body>
@@ -49,13 +48,10 @@
 <div id="splash">
   <video id="bg-video" autoplay muted loop playsinline preload="auto" poster="images/flame-splash.webp"></video>
   <img id="splash-img" src="images/flame-splash.webp" alt="FLAME">
-
-  <!-- BIG WORD LIKE ACCESS -->
   <div class="splash-brand">FLAME</div>
   <div class="splash-sub">PRAYER MANTLE • NAIROBI</div>
-
   <div class="splash-inner">
-    <button class="btn-enter" id="enterBtn" onclick="showQuiz()">ENTER</button>
+    <button class="btn-enter" id="enterBtn" onclick="handleEnter()">ENTER</button>
     <div id="quiz-box" style="display:none">
       <div class="quiz-tag">🔥 DO YOU CARRY THE FIRE</div>
       <p class="quiz-q">Complete The Scripture — Lev 6:13<br><em>"The fire shall ever be burning upon the altar; it shall..."</em></p>
@@ -69,15 +65,11 @@
     </div>
     <div class="splash-verse">"The fire shall ever be burning upon the altar" — Lev 6:13</div>
   </div>
-
-  <!-- ? BUTTON + BUBBLE LIKE ACCESS -->
   <div class="help-wrap">
     <div class="help-btn" onclick="toggleFAQ()">?</div>
     <div class="help-bubble" id="helpBubble" onclick="toggleFAQ()">Have a question? Check this</div>
   </div>
-
-  <!-- QUESTIONS? POPUP LIKE ACCESS -->
-  <div id="faq-popup" class="faq-popup" style="display:none">
+  <div id="faq-popup" class="faq-popup">
     <div class="faq-card">
       <div class="faq-top">
         <div>
@@ -98,7 +90,7 @@
   </div>
 </div>
 
-<!-- NAV - MENU NOW OPENS PAGES -->
+<!-- NAV -->
 <nav>
   <a href="index.html" class="logo" onclick="showHome(event)">FLAME<span>PRAYER MANTLE</span></a>
   <div class="nav-links" id="navLinks">
@@ -115,7 +107,7 @@
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- HERO - NO POSTER -->
 <header class="hero">
   <div class="hero-inner">
     <div class="eyebrow">THE CALL TO CONSECRATION • NAIROBI, KENYA • GLOBAL</div>
@@ -129,7 +121,6 @@
 </header>
 
 <main id="content">
-  <!-- HOME ONLY - SHORT -->
   <div id="home-sections">
     <section id="call">
       <div class="tag">01 — THE CENTRAL MESSAGE</div>
@@ -142,7 +133,6 @@
       </div>
       <p style="margin-top:20px"><a onclick="showPage('vision')" style="color:#2563EB;font-weight:800;cursor:pointer">→ Read Full Vision</a> &nbsp; | &nbsp; <a onclick="showPage('steps')" style="color:#2563EB;font-weight:800;cursor:pointer">→ Next Steps</a> &nbsp; | &nbsp; <a onclick="showPage('prayer')" style="color:#2563EB;font-weight:800;cursor:pointer">→ Need Prayer?</a></p>
     </section>
-
     <section id="event-home">
       <div class="tag">NAIROBI GATHERING</div>
       <h2>FLAME NAIROBI.<br>BE THERE.</h2>
@@ -155,7 +145,6 @@
         </div>
       </div>
     </section>
-
     <section id="give">
       <div class="give">
         <div style="letter-spacing:4px;font-weight:800;font-size:12px">GIVE</div>
@@ -166,8 +155,6 @@
       </div>
     </section>
   </div>
-
-  <!-- MENU PAGES - HIDDEN FROM HOME SCROLL -->
   <section id="vision" class="page-section">
     <div class="tag">03 — THE VISION OF AN AWAKENING</div>
     <h2>REVIVAL BEGINS<br>WITHIN.</h2>
@@ -178,7 +165,6 @@
     </div>
     <p style="margin-top:20px"><a onclick="showHome(event)" style="color:#2563EB;font-weight:800;cursor:pointer">← Back To Home</a></p>
   </section>
-
   <section id="steps" class="page-section">
     <div class="tag">05 — NEXT STEPS</div>
     <h2>YOUR NEXT STEP<br>STARTS HERE.</h2>
@@ -189,7 +175,6 @@
     </div>
     <p style="margin-top:20px"><a onclick="showHome(event)" style="color:#2563EB;font-weight:800;cursor:pointer">← Back To Home</a></p>
   </section>
-
   <section id="prayer" class="page-section">
     <div class="tag">06 — PRAYER ALTAR</div>
     <h2>NEED PRAYER?<br>WE WILL STAND WITH YOU.</h2>
@@ -202,7 +187,6 @@
     </div>
     <p style="margin-top:20px"><a onclick="showHome(event)" style="color:#2563EB;font-weight:800;cursor:pointer">← Back To Home</a></p>
   </section>
-
   <section id="watch" class="page-section">
     <div class="tag">08 — WATCH</div>
     <h2>CATCH THE FIRE<br>AGAIN.</h2>
@@ -216,7 +200,6 @@
     </div>
     <p style="margin-top:20px"><a onclick="showHome(event)" style="color:#2563EB;font-weight:800;cursor:pointer">← Back To Home</a></p>
   </section>
-
   <section id="event" class="page-section">
     <div class="tag">07 — NAIROBI GATHERING</div>
     <h2>FLAME NAIROBI.<br>BE THERE.</h2>
@@ -227,37 +210,104 @@
 </main>
 
 <footer>
+  <button onclick="backToEntrance()" style="background:#2563EB;color:#fff;border:none;padding:12px 24px;border-radius:30px;font-weight:800;cursor:pointer;margin-bottom:16px">↩ Back To Entrance</button><br>
   <b>FLAME — PRAYER MANTLE</b><br>
-    - Nairobi • Kenya • Global Online<br>
+  Nairobi • Kenya • Global Online<br>
   WhatsApp: +254795155158 | Instagram: theflameprayermantle<br><br>
   © 2026 FLAME Prayer Mantle. We catch fire in His presence, we rise as a flame in the world. 🔥
 </footer>
 
-<script src="script.js"></script>
 <script>
+/* === ALL FUNCTIONS IN ONE PLACE - NO script.js NEEDED === */
+function handleEnter(){
+  var quiz=document.getElementById('quiz-box');
+  var btn=document.getElementById('enterBtn');
+  if(!quiz) return;
+  if(quiz.style.display==='none'||quiz.style.display===''){ quiz.style.display='block'; if(btn) btn.textContent='ANSWER TO ENTER ↓'; }
+}
+function showQuiz(){ handleEnter(); }
+function checkAnswer(el,isCorrect){
+  var msg=document.getElementById('quiz-msg');
+  document.querySelectorAll('.quiz-opt').forEach(o=>o.classList.remove('correct','wrong'));
+  if(isCorrect){
+    el.classList.add('correct');
+    if(msg){ msg.textContent='🔥 CORRECT! Welcome to the Fire...'; msg.className='ok'; }
+    setTimeout(function(){ var s=document.getElementById('splash'); if(s){ s.classList.add('hide'); s.style.display='none'; } window.scrollTo({top:0}); },800);
+  } else {
+    el.classList.add('wrong');
+    if(msg){ msg.textContent='❌ Not quite — Try again. Hint: The fire never goes out!'; msg.className='bad'; }
+    var box=document.getElementById('quiz-box'); if(box){ box.classList.remove('shake'); void box.offsetWidth; box.classList.add('shake'); }
+  }
+}
+function closeMenu(){ var n=document.getElementById('navLinks'); if(n) n.classList.remove('open'); }
+function toggleMenu(){ var n=document.getElementById('navLinks'); if(n) n.classList.toggle('open'); }
 function showPage(id){
-  document.getElementById('home-sections').style.display='none';
-  document.querySelector('.hero').style.display='none';
+  var home=document.getElementById('home-sections'); var hero=document.querySelector('.hero');
+  if(home) home.style.display='none'; if(hero) hero.style.display='none';
   document.querySelectorAll('.page-section').forEach(s=>s.classList.remove('active'));
-  var el=document.getElementById(id);
-  if(el){el.classList.add('active'); el.scrollIntoView({behavior:'smooth'});}
+  var el=document.getElementById(id); if(el) el.classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});
+  try{ history.pushState({page:id},'','#'+id); }catch(e){}
 }
 function showHome(e){
   if(e) e.preventDefault();
-  document.getElementById('home-sections').style.display='block';
-  document.querySelector('.hero').style.display='block';
+  var home=document.getElementById('home-sections'); var hero=document.querySelector('.hero');
+  if(home) home.style.display='block'; if(hero) hero.style.display='block';
   document.querySelectorAll('.page-section').forEach(s=>s.classList.remove('active'));
   window.scrollTo({top:0,behavior:'smooth'});
+  try{ history.pushState({page:'home'},'','#home'); }catch(e){}
+}
+window.addEventListener('popstate',function(ev){
+  var home=document.getElementById('home-sections'); var hero=document.querySelector('.hero');
+  if(ev.state&&ev.state.page&&ev.state.page!=='home'){
+    if(home) home.style.display='none'; if(hero) hero.style.display='none';
+    document.querySelectorAll('.page-section').forEach(s=>s.classList.remove('active'));
+    var el=document.getElementById(ev.state.page); if(el) el.classList.add('active');
+  } else {
+    if(home) home.style.display='block'; if(hero) hero.style.display='block';
+    document.querySelectorAll('.page-section').forEach(s=>s.classList.remove('active'));
+  }
+});
+function backToEntrance(){
+  var s=document.getElementById('splash');
+  if(s){ s.classList.remove('hide'); s.style.display='flex'; s.style.opacity='1'; s.style.visibility='visible'; }
+  var quiz=document.getElementById('quiz-box'); if(quiz) quiz.style.display='none';
+  var btn=document.getElementById('enterBtn'); if(btn) btn.textContent='ENTER';
+  var msg=document.getElementById('quiz-msg'); if(msg) msg.textContent='';
+  document.querySelectorAll('.quiz-opt').forEach(o=>o.classList.remove('correct','wrong'));
+  window.scrollTo({top:0});
 }
 function toggleFAQ(){
-  var p=document.getElementById('faq-popup');
-  var b=document.getElementById('helpBubble');
+  var p=document.getElementById('faq-popup'); var b=document.getElementById('helpBubble');
   if(!p) return;
-  if(p.style.display==='none'||p.style.display===''){p.style.display='flex'; if(b) b.style.display='none';}
-  else{p.style.display='none'; if(b) b.style.display='block';}
+  var isOpen=p.classList.toggle('open');
+  if(b) b.style.display=isOpen?'none':'block';
 }
 function toggleAns(btn){ btn.classList.toggle('open'); }
+function sendPrayer(){
+  var n=document.getElementById('pname')?document.getElementById('pname').value:''; 
+  var ph=document.getElementById('pphone')?document.getElementById('pphone').value:'';
+  var r=document.getElementById('prequest')?document.getElementById('prequest').value:'';
+  var msg='Hello FLAME, I need prayer.%0AName: '+encodeURIComponent(n)+'%0APhone: '+encodeURIComponent(ph)+'%0ARequest: '+encodeURIComponent(r);
+  window.open('https://wa.me/254795155158?text='+msg,'_blank');
+}
+function startCountdown(){
+  var target=new Date('2027-02-06T10:00:00+03:00').getTime();
+  function tick(){
+    var now=Date.now(); var d=target-now; if(d<0) d=0;
+    var days=Math.floor(d/86400000); var hrs=Math.floor(d%86400000/3600000); var mins=Math.floor(d%3600000/60000); var secs=Math.floor(d%60000/1000);
+    var a=document.getElementById('cd-days'); if(a) a.textContent=days;
+    var b=document.getElementById('cd-hours'); if(b) b.textContent=hrs;
+    var c=document.getElementById('cd-mins'); if(c) c.textContent=mins;
+    var e=document.getElementById('cd-secs'); if(e) e.textContent=secs;
+  }
+  tick(); setInterval(tick,1000);
+}
+startCountdown();
+document.addEventListener('DOMContentLoaded',function(){
+  var btn=document.getElementById('enterBtn'); if(btn) btn.addEventListener('click',handleEnter);
+  var v=document.getElementById('bg-video'); if(v){ v.muted=true; v.play().catch(function(){}); }
+});
 </script>
 </body>
 </html>
