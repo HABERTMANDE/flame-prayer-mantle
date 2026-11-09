@@ -1,7 +1,13 @@
 function enterSite(){
   var splash = document.getElementById('splash');
-  if(splash){ splash.classList.add('hide'); }
+  if(splash){
+    splash.classList.add('hide');
+    splash.style.opacity = '0';
+    splash.style.visibility = 'hidden';
+    splash.style.display = 'none';
+  }
   document.body.style.overflow = 'auto';
+  document.body.style.overflowY = 'auto';
   window.scrollTo(0,0);
 }
 
@@ -59,29 +65,46 @@ function closeMenu(){
 function goHome(e){
   if(e){ e.preventDefault(); }
   var splash = document.getElementById('splash');
-  if(splash){ splash.classList.add('hide'); }
+  if(splash){
+    splash.classList.add('hide');
+    splash.style.display = 'none';
+  }
   document.body.style.overflow = 'auto';
   window.scrollTo({top:0, behavior:'smooth'});
 }
 
-// === ADD MODIFICATION - SCRIPTURE QUIZ - ANSWER TO ENTER - Lev 6:13 ===
+// === MODIFIED - QUIZ BEHIND ENTER - CORRECT = AUTO ENTER - Lev 6:13 ===
+function showQuiz(){
+  var enterBtn = document.getElementById('enterBtn');
+  var quizBox = document.getElementById('quiz-box');
+  if(enterBtn){ enterBtn.style.display = 'none'; }
+  if(quizBox){ quizBox.style.display = 'block'; quizBox.style.opacity = '1'; }
+}
+
 function checkAnswer(btn, isCorrect){
   var msg = document.getElementById('quiz-msg');
   var quizBox = document.getElementById('quiz-box');
-  var enterBtn = document.getElementById('enterBtn');
-  if(!msg || !quizBox || !enterBtn){ return; }
+  if(!msg || !quizBox){ return; }
   // Clear old marks
   document.querySelectorAll('.quiz-opt').forEach(function(o){
     o.classList.remove('correct','wrong');
   });
   if(isCorrect){
     btn.classList.add('correct');
-    msg.textContent = '✅ CORRECT! The fire never goes out! Welcome Home 🔥';
+    msg.textContent = '✅ CORRECT! The fire never goes out! Entering... 🔥';
     msg.className = 'ok';
-    // Hide quiz, show ENTER in red flamish
+    // MODIFIED: ENTER DIRECTLY - NO SECOND ENTER - FORCE HIDE SPLASH
     setTimeout(function(){
-      quizBox.style.display = 'none';
-      enterBtn.style.display = 'block';
+      var splash = document.getElementById('splash');
+      if(splash){
+        splash.classList.add('hide');
+        splash.style.opacity = '0';
+        splash.style.visibility = 'hidden';
+        splash.style.display = 'none';
+      }
+      document.body.style.overflow = 'auto';
+      document.body.style.overflowY = 'auto';
+      window.scrollTo(0,0);
     }, 900);
   } else {
     btn.classList.add('wrong');
@@ -92,10 +115,4 @@ function checkAnswer(btn, isCorrect){
     void quizBox.offsetWidth;
     quizBox.classList.add('shake');
   }
-}
-function showQuiz(){
-  var enterBtn = document.getElementById('enterBtn');
-  var quizBox = document.getElementById('quiz-box');
-  if(enterBtn){ enterBtn.style.display = 'none'; }
-  if(quizBox){ quizBox.style.display = 'block'; }
 }
