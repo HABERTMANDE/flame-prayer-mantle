@@ -108,10 +108,14 @@ footer b{color:#fff;letter-spacing:3px}
 .event-row b{font-size:16px}
 .event-row span{color:#aaa;font-size:13px;display:block;margin-top:4px}
 
-/* STEP 6 - MOBILE MENU - FIXED - BLUE */
-.menu-btn{display:none;background:#2563EB;background-color:#2563EB;color:#fff;border:none;width:42px;height:42px;border-radius:50%;font-size:20px;cursor:pointer}
+/* STEP 6 - MOBILE MENU - FIXED - BLUE + HAMBURGER TO X */
+.menu-btn{display:none;background:#2563EB;background-color:#2563EB;color:#fff;border:none;width:44px;height:44px;border-radius:50%;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0;position:relative;z-index:120}
+.menu-btn span{display:block;width:20px;height:2.5px;background:#fff;border-radius:2px;transition:all .3s ease;transform-origin:center}
+.menu-btn.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.menu-btn.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.menu-btn.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
 @media(max-width:850px){
-  .menu-btn{display:block}
+  .menu-btn{display:flex}
   .nav-links{display:none;position:fixed;top:68px;left:0;right:0;background:#000;border-bottom:1px solid #222;flex-direction:column;padding:20px;gap:18px;text-align:center;z-index:99}
   .nav-links.open{display:flex !important}
   .nav-links a{font-size:16px;padding:8px}
@@ -139,4 +143,44 @@ html{scroll-behavior:smooth}
   .quiz-q{font-size:14px}
   .quiz-opt{padding:11px;font-size:13px}
   #splash{overflow-y:auto;justify-content:flex-start;padding-top:30px}
+}
+/* === ACCESS STYLE ENTRANCE === */
+#splash{position:fixed;inset:0;z-index:100;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0;overflow:hidden}
+#bg-video,#splash-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0}
+#splash::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.55));z-index:1}
+.splash-brand{position:relative;z-index:2;font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(72px,22vw,140px);line-height:1;color:#fff;text-shadow:0 4px 30px rgba(0,0,0,.6);letter-spacing:2px;margin-top:-20px}
+.splash-sub{position:relative;z-index:2;letter-spacing:6px;font-size:11px;font-weight:800;color:#fff;opacity:.9;margin-bottom:22px}
+.splash-inner{position:relative;z-index:2}
+.btn-enter{background:#1e3cff !important;background-color:#1e3cff !important;border:1px solid #fff !important;color:#fff !important;padding:16px 70px !important;letter-spacing:6px !important;font-size:15px !important;font-weight:800 !important;border-radius:2px !important;box-shadow:none !important;cursor:pointer}
+.splash-verse{margin-top:18px}
+/* ? + BUBBLE */
+.help-wrap{position:absolute;bottom:28px;left:20px;right:20px;z-index:5;display:flex;align-items:center;gap:12px}
+.help-btn{position:static !important;width:64px;height:64px;min-width:64px;border-radius:50%;background:#2563EB !important;background-color:#2563EB !important;border:none !important;font-size:38px !important;box-shadow:0 0 25px rgba(37,99,235,.8) !important}
+.help-bubble{background:#fff;color:#000;padding:14px 18px;border-radius:14px;font-size:17px;font-weight:500;max-width:260px;text-align:center;cursor:pointer;box-shadow:0 8px 30px rgba(0,0,0,.4)}
+/* FAQ POPUP - MODIFIED: HIDDEN UNTIL ? TAPPED - FIXES AUTO-POP */
+.faq-popup{position:absolute;inset:0;z-index:10;display:none;flex-direction:column;justify-content:flex-end;padding:12px}
+.faq-popup.open{display:flex}
+.faq-card{background:#fff;border-radius:18px;overflow:hidden;color:#000;text-align:left;max-height:78vh;overflow-y:auto}
+.faq-top{background:#000;color:#fff;padding:24px;display:flex;justify-content:space-between;gap:12px}
+.faq-top h2{font-family:'Inter',sans-serif;font-size:34px;font-weight:800;margin:0}
+.faq-top p{font-size:15px;line-height:1.6;color:#ddd;margin-top:10px}
+.faq-close{background:none;border:none;color:#fff;font-size:22px;cursor:pointer}
+.faq-list{display:flex;flex-direction:column}
+.faq-item{background:#fff;border:none;border-bottom:1px solid #eee;padding:18px 20px;text-align:left;font-size:17px;font-weight:700;color:#0b4dff;cursor:pointer}
+.faq-item .faq-ans{display:none;font-weight:400;color:#333;font-size:14px;line-height:1.6;margin-top:8px}
+.faq-item.open .faq-ans{display:block}
+.faq-close-bottom{width:64px;height:64px;border-radius:50%;background:#2563EB;color:#fff;border:none;font-size:26px;margin:16px auto 10px;cursor:pointer}
+/* HOME SHORT - MENU PAGES HIDDEN */
+.page-section{display:none !important}
+.page-section.active{display:block !important}
+.menu-link{cursor:pointer}
+
+/* === MODIFICATION ADDED - HAMBURGER LINES FIX - MUST BE LAST - FIXES ALL BLUE === */
+.menu-btn{display:none !important;width:46px !important;height:46px !important;min-width:46px !important;border-radius:50% !important;background:#2563EB !important;background-color:#2563EB !important;border:none !important;cursor:pointer !important;flex-direction:column !important;align-items:center !important;justify-content:center !important;gap:6px !important;padding:0 !important;position:relative !important;z-index:120 !important;overflow:visible !important}
+.menu-btn span{display:block !important;visibility:visible !important;opacity:1 !important;width:22px !important;min-width:22px !important;height:3px !important;min-height:3px !important;background:#fff !important;background-color:#fff !important;border-radius:3px !important;transition:all .3s ease !important;transform-origin:center !important;flex-shrink:0 !important}
+.menu-btn.open span:nth-child(1){transform:translateY(9px) rotate(45deg) !important}
+.menu-btn.open span:nth-child(2){opacity:0 !important;transform:scaleX(0) !important}
+.menu-btn.open span:nth-child(3){transform:translateY(-9px) rotate(-45deg) !important}
+@media(max-width:850px){
+  .menu-btn{display:flex !important}
 }
