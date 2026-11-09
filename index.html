@@ -8,7 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600;800&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
 <!-- MODIFIED: SHOW FULL IMAGE - NO ZOOM / NO CROP -->
 <style>
-  /* Nairobi poster - show entirely */
   .event img {
     width: 100% !important;
     height: auto !important;
@@ -16,20 +15,42 @@
     display: block;
     background: #000;
   }
-  /* Splash - show entirely, not zoomed */
   #bg-video, #splash-img {
     width: 100% !important;
     height: 100% !important;
     object-fit: contain !important;
     background: #000;
   }
-  /* Watch video - show entirely */
   .watch-card video {
     width: 100% !important;
     height: auto !important;
     aspect-ratio: 16 / 9;
     object-fit: contain !important;
     background: #000;
+  }
+  /* MODIFIED: ORANGE BUTTONS -> BLUE + QUESTION MARK BLUE */
+  .btn, .btn-enter, .btn-white, a.btn, button.btn {
+    background: #2563EB !important;
+    background-color: #2563EB !important;
+    color: #fff !important;
+    border-color: #2563EB !important;
+  }
+  .btn-enter {
+    background: #2563EB !important;
+    box-shadow: 0 10px 30px rgba(37,99,235,.5) !important;
+  }
+  .help-btn {
+    background: #2563EB !important;
+    background-color: #2563EB !important;
+    color: #fff !important;
+    border: 2px solid #fff !important;
+  }
+  .quiz-opt {
+    border-color: #2563EB !important;
+  }
+  .quiz-opt:hover {
+    background: #2563EB !important;
+    color: #fff !important;
   }
 </style>
 </head>
@@ -39,13 +60,10 @@
 <div id="splash">
   <video id="bg-video" autoplay muted loop playsinline preload="auto" poster="images/flame-splash.webp" style="object-fit:contain;background:#000">
   </video>
-  <!-- MODIFIED: Fallback image shows ENTIRE banner if video has no source -->
   <img id="splash-img" src="images/flame-splash.webp" alt="FLAME Prayer Mantle" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000;display:none">
   <div class="splash-inner">
-    <!-- MODIFIED: ENTER FIRST - VISIBLE -->
-<button class="btn-enter" id="enterBtn" onclick="showQuiz()">ENTER</button>
+<button class="btn-enter" id="enterBtn" onclick="showQuiz()" style="background:#2563EB">ENTER</button>
 
-    <!-- MODIFIED: QUIZ BEHIND ENTER - HIDDEN UNTIL ENTER IS TAPPED -->
     <div id="quiz-box" style="display:none">
       <div class="quiz-tag">🔥 DO YOU CARRY THE FIRE</div>
       <p class="quiz-q">Complete The Scripture — Lev 6:13<br><em>"The fire shall ever be burning upon the altar; it shall..."</em></p>
@@ -60,7 +78,7 @@
 
     <div class="splash-verse">"The fire shall ever be burning upon the altar" — Lev 6:13</div>
   </div>
-  <div class="help-btn" onclick="alert('FLAME Prayer Mantle - Tap ENTER, then answer the scripture. Hint: The fire never goes out!')">?</div>
+  <div class="help-btn" style="background:#2563EB" onclick="alert('FLAME Prayer Mantle - Tap ENTER, then answer the scripture. Hint: The fire never goes out!')">?</div>
 </div>
 
 <!-- NAV -->
@@ -76,7 +94,7 @@
     <a href="saved.html" style="color:#ffb347">I AM SAVED</a>
   </div>
   <div style="display:flex;gap:10px;align-items:center">
-    <a class="btn" href="#give">GIVE</a>
+    <a class="btn" href="#give" style="background:#2563EB">GIVE</a>
     <button class="menu-btn" onclick="toggleMenu()">☰</button>
   </div>
 </nav>
@@ -88,7 +106,7 @@
     <h1>CATCH FIRE.<br><em>Rise As A Flame.</em></h1>
     <p>We catch fire in the presence of God, but we rise as a flame in the world. The fire we receive in communion must become the light through which our generation encounters Christ.</p>
     <div class="hero-btns">
-      <a class="btn-white" href="https://wa.me/254795155158?text=Hello%20FLAME%2C%20I%20want%20to%20catch%20fire">🔥 Join The Mantle</a>
+      <a class="btn-white" href="https://wa.me/254795155158?text=Hello%20FLAME%2C%20I%20want%20to%20catch%20fire" style="background:#2563EB;color:#fff">🔥 Join The Mantle</a>
       <a class="btn-outline" href="#call">Read The Vision →</a>
     </div>
   </div>
@@ -150,9 +168,9 @@
     <div class="tag">05 — NEXT STEPS</div>
     <h2>YOUR NEXT STEP<br>STARTS HERE.</h2>
     <div class="grid">
-      <div class="card"><div class="num">1</div><h3>Be Saved</h3><p>John 3:16 — Believe in Jesus. Be Born Again.<br><br><a href="saved.html" style="color:#ff6a00;font-weight:800">→ I Give My Life To Jesus</a></p></div>
-      <div class="card"><div class="num">2</div><h3>Be Baptized</h3><p>Go public. Buried with Christ, raised to new life.<br><br><a href="https://wa.me/254795155158?text=I%20want%20to%20be%20baptized" style="color:#ff6a00;font-weight:800">→ I Want To Be Baptized</a></p></div>
-      <div class="card"><div class="num">3</div><h3>Join The Mantle</h3><p>Join a prayer group, a team, a family. Serve on the altar. Carry the flame.<br><br><a href="https://wa.me/254795155158?text=I%20want%20to%20join%20the%20Mantle" style="color:#ff6a00;font-weight:800">→ Join The Mantle</a></p></div>
+      <div class="card"><div class="num">1</div><h3>Be Saved</h3><p>John 3:16 — Believe in Jesus. Be Born Again.<br><br><a href="saved.html" style="color:#2563EB;font-weight:800">→ I Give My Life To Jesus</a></p></div>
+      <div class="card"><div class="num">2</div><h3>Be Baptized</h3><p>Go public. Buried with Christ, raised to new life.<br><br><a href="https://wa.me/254795155158?text=I%20want%20to%20be%20baptized" style="color:#2563EB;font-weight:800">→ I Want To Be Baptized</a></p></div>
+      <div class="card"><div class="num">3</div><h3>Join The Mantle</h3><p>Join a prayer group, a team, a family. Serve on the altar. Carry the flame.<br><br><a href="https://wa.me/254795155158?text=I%20want%20to%20join%20the%20Mantle" style="color:#2563EB;font-weight:800">→ Join The Mantle</a></p></div>
     </div>
   </section>
 
@@ -164,7 +182,7 @@
       <label>YOUR NAME</label><input id="pname" placeholder="Your full name">
       <label>WHATSAPP NUMBER</label><input id="pphone" placeholder="+254...">
       <label>PRAYER REQUEST</label><textarea id="prequest" rows="4" placeholder="Healing, Family, Business, Salvation..."></textarea>
-      <button class="btn" style="width:100%;padding:16px;cursor:pointer" onclick="sendPrayer()">🔥 SEND PRAYER REQUEST VIA WHATSAPP</button>
+      <button class="btn" style="width:100%;padding:16px;cursor:pointer;background:#2563EB" onclick="sendPrayer()">🔥 SEND PRAYER REQUEST VIA WHATSAPP</button>
       <p style="text-align:center;color:#888;font-size:12px;margin-top:12px">This opens WhatsApp to +254795155158. Your request is private.</p>
     </div>
   </section>
@@ -174,12 +192,11 @@
     <div class="tag">07 — NAIROBI GATHERING</div>
     <h2>FLAME NAIROBI.<br>BE THERE.</h2>
     <div class="event">
-      <!-- MODIFIED: Show ENTIRE poster, no zoom -->
       <img src="images/flame-nairobi-poster.jpeg" alt="FLAME Prayer Mantle Nairobi" style="width:100%;height:auto;object-fit:contain;display:block;background:#000">
       <div>
         <h3 style="font-size:26px">🔥 FLAME Prayer Mantle — Nairobi</h3>
         <p style="color:#bbb;line-height:1.8;margin:14px 0">Healing To The Nations.<br><b style="color:#fff">6th Saturday, 2027 • 10:00 AM - 3:00 PM</b><br>Venue To Be Announced<br>Host: Habert Murunga</p>
-        <a class="btn-white" href="https://wa.me/254795155158?text=I%20want%20to%20attend%20FLAME%20Nairobi%206th%20Saturday%202027%20(10AM-3PM)">Save My Seat →</a>
+        <a class="btn-white" href="https://wa.me/254795155158?text=I%20want%20to%20attend%20FLAME%20Nairobi%206th%20Saturday%202027%20(10AM-3PM)" style="background:#2563EB;color:#fff">Save My Seat →</a>
       </div>
     </div>
 
@@ -194,31 +211,29 @@
       <p style="color:#aaa;font-size:13px">6th Saturday • February 6, 2027 • 10:00 AM - 3:00 PM EAT</p>
     </div>
 
-    <!-- MODIFIED: WEEKLY RHYTHM - NEW TIMES -->
     <div style="margin-top:32px">
       <div class="tag">WEEKLY RHYTHM</div>
       <div class="event-row">
         <div><b>🔥 Monday — Friday • Morning Altar</b><span>Daily Prayer & Word • Online • 3:00 AM - 5:00 AM</span></div>
-        <a class="btn" href="https://wa.me/254795155158?text=I%20want%20to%20join%20Morning%20Altar%20(3AM-5AM)">Join →</a>
+        <a class="btn" href="https://wa.me/254795155158?text=I%20want%20to%20join%20Morning%20Altar%20(3AM-5AM)" style="background:#2563EB">Join →</a>
       </div>
       <div class="event-row">
         <div><b>🙏 Wednesday • Midweek Fire</b><span>Prayer & Teaching • / Online • Midnight - 4:00 AM</span></div>
-        <a class="btn" href="https://wa.me/254795155158?text=I%20want%20to%20join%20Midweek%20Fire%20(Midnight-4AM)">Join →</a>
+        <a class="btn" href="https://wa.me/254795155158?text=I%20want%20to%20join%20Midweek%20Fire%20(Midnight-4AM)" style="background:#2563EB">Join →</a>
       </div>
       <div class="event-row">
         <div><b>✨ Saturday • FLAME Gathering</b><span>Main Gathering • 10:00 AM - 3:00 PM</span></div>
-        <a class="btn" href="https://wa.me/254795155158?text=I%20want%20to%20attend%20Saturday%20Gathering%20(10AM-3PM)">Join →</a>
+        <a class="btn" href="https://wa.me/254795155158?text=I%20want%20to%20attend%20Saturday%20Gathering%20(10AM-3PM)" style="background:#2563EB">Join →</a>
       </div>
     </div>
   </section>
 
-  <!-- 8B. WATCH - MODIFIED: REAL VIDEO FIRST -->
+  <!-- 8B. WATCH -->
   <section id="watch">
     <div class="tag">08 — WATCH</div>
     <h2>CATCH THE FIRE<br>AGAIN.</h2>
     <p class="lead">Missed a gathering? Watch, share, and let the fire catch you again. New teachings every week.</p>
     <div class="watch-grid">
-      <!-- MODIFIED: NEW - BE OF GOOD CHEER VIDEO - WITH SOUND - SHOW ENTIRELY -->
       <div class="watch-card">
         <video controls playsinline preload="metadata" poster="images/flame-splash.webp" style="width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;display:block;background:#000">
           <source src="images/flame-video.mp4" type="video/mp4">
@@ -226,20 +241,20 @@
         <div>
           <h3>Be Of Good Cheer — I Have Overcome</h3>
           <p>From a stand of victory. The things we proclaim in prayer tonight are from victory, not defeat. The seasons have just not yet aligned.</p><br>
-          <a href="https://www.tiktok.com/@anazao_thefamilyofgraceglobal" target="_blank" style="color:#ff6a00;font-weight:800">Watch on TikTok →</a>
+          <a href="https://www.tiktok.com/@anazao_thefamilyofgraceglobal" target="_blank" style="color:#2563EB;font-weight:800">Watch on TikTok →</a>
         </div>
       </div>
       <div class="watch-card">
         <div class="watch-thumb">▶️</div>
-        <div><h3>The Call To Consecration</h3><p>Why purity is the fuel for revival. The message that started the Mantle.</p><br><a href="https://www.tiktok.com/@anazao_thefamilyofgraceglobal" target="_blank" style="color:#ff6a00;font-weight:800">Watch on TikTok →</a></div>
+        <div><h3>The Call To Consecration</h3><p>Why purity is the fuel for revival. The message that started the Mantle.</p><br><a href="https://www.tiktok.com/@anazao_thefamilyofgraceglobal" target="_blank" style="color:#2563EB;font-weight:800">Watch on TikTok →</a></div>
       </div>
       <div class="watch-card">
         <div class="watch-thumb">🔥</div>
-        <div><h3>Catch Fire, Rise As A Flame</h3><p>From private encounter to public flame. Matthew 5:14 in action.</p><br><a href="https://www.tiktok.com/@anazao_thefamilyofgraceglobal" target="_blank" style="color:#ff6a00;font-weight:800">Watch on TikTok →</a></div>
+        <div><h3>Catch Fire, Rise As A Flame</h3><p>From private encounter to public flame. Matthew 5:14 in action.</p><br><a href="https://www.tiktok.com/@anazao_thefamilyofgraceglobal" target="_blank" style="color:#2563EB;font-weight:800">Watch on TikTok →</a></div>
       </div>
       <div class="watch-card">
         <div class="watch-thumb">🙏</div>
-        <div><h3>Morning Altar — Prayer</h3><p>Start your day on the altar. Prayer, Word, and communion. • 3AM - 5AM Daily</p><br><a href="https://wa.me/254795155158?text=Send%20me%20today%27s%20Morning%20Altar" style="color:#ff6a00;font-weight:800">Get Today's Prayer →</a></div>
+        <div><h3>Morning Altar — Prayer</h3><p>Start your day on the altar. Prayer, Word, and communion. • 3AM - 5AM Daily</p><br><a href="https://wa.me/254795155158?text=Send%20me%20today%27s%20Morning%20Altar" style="color:#2563EB;font-weight:800">Get Today's Prayer →</a></div>
       </div>
     </div>
   </section>
@@ -257,7 +272,7 @@
         <b>ACC NAME:</b> HABERT MURUNGA<br>
         <b>ACCOUNT NUMBER:</b> 1318238013
       </div>
-      <a class="btn-white" href="https://wa.me/254795155158?text=I%20want%20to%20give%20to%20FLAME">CONFIRM MY GIVING →</a>
+      <a class="btn-white" href="https://wa.me/254795155158?text=I%20want%20to%20give%20to%20FLAME" style="background:#2563EB;color:#fff">CONFIRM MY GIVING →</a>
     </div>
   </section>
 
@@ -265,7 +280,7 @@
 
 <footer>
   <b>FLAME — PRAYER MANTLE</b><br>
-  • Nairobi • Kenya • Global Online<br>
+    - Nairobi • Kenya • Global Online<br>
   WhatsApp: +254795155158 | Instagram: theflameprayermantle<br><br>
   © 2026 FLAME Prayer Mantle. We catch fire in His presence, we rise as a flame in the world. 🔥
 </footer>
