@@ -7,70 +7,11 @@
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600;800&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
 <style>
-  /* === RECTIFIED: HERO NO BACKGROUND - TEXT CLEAN === */
-  .hero {
-    background: #000 !important;
-    background-image: none !important;
-    min-height: auto !important;
-    padding: 60px 20px 0 20px !important;
-    display: block !important;
-    overflow: hidden !important;
-  }
-  .hero-inner {
-    max-width: 1100px !important;
-    margin: 0 auto !important;
-    text-align: left !important;
-  }
-  .hero h1 {
-    font-size: clamp(42px, 10vw, 84px) !important;
-    line-height: 0.95 !important;
-    word-break: break-word !important;
-    overflow-wrap: break-word !important;
-    max-width: 100% !important;
-  }
-  .hero p {
-    max-width: 650px !important;
-    line-height: 1.7 !important;
-  }
-  /* === POSTER AS ITS OWN BANNER - FULL, NO ZOOM, NO OVERLAP === */
-  .hero-banner {
-    width: 100% !important;
-    max-width: 1100px !important;
-    margin: 32px auto 0 auto !important;
-    background: #000 !important;
-    border-radius: 18px !important;
-    overflow: hidden !important;
-  }
-  .hero-banner img {
-    width: 100% !important;
-    height: auto !important;
-    display: block !important;
-    object-fit: contain !important;
-  }
-  /* SPLASH INNER BANNER */
-  #splash { background: #000 !important; background-image: none !important; }
-  #bg-video, #splash-img {
-    width: 100% !important; height: 100% !important;
-    object-fit: contain !important; object-position: center !important; background: #000 !important;
-  }
-  #splash-img { display: block !important; position: absolute !important; inset: 0 !important; }
-  /* NAIROBI POSTER */
-  .event { display: block !important; grid-template-columns: 1fr !important; }
-  .event img {
-    width: 100% !important; height: auto !important; max-height: none !important;
-    object-fit: contain !important; display: block !important; background: #000 !important;
-  }
-  .watch-card video {
-    width: 100% !important; height: auto !important;
-    aspect-ratio: 16 / 9; object-fit: contain !important; background: #000 !important;
-  }
-  /* BLUE BUTTONS + ? */
-  .btn, .btn-enter, .btn-white, a.btn, button.btn {
-    background: #2563EB !important; background-color: #2563EB !important;
-    color: #fff !important; border-color: #2563EB !important;
-  }
-  .btn-enter { background: #2563EB !important; box-shadow: 0 10px 30px rgba(37,99,235,.5) !important; }
-  .help-btn { background: #2563EB !important; background-color: #2563EB !important; color: #fff !important; border: 2px solid #fff !important; }
+  /* HOME = SHORT - HIDE OTHER PAGES UNTIL MENU TAPPED */
+  .page-section{display:none !important}
+  .page-section.active{display:block !important}
+  #home-sections.active{display:block !important}
+  .menu-link{cursor:pointer}
 </style>
 </head>
 <body>
@@ -78,9 +19,9 @@
 <!-- SPLASH -->
 <div id="splash">
   <video id="bg-video" autoplay muted loop playsinline preload="auto" poster="images/flame-splash.webp" style="object-fit:contain;background:#000"></video>
-  <img id="splash-img" src="images/flame-splash.webp" alt="FLAME Prayer Mantle" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000;display:block">
+  <img id="splash-img" src="images/flame-splash.webp" alt="FLAME" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000;display:block">
   <div class="splash-inner">
-<button class="btn-enter" id="enterBtn" onclick="showQuiz()" style="background:#2563EB">ENTER</button>
+    <button class="btn-enter" id="enterBtn" onclick="showQuiz()" style="background:#2563EB">ENTER</button>
     <div id="quiz-box" style="display:none">
       <div class="quiz-tag">🔥 DO YOU CARRY THE FIRE</div>
       <p class="quiz-q">Complete The Scripture — Lev 6:13<br><em>"The fire shall ever be burning upon the altar; it shall..."</em></p>
@@ -94,28 +35,27 @@
     </div>
     <div class="splash-verse">"The fire shall ever be burning upon the altar" — Lev 6:13</div>
   </div>
-  <div class="help-btn" style="background:#2563EB" onclick="alert('FLAME Prayer Mantle - Tap ENTER, then answer the scripture. Hint: The fire never goes out!')">?</div>
+  <div class="help-btn" style="background:#2563EB" onclick="alert('Tap ENTER, then answer. Hint: The fire never goes out!')">?</div>
 </div>
 
-<!-- NAV -->
+<!-- NAV - MENU NOW OPENS PAGES -->
 <nav>
-<a href="index.html" class="logo" onclick="goHome(event)">FLAME<span>PRAYER MANTLE</span></a>
+  <a href="index.html" class="logo" onclick="showHome(event)">FLAME<span>PRAYER MANTLE</span></a>
   <div class="nav-links" id="navLinks">
-    <a href="#call" onclick="closeMenu()">THE CALL</a>
-    <a href="#vision" onclick="closeMenu()">VISION</a>
-    <a href="#word" onclick="closeMenu()">SCRIPTURE</a>
-    <a href="#steps" onclick="closeMenu()">NEXT STEPS</a>
-    <a href="#event" onclick="closeMenu()">NAIROBI</a>
-    <a href="#watch" onclick="closeMenu()">WATCH</a>
+    <a class="menu-link" onclick="showPage('vision');closeMenu()">VISION</a>
+    <a class="menu-link" onclick="showPage('steps');closeMenu()">NEXT STEPS</a>
+    <a class="menu-link" onclick="showPage('prayer');closeMenu()">PRAYER</a>
+    <a class="menu-link" onclick="showPage('watch');closeMenu()">WATCH</a>
+    <a class="menu-link" onclick="showPage('event');closeMenu()">NAIROBI</a>
     <a href="saved.html" style="color:#ffb347">I AM SAVED</a>
   </div>
   <div style="display:flex;gap:10px;align-items:center">
-    <a class="btn" href="#give" style="background:#2563EB">GIVE</a>
+    <a class="btn" href="#give" onclick="showHome(event)" style="background:#2563EB">GIVE</a>
     <button class="menu-btn" onclick="toggleMenu()">☰</button>
   </div>
 </nav>
 
-<!-- HERO - RECTIFIED: TEXT ON TOP, POSTER BELOW - NO OVERLAP -->
+<!-- HERO -->
 <header class="hero">
   <div class="hero-inner">
     <div class="eyebrow">THE CALL TO CONSECRATION • NAIROBI, KENYA • GLOBAL</div>
@@ -123,29 +63,52 @@
     <p>We catch fire in the presence of God, but we rise as a flame in the world. The fire we receive in communion must become the light through which our generation encounters Christ.</p>
     <div class="hero-btns">
       <a class="btn-white" href="https://wa.me/254795155158?text=Hello%20FLAME%2C%20I%20want%20to%20catch%20fire" style="background:#2563EB;color:#fff">🔥 Join The Mantle</a>
-      <a class="btn-outline" href="#call">Read The Vision →</a>
+      <a class="btn-outline" onclick="showPage('vision')">Read The Vision →</a>
     </div>
   </div>
 </header>
 
 <main id="content">
-  <section id="call">
-    <div class="tag">01 — THE CENTRAL MESSAGE</div>
-    <h2>THE CALL TO<br>CONSECRATION</h2>
-    <p class="lead">This is a call to <b style="color:#fff">consecration, purity, submission, and total surrender to God.</b> An invitation to believers to embrace a life of complete spiritual communion with God — recognizing that every discipline, teaching, and activity we have received is intended to sustain the fire of revival.</p>
-    <div class="grid">
-      <div class="card"><div class="num">01</div><h3>Consecration & Purity</h3><p>Set apart. Clean hands, pure heart. A life that can carry holy fire.</p></div>
-      <div class="card"><div class="num">02</div><h3>Total Surrender</h3><p>Not part of you. All of you. Submission to God in every area.</p></div>
-      <div class="card"><div class="num">03</div><h3>Uninterrupted Communion</h3><p>Prayer is not an event. It is the place we live.</p></div>
-    </div>
-  </section>
-  <section>
-    <div class="tag">02 — THE PURPOSE OF COMMUNION</div>
-    <h2>NOT ROUTINES.<br>INSTRUMENTS OF FIRE.</h2>
-    <p class="lead">Prayer, the study of God's Word, worship, fellowship, obedience — these are not merely religious routines. They are instruments through which we cultivate, sustain, and continually fuel the fire of revival.</p>
-    <p class="lead" style="margin-top:14px">What we receive in the presence of God is not meant to end with personal encounters. It must produce a transformed life, spiritual maturity, and an ever-increasing hunger for God.</p>
-  </section>
-  <section id="vision" style="background:#0a0a0a;border-radius:24px">
+  <!-- HOME ONLY - SHORT -->
+  <div id="home-sections">
+    <section id="call">
+      <div class="tag">01 — THE CENTRAL MESSAGE</div>
+      <h2>THE CALL TO<br>CONSECRATION</h2>
+      <p class="lead">This is a call to <b style="color:#fff">consecration, purity, submission, and total surrender to God.</b> An invitation to believers to embrace a life of complete spiritual communion with God.</p>
+      <div class="grid">
+        <div class="card"><div class="num">01</div><h3>Consecration & Purity</h3><p>Set apart. Clean hands, pure heart. A life that can carry holy fire.</p></div>
+        <div class="card"><div class="num">02</div><h3>Total Surrender</h3><p>Not part of you. All of you. Submission to God in every area.</p></div>
+        <div class="card"><div class="num">03</div><h3>Uninterrupted Communion</h3><p>Prayer is not an event. It is the place we live.</p></div>
+      </div>
+      <p style="margin-top:20px"><a onclick="showPage('vision')" style="color:#2563EB;font-weight:800;cursor:pointer">→ Read Full Vision</a> &nbsp; | &nbsp; <a onclick="showPage('steps')" style="color:#2563EB;font-weight:800;cursor:pointer">→ Next Steps</a> &nbsp; | &nbsp; <a onclick="showPage('prayer')" style="color:#2563EB;font-weight:800;cursor:pointer">→ Need Prayer?</a></p>
+    </section>
+
+    <section id="event-home">
+      <div class="tag">NAIROBI GATHERING</div>
+      <h2>FLAME NAIROBI.<br>BE THERE.</h2>
+      <div class="event">
+        <img src="images/flame-nairobi-poster.jpeg" alt="FLAME Nairobi" style="width:100%;height:auto;object-fit:contain;display:block;background:#000">
+        <div>
+          <h3 style="font-size:26px">🔥 FLAME Prayer Mantle — Nairobi</h3>
+          <p style="color:#bbb;line-height:1.8;margin:14px 0">Healing To The Nations.<br><b style="color:#fff">6th Saturday, 2027 • 10:00 AM - 3:00 PM</b><br>Venue To Be Announced<br>Host: Habert Murunga</p>
+          <a class="btn-white" href="https://wa.me/254795155158?text=I%20want%20to%20attend%20FLAME%20Nairobi" style="background:#2563EB;color:#fff">Save My Seat →</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="give">
+      <div class="give">
+        <div style="letter-spacing:4px;font-weight:800;font-size:12px">GIVE</div>
+        <h2>SOW INTO THE FIRE</h2>
+        <p style="max-width:600px;margin:10px auto;line-height:1.7">Your giving keeps the altar burning.</p>
+        <div class="give-box"><b>M-PESA TILL:</b> 8192090<br><b>BANK:</b> KCB Kencom<br><b>ACC NAME:</b> HABERT MURUNGA<br><b>ACCOUNT:</b> 1318238013</div>
+        <a class="btn-white" href="https://wa.me/254795155158?text=I%20want%20to%20give%20to%20FLAME" style="background:#2563EB;color:#fff">CONFIRM MY GIVING →</a>
+      </div>
+    </section>
+  </div>
+
+  <!-- MENU PAGES - HIDDEN FROM HOME SCROLL -->
+  <section id="vision" class="page-section">
     <div class="tag">03 — THE VISION OF AN AWAKENING</div>
     <h2>REVIVAL BEGINS<br>WITHIN.</h2>
     <div class="grid">
@@ -153,31 +116,21 @@
       <div class="vision-box"><h3>✨ Then In The World</h3><p style="color:#bbb;line-height:1.8;margin-top:8px">As believers become filled with the Word and the Spirit, they will rise beyond personal experiences to become visible expressions of His light. Revival is not merely an atmosphere — it is a transformation that produces people who carry His presence, reflect His nature, proclaim His Word, and illuminate their generation.</p></div>
       <div class="vision-box"><h3>📖 Hunger For The Word</h3><p style="color:#bbb;line-height:1.8;margin-top:8px">Hunger and passion for God's Word. Being filled with the Holy Spirit. Raising a generation that becomes the light of the world.</p></div>
     </div>
+    <p style="margin-top:20px"><a onclick="showHome(event)" style="color:#2563EB;font-weight:800;cursor:pointer">← Back To Home</a></p>
   </section>
-  <section id="word">
-    <div class="scripture">
-      <small>MATTHEW 5:14 (KJV)</small>
-      <p style="margin:16px 0">"Ye are the light of the world. A city that is set on an hill cannot be hid."</p>
-      <p style="font-family:'Inter';font-style:normal;font-size:14px;color:#bbb;line-height:1.7;max-width:650px;margin:auto">This scripture establishes the ultimate responsibility of those who have encountered the light of Christ: they must become light bearers in their generation.</p>
-    </div>
-  </section>
-  <section>
-    <div class="tag">04 — THE PROPHETIC EXPRESSION</div>
-    <h2>AFTER WE CATCH FIRE,<br>WE RISE AS A FLAME.</h2>
-    <p class="lead"><b style="color:#fff">Fire</b> represents the awakening, encounter, and spiritual ignition that takes place within us through communion with God.</p>
-    <p class="lead" style="margin-top:12px"><b style="color:#fff">A Flame</b> represents the visible expression of that fire. It illuminates, gives direction, and makes its presence known.</p>
-    <p class="lead" style="margin-top:12px">We are not called merely to experience revival. We are called to become its living expression. The objective is not simply to burn privately but to rise as a generation whose lives illuminate the world.</p>
-  </section>
-  <section id="steps" style="background:#0a0a0a;border-radius:24px">
+
+  <section id="steps" class="page-section">
     <div class="tag">05 — NEXT STEPS</div>
     <h2>YOUR NEXT STEP<br>STARTS HERE.</h2>
     <div class="grid">
       <div class="card"><div class="num">1</div><h3>Be Saved</h3><p>John 3:16 — Believe in Jesus. Be Born Again.<br><br><a href="saved.html" style="color:#2563EB;font-weight:800">→ I Give My Life To Jesus</a></p></div>
       <div class="card"><div class="num">2</div><h3>Be Baptized</h3><p>Go public. Buried with Christ, raised to new life.<br><br><a href="https://wa.me/254795155158?text=I%20want%20to%20be%20baptized" style="color:#2563EB;font-weight:800">→ I Want To Be Baptized</a></p></div>
-      <div class="card"><div class="num">3</div><h3>Join The Mantle</h3><p>Join a prayer group, a team, a family. Serve on the altar. Carry the flame.<br><br><a href="https://wa.me/254795155158?text=I%20want%20to%20join%20the%20Mantle" style="color:#2563EB;font-weight:800">→ Join The Mantle</a></p></div>
+      <div class="card"><div class="num">3</div><h3>Join The Mantle</h3><p>Join a prayer group, a team, a family.<br><br><a href="https://wa.me/254795155158?text=I%20want%20to%20join%20the%20Mantle" style="color:#2563EB;font-weight:800">→ Join The Mantle</a></p></div>
     </div>
+    <p style="margin-top:20px"><a onclick="showHome(event)" style="color:#2563EB;font-weight:800;cursor:pointer">← Back To Home</a></p>
   </section>
-  <section id="prayer">
+
+  <section id="prayer" class="page-section">
     <div class="tag">06 — PRAYER ALTAR</div>
     <h2>NEED PRAYER?<br>WE WILL STAND WITH YOU.</h2>
     <div class="prayer-box">
@@ -187,82 +140,56 @@
       <button class="btn" style="width:100%;padding:16px;cursor:pointer;background:#2563EB" onclick="sendPrayer()">🔥 SEND PRAYER REQUEST VIA WHATSAPP</button>
       <p style="text-align:center;color:#888;font-size:12px;margin-top:12px">This opens WhatsApp to +254795155158. Your request is private.</p>
     </div>
+    <p style="margin-top:20px"><a onclick="showHome(event)" style="color:#2563EB;font-weight:800;cursor:pointer">← Back To Home</a></p>
   </section>
-  <section id="event">
-    <div class="tag">07 — NAIROBI GATHERING</div>
-    <h2>FLAME NAIROBI.<br>BE THERE.</h2>
-    <div class="event">
-      <img src="images/flame-nairobi-poster.jpeg" alt="FLAME Prayer Mantle Nairobi" style="width:100%;height:auto;max-height:none;object-fit:contain;display:block;background:#000">
-      <div>
-        <h3 style="font-size:26px">🔥 FLAME Prayer Mantle — Nairobi</h3>
-        <p style="color:#bbb;line-height:1.8;margin:14px 0">Healing To The Nations.<br><b style="color:#fff">6th Saturday, 2027 • 10:00 AM - 3:00 PM</b><br>Venue To Be Announced<br>Host: Habert Murunga</p>
-        <a class="btn-white" href="https://wa.me/254795155158?text=I%20want%20to%20attend%20FLAME%20Nairobi%206th%20Saturday%202027%20(10AM-3PM)" style="background:#2563EB;color:#fff">Save My Seat →</a>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:32px">
-      <div class="tag">COUNTDOWN TO THE GATHERING</div>
-      <div class="countdown">
-        <div class="count-box"><b id="cd-days">0</b><span>DAYS</span></div>
-        <div class="count-box"><b id="cd-hours">0</b><span>HOURS</span></div>
-        <div class="count-box"><b id="cd-mins">0</b><span>MINS</span></div>
-        <div class="count-box"><b id="cd-secs">0</b><span>SECS</span></div>
-      </div>
-      <p style="color:#aaa;font-size:13px">6th Saturday • February 6, 2027 • 10:00 AM - 3:00 PM EAT</p>
-    </div>
-    <div style="margin-top:32px">
-      <div class="tag">WEEKLY RHYTHM</div>
-      <div class="event-row">
-        <div><b>🔥 Monday — Friday • Morning Altar</b><span>Daily Prayer & Word • Online • 3:00 AM - 5:00 AM</span></div>
-        <a class="btn" href="https://wa.me/254795155158?text=I%20want%20to%20join%20Morning%20Altar%20(3AM-5AM)" style="background:#2563EB">Join →</a>
-      </div>
-      <div class="event-row">
-        <div><b>🙏 Wednesday • Midweek Fire</b><span>Prayer & Teaching • / Online • Midnight - 4:00 AM</span></div>
-        <a class="btn" href="https://wa.me/254795155158?text=I%20want%20to%20join%20Midweek%20Fire%20(Midnight-4AM)" style="background:#2563EB">Join →</a>
-      </div>
-      <div class="event-row">
-        <div><b>✨ Saturday • FLAME Gathering</b><span>Main Gathering • 10:00 AM - 3:00 PM</span></div>
-        <a class="btn" href="https://wa.me/254795155158?text=I%20want%20to%20attend%20Saturday%20Gathering%20(10AM-3PM)" style="background:#2563EB">Join →</a>
-      </div>
-    </div>
-  </section>
-  <section id="watch">
+
+  <section id="watch" class="page-section">
     <div class="tag">08 — WATCH</div>
     <h2>CATCH THE FIRE<br>AGAIN.</h2>
-    <p class="lead">Missed a gathering? Watch, share, and let the fire catch you again. New teachings every week.</p>
     <div class="watch-grid">
       <div class="watch-card">
-        <video controls playsinline preload="metadata" poster="images/flame-splash.webp" style="width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;display:block;background:#000">
-          <source src="images/flame-video.mp4" type="video/mp4">
-        </video>
-        <div><h3>Be Of Good Cheer — I Have Overcome</h3><p>From a stand of victory. The things we proclaim in prayer tonight are from victory, not defeat. The seasons have just not yet aligned.</p><br><a href="https://www.tiktok.com/@anazao_thefamilyofgraceglobal" target="_blank" style="color:#2563EB;font-weight:800">Watch on TikTok →</a></div>
+        <video controls playsinline preload="metadata" poster="images/flame-splash.webp" style="width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;display:block;background:#000"><source src="images/flame-video.mp4" type="video/mp4"></video>
+        <div><h3>Be Of Good Cheer — I Have Overcome</h3><p>From a stand of victory. The things we proclaim in prayer tonight are from victory, not defeat.</p><br><a href="https://www.tiktok.com/@anazao_thefamilyofgraceglobal" target="_blank" style="color:#2563EB;font-weight:800">Watch on TikTok →</a></div>
       </div>
-      <div class="watch-card"><div class="watch-thumb">▶️</div><div><h3>The Call To Consecration</h3><p>Why purity is the fuel for revival. The message that started the Mantle.</p><br><a href="https://www.tiktok.com/@anazao_thefamilyofgraceglobal" target="_blank" style="color:#2563EB;font-weight:800">Watch on TikTok →</a></div></div>
+      <div class="watch-card"><div class="watch-thumb">▶️</div><div><h3>The Call To Consecration</h3><p>Why purity is the fuel for revival.</p><br><a href="https://www.tiktok.com/@anazao_thefamilyofgraceglobal" target="_blank" style="color:#2563EB;font-weight:800">Watch on TikTok →</a></div></div>
       <div class="watch-card"><div class="watch-thumb">🔥</div><div><h3>Catch Fire, Rise As A Flame</h3><p>From private encounter to public flame. Matthew 5:14 in action.</p><br><a href="https://www.tiktok.com/@anazao_thefamilyofgraceglobal" target="_blank" style="color:#2563EB;font-weight:800">Watch on TikTok →</a></div></div>
-      <div class="watch-card"><div class="watch-thumb">🙏</div><div><h3>Morning Altar — Prayer</h3><p>Start your day on the altar. Prayer, Word, and communion. • 3AM - 5AM Daily</p><br><a href="https://wa.me/254795155158?text=Send%20me%20today%27s%20Morning%20Altar" style="color:#2563EB;font-weight:800">Get Today's Prayer →</a></div></div>
     </div>
+    <p style="margin-top:20px"><a onclick="showHome(event)" style="color:#2563EB;font-weight:800;cursor:pointer">← Back To Home</a></p>
   </section>
-  <section id="give">
-    <div class="give">
-      <div style="letter-spacing:4px;font-weight:800;font-size:12px">09 — GIVE</div>
-      <h2>SOW INTO THE FIRE</h2>
-      <p style="max-width:600px;margin:10px auto;line-height:1.7">Your giving keeps the altar burning — prayer rooms, outreach, media, and helping families.</p>
-      <div class="give-box">
-        <b>DIRECT M-PESA TILL:</b> 8192090<br>
-        <b>BANK:</b> KCB Bank Kenya<br>
-        <b>BRANCH:</b> Kencom Branch<br>
-        <b>ACC NAME:</b> HABERT MURUNGA<br>
-        <b>ACCOUNT NUMBER:</b> 1318238013
-      </div>
-      <a class="btn-white" href="https://wa.me/254795155158?text=I%20want%20to%20give%20to%20FLAME" style="background:#2563EB;color:#fff">CONFIRM MY GIVING →</a>
-    </div>
+
+  <section id="event" class="page-section">
+    <div class="tag">07 — NAIROBI GATHERING</div>
+    <h2>FLAME NAIROBI.<br>BE THERE.</h2>
+    <div style="text-align:center;margin-top:20px"><div class="tag">COUNTDOWN</div><div class="countdown"><div class="count-box"><b id="cd-days">0</b><span>DAYS</span></div><div class="count-box"><b id="cd-hours">0</b><span>HOURS</span></div><div class="count-box"><b id="cd-mins">0</b><span>MINS</span></div><div class="count-box"><b id="cd-secs">0</b><span>SECS</span></div></div><p style="color:#aaa;font-size:13px">6th Saturday • February 6, 2027 • 10:00 AM - 3:00 PM EAT</p></div>
+    <div style="margin-top:24px"><div class="tag">WEEKLY RHYTHM</div><div class="event-row"><div><b>🔥 Monday — Friday • Morning Altar</b><span>Daily Prayer & Word • Online • 3:00 AM - 5:00 AM</span></div><a class="btn" href="https://wa.me/254795155158?text=I%20want%20to%20join%20Morning%20Altar" style="background:#2563EB">Join →</a></div><div class="event-row"><div><b>🙏 Wednesday • Midweek Fire</b><span>Prayer & Teaching • Online • Midnight - 4:00 AM</span></div><a class="btn" href="https://wa.me/254795155158?text=I%20want%20to%20join%20Midweek%20Fire" style="background:#2563EB">Join →</a></div><div class="event-row"><div><b>✨ Saturday • FLAME Gathering</b><span>Main Gathering • 10:00 AM - 3:00 PM</span></div><a class="btn" href="https://wa.me/254795155158?text=I%20want%20to%20attend%20Saturday%20Gathering" style="background:#2563EB">Join →</a></div></div>
+    <p style="margin-top:20px"><a onclick="showHome(event)" style="color:#2563EB;font-weight:800;cursor:pointer">← Back To Home</a></p>
   </section>
 </main>
+
 <footer>
   <b>FLAME — PRAYER MANTLE</b><br>
     - Nairobi • Kenya • Global Online<br>
   WhatsApp: +254795155158 | Instagram: theflameprayermantle<br><br>
   © 2026 FLAME Prayer Mantle. We catch fire in His presence, we rise as a flame in the world. 🔥
 </footer>
+
 <script src="script.js"></script>
+<script>
+function showPage(id){
+  document.getElementById('home-sections').style.display='none';
+  document.querySelector('.hero').style.display='none';
+  document.querySelectorAll('.page-section').forEach(s=>s.classList.remove('active'));
+  var el=document.getElementById(id);
+  if(el){el.classList.add('active'); el.scrollIntoView({behavior:'smooth'});}
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function showHome(e){
+  if(e) e.preventDefault();
+  document.getElementById('home-sections').style.display='block';
+  document.querySelector('.hero').style.display='block';
+  document.querySelectorAll('.page-section').forEach(s=>s.classList.remove('active'));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
 </body>
 </html>
