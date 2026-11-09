@@ -6,14 +6,41 @@
 <title>FLAME | Catch Fire, Rise As A Flame</title>
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600;800&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<!-- MODIFIED: SHOW FULL IMAGE - NO ZOOM / NO CROP -->
+<style>
+  /* Nairobi poster - show entirely */
+  .event img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+    display: block;
+    background: #000;
+  }
+  /* Splash - show entirely, not zoomed */
+  #bg-video, #splash-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    background: #000;
+  }
+  /* Watch video - show entirely */
+  .watch-card video {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9;
+    object-fit: contain !important;
+    background: #000;
+  }
+</style>
 </head>
 <body>
 
 <!-- SPLASH - VIDEO ONLY + QUIZ BEHIND ENTER -->
 <div id="splash">
-  <video id="bg-video" autoplay muted loop playsinline preload="auto" poster="images/flame-splash.webp">
-    <source src="images/flame-video.mp4" type="video/mp4">
+  <video id="bg-video" autoplay muted loop playsinline preload="auto" poster="images/flame-splash.webp" style="object-fit:contain;background:#000">
   </video>
+  <!-- MODIFIED: Fallback image shows ENTIRE banner if video has no source -->
+  <img id="splash-img" src="images/flame-splash.webp" alt="FLAME Prayer Mantle" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000;display:none">
   <div class="splash-inner">
     <!-- MODIFIED: ENTER FIRST - VISIBLE -->
 <button class="btn-enter" id="enterBtn" onclick="showQuiz()">ENTER</button>
@@ -147,7 +174,8 @@
     <div class="tag">07 — NAIROBI GATHERING</div>
     <h2>FLAME NAIROBI.<br>BE THERE.</h2>
     <div class="event">
-      <img src="images/flame-nairobi-poster.jpeg" alt="FLAME Prayer Mantle Nairobi">
+      <!-- MODIFIED: Show ENTIRE poster, no zoom -->
+      <img src="images/flame-nairobi-poster.jpeg" alt="FLAME Prayer Mantle Nairobi" style="width:100%;height:auto;object-fit:contain;display:block;background:#000">
       <div>
         <h3 style="font-size:26px">🔥 FLAME Prayer Mantle — Nairobi</h3>
         <p style="color:#bbb;line-height:1.8;margin:14px 0">Healing To The Nations.<br><b style="color:#fff">6th Saturday, 2027 • 10:00 AM - 3:00 PM</b><br>Venue To Be Announced<br>Host: Habert Murunga</p>
@@ -190,9 +218,9 @@
     <h2>CATCH THE FIRE<br>AGAIN.</h2>
     <p class="lead">Missed a gathering? Watch, share, and let the fire catch you again. New teachings every week.</p>
     <div class="watch-grid">
-      <!-- MODIFIED: NEW - BE OF GOOD CHEER VIDEO - WITH SOUND -->
+      <!-- MODIFIED: NEW - BE OF GOOD CHEER VIDEO - WITH SOUND - SHOW ENTIRELY -->
       <div class="watch-card">
-        <video controls playsinline preload="metadata" poster="images/flame-splash.webp" style="width:100%;height:200px;object-fit:cover;display:block;background:#000">
+        <video controls playsinline preload="metadata" poster="images/flame-splash.webp" style="width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;display:block;background:#000">
           <source src="images/flame-video.mp4" type="video/mp4">
         </video>
         <div>
