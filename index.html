@@ -12,16 +12,50 @@
   .page-section.active{display:block !important}
   #home-sections.active{display:block !important}
   .menu-link{cursor:pointer}
+  /* === MODIFICATION - ACCESS STYLE ENTRANCE === */
+  #splash{position:fixed !important;inset:0 !important;z-index:100 !important;background:#000 !important;display:flex !important;flex-direction:column !important;align-items:center !important;justify-content:center !important;text-align:center !important;padding:0 !important;overflow:hidden !important}
+  #bg-video,#splash-img{position:absolute !important;inset:0 !important;width:100% !important;height:100% !important;object-fit:cover !important;object-position:center !important;z-index:0 !important}
+  #splash::after{content:'' !important;position:absolute !important;inset:0 !important;background:linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.55)) !important;z-index:1 !important}
+  .splash-brand{position:relative !important;z-index:2 !important;font-family:'Playfair Display',serif !important;font-style:italic !important;font-size:clamp(72px,22vw,140px) !important;line-height:1 !important;color:#fff !important;text-shadow:0 4px 30px rgba(0,0,0,.6) !important;letter-spacing:2px !important;margin-top:-20px !important}
+  .splash-sub{position:relative !important;z-index:2 !important;letter-spacing:6px !important;font-size:11px !important;font-weight:800 !important;color:#fff !important;opacity:.9 !important;margin-bottom:22px !important}
+  .splash-inner{position:relative !important;z-index:2 !important}
+  .btn-enter{background:#1e3cff !important;background-color:#1e3cff !important;border:1px solid #fff !important;color:#fff !important;padding:16px 70px !important;letter-spacing:6px !important;font-size:15px !important;font-weight:800 !important;border-radius:2px !important;box-shadow:none !important;cursor:pointer !important}
+  .splash-verse{margin-top:18px !important}
+  /* ? + BUBBLE - ACCESS STYLE */
+  .help-wrap{position:absolute !important;bottom:28px !important;left:20px !important;right:20px !important;z-index:5 !important;display:flex !important;align-items:center !important;gap:12px !important}
+  .help-btn{position:static !important;width:64px !important;height:64px !important;min-width:64px !important;border-radius:50% !important;background:#2563EB !important;background-color:#2563EB !important;border:none !important;font-size:38px !important;box-shadow:0 0 25px rgba(37,99,235,.8) !important;display:flex !important;align-items:center !important;justify-content:center !important}
+  .help-bubble{background:#fff !important;color:#000 !important;padding:14px 18px !important;border-radius:14px !important;font-size:17px !important;font-weight:500 !important;max-width:260px !important;text-align:center !important;cursor:pointer !important;box-shadow:0 8px 30px rgba(0,0,0,.4) !important}
+  /* FAQ POPUP - ACCESS STYLE */
+  .faq-popup{position:absolute !important;inset:0 !important;z-index:10 !important;display:flex !important;flex-direction:column !important;justify-content:flex-end !important;padding:12px !important}
+  .faq-card{background:#fff !important;border-radius:18px !important;overflow:hidden !important;color:#000 !important;text-align:left !important;max-height:78vh !important;overflow-y:auto !important;width:100% !important}
+  .faq-top{background:#000 !important;color:#fff !important;padding:24px !important;display:flex !important;justify-content:space-between !important;gap:12px !important}
+  .faq-top h2{font-family:'Inter',sans-serif !important;font-size:34px !important;font-weight:800 !important;margin:0 !important;color:#fff !important}
+  .faq-top p{font-size:15px !important;line-height:1.6 !important;color:#ddd !important;margin-top:10px !important}
+  .faq-close{background:none !important;border:none !important;color:#fff !important;font-size:22px !important;cursor:pointer !important}
+  .faq-list{display:flex !important;flex-direction:column !important}
+  .faq-item{background:#fff !important;border:none !important;border-bottom:1px solid #eee !important;padding:18px 20px !important;text-align:left !important;font-size:17px !important;font-weight:700 !important;color:#0b4dff !important;cursor:pointer !important;width:100% !important}
+  .faq-item .faq-ans{display:none !important;font-weight:400 !important;color:#333 !important;font-size:14px !important;line-height:1.6 !important;margin-top:8px !important}
+  .faq-item.open .faq-ans{display:block !important}
+  .faq-close-bottom{width:64px !important;height:64px !important;border-radius:50% !important;background:#2563EB !important;color:#fff !important;border:none !important;font-size:26px !important;margin:16px auto 10px !important;cursor:pointer !important}
+  /* HERO - NO POSTER HERE */
+  .hero{background:#000 !important;background-image:none !important}
+  /* NAIROBI POSTER - FULL, NOT ZOOMED - ONLY HERE */
+  .event img{width:100% !important;height:auto !important;object-fit:contain !important;display:block !important;background:#000 !important}
 </style>
 </head>
 <body>
 
-<!-- SPLASH -->
+<!-- SPLASH - ACCESS STYLE -->
 <div id="splash">
-  <video id="bg-video" autoplay muted loop playsinline preload="auto" poster="images/flame-splash.webp" style="object-fit:contain;background:#000"></video>
-  <img id="splash-img" src="images/flame-splash.webp" alt="FLAME" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000;display:block">
+  <video id="bg-video" autoplay muted loop playsinline preload="auto" poster="images/flame-splash.webp"></video>
+  <img id="splash-img" src="images/flame-splash.webp" alt="FLAME">
+
+  <!-- BIG WORD LIKE ACCESS -->
+  <div class="splash-brand">FLAME</div>
+  <div class="splash-sub">PRAYER MANTLE • NAIROBI</div>
+
   <div class="splash-inner">
-    <button class="btn-enter" id="enterBtn" onclick="showQuiz()" style="background:#2563EB">ENTER</button>
+    <button class="btn-enter" id="enterBtn" onclick="showQuiz()">ENTER</button>
     <div id="quiz-box" style="display:none">
       <div class="quiz-tag">🔥 DO YOU CARRY THE FIRE</div>
       <p class="quiz-q">Complete The Scripture — Lev 6:13<br><em>"The fire shall ever be burning upon the altar; it shall..."</em></p>
@@ -35,7 +69,33 @@
     </div>
     <div class="splash-verse">"The fire shall ever be burning upon the altar" — Lev 6:13</div>
   </div>
-  <div class="help-btn" style="background:#2563EB" onclick="alert('Tap ENTER, then answer. Hint: The fire never goes out!')">?</div>
+
+  <!-- ? BUTTON + BUBBLE LIKE ACCESS -->
+  <div class="help-wrap">
+    <div class="help-btn" onclick="toggleFAQ()">?</div>
+    <div class="help-bubble" id="helpBubble" onclick="toggleFAQ()">Have a question? Check this</div>
+  </div>
+
+  <!-- QUESTIONS? POPUP LIKE ACCESS -->
+  <div id="faq-popup" class="faq-popup" style="display:none">
+    <div class="faq-card">
+      <div class="faq-top">
+        <div>
+          <h2>Questions? 🤔</h2>
+          <p>Check info below or send us a question to <a href="https://wa.me/254795155158?text=Hello%20FLAME%2C%20I%20have%20a%20question" style="text-decoration:underline;color:#fff">WhatsApp FLAME</a>.</p>
+        </div>
+        <button class="faq-close" onclick="toggleFAQ()">✕</button>
+      </div>
+      <div class="faq-list">
+        <button class="faq-item" onclick="toggleAns(this)">› When is FLAME Nairobi?<span class="faq-ans">6th Saturday, Feb 6, 2027 • 10:00 AM - 3:00 PM. Venue to be announced. Save your seat on WhatsApp.</span></button>
+        <button class="faq-item" onclick="toggleAns(this)">› How do I join Morning Altar?<span class="faq-ans">Monday - Friday • 3:00 AM - 5:00 AM Online. WhatsApp us "Morning Altar" and we add you.</span></button>
+        <button class="faq-item" onclick="toggleAns(this)">› How do I give my life to Jesus?<span class="faq-ans">Tap menu → I AM SAVED. Or WhatsApp "I want to be saved". We will pray with you.</span></button>
+        <button class="faq-item" onclick="toggleAns(this)">› Can I serve at FLAME?<span class="faq-ans">Yes! Worship, prayer, media, ushering, outreach. WhatsApp "I want to serve".</span></button>
+        <button class="faq-item" onclick="toggleAns(this)">› How do I give?<span class="faq-ans">M-Pesa Till: 8192090 • KCB Kencom: Habert Murunga 1318238013. Confirm on WhatsApp.</span></button>
+      </div>
+    </div>
+    <button class="faq-close-bottom" onclick="toggleFAQ()">✕</button>
+  </div>
 </div>
 
 <!-- NAV - MENU NOW OPENS PAGES -->
@@ -190,6 +250,14 @@ function showHome(e){
   document.querySelectorAll('.page-section').forEach(s=>s.classList.remove('active'));
   window.scrollTo({top:0,behavior:'smooth'});
 }
+function toggleFAQ(){
+  var p=document.getElementById('faq-popup');
+  var b=document.getElementById('helpBubble');
+  if(!p) return;
+  if(p.style.display==='none'||p.style.display===''){p.style.display='flex'; if(b) b.style.display='none';}
+  else{p.style.display='none'; if(b) b.style.display='block';}
+}
+function toggleAns(btn){ btn.classList.toggle('open'); }
 </script>
 </body>
 </html>
