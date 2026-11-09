@@ -9,11 +9,16 @@
 </head>
 <body>
 
-<!-- SPLASH LIKE 2819 ACCESS -->
+<!-- SPLASH LIKE 2819 ACCESS - MODIFIED -->
 <div id="splash">
+  <!-- VIDEO BACKGROUND - Add your video file as images/flame-video.mp4 -->
+  <video id="bg-video" autoplay muted loop playsinline preload="auto">
+    <source src="images/flame-video.mp4" type="video/mp4">
+  </video>
   <div class="splash-inner">
-    <div class="splash-verse">"The fire shall ever be burning upon the altar" — Lev 6:13</div>
+    <!-- MODIFIED: ENTER FIRST, VERSE SECOND = VERSE BELOW ENTER -->
     <button class="btn-enter" onclick="enterSite()">ENTER</button>
+    <div class="splash-verse">"The fire shall ever be burning upon the altar" — Lev 6:13</div>
   </div>
   <div class="help-btn" onclick="alert('FLAME Prayer Mantle - Welcome Home. Tap ENTER to catch fire.')">?</div>
 </div>
@@ -21,22 +26,25 @@
 <!-- NAV -->
 <nav>
   <div class="logo">FLAME<span>PRAYER MANTLE</span></div>
-  <div class="nav-links">
-    <a href="#call">THE CALL</a>
-    <a href="#vision">VISION</a>
-    <a href="#word">SCRIPTURE</a>
-    <a href="#steps">NEXT STEPS</a>
-    <a href="#event">NAIROBI</a>
-    <a href="#watch">WATCH</a>
+  <div class="nav-links" id="navLinks">
+    <a href="#call" onclick="closeMenu()">THE CALL</a>
+    <a href="#vision" onclick="closeMenu()">VISION</a>
+    <a href="#word" onclick="closeMenu()">SCRIPTURE</a>
+    <a href="#steps" onclick="closeMenu()">NEXT STEPS</a>
+    <a href="#event" onclick="closeMenu()">NAIROBI</a>
+    <a href="#watch" onclick="closeMenu()">WATCH</a>
     <a href="saved.html" style="color:#ffb347">I AM SAVED</a>
   </div>
-  <a class="btn" href="#give">GIVE</a>
+  <div style="display:flex;gap:10px;align-items:center">
+    <a class="btn" href="#give">GIVE</a>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+  </div>
 </nav>
 
 <!-- HERO -->
 <header class="hero">
   <div class="hero-inner">
-    <div class="eyebrow">THE CALL TO CONSECRATION • WANGIGE • NAIROBI • GLOBAL</div>
+    <div class="eyebrow">THE CALL TO CONSECRATION  • NAIROBI, KENYA • GLOBAL</div>
     <h1>CATCH FIRE.<br><em>Rise As A Flame.</em></h1>
     <p>We catch fire in the presence of God, but we rise as a flame in the world. The fire we receive in communion must become the light through which our generation encounters Christ.</p>
     <div class="hero-btns">
