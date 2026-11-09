@@ -36,17 +36,17 @@ nav{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.95);display:flex;jus
 .btn-outline{border:1px solid #fff;padding:15px 28px;border-radius:30px;font-weight:800}
 
 /* SECTIONS */
-section{padding:72px 20px;max-width:1100px;margin:auto}
+section{padding:72px 20px;max-width:1100px;margin:auto;overflow:hidden}
 .tag{color:#ff6a00;font-weight:800;letter-spacing:4px;font-size:12px}
 h2{font-family:'Anton',sans-serif;font-size:clamp(34px,7vw,58px);line-height:1;margin:12px 0 16px}
 .lead{color:#bbb;line-height:1.85;max-width:750px;font-size:16px}
 
-/* GRID + CARDS */
-.grid{display:grid;gap:16px;margin-top:28px}
-@media(min-width:750px){.grid{grid-template-columns:1fr 1fr 1fr}}
-.card{background:#111;border:1px solid #222;border-radius:18px;padding:26px}
-.card h3{font-size:20px;margin:12px 0 8px}
-.card p{color:#aaa;font-size:14px;line-height:1.75}
+/* GRID + CARDS - MODIFIED FIX FOR THE CALL */
+.grid{display:grid;gap:16px;margin-top:28px;grid-template-columns:1fr}
+@media(min-width:750px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.card{background:#111;border:1px solid #222;border-radius:18px;padding:26px;min-width:0;overflow-wrap:break-word;word-break:break-word}
+.card h3{font-size:20px;margin:12px 0 8px;overflow-wrap:break-word}
+.card p{color:#aaa;font-size:14px;line-height:1.75;overflow-wrap:break-word}
 .num{font-family:'Anton',sans-serif;font-size:42px;color:#ff5a00}
 
 /* SCRIPTURE */
@@ -55,7 +55,7 @@ h2{font-family:'Anton',sans-serif;font-size:clamp(34px,7vw,58px);line-height:1;m
 .scripture small{color:#ffb347;letter-spacing:3px;font-weight:800}
 
 /* VISION BOX */
-.vision-box{background:#0a0a0a;border:1px solid #222;border-radius:22px;padding:28px}
+.vision-box{background:#0a0a0a;border:1px solid #222;border-radius:22px;padding:28px;min-width:0;overflow-wrap:break-word}
 .vision-box b{color:#ff6a00}
 
 /* PRAYER */
@@ -88,8 +88,8 @@ footer b{color:#fff;letter-spacing:3px}
 .count-box b{font-family:'Anton',sans-serif;font-size:32px;display:block;color:#fff;line-height:1}
 .count-box span{font-size:11px;letter-spacing:2px;color:#ffb347;font-weight:800}
 .watch-grid{display:grid;gap:16px;margin-top:28px}
-@media(min-width:750px){.watch-grid{grid-template-columns:1fr 1fr 1fr}}
-.watch-card{background:#111;border:1px solid #222;border-radius:18px;overflow:hidden}
+@media(min-width:750px){.watch-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.watch-card{background:#111;border:1px solid #222;border-radius:18px;overflow:hidden;min-width:0}
 .watch-thumb{height:170px;background:linear-gradient(135deg,#ff5a00,#000);display:flex;align-items:center;justify-content:center;font-size:52px}
 .watch-card div{padding:20px}
 .watch-card h3{font-size:17px;margin-bottom:6px}
