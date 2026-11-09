@@ -7,48 +7,58 @@
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600;800&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
 <style>
-  /* === FIX 1: HERO BACKGROUND - THE ONE IN YOUR SCREENSHOT - SHOW FULL === */
+  /* === RECTIFIED: HERO NO BACKGROUND - TEXT CLEAN === */
   .hero {
-    background-image: url('images/flame-nairobi-poster.jpeg') !important;
-    background-size: contain !important;
-    background-repeat: no-repeat !important;
-    background-position: center center !important;
-    background-color: #000 !important;
-    min-height: 85vh !important;
-    display: flex !important;
-    align-items: center !important;
-  }
-  .hero::before, .hero::after {
-    background: rgba(0,0,0,0.45) !important;
+    background: #000 !important;
+    background-image: none !important;
+    min-height: auto !important;
+    padding: 60px 20px 0 20px !important;
+    display: block !important;
+    overflow: hidden !important;
   }
   .hero-inner {
-    position: relative !important;
-    z-index: 2 !important;
+    max-width: 1100px !important;
+    margin: 0 auto !important;
+    text-align: left !important;
   }
-  /* === FIX 2: SPLASH INNER BANNER - FULL === */
-  #splash {
-    background-size: contain !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-    background-color: #000 !important;
+  .hero h1 {
+    font-size: clamp(42px, 10vw, 84px) !important;
+    line-height: 0.95 !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    max-width: 100% !important;
   }
-  #bg-video, #splash-img {
+  .hero p {
+    max-width: 650px !important;
+    line-height: 1.7 !important;
+  }
+  /* === POSTER AS ITS OWN BANNER - FULL, NO ZOOM, NO OVERLAP === */
+  .hero-banner {
     width: 100% !important;
-    height: 100% !important;
-    object-fit: contain !important;
-    object-position: center !important;
+    max-width: 1100px !important;
+    margin: 32px auto 0 auto !important;
     background: #000 !important;
+    border-radius: 18px !important;
+    overflow: hidden !important;
   }
-  #splash-img { display: block !important; position: absolute !important; inset: 0 !important; }
-  /* === FIX 3: NAIROBI POSTER - FULL === */
-  .event { display: block !important; grid-template-columns: 1fr !important; }
-  .event img {
+  .hero-banner img {
     width: 100% !important;
     height: auto !important;
-    max-height: none !important;
-    object-fit: contain !important;
     display: block !important;
-    background: #000 !important;
+    object-fit: contain !important;
+  }
+  /* SPLASH INNER BANNER */
+  #splash { background: #000 !important; background-image: none !important; }
+  #bg-video, #splash-img {
+    width: 100% !important; height: 100% !important;
+    object-fit: contain !important; object-position: center !important; background: #000 !important;
+  }
+  #splash-img { display: block !important; position: absolute !important; inset: 0 !important; }
+  /* NAIROBI POSTER */
+  .event { display: block !important; grid-template-columns: 1fr !important; }
+  .event img {
+    width: 100% !important; height: auto !important; max-height: none !important;
+    object-fit: contain !important; display: block !important; background: #000 !important;
   }
   .watch-card video {
     width: 100% !important; height: auto !important;
@@ -105,16 +115,20 @@
   </div>
 </nav>
 
-<!-- HERO - NOW BACKGROUND SHOWS FULL POSTER -->
+<!-- HERO - RECTIFIED: TEXT ON TOP, POSTER BELOW - NO OVERLAP -->
 <header class="hero">
   <div class="hero-inner">
-    <div class="eyebrow">THE CALL TO CONSECRATION  • NAIROBI, KENYA • GLOBAL</div>
+    <div class="eyebrow">THE CALL TO CONSECRATION • NAIROBI, KENYA • GLOBAL</div>
     <h1>CATCH FIRE.<br><em>Rise As A Flame.</em></h1>
     <p>We catch fire in the presence of God, but we rise as a flame in the world. The fire we receive in communion must become the light through which our generation encounters Christ.</p>
     <div class="hero-btns">
       <a class="btn-white" href="https://wa.me/254795155158?text=Hello%20FLAME%2C%20I%20want%20to%20catch%20fire" style="background:#2563EB;color:#fff">🔥 Join The Mantle</a>
       <a class="btn-outline" href="#call">Read The Vision →</a>
     </div>
+  </div>
+  <!-- RECTIFIED: FULL POSTER AS SEPARATE BANNER -->
+  <div class="hero-banner">
+    <img src="images/flame-nairobi-poster.jpeg" alt="FLAME Prayer Mantle Nairobi - 6th Saturday 2027">
   </div>
 </header>
 
