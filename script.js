@@ -25,7 +25,7 @@ function sendSaved(){
   window.open("https://wa.me/254795155158?text=" + msg, "_blank");
 }
 
-// STEP 5 - COUNTDOWN TO NAIROBI - 6th Saturday 2027 = 6 Feb 2027, 10AM
+// STEP 5 - COUNTDOWN TO NAIROBI - 6th Saturday 2027 = 6 Feb 2027, 10AM - 3PM
 function updateCountdown(){
   var target = new Date("2027-02-06T10:00:00+03:00").getTime();
   var now = new Date().getTime();
@@ -54,4 +54,42 @@ function toggleMenu(){
 function closeMenu(){
   var nav = document.getElementById('navLinks');
   if(nav){ nav.classList.remove('open'); }
+}
+// LOGO = BACK TO HOME
+function goHome(e){
+  if(e){ e.preventDefault(); }
+  var splash = document.getElementById('splash');
+  if(splash){ splash.classList.add('hide'); }
+  document.body.style.overflow = 'auto';
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+// === ADD MODIFICATION - SCRIPTURE QUIZ - ANSWER TO ENTER - Lev 6:13 ===
+function checkAnswer(btn, isCorrect){
+  var msg = document.getElementById('quiz-msg');
+  var quizBox = document.getElementById('quiz-box');
+  var enterBtn = document.getElementById('enterBtn');
+  if(!msg || !quizBox || !enterBtn){ return; }
+  // Clear old marks
+  document.querySelectorAll('.quiz-opt').forEach(function(o){
+    o.classList.remove('correct','wrong');
+  });
+  if(isCorrect){
+    btn.classList.add('correct');
+    msg.textContent = '✅ CORRECT! The fire never goes out! Welcome Home 🔥';
+    msg.className = 'ok';
+    // Hide quiz, show ENTER in red flamish
+    setTimeout(function(){
+      quizBox.style.display = 'none';
+      enterBtn.style.display = 'block';
+    }, 900);
+  } else {
+    btn.classList.add('wrong');
+    msg.textContent = '❌ Not quite... Try again! Hint: The fire never goes out.';
+    msg.className = 'bad';
+    // Shake box
+    quizBox.classList.remove('shake');
+    void quizBox.offsetWidth;
+    quizBox.classList.add('shake');
+  }
 }

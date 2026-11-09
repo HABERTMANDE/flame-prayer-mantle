@@ -9,18 +9,30 @@
 </head>
 <body>
 
-<!-- SPLASH LIKE 2819 ACCESS - MODIFIED -->
+<!-- SPLASH - WITH SCRIPTURE QUIZ TO ENTER -->
 <div id="splash">
-  <!-- VIDEO BACKGROUND - Add your video file as images/flame-video.mp4 -->
   <video id="bg-video" autoplay muted loop playsinline preload="auto">
     <source src="images/flame-video.mp4" type="video/mp4">
   </video>
   <div class="splash-inner">
-    <!-- MODIFIED: ENTER FIRST, VERSE SECOND = VERSE BELOW ENTER -->
-    <button class="btn-enter" onclick="enterSite()">ENTER</button>
+    <!-- MODIFIED: QUIZ FIRST - ENTER HIDDEN UNTIL CORRECT -->
+    <div id="quiz-box">
+      <div class="quiz-tag">🔥 PROVE YOU CARRY THE FIRE</div>
+      <p class="quiz-q">Complete The Scripture — Lev 6:13<br><em>"The fire shall ever be burning upon the altar; it shall..."</em></p>
+      <div class="quiz-options">
+        <button class="quiz-opt" onclick="checkAnswer(this, false)">A) Burn for one day</button>
+        <button class="quiz-opt" onclick="checkAnswer(this, true)">B) Never go out</button>
+        <button class="quiz-opt" onclick="checkAnswer(this, false)">C) Be put out at night</button>
+        <button class="quiz-opt" onclick="checkAnswer(this, false)">D) Only burn on Sundays</button>
+      </div>
+      <p id="quiz-msg"></p>
+    </div>
+
+    <!-- ENTER - HIDDEN UNTIL CORRECT ANSWER -->
+    <button class="btn-enter" id="enterBtn" onclick="enterSite()" style="display:none">ENTER</button>
     <div class="splash-verse">"The fire shall ever be burning upon the altar" — Lev 6:13</div>
   </div>
-  <div class="help-btn" onclick="alert('FLAME Prayer Mantle - Welcome Home. Tap ENTER to catch fire.')">?</div>
+  <div class="help-btn" onclick="alert('FLAME Prayer Mantle - Answer the scripture to enter. Hint: The fire never goes out!')">?</div>
 </div>
 
 <!-- NAV -->

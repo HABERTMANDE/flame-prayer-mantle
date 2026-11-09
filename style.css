@@ -115,3 +115,26 @@ footer b{color:#fff;letter-spacing:3px}
   .nav-links a{font-size:16px;padding:8px}
 }
 html{scroll-behavior:smooth}
+
+/* === ADD MODIFICATION - SCRIPTURE QUIZ - ANSWER TO ENTER === */
+#quiz-box{background:linear-gradient(180deg,rgba(0,0,0,.78),rgba(0,0,0,.55));border:1px solid rgba(255,180,0,.45);border-radius:18px;padding:20px;width:92%;max-width:380px;text-align:center;box-shadow:0 0 30px rgba(255,100,0,.35);order:1}
+.quiz-tag{color:#ffb347;font-size:11px;font-weight:800;letter-spacing:3px;margin-bottom:12px}
+.quiz-q{color:#fff;font-size:15px;line-height:1.6}
+.quiz-q em{font-family:'Playfair Display',serif;color:#ffcf7d;font-size:16px}
+.quiz-options{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+.quiz-opt{background:#111;border:1px solid #333;color:#fff;padding:13px;border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;text-align:left}
+.quiz-opt:hover{border-color:#ff6a00;background:#1a0a00}
+.quiz-opt.correct{background:#0a7a2a;border-color:#2aff7a;color:#fff}
+.quiz-opt.wrong{background:#7a0a0a;border-color:#ff3b3b;color:#fff}
+#quiz-msg{font-size:13px;font-weight:800;margin-top:12px;min-height:18px}
+#quiz-msg.ok{color:#2aff7a}
+#quiz-msg.bad{color:#ff3b3b}
+.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+/* Quiz on small phones - keep splash scrollable */
+@media(max-width:600px){
+  #quiz-box{padding:16px}
+  .quiz-q{font-size:14px}
+  .quiz-opt{padding:11px;font-size:13px}
+  #splash{overflow-y:auto;justify-content:flex-start;padding-top:30px}
+}
