@@ -17,16 +17,21 @@ if(document.getElementById('splash')){
 }
 
 function sendPrayer(){
-  var n = document.getElementById('pname').value || '';
-  var p = document.getElementById('pphone').value || '';
-  var r = document.getElementById('prequest').value || '';
+  var nEl = document.getElementById('pname');
+  var pEl = document.getElementById('pphone');
+  var rEl = document.getElementById('prequest');
+  var n = nEl ? nEl.value : '';
+  var p = pEl ? pEl.value : '';
+  var r = rEl ? rEl.value : '';
   var msg = "Hello FLAME Prayer Mantle, I need prayer.%0AName: " + encodeURIComponent(n) + "%0AMy Number: " + encodeURIComponent(p) + "%0ARequest: " + encodeURIComponent(r);
   window.open("https://wa.me/254795155158?text=" + msg, "_blank");
 }
 
 function sendSaved(){
-  var n = document.getElementById('sname').value || '';
-  var p = document.getElementById('sphone').value || '';
+  var nEl = document.getElementById('sname');
+  var pEl = document.getElementById('sphone');
+  var n = nEl ? nEl.value : '';
+  var p = pEl ? pEl.value : '';
   var msg = "Hello FLAME Prayer Mantle, I JUST GAVE MY LIFE TO JESUS! 🔥%0AName: " + encodeURIComponent(n) + "%0AMy Number: " + encodeURIComponent(p) + "%0APlease pray for me and help me grow.";
   window.open("https://wa.me/254795155158?text=" + msg, "_blank");
 }
@@ -44,22 +49,26 @@ function updateCountdown(){
   var elD = document.getElementById('cd-days');
   if(elD){
     elD.textContent = d;
-    document.getElementById('cd-hours').textContent = h;
-    document.getElementById('cd-mins').textContent = m;
-    document.getElementById('cd-secs').textContent = s;
+    var hEl = document.getElementById('cd-hours'); if(hEl) hEl.textContent = h;
+    var mEl = document.getElementById('cd-mins'); if(mEl) mEl.textContent = m;
+    var sEl = document.getElementById('cd-secs'); if(sEl) sEl.textContent = s;
   }
 }
 setInterval(updateCountdown, 1000);
 updateCountdown();
 
-// STEP 6 - MOBILE MENU
+// STEP 6 - MOBILE MENU - MODIFIED: HAMBURGER TO X + BACK
 function toggleMenu(){
   var nav = document.getElementById('navLinks');
   if(nav){ nav.classList.toggle('open'); }
+  var btn = document.getElementById('menuBtn');
+  if(btn){ btn.classList.toggle('open'); }
 }
 function closeMenu(){
   var nav = document.getElementById('navLinks');
   if(nav){ nav.classList.remove('open'); }
+  var btn = document.getElementById('menuBtn');
+  if(btn){ btn.classList.remove('open'); }
 }
 // LOGO = BACK TO HOME
 function goHome(e){
@@ -73,19 +82,84 @@ function goHome(e){
   window.scrollTo({top:0, behavior:'smooth'});
 }
 
+// === MODIFIED - PAGES + HOME + BACK - FIXES BACK BUTTON ===
+function showPage(id){
+  var home = document.getElementById('home-sections');
+  var hero = document.querySelector('.hero');
+  if(home) home.style.display = 'none';
+  if(hero) hero.style.display = 'none';
+  document.querySelectorAll('.page-section').forEach(function(s){ s.classList.remove('active'); });
+  var el = document.getElementById(id);
+  if(el){ el.classList.add('active'); }
+  window.scrollTo({top:0, behavior:'smooth'});
+  try{ history.pushState({page:id}, '', '#'+id); }catch(e){}
+}
+function showHome(e){
+  if(e) e.preventDefault();
+  var home = document.getElementById('home-sections');
+  var hero = document.querySelector('.hero');
+  if(home) home.style.display = 'block';
+  if(hero) hero.style.display = 'block';
+  document.querySelectorAll('.page-section').forEach(function(s){ s.classList.remove('active'); });
+  window.scrollTo({top:0, behavior:'smooth'});
+  try{ history.pushState({page:'home'}, '', '#home'); }catch(e){}
+}
+// PHONE BACK BUTTON
+window.addEventListener('popstate', function(ev){
+  var home = document.getElementById('home-sections');
+  var hero = document.querySelector('.hero');
+  if(ev.state && ev.state.page && ev.state.page !== 'home'){
+    if(home) home.style.display = 'none';
+    if(hero) hero.style.display = 'none';
+    document.querySelectorAll('.page-section').forEach(function(s){ s.classList.remove('active'); });
+    var el = document.getElementById(ev.state.page);
+    if(el) el.classList.add('active');
+  } else {
+    if(home) home.style.display = 'block';
+    if(hero) hero.style.display = 'block';
+    document.querySelectorAll('.page-section').forEach(function(s){ s.classList.remove('active'); });
+  }
+});
+// BACK TO ENTRANCE - SPLASH
+function backToEntrance(){
+  var s = document.getElementById('splash');
+  if(s){ s.classList.remove('hide'); s.style.display = 'flex'; s.style.opacity = '1'; s.style.visibility = 'visible'; }
+  var quiz = document.getElementById('quiz-box'); if(quiz) quiz.style.display = 'none';
+  var btn = document.getElementById('enterBtn'); if(btn){ btn.style.display = ''; btn.textContent = 'ENTER'; }
+  var msg = document.getElementById('quiz-msg'); if(msg) msg.textContent = '';
+  document.querySelectorAll('.quiz-opt').forEach(function(o){ o.classList.remove('correct','wrong'); });
+  document.body.style.overflow = 'hidden';
+  window.scrollTo(0,0);
+}
+// FAQ - MODIFIED: NO AUTO-POP, ONLY ON ? TAP
+function toggleFAQ(){
+  var p = document.getElementById('faq-popup');
+  var b = document.getElementById('helpBubble');
+  if(!p) return;
+  var isOpen = p.classList.toggle('open');
+  if(b) b.style.display = isOpen ? 'none' : 'block';
+}
+function toggleAns(btn){ btn.classList.toggle('open'); }
+
 // === MODIFIED - QUIZ BEHIND ENTER - CORRECT = AUTO ENTER - Lev 6:13 ===
-function showQuiz(){
+function handleEnter(){
   var enterBtn = document.getElementById('enterBtn');
   var quizBox = document.getElementById('quiz-box');
-  if(enterBtn){ enterBtn.style.display = 'none'; }
-  if(quizBox){ quizBox.style.display = 'block'; quizBox.style.opacity = '1'; }
+  if(!quizBox) { enterSite(); return; }
+  if(quizBox.style.display === 'none' || quizBox.style.display === ''){
+    quizBox.style.display = 'block';
+    quizBox.style.opacity = '1';
+    if(enterBtn) enterBtn.textContent = 'ANSWER TO ENTER ↓';
+  }
+}
+function showQuiz(){
+  handleEnter();
 }
 
 function checkAnswer(btn, isCorrect){
   var msg = document.getElementById('quiz-msg');
   var quizBox = document.getElementById('quiz-box');
   if(!msg || !quizBox){ return; }
-  // Clear old marks
   document.querySelectorAll('.quiz-opt').forEach(function(o){
     o.classList.remove('correct','wrong');
   });
@@ -93,7 +167,6 @@ function checkAnswer(btn, isCorrect){
     btn.classList.add('correct');
     msg.textContent = '✅ CORRECT! The fire never goes out! Entering... 🔥';
     msg.className = 'ok';
-    // MODIFIED: ENTER DIRECTLY - NO SECOND ENTER - FORCE HIDE SPLASH
     setTimeout(function(){
       var splash = document.getElementById('splash');
       if(splash){
@@ -110,9 +183,15 @@ function checkAnswer(btn, isCorrect){
     btn.classList.add('wrong');
     msg.textContent = '❌ Not quite... Try again! Hint: The fire never goes out.';
     msg.className = 'bad';
-    // Shake box
     quizBox.classList.remove('shake');
     void quizBox.offsetWidth;
     quizBox.classList.add('shake');
   }
 }
+// SAFETY: ENTER button also works via listener
+document.addEventListener('DOMContentLoaded', function(){
+  var btn = document.getElementById('enterBtn');
+  if(btn){ btn.addEventListener('click', handleEnter); }
+  var v = document.getElementById('bg-video');
+  if(v){ v.muted = true; v.play().catch(function(){}); }
+});
