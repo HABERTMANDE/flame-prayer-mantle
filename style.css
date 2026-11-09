@@ -1,0 +1,104 @@
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;color:#fff;font-family:'Inter',sans-serif;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+/* SPLASH */
+#splash{position:fixed;inset:0;z-index:100;background:#000 url('images/flame-splash.webp') center/cover no-repeat;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transition:.8s}
+#splash::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.55))}
+#splash.hide{opacity:0;visibility:hidden}
+.splash-inner{position:relative;z-index:2;padding:20px}
+.splash-verse{font-family:'Playfair Display',serif;font-style:italic;color:#ffb347;font-size:19px;margin-top:340px;margin-bottom:20px;text-shadow:0 2px 12px #000}
+.btn-enter{background:#0a2aff;border:1px solid #fff;color:#fff;padding:16px 60px;letter-spacing:6px;font-weight:800;cursor:pointer;font-size:14px}
+.btn-enter:hover{background:#fff;color:#000}
+.help-btn{position:absolute;bottom:22px;left:22px;width:52px;height:52px;border-radius:50%;background:#0a2aff;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:800;z-index:3;cursor:pointer}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.95);display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-bottom:1px solid #222}
+.logo{font-family:'Anton',sans-serif;font-size:28px;letter-spacing:2px}
+.logo span{font-size:9px;display:block;font-family:'Inter';letter-spacing:5px;color:#ff6a00;font-weight:800}
+.nav-links{display:none;gap:20px;font-size:12px;font-weight:600;letter-spacing:1px}
+@media(min-width:851px){.nav-links{display:flex}}
+.btn{padding:10px 18px;background:#ff5a00;color:#fff;border-radius:30px;font-weight:800;font-size:13px}
+
+/* HERO */
+.hero{min-height:95vh;background:linear-gradient(rgba(0,0,0,.55),#000),url('images/flame-splash.webp') center/cover no-repeat;display:flex;align-items:center;padding:40px 20px}
+.hero-inner{max-width:1100px;margin:auto;width:100%}
+.eyebrow{color:#ff6a00;letter-spacing:4px;font-weight:800;font-size:12px}
+.hero h1{font-family:'Anton',sans-serif;font-size:clamp(54px,12vw,108px);line-height:.92;margin:14px 0}
+.hero h1 em{font-family:'Playfair Display',serif;font-weight:400;color:#ffb347}
+.hero p{max-width:650px;color:#ddd;line-height:1.8;margin-bottom:26px;font-size:16px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-white{background:#fff;color:#000;padding:15px 28px;border-radius:30px;font-weight:800}
+.btn-outline{border:1px solid #fff;padding:15px 28px;border-radius:30px;font-weight:800}
+
+/* SECTIONS */
+section{padding:72px 20px;max-width:1100px;margin:auto}
+.tag{color:#ff6a00;font-weight:800;letter-spacing:4px;font-size:12px}
+h2{font-family:'Anton',sans-serif;font-size:clamp(34px,7vw,58px);line-height:1;margin:12px 0 16px}
+.lead{color:#bbb;line-height:1.85;max-width:750px;font-size:16px}
+
+/* GRID + CARDS */
+.grid{display:grid;gap:16px;margin-top:28px}
+@media(min-width:750px){.grid{grid-template-columns:1fr 1fr 1fr}}
+.card{background:#111;border:1px solid #222;border-radius:18px;padding:26px}
+.card h3{font-size:20px;margin:12px 0 8px}
+.card p{color:#aaa;font-size:14px;line-height:1.75}
+.num{font-family:'Anton',sans-serif;font-size:42px;color:#ff5a00}
+
+/* SCRIPTURE */
+.scripture{background:linear-gradient(135deg,#1a0a00,#000);border:1px solid #ff5a00;border-radius:22px;padding:36px;text-align:center}
+.scripture p{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(22px,5vw,32px);line-height:1.4}
+.scripture small{color:#ffb347;letter-spacing:3px;font-weight:800}
+
+/* VISION BOX */
+.vision-box{background:#0a0a0a;border:1px solid #222;border-radius:22px;padding:28px}
+.vision-box b{color:#ff6a00}
+
+/* PRAYER */
+.prayer-box{background:linear-gradient(135deg,#1a0a00,#000);border:1px solid #ff5a00;border-radius:20px;padding:28px}
+input,textarea{width:100%;padding:14px;border-radius:12px;border:1px solid #333;background:#0a0a0a;color:#fff;margin-bottom:12px;font-family:inherit}
+label{font-size:12px;letter-spacing:2px;color:#ffb347;font-weight:800}
+
+/* EVENT */
+.event{display:grid;gap:20px;align-items:center}
+@media(min-width:800px){.event{grid-template-columns:1fr 1.2fr}}
+.event img{width:100%;border-radius:20px;border:1px solid #333}
+
+/* GIVE */
+.give{background:#ff5a00;color:#fff;border-radius:24px;padding:36px;text-align:center}
+.give-box{background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.4);border-radius:16px;padding:20px;max-width:520px;margin:20px auto;text-align:left;line-height:1.95}
+
+footer{border-top:1px solid #222;padding:40px 20px;text-align:center;color:#777;font-size:13px;line-height:1.8}
+footer b{color:#fff;letter-spacing:3px}
+
+/* MOBILE FIX */
+@media(max-width:600px){
+  .splash-verse{margin-top:260px;font-size:16px}
+  .hero{padding:30px 16px}
+  section{padding:50px 16px}
+}
+/* STEP 5 - COUNTDOWN + WATCH */
+.countdown{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:22px 0}
+.count-box{background:#000;border:1px solid #ff5a00;border-radius:16px;min-width:78px;padding:16px 10px;text-align:center}
+.count-box b{font-family:'Anton',sans-serif;font-size:32px;display:block;color:#fff;line-height:1}
+.count-box span{font-size:11px;letter-spacing:2px;color:#ffb347;font-weight:800}
+.watch-grid{display:grid;gap:16px;margin-top:28px}
+@media(min-width:750px){.watch-grid{grid-template-columns:1fr 1fr 1fr}}
+.watch-card{background:#111;border:1px solid #222;border-radius:18px;overflow:hidden}
+.watch-thumb{height:170px;background:linear-gradient(135deg,#ff5a00,#000);display:flex;align-items:center;justify-content:center;font-size:52px}
+.watch-card div{padding:20px}
+.watch-card h3{font-size:17px;margin-bottom:6px}
+.watch-card p{color:#aaa;font-size:13px;line-height:1.6}
+.event-row{display:flex;justify-content:space-between;align-items:center;gap:14px;background:#111;border:1px solid #222;border-radius:16px;padding:18px;margin-top:12px;flex-wrap:wrap}
+.event-row b{font-size:16px}
+.event-row span{color:#aaa;font-size:13px;display:block;margin-top:4px}
+
+/* STEP 6 - MOBILE MENU - FIXED */
+.menu-btn{display:none;background:#ff5a00;color:#fff;border:none;width:42px;height:42px;border-radius:50%;font-size:20px;cursor:pointer}
+@media(max-width:850px){
+  .menu-btn{display:block}
+  .nav-links{display:none;position:fixed;top:68px;left:0;right:0;background:#000;border-bottom:1px solid #222;flex-direction:column;padding:20px;gap:18px;text-align:center;z-index:99}
+  .nav-links.open{display:flex !important}
+  .nav-links a{font-size:16px;padding:8px}
+}
+html{scroll-behavior:smooth}
