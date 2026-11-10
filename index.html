@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FLAME | Catch Fire, Rise As A Flame</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=3">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600;800&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
 <style>
   .page-section{display:none !important}
@@ -55,7 +55,7 @@
   .koinonia-content .k-theme{font-family:'Anton',sans-serif !important;font-size:46px !important;line-height:0.95 !important;letter-spacing:1px !important;margin:8px 0 !important;text-shadow:0 4px 20px rgba(0,0,0,0.8) !important}
   .k-bottom{display:flex !important;justify-content:space-between !important;align-items:flex-end !important;text-align:left !important;margin-top:12px !important;font-size:13px !important;line-height:1.5 !important}
   .k-date{text-align:right !important}
-  .k-time-red{background:#E60000 !important;color:#fff !important;font-weight:900 !important;padding:4px 8px !important;margin-top:4px !important;font-size:13px !important;display:inline-block !important}
+  .k-time-red{background:#2563EB !important;background-color:#2563EB !important;color:#fff !important;font-weight:900 !important;padding:4px 8px !important;margin-top:4px !important;font-size:13px !important;display:inline-block !important}
   .koinonia-countdown{background:#000 !important;color:#fff !important;display:flex !important;align-items:center !important;gap:14px !important;padding:18px 16px !important;border-top:1px solid #222 !important;border-bottom:1px solid #222 !important;flex-wrap:wrap !important}
   .koinonia-countdown .c-icon{font-size:36px !important}
   .koinonia-countdown h3{font-size:19px !important;letter-spacing:1px !important;margin:2px 0 !important}
@@ -83,6 +83,13 @@
   .reveal{opacity:0;transform:translateY(30px);transition:all .7s ease}
   .reveal.visible{opacity:1;transform:translateY(0)}
   .rot-word{display:inline-block;color:#93c5fd;transition:opacity .3s}
+  /* ===== BLUR - MAIN PAGE - MUST BE LAST IN <style> SO IT BEATS ALL !important ABOVE ===== */
+  .hero, .koinonia-poster, .koinonia-countdown{ will-change:filter, opacity, transform !important; }
+  .blur-reveal{ filter:blur(14px) !important; opacity:0 !important; transform:translateY(30px) scale(.98) !important; transition:filter .9s ease, opacity .9s ease, transform .9s ease !important; }
+  .blur-reveal.visible{ filter:blur(0) !important; opacity:1 !important; transform:translateY(0) scale(1) !important; }
+  .page-section{ filter:blur(12px); opacity:0; visibility:hidden; }
+  .page-section.active{ filter:blur(0) !important; opacity:1 !important; visibility:visible !important; }
+  @media (prefers-reduced-motion: reduce){ .blur-reveal, .page-section{ filter:none !important; opacity:1 !important; transform:none !important; visibility:visible !important; } }
 </style>
 </head>
 <body>
@@ -272,7 +279,6 @@ function toggleTheme(){
   var b=document.getElementById('themeBtn');
   if(b) b.textContent=document.body.classList.contains('light-mode') ? '🌙' : '☀️';
 }
-/* 1. NO QUESTION - DIRECT ENTER - FIXED */
 function handleEnter(){
   var s=document.getElementById('splash');
   if(!s) return;
@@ -289,20 +295,19 @@ function showQuiz(){ handleEnter(); }
 function checkAnswer(){ handleEnter(); }
 function closeMenu(){ var n=document.getElementById('navLinks'); if(n) n.classList.remove('open'); var b=document.getElementById('menuBtn'); if(b) b.classList.remove('open'); }
 function toggleMenu(){ var n=document.getElementById('navLinks'); if(n) n.classList.toggle('open'); var b=document.getElementById('menuBtn'); if(b) b.classList.toggle('open'); }
-/* 3. FIXED - MAIN MENU -> NEXT STEPS */
 function showPage(id){
   var home=document.getElementById('home-sections'); var hero=document.querySelector('.hero');
   var poster=document.querySelector('.koinonia-poster'); var countdown=document.querySelector('.koinonia-countdown');
   if(home) home.style.setProperty('display','none','important');
-  if(hero) hero.style.setProperty('display','none','important');
-  if(poster) poster.style.setProperty('display','none','important');
-  if(countdown) countdown.style.setProperty('display','none','important');
+  if(hero){ hero.style.setProperty('display','none','important'); hero.style.setProperty('filter','', 'important'); hero.style.setProperty('opacity','', 'important'); hero.style.setProperty('transform','', 'important'); }
+  if(poster){ poster.style.setProperty('display','none','important'); poster.style.setProperty('filter','', 'important'); poster.style.setProperty('opacity','', 'important'); }
+  if(countdown){ countdown.style.setProperty('display','none','important'); countdown.style.setProperty('filter','', 'important'); countdown.style.setProperty('opacity','', 'important'); }
   document.querySelectorAll('.page-section').forEach(function(s){ s.classList.remove('active'); s.style.setProperty('display','none','important'); });
   var el=document.getElementById(id);
   if(el){
     el.classList.add('active');
     el.style.setProperty('display','block','important');
-    el.querySelectorAll('.reveal, .card, .vision-box').forEach(function(c){ c.classList.add('visible'); c.style.setProperty('opacity','1','important'); c.style.setProperty('transform','none','important'); });
+    el.querySelectorAll('.reveal, .card, .vision-box, .blur-reveal').forEach(function(c){ c.classList.add('visible'); c.style.setProperty('opacity','1','important'); c.style.setProperty('transform','none','important'); c.style.setProperty('filter','blur(0)','important'); });
   }
   window.scrollTo({top:0,behavior:'smooth'});
   try{ history.pushState({page:id},'','#'+id); }catch(e){}
@@ -312,9 +317,9 @@ function showHome(e){
   var home=document.getElementById('home-sections'); var hero=document.querySelector('.hero');
   var poster=document.querySelector('.koinonia-poster'); var countdown=document.querySelector('.koinonia-countdown');
   if(home) home.style.setProperty('display','block','important');
-  if(hero) hero.style.setProperty('display','block','important');
-  if(poster) poster.style.setProperty('display','flex','important');
-  if(countdown) countdown.style.setProperty('display','flex','important');
+  if(hero){ hero.style.setProperty('display','block','important'); hero.style.setProperty('filter','', 'important'); hero.style.setProperty('opacity','', 'important'); hero.style.setProperty('transform','', 'important'); }
+  if(poster){ poster.style.setProperty('display','flex','important'); poster.style.setProperty('filter','', 'important'); poster.style.setProperty('opacity','', 'important'); }
+  if(countdown){ countdown.style.setProperty('display','flex','important'); countdown.style.setProperty('filter','', 'important'); countdown.style.setProperty('opacity','', 'important'); }
   document.querySelectorAll('.page-section').forEach(function(s){ s.classList.remove('active'); s.style.setProperty('display','none','important'); });
   window.scrollTo({top:0,behavior:'smooth'});
   try{ history.pushState({page:'home'},'','#home'); }catch(e){}
@@ -378,7 +383,6 @@ function startCountdown(){
   tick(); setInterval(tick,1000);
 }
 startCountdown();
-/* 2. 2819 WORD ANIMATIONS */
 var rotWords=['Flame.','Light.','Fire.','Voice.'];
 var rotI=0;
 setInterval(function(){
@@ -391,6 +395,44 @@ var io=new IntersectionObserver(function(entries){
   entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); });
 },{threshold:0.1});
 document.querySelectorAll('#home-sections section, #home-sections .card').forEach(function(el){ el.classList.add('reveal'); io.observe(el); });
+
+/* ===== BLUR - MAIN PAGE - ADDED INSIDE SAME FILE SO IT ACTUALLY RUNS ===== */
+(function(){
+  var heroEl = document.querySelector('.hero');
+  var posterEl = document.querySelector('.koinonia-poster');
+  var countEl = document.querySelector('.koinonia-countdown');
+  console.log('BLUR CHECK - hero:', !!heroEl, 'poster:', !!posterEl, 'count:', !!countEl);
+  function onScrollBlur(){
+    var y = window.scrollY || 0;
+    var p = Math.min(y / 300, 1);
+    if(heroEl){
+      heroEl.style.setProperty('filter','blur('+(p*12)+'px)','important');
+      heroEl.style.setProperty('opacity', String(1 - p*0.9), 'important');
+      heroEl.style.setProperty('transform','translateY('+(p*-30)+'px) scale('+(1-p*0.03)+')','important');
+    }
+    if(posterEl){
+      var p2 = Math.min(y / 500, 1);
+      posterEl.style.setProperty('filter','blur('+(p2*10)+'px)','important');
+      posterEl.style.setProperty('opacity', String(1 - p2*0.9), 'important');
+    }
+    if(countEl){
+      var p3 = Math.min(Math.max((y-200)/300,0),1);
+      countEl.style.setProperty('filter','blur('+(p3*10)+'px)','important');
+      countEl.style.setProperty('opacity', String(1 - p3*0.9), 'important');
+    }
+  }
+  window.addEventListener('scroll', onScrollBlur, {passive:true});
+  onScrollBlur();
+  var blurIO = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); });
+  },{threshold:0.12});
+  document.querySelectorAll('#home-sections section, #home-sections .card, #home-sections .give').forEach(function(el){
+    el.classList.add('blur-reveal'); blurIO.observe(el);
+  });
+  setTimeout(function(){
+    document.querySelectorAll('.blur-reveal').forEach(function(el){ el.classList.add('visible'); });
+  }, 2500);
+})();
 </script>
 </body>
 </html>
