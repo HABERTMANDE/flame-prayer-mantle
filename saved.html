@@ -8,15 +8,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600;800&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
 <style>
 .saved-hero{min-height:92vh;background:linear-gradient(rgba(0,0,0,.65),#000),url('images/flame-splash.webp') center/cover no-repeat;display:flex;align-items:center;padding:40px 20px;text-align:center}
-.saved-box{max-width:780px;margin:auto;background:rgba(0,0,0,.72);border:1px solid #ff5a00;border-radius:24px;padding:32px}
-.saved-box h1{font-family:'Anton',sans-serif;font-size:clamp(42px,9vw,72px);line-height:.95}
-.saved-box h1 em{font-family:'Playfair Display',serif;font-weight:400;color:#ffb347}
-.verse{font-family:'Playfair Display',serif;font-style:italic;font-size:20px;line-height:1.6;color:#ffb347;margin:18px 0}
-.prayer{ text-align:left;background:#111;border:1px solid #333;border-radius:16px;padding:22px;line-height:1.85;color:#ddd;margin:22px 0}
+.saved-box{max-width:780px;margin:auto;background:rgba(0,0,0,.72);border:1px solid #2563EB;border-radius:24px;padding:32px;box-shadow:0 0 0 1px rgba(37,99,235,.35), 0 20px 50px rgba(0,0,0,.5)}
+.saved-box h1{font-family:'Anton',sans-serif;font-size:clamp(42px,9vw,72px);line-height:.95;color:#fff}
+.saved-box h1 em{font-family:'Playfair Display',serif;font-weight:400;color:#93c5fd}
+.verse{font-family:'Playfair Display',serif;font-style:italic;font-size:20px;line-height:1.6;color:#93c5fd;margin:18px 0}
+.prayer{ text-align:left;background:#111;border:1px solid #2563EB;border-radius:16px;padding:22px;line-height:1.85;color:#ddd;margin:22px 0}
 .prayer b{color:#fff}
 .checks{display:grid;gap:12px;text-align:left;margin:18px 0}
 .checks div{background:#111;border:1px solid #222;border-radius:12px;padding:14px;font-size:14px;line-height:1.6}
 @media(min-width:700px){.checks{grid-template-columns:1fr 1fr}}
+/* SCROLL BLUR - as you scroll it blurs + disappears in */
+.saved-hero, .saved-box{transition:filter .3s ease, opacity .3s ease, transform .3s ease;will-change:filter, opacity, transform}
 </style>
 </head>
 <body>
@@ -28,13 +30,13 @@
 
 <header class="saved-hero">
   <div class="saved-box">
-    <div class="eyebrow" style="color:#ff6a00;letter-spacing:4px;font-weight:800;font-size:12px">JOHN 3 • BORN AGAIN • NEW LIFE</div>
+    <div class="eyebrow" style="color:#93c5fd;letter-spacing:4px;font-weight:800;font-size:12px">JOHN 3 • BORN AGAIN • NEW LIFE</div>
     <h1>I GIVE MY LIFE<br><em>To Jesus.</em></h1>
     <p class="verse">"For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life." — John 3:16 (KJV)</p>
     <p style="color:#bbb;line-height:1.8">Just like Nicodemus in John 3 — salvation is not religion. It is being Born Again. If you believe in your heart that Jesus died for you and rose again, you are saved today.</p>
 
     <div class="prayer">
-      <b style="letter-spacing:3px;color:#ffb347;font-size:12px">PRAY THIS OUT LOUD — THE SINNER'S PRAYER</b><br><br>
+      <b style="letter-spacing:3px;color:#93c5fd;font-size:12px">PRAY THIS OUT LOUD — THE SINNER'S PRAYER</b><br><br>
       <b>Lord Jesus,</b> I believe You are the Son of God. I believe You died on the cross for my sins and rose again on the third day.<br><br>
       I confess I am a sinner. I turn away from my old life today. I open my heart to You. Come into my life. Be my Lord. Be my Saviour. Wash me clean by Your blood.<br><br>
       I receive Your forgiveness. I receive eternal life. I am Born Again. I am a child of God. I will follow You all the days of my life.<br><br>
@@ -73,5 +75,19 @@
 </footer>
 
 <script src="script.js"></script>
+<script>
+/* SCROLL BLUR - saved page - as you scroll it blurs + disappears in */
+(function(){
+  var box = document.querySelector('.saved-box');
+  if(!box) return;
+  window.addEventListener('scroll', function(){
+    var y = window.scrollY || 0;
+    var p = Math.min(y / 300, 1);
+    box.style.filter = 'blur(' + (p * 10) + 'px)';
+    box.style.opacity = String(1 - p * 0.85);
+    box.style.transform = 'translateY(' + (p * -20) + 'px) scale(' + (1 - p * 0.02) + ')';
+  }, {passive:true});
+})();
+</script>
 </body>
 </html>
