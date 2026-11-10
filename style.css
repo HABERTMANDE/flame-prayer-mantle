@@ -155,7 +155,7 @@ body.light-mode .hero p,body.light-mode .lead,body.light-mode .card p{color:#333
 .splash-verse *{color:#FFFFFF !important}
 
 /* ========================================================= */
-/* ===== 2. WORD ANIMATIONS - 2819.COM STYLE - VERY LAST ===== */
+/* ===== 2. WORD ANIMATIONS - 2819.COM STYLE ===== */
 /* ========================================================= */
 .hero h1, .hero .eyebrow, .hero p, .hero-btns{animation:wordUp .8s cubic-bezier(.2,.8,.2,1) both !important}
 .hero .eyebrow{animation-delay:.1s}
@@ -168,9 +168,58 @@ body.light-mode .hero p,body.light-mode .lead,body.light-mode .card p{color:#333
 .koinonia-content h1{animation:wordUp .8s .1s both !important}
 .koinonia-content .k-theme{animation:wordUp .8s .3s both !important}
 .koinonia-content .k-small{animation:wordUp .8s both !important}
-/* Scroll reveal - only home, JS will force visible on page-sections */
 .reveal{opacity:0;transform:translateY(30px);transition:all .7s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .rot-word{display:inline-block;color:#93c5fd;transition:opacity .3s}
-/* 3. SAFETY - If JS forces visible, never hide again */
 .page-section.active .card, .page-section.active .vision-box{opacity:1 !important;transform:none !important}
+
+/* ========================================================= */
+/* ===== FULL MODIFICATION: SCROLL BLUR - AS YOU SCROLL IT BLURS + DISAPPEARS IN ===== */
+/* ========================================================= */
+.hero, .koinonia-poster, .koinonia-countdown{
+  transition: filter .3s ease, opacity .3s ease, transform .3s ease !important;
+  will-change: filter, opacity, transform;
+}
+.blur-reveal{
+  filter: blur(14px);
+  opacity: 0;
+  transform: translateY(30px) scale(.98);
+  transition: filter .9s ease, opacity .9s ease, transform .9s ease;
+}
+.blur-reveal.visible{
+  filter: blur(0) !important;
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+}
+.page-section{
+  animation: none !important;
+  filter: blur(12px);
+  opacity: 0;
+  visibility: hidden;
+  transition: filter .6s ease, opacity .6s ease, visibility .6s;
+}
+.page-section.active{
+  filter: blur(0) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  animation: none !important;
+}
+.page-section.active .card,
+.page-section.active .vision-box,
+.page-section.active .blur-reveal.visible{
+  filter: blur(0) !important;
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+@media (prefers-reduced-motion: reduce){
+  .blur-reveal, .page-section, .reveal{
+    filter: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
+html{scroll-behavior:smooth}
