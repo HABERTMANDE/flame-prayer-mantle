@@ -13,8 +13,11 @@
   .menu-link{cursor:pointer}
   /* === MODIFICATION - ACCESS STYLE ENTRANCE === */
   #splash{position:fixed !important;inset:0 !important;z-index:100 !important;background:#000 !important;display:flex !important;flex-direction:column !important;align-items:center !important;justify-content:center !important;text-align:center !important;padding:0 !important;overflow:hidden !important}
-  #bg-video,#splash-img{position:absolute !important;inset:0 !important;width:100% !important;height:100% !important;object-fit:cover !important;object-position:center !important;z-index:0 !important}
-  #splash::after{content:'' !important;position:absolute !important;inset:0 !important;background:linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.55)) !important;z-index:1 !important}
+  #bg-video,#splash-img{position:absolute !important;inset:0 !important;width:100% !important;height:100% !important;object-fit:cover !important;object-position:center top !important;z-index:0 !important}
+  /* === MODIFIED - BACKGROUND PHOTO + BLUISH OPACITY - FRONT === */
+  #splash-img{object-position:center top !important}
+  .splash-blue-overlay{position:absolute !important;inset:0 !important;z-index:1 !important;background:linear-gradient(180deg, rgba(37,99,235,0.55) 0%, rgba(37,99,235,0.35) 40%, rgba(0,0,0,0.75) 100%) !important;pointer-events:none !important}
+  #splash::after{content:'' !important;position:absolute !important;inset:0 !important;background:transparent !important;z-index:1 !important;pointer-events:none !important}
   .splash-brand{position:relative !important;z-index:2 !important;font-family:'Playfair Display',serif !important;font-style:italic !important;font-size:clamp(72px,22vw,140px) !important;line-height:1 !important;color:#fff !important;text-shadow:0 4px 30px rgba(0,0,0,.6) !important;letter-spacing:2px !important;margin-top:-20px !important}
   .splash-sub{position:relative !important;z-index:2 !important;letter-spacing:6px !important;font-size:11px !important;font-weight:800 !important;color:#fff !important;opacity:.9 !important;margin-bottom:22px !important}
   .splash-inner{position:relative !important;z-index:2 !important}
@@ -40,14 +43,21 @@
   .event img{width:100% !important;height:auto !important;object-fit:contain !important;display:block !important;background:#000 !important}
   #quiz-msg.ok{color:#2aff7a}
   #quiz-msg.bad{color:#ff3b3b}
+  /* === MODIFIED - HAMBURGER LINES - FIX ALL BLUE === */
+  .menu-btn{display:none !important;width:46px !important;height:46px !important;min-width:46px !important;border-radius:50% !important;background:#2563EB !important;border:none !important;cursor:pointer !important;flex-direction:column !important;align-items:center !important;justify-content:center !important;gap:6px !important;padding:0 !important;position:relative !important;z-index:120 !important}
+  .menu-btn span{display:block !important;width:22px !important;height:3px !important;min-height:3px !important;background:#fff !important;border-radius:3px !important;transition:all .3s ease !important;flex-shrink:0 !important}
+  .menu-btn.open span:nth-child(1){transform:translateY(9px) rotate(45deg) !important}
+  .menu-btn.open span:nth-child(2){opacity:0 !important;transform:scaleX(0) !important}
+  .menu-btn.open span:nth-child(3){transform:translateY(-9px) rotate(-45deg) !important}
+  @media(max-width:850px){.menu-btn{display:flex !important}}
 </style>
 </head>
 <body>
 
-<!-- SPLASH - ACCESS STYLE -->
+<!-- SPLASH - ACCESS STYLE - MODIFIED: PHOTO BACKGROUND + BLUISH OVERLAY -->
 <div id="splash">
-  <video id="bg-video" autoplay muted loop playsinline preload="auto" poster="images/flame-splash.webp"></video>
-  <img id="splash-img" src="images/flame-splash.webp" alt="FLAME">
+  <img id="splash-img" src="images/habert-singing.jpg" alt="FLAME">
+  <div class="splash-blue-overlay"></div>
   <div class="splash-brand">FLAME</div>
   <div class="splash-sub">PRAYER MANTLE • NAIROBI</div>
   <div class="splash-inner">
@@ -239,8 +249,8 @@ function checkAnswer(el,isCorrect){
     var box=document.getElementById('quiz-box'); if(box){ box.classList.remove('shake'); void box.offsetWidth; box.classList.add('shake'); }
   }
 }
-function closeMenu(){ var n=document.getElementById('navLinks'); if(n) n.classList.remove('open'); }
-function toggleMenu(){ var n=document.getElementById('navLinks'); if(n) n.classList.toggle('open'); }
+function closeMenu(){ var n=document.getElementById('navLinks'); if(n) n.classList.remove('open'); var b=document.getElementById('menuBtn'); if(b) b.classList.remove('open'); }
+function toggleMenu(){ var n=document.getElementById('navLinks'); if(n) n.classList.toggle('open'); var b=document.getElementById('menuBtn'); if(b) b.classList.toggle('open'); }
 function showPage(id){
   var home=document.getElementById('home-sections'); var hero=document.querySelector('.hero');
   if(home) home.style.display='none'; if(hero) hero.style.display='none';
@@ -306,7 +316,6 @@ function startCountdown(){
 startCountdown();
 document.addEventListener('DOMContentLoaded',function(){
   var btn=document.getElementById('enterBtn'); if(btn) btn.addEventListener('click',handleEnter);
-  var v=document.getElementById('bg-video'); if(v){ v.muted=true; v.play().catch(function(){}); }
 });
 </script>
 </body>

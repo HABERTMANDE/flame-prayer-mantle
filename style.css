@@ -184,3 +184,10 @@ html{scroll-behavior:smooth}
 @media(max-width:850px){
   .menu-btn{display:flex !important}
 }
+
+/* === MODIFICATION ADDED - BACKGROUND PHOTO + BLUISH OPACITY - FRONT - MUST BE LAST === */
+#splash-img{position:absolute !important;inset:0 !important;width:100% !important;height:100% !important;object-fit:cover !important;object-position:center top !important;background:#000 !important;z-index:0 !important;opacity:1 !important;display:block !important}
+.splash-blue-overlay{position:absolute !important;inset:0 !important;z-index:1 !important;background:linear-gradient(180deg, rgba(37,99,235,0.55) 0%, rgba(37,99,235,0.35) 40%, rgba(0,0,0,0.75) 100%) !important;pointer-events:none !important}
+#splash::after{background:transparent !important;pointer-events:none !important}
+.splash-brand,.splash-sub,.splash-inner,.help-wrap{position:relative !important;z-index:2 !important}
+#bg-video{display:none !important}
