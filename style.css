@@ -166,27 +166,26 @@ body.light-mode .hero p,body.light-mode .lead,body.light-mode .card p{color:#333
 /* ========================================================= */
 /* ===== BLUE THEME - SAVED PAGE - SPECIFIC, NOT GLOBAL ===== */
 /* ========================================================= */
-/* Saved page only - .saved-box is in saved.html, not global section/card */
 .saved-box{border-color:#2563EB !important;box-shadow:0 0 0 1px rgba(37,99,235,.35), 0 20px 50px rgba(0,0,0,.5) !important}
 .saved-box h1 em{color:#93c5fd !important}
 .saved-box .verse{color:#93c5fd !important}
 .saved-box .prayer{border-color:#2563EB !important}
-/* Specific red/gold leftovers - only exact hex, not word "red" */
 [style*="#E60000"], [style*="#FFA500"], [style*="#FFD700"], [style*="#FF7A00"], [style*="#ff5a00"], [style*="#ffb347"], [style*="#ff6a00"]{
   border-color:#2563EB !important;
 }
-[style*="color:#E60000"], [style*="color:#ffb347"], [style*="color:#ff6a00"], [style*="color:#FF"]{
+[style*="color:#E60000"], [style*="color:#ffb347"], [style*="color:#ff6a00"]{
   color:#93c5fd !important;
 }
 
 /* ========================================================= */
 /* ===== SCROLL BLUR - SINGLE SOURCE OF TRUTH - MUST BE LAST ===== */
 /* ========================================================= */
-.hero, .koinonia-poster, .koinonia-countdown{
+/* MODIFIED: .hero REMOVED from this group - hero must never get filter/transform from scroll */
+.koinonia-poster, .koinonia-countdown{
   transition:filter .3s ease, opacity .3s ease, transform .3s ease !important;
   will-change:filter, opacity, transform;
 }
-/* ONE class only - .blur-reveal - .reveal deleted, no more fight */
+/* ONE class only - .blur-reveal */
 .blur-reveal{
   filter:blur(14px) !important;
   opacity:0 !important;
@@ -198,7 +197,6 @@ body.light-mode .hero p,body.light-mode .lead,body.light-mode .card p{color:#333
   opacity:1 !important;
   transform:translateY(0) scale(1) !important;
 }
-/* Page sections - hidden by display only, blur handled by JS with !important */
 .page-section{display:none}
 .page-section.active{display:block !important;filter:blur(0) !important;opacity:1 !important;visibility:visible !important;animation:none !important}
 .page-section.active .card,
@@ -218,4 +216,20 @@ body.light-mode .hero p,body.light-mode .lead,body.light-mode .card p{color:#333
     transition:none !important;
     animation:none !important;
   }
+}
+
+/* ========================================================= */
+/* ===== MODIFICATION: HERO NEVER BLURRY - MUST BE VERY LAST ===== */
+/* This beats index.html inline <style> + script.js inline filter */
+/* ========================================================= */
+.hero, .hero-inner, .hero h1, .hero h1 em, .hero .eyebrow, .hero p, .hero-btns, .hero .rot-word{
+  filter:none !important;
+  -webkit-filter:none !important;
+  backdrop-filter:none !important;
+  opacity:1 !important;
+  transform:none !important;
+}
+.hero{
+  transition:none !important;
+  will-change:auto !important;
 }

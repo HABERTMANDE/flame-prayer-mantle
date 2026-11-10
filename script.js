@@ -92,16 +92,29 @@ function goHome(e){
   window.scrollTo({top:0, behavior:'smooth'});
 }
 
-/* === 3. FIXED - MAIN MENU -> NEXT STEPS === */
+/* MODIFIED: clear blur - use removeProperty so it truly clears, not empty string with !important */
+function clearBlur(el){
+  if(!el) return;
+  el.style.removeProperty('filter');
+  el.style.removeProperty('opacity');
+  el.style.removeProperty('transform');
+  /* MOD: hero must stay sharp - force it explicitly */
+  if(el.classList && el.classList.contains('hero')){
+    el.style.setProperty('filter','blur(0)','important');
+    el.style.setProperty('opacity','1','important');
+    el.style.setProperty('transform','none','important');
+  }
+}
+
 function showPage(id){
   var home = document.getElementById('home-sections');
   var hero = document.querySelector('.hero');
   var poster = document.querySelector('.koinonia-poster');
   var countdown = document.querySelector('.koinonia-countdown');
   if(home) home.style.setProperty('display','none','important');
-  if(hero){ hero.style.setProperty('display','none','important'); hero.style.filter=''; hero.style.opacity=''; hero.style.transform=''; }
-  if(poster){ poster.style.setProperty('display','none','important'); poster.style.filter=''; poster.style.opacity=''; }
-  if(countdown){ countdown.style.setProperty('display','none','important'); countdown.style.filter=''; countdown.style.opacity=''; }
+  if(hero){ hero.style.setProperty('display','none','important'); clearBlur(hero); }
+  if(poster){ poster.style.setProperty('display','none','important'); clearBlur(poster); }
+  if(countdown){ countdown.style.setProperty('display','none','important'); clearBlur(countdown); }
   document.querySelectorAll('.page-section').forEach(function(s){
     s.classList.remove('active');
     s.style.setProperty('display','none','important');
@@ -110,21 +123,20 @@ function showPage(id){
   if(el){
     el.classList.add('active');
     el.style.setProperty('display','block','important');
-    // MOD: blur-in for page-section - starts blurred then sharpens
-    el.style.filter = 'blur(12px)';
-    el.style.opacity = '0';
+    el.style.setProperty('filter','blur(12px)','important');
+    el.style.setProperty('opacity','0','important');
     requestAnimationFrame(function(){
       setTimeout(function(){
-        el.style.transition = 'filter .6s ease, opacity .6s ease';
-        el.style.filter = 'blur(0)';
-        el.style.opacity = '1';
+        el.style.setProperty('transition','filter .6s ease, opacity .6s ease','important');
+        el.style.setProperty('filter','blur(0)','important');
+        el.style.setProperty('opacity','1','important');
       }, 30);
     });
     el.querySelectorAll('.reveal, .card, .vision-box, .blur-reveal').forEach(function(c){
       c.classList.add('visible');
       c.style.setProperty('opacity','1','important');
       c.style.setProperty('transform','none','important');
-      c.style.filter = 'blur(0)';
+      c.style.setProperty('filter','blur(0)','important');
     });
   }
   window.scrollTo({top:0, behavior:'smooth'});
@@ -137,9 +149,9 @@ function showHome(e){
   var poster = document.querySelector('.koinonia-poster');
   var countdown = document.querySelector('.koinonia-countdown');
   if(home) home.style.setProperty('display','block','important');
-  if(hero){ hero.style.setProperty('display','block','important'); hero.style.filter=''; hero.style.opacity=''; hero.style.transform=''; }
-  if(poster){ poster.style.setProperty('display','flex','important'); poster.style.filter=''; poster.style.opacity=''; }
-  if(countdown){ countdown.style.setProperty('display','flex','important'); countdown.style.filter=''; countdown.style.opacity=''; }
+  if(hero){ hero.style.setProperty('display','block','important'); clearBlur(hero); }
+  if(poster){ poster.style.setProperty('display','flex','important'); clearBlur(poster); }
+  if(countdown){ countdown.style.setProperty('display','flex','important'); clearBlur(countdown); }
   document.querySelectorAll('.page-section').forEach(function(s){
     s.classList.remove('active'); s.style.setProperty('display','none','important');
   });
@@ -177,7 +189,6 @@ window.addEventListener('popstate', function(ev){
   }
 });
 
-/* 1. NO QUIZ - BACK TO ENTRANCE CLEAN */
 function backToEntrance(){
   var s = document.getElementById('splash');
   if(s){
@@ -200,7 +211,6 @@ function toggleFAQ(){
 }
 function toggleAns(btn){ btn.classList.toggle('open'); }
 
-/* 1. NO QUESTION BEFORE ENTER - DIRECT ENTER */
 function handleEnter(){
   enterSite();
 }
@@ -221,52 +231,9 @@ setInterval(function(){
   }, 300);
 }, 2000);
 
-var io = new IntersectionObserver(function(entries){
-  entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); });
-}, {threshold: 0.1});
-document.querySelectorAll('#home-sections section, #home-sections .card').forEach(function(el){
-  el.classList.add('reveal'); io.observe(el);
-});
-
-/* ===== NEW: SCROLL BLUR - AS YOU SCROLL IT BLURS + DISAPPEARS IN ===== */
-var heroEl = document.querySelector('.hero');
-var posterEl = document.querySelector('.koinonia-poster');
-var countEl = document.querySelector('.koinonia-countdown');
-var ticking = false;
-function onScrollBlur(){
-  var y = window.scrollY || 0;
-  var p = Math.min(y / 300, 1);
-  if(heroEl){
-    heroEl.style.filter = 'blur(' + (p * 12) + 'px)';
-    heroEl.style.opacity = String(1 - p * 0.9);
-    heroEl.style.transform = 'translateY(' + (p * -30) + 'px) scale(' + (1 - p * 0.03) + ')';
-  }
-  if(posterEl){
-    var p2 = Math.min(y / 500, 1);
-    posterEl.style.filter = 'blur(' + (p2 * 10) + 'px)';
-    posterEl.style.opacity = String(1 - p2 * 0.9);
-  }
-  if(countEl){
-    var p3 = Math.min(Math.max((y - 200) / 300, 0), 1);
-    countEl.style.filter = 'blur(' + (p3 * 10) + 'px)';
-    countEl.style.opacity = String(1 - p3 * 0.9);
-  }
-  ticking = false;
-}
-window.addEventListener('scroll', function(){
-  if(!ticking){ requestAnimationFrame(onScrollBlur); ticking = true; }
-}, {passive:true});
-
-/* ===== NEW: SECTIONS BLUR-IN AS THEY COME INTO VIEW ===== */
-var blurIO = new IntersectionObserver(function(entries){
-  entries.forEach(function(e){
-    if(e.isIntersecting) e.target.classList.add('visible');
-  });
-},{threshold: 0.12});
-document.querySelectorAll('#home-sections section, #home-sections .card, #home-sections .give, #event-home .event').forEach(function(el){
-  el.classList.add('blur-reveal'); blurIO.observe(el);
-});
-
+/* ========================================================= */
+/* ===== MODIFICATION: BLUR - HERO NEVER BLURS ===== */
+/* ========================================================= */
 document.addEventListener('DOMContentLoaded', function(){
   var btn = document.getElementById('enterBtn');
   if(btn){
@@ -274,4 +241,58 @@ document.addEventListener('DOMContentLoaded', function(){
   }
   var v = document.getElementById('bg-video');
   if(v){ v.muted = true; v.play().catch(function(){}); }
+
+  var heroEl = document.querySelector('.hero');
+  var posterEl = document.querySelector('.koinonia-poster');
+  var countEl = document.querySelector('.koinonia-countdown');
+  console.log('BLUR CHECK - hero:', !!heroEl, 'poster:', !!posterEl, 'count:', !!countEl);
+
+  // MOD: Hero forced sharp on load - clears any old stuck blur from previous version
+  if(heroEl){
+    heroEl.style.setProperty('filter','blur(0)','important');
+    heroEl.style.setProperty('opacity','1','important');
+    heroEl.style.setProperty('transform','none','important');
+  }
+
+  var ticking = false;
+  function onScrollBlur(){
+    var y = window.scrollY || 0;
+    var splash = document.getElementById('splash');
+    var splashOpen = splash && getComputedStyle(splash).display !== 'none' && !splash.classList.contains('hide');
+    if(splashOpen){ ticking = false; return; }
+    /* MOD: HERO - NEVER BLUR - always sharp, no matter scroll */
+    if(heroEl){
+      heroEl.style.setProperty('filter','blur(0)','important');
+      heroEl.style.setProperty('opacity','1','important');
+      heroEl.style.setProperty('transform','none','important');
+    }
+    /* MOD: Poster + countdown - much lighter, never fully blurry */
+    if(posterEl){
+      var p2 = Math.min(y / 800, 1);
+      posterEl.style.setProperty('filter','blur(' + (p2 * 4) + 'px)','important');
+      posterEl.style.setProperty('opacity', String(1 - p2 * 0.3), 'important');
+    }
+    if(countEl){
+      var p3 = Math.min(Math.max((y - 400) / 400, 0), 1);
+      countEl.style.setProperty('filter','blur(' + (p3 * 4) + 'px)','important');
+      countEl.style.setProperty('opacity', String(1 - p3 * 0.3), 'important');
+    }
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ requestAnimationFrame(onScrollBlur); ticking = true; }
+  }, {passive:true});
+  onScrollBlur();
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, {threshold: 0.1});
+  /* MOD: Never add blur-reveal to .hero - hero is not in this list */
+  document.querySelectorAll('#home-sections section, #home-sections .card, #home-sections .give, #event-home .event').forEach(function(el){
+    el.classList.add('blur-reveal');
+    io.observe(el);
+  });
+  setTimeout(function(){
+    document.querySelectorAll('.blur-reveal').forEach(function(el){ el.classList.add('visible'); });
+  }, 2500);
 });

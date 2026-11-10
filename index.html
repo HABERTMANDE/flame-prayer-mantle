@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FLAME | Catch Fire, Rise As A Flame</title>
-<link rel="stylesheet" href="style.css?v=3">
+<link rel="stylesheet" href="style.css?v=6">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600;800&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
 <style>
   .page-section{display:none !important}
@@ -80,16 +80,19 @@
   @keyframes pageIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
   .koinonia-content h1{animation:wordUp .8s .1s both !important}
   .koinonia-content .k-theme{animation:wordUp .8s .3s both !important}
-  .reveal{opacity:0;transform:translateY(30px);transition:all .7s ease}
-  .reveal.visible{opacity:1;transform:translateY(0)}
   .rot-word{display:inline-block;color:#93c5fd;transition:opacity .3s}
-  /* ===== BLUR - MAIN PAGE - MUST BE LAST IN <style> SO IT BEATS ALL !important ABOVE ===== */
-  .hero, .koinonia-poster, .koinonia-countdown{ will-change:filter, opacity, transform !important; }
+  /* MODIFIED: .hero REMOVED from blur group - hero never blurs */
+  .koinonia-poster, .koinonia-countdown{ will-change:filter, opacity, transform !important; }
   .blur-reveal{ filter:blur(14px) !important; opacity:0 !important; transform:translateY(30px) scale(.98) !important; transition:filter .9s ease, opacity .9s ease, transform .9s ease !important; }
   .blur-reveal.visible{ filter:blur(0) !important; opacity:1 !important; transform:translateY(0) scale(1) !important; }
-  .page-section{ filter:blur(12px); opacity:0; visibility:hidden; }
   .page-section.active{ filter:blur(0) !important; opacity:1 !important; visibility:visible !important; }
   @media (prefers-reduced-motion: reduce){ .blur-reveal, .page-section{ filter:none !important; opacity:1 !important; transform:none !important; visibility:visible !important; } }
+  /* MODIFIED: HERO NEVER BLURRY - MUST BE VERY LAST IN THIS <style> */
+  .hero, .hero-inner, .hero h1, .hero h1 em, .hero .eyebrow, .hero p, .hero-btns, .hero .rot-word{
+    filter:none !important; -webkit-filter:none !important; backdrop-filter:none !important;
+    opacity:1 !important; transform:none !important;
+  }
+  .hero{ transition:none !important; will-change:auto !important; }
 </style>
 </head>
 <body>
@@ -299,9 +302,9 @@ function showPage(id){
   var home=document.getElementById('home-sections'); var hero=document.querySelector('.hero');
   var poster=document.querySelector('.koinonia-poster'); var countdown=document.querySelector('.koinonia-countdown');
   if(home) home.style.setProperty('display','none','important');
-  if(hero){ hero.style.setProperty('display','none','important'); hero.style.setProperty('filter','', 'important'); hero.style.setProperty('opacity','', 'important'); hero.style.setProperty('transform','', 'important'); }
-  if(poster){ poster.style.setProperty('display','none','important'); poster.style.setProperty('filter','', 'important'); poster.style.setProperty('opacity','', 'important'); }
-  if(countdown){ countdown.style.setProperty('display','none','important'); countdown.style.setProperty('filter','', 'important'); countdown.style.setProperty('opacity','', 'important'); }
+  if(hero){ hero.style.setProperty('display','none','important'); hero.style.removeProperty('filter'); hero.style.removeProperty('opacity'); hero.style.removeProperty('transform'); hero.style.setProperty('filter','blur(0)','important'); hero.style.setProperty('opacity','1','important'); hero.style.setProperty('transform','none','important'); }
+  if(poster){ poster.style.setProperty('display','none','important'); poster.style.removeProperty('filter'); poster.style.removeProperty('opacity'); }
+  if(countdown){ countdown.style.setProperty('display','none','important'); countdown.style.removeProperty('filter'); countdown.style.removeProperty('opacity'); }
   document.querySelectorAll('.page-section').forEach(function(s){ s.classList.remove('active'); s.style.setProperty('display','none','important'); });
   var el=document.getElementById(id);
   if(el){
@@ -317,9 +320,9 @@ function showHome(e){
   var home=document.getElementById('home-sections'); var hero=document.querySelector('.hero');
   var poster=document.querySelector('.koinonia-poster'); var countdown=document.querySelector('.koinonia-countdown');
   if(home) home.style.setProperty('display','block','important');
-  if(hero){ hero.style.setProperty('display','block','important'); hero.style.setProperty('filter','', 'important'); hero.style.setProperty('opacity','', 'important'); hero.style.setProperty('transform','', 'important'); }
-  if(poster){ poster.style.setProperty('display','flex','important'); poster.style.setProperty('filter','', 'important'); poster.style.setProperty('opacity','', 'important'); }
-  if(countdown){ countdown.style.setProperty('display','flex','important'); countdown.style.setProperty('filter','', 'important'); countdown.style.setProperty('opacity','', 'important'); }
+  if(hero){ hero.style.setProperty('display','block','important'); hero.style.removeProperty('filter'); hero.style.removeProperty('opacity'); hero.style.removeProperty('transform'); hero.style.setProperty('filter','blur(0)','important'); hero.style.setProperty('opacity','1','important'); hero.style.setProperty('transform','none','important'); }
+  if(poster){ poster.style.setProperty('display','flex','important'); poster.style.removeProperty('filter'); poster.style.removeProperty('opacity'); }
+  if(countdown){ countdown.style.setProperty('display','flex','important'); countdown.style.removeProperty('filter'); countdown.style.removeProperty('opacity'); }
   document.querySelectorAll('.page-section').forEach(function(s){ s.classList.remove('active'); s.style.setProperty('display','none','important'); });
   window.scrollTo({top:0,behavior:'smooth'});
   try{ history.pushState({page:'home'},'','#home'); }catch(e){}
@@ -391,48 +394,13 @@ setInterval(function(){
   el.style.opacity='0';
   setTimeout(function(){ rotI=(rotI+1)%rotWords.length; el.textContent=rotWords[rotI]; el.style.opacity='1'; },300);
 },2000);
+/* MODIFIED: .reveal REMOVED - only .blur-reveal now, no double-fight. Hero never gets blur-reveal. */
 var io=new IntersectionObserver(function(entries){
   entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); });
 },{threshold:0.1});
-document.querySelectorAll('#home-sections section, #home-sections .card').forEach(function(el){ el.classList.add('reveal'); io.observe(el); });
-
-/* ===== BLUR - MAIN PAGE - ADDED INSIDE SAME FILE SO IT ACTUALLY RUNS ===== */
-(function(){
-  var heroEl = document.querySelector('.hero');
-  var posterEl = document.querySelector('.koinonia-poster');
-  var countEl = document.querySelector('.koinonia-countdown');
-  console.log('BLUR CHECK - hero:', !!heroEl, 'poster:', !!posterEl, 'count:', !!countEl);
-  function onScrollBlur(){
-    var y = window.scrollY || 0;
-    var p = Math.min(y / 300, 1);
-    if(heroEl){
-      heroEl.style.setProperty('filter','blur('+(p*12)+'px)','important');
-      heroEl.style.setProperty('opacity', String(1 - p*0.9), 'important');
-      heroEl.style.setProperty('transform','translateY('+(p*-30)+'px) scale('+(1-p*0.03)+')','important');
-    }
-    if(posterEl){
-      var p2 = Math.min(y / 500, 1);
-      posterEl.style.setProperty('filter','blur('+(p2*10)+'px)','important');
-      posterEl.style.setProperty('opacity', String(1 - p2*0.9), 'important');
-    }
-    if(countEl){
-      var p3 = Math.min(Math.max((y-200)/300,0),1);
-      countEl.style.setProperty('filter','blur('+(p3*10)+'px)','important');
-      countEl.style.setProperty('opacity', String(1 - p3*0.9), 'important');
-    }
-  }
-  window.addEventListener('scroll', onScrollBlur, {passive:true});
-  onScrollBlur();
-  var blurIO = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); });
-  },{threshold:0.12});
-  document.querySelectorAll('#home-sections section, #home-sections .card, #home-sections .give').forEach(function(el){
-    el.classList.add('blur-reveal'); blurIO.observe(el);
-  });
-  setTimeout(function(){
-    document.querySelectorAll('.blur-reveal').forEach(function(el){ el.classList.add('visible'); });
-  }, 2500);
-})();
+document.querySelectorAll('#home-sections section, #home-sections .card').forEach(function(el){ el.classList.add('blur-reveal'); io.observe(el); });
+/* MODIFIED: DUPLICATE BLUR BLOCK DELETED - blur lives ONLY in script.js now. No second hero blur. */
 </script>
+<script src="script.js?v=6"></script>
 </body>
 </html>
