@@ -84,7 +84,9 @@ footer b{color:#fff;letter-spacing:3px}
 .watch-card div{padding:20px}
 .watch-card h3{font-size:17px;margin-bottom:6px}
 .watch-card p{color:#aaa;font-size:13px;line-height:1.6}
-.watch-card video{width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:#000;display:block}
+.watch-card video{width:100% !important;height:auto !important;min-height:340px !important;aspect-ratio:auto !important;object-fit:cover !important;background:#000;display:block}
+.video-wrap{width:100% !important}
+.watch-card{width:100% !important}
 /* FIX 6 - VIDEO WRAP + AUDIO BUTTONS */
 .video-wrap{position:relative !important;background:#000 !important}
 .video-btns{display:flex !important;gap:8px !important;padding:10px !important;background:#000 !important}
