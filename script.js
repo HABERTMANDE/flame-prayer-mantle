@@ -15,7 +15,7 @@ if(document.getElementById('splash')){
   document.body.style.overflow = 'hidden';
 }
 
-// === NEW - SUN / MOON THEME TOGGLE ===
+// === SUN / MOON THEME ===
 function toggleTheme(){
   document.body.classList.toggle('light-mode');
   var b = document.getElementById('themeBtn');
@@ -42,7 +42,7 @@ function sendSaved(){
   window.open("https://wa.me/254795155158?text=" + msg, "_blank");
 }
 
-// === FIXED - COUNTDOWN - UPDATES BOTH BARS - DAYS TO SECONDS ===
+// === COUNTDOWN - TOP + NAIROBI - DAYS TO SECS ===
 function updateCountdown(){
   var target = new Date("2027-02-06T10:00:00+03:00").getTime();
   var now = new Date().getTime();
@@ -52,8 +52,6 @@ function updateCountdown(){
   var h = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
   var m = Math.floor((diff % (1000*60*60)) / (1000*60));
   var s = Math.floor((diff % (1000*60)) / 1000);
-
-  // Main countdown in NAIROBI page
   var elD = document.getElementById('cd-days');
   if(elD){
     elD.textContent = d;
@@ -61,14 +59,10 @@ function updateCountdown(){
     var mEl = document.getElementById('cd-mins'); if(mEl) mEl.textContent = m;
     var sEl = document.getElementById('cd-secs'); if(sEl) sEl.textContent = s;
   }
-
-  // Top Koinonia bar - NEW DAYS/HRS/MINS/SECS
   var td = document.getElementById('cd-top-days'); if(td) td.textContent = d;
   var th = document.getElementById('cd-top-hours'); if(th) th.textContent = h;
   var tm = document.getElementById('cd-top-mins'); if(tm) tm.textContent = m;
   var ts = document.getElementById('cd-top-secs'); if(ts) ts.textContent = s;
-
-  // Backwards compat - old single days id
   var old = document.getElementById('cd-days-top'); if(old) old.textContent = d;
 }
 setInterval(updateCountdown, 1000);
@@ -89,21 +83,36 @@ function closeMenu(){
 function goHome(e){
   if(e){ e.preventDefault(); }
   var splash = document.getElementById('splash');
-  if(splash){
-    splash.classList.add('hide');
-    splash.style.display = 'none';
-  }
+  if(splash){ splash.classList.add('hide'); splash.style.display = 'none'; }
   document.body.style.overflow = 'auto';
   window.scrollTo({top:0, behavior:'smooth'});
 }
+
+/* === 3. FIXED - MAIN MENU -> NEXT STEPS - FORCES DISPLAY === */
 function showPage(id){
   var home = document.getElementById('home-sections');
   var hero = document.querySelector('.hero');
+  var poster = document.querySelector('.koinonia-poster');
+  var countdown = document.querySelector('.koinonia-countdown');
   if(home) home.style.display = 'none';
   if(hero) hero.style.display = 'none';
-  document.querySelectorAll('.page-section').forEach(function(s){ s.classList.remove('active'); });
+  if(poster) poster.style.display = 'none';
+  if(countdown) countdown.style.display = 'none';
+  document.querySelectorAll('.page-section').forEach(function(s){
+    s.classList.remove('active');
+    s.style.display = 'none';
+  });
   var el = document.getElementById(id);
-  if(el){ el.classList.add('active'); }
+  if(el){
+    el.classList.add('active');
+    el.style.display = 'block';
+    // Force cards visible - kills the empty bug
+    el.querySelectorAll('.reveal, .card, .vision-box').forEach(function(c){
+      c.classList.add('visible');
+      c.style.opacity = '1';
+      c.style.transform = 'none';
+    });
+  }
   window.scrollTo({top:0, behavior:'smooth'});
   try{ history.pushState({page:id}, '', '#'+id); }catch(e){}
 }
@@ -111,34 +120,54 @@ function showHome(e){
   if(e) e.preventDefault();
   var home = document.getElementById('home-sections');
   var hero = document.querySelector('.hero');
+  var poster = document.querySelector('.koinonia-poster');
+  var countdown = document.querySelector('.koinonia-countdown');
   if(home) home.style.display = 'block';
   if(hero) hero.style.display = 'block';
-  document.querySelectorAll('.page-section').forEach(function(s){ s.classList.remove('active'); });
+  if(poster) poster.style.display = 'flex';
+  if(countdown) countdown.style.display = 'flex';
+  document.querySelectorAll('.page-section').forEach(function(s){
+    s.classList.remove('active'); s.style.display = 'none';
+  });
   window.scrollTo({top:0, behavior:'smooth'});
   try{ history.pushState({page:'home'}, '', '#home'); }catch(e){}
 }
 window.addEventListener('popstate', function(ev){
   var home = document.getElementById('home-sections');
   var hero = document.querySelector('.hero');
+  var poster = document.querySelector('.koinonia-poster');
+  var countdown = document.querySelector('.koinonia-countdown');
   if(ev.state && ev.state.page && ev.state.page !== 'home'){
     if(home) home.style.display = 'none';
     if(hero) hero.style.display = 'none';
-    document.querySelectorAll('.page-section').forEach(function(s){ s.classList.remove('active'); });
+    if(poster) poster.style.display = 'none';
+    if(countdown) countdown.style.display = 'none';
+    document.querySelectorAll('.page-section').forEach(function(s){
+      s.classList.remove('active'); s.style.display = 'none';
+    });
     var el = document.getElementById(ev.state.page);
-    if(el) el.classList.add('active');
+    if(el){
+      el.classList.add('active'); el.style.display = 'block';
+      el.querySelectorAll('.reveal, .card').forEach(function(c){
+        c.classList.add('visible'); c.style.opacity = '1'; c.style.transform = 'none';
+      });
+    }
   } else {
     if(home) home.style.display = 'block';
     if(hero) hero.style.display = 'block';
-    document.querySelectorAll('.page-section').forEach(function(s){ s.classList.remove('active'); });
+    if(poster) poster.style.display = 'flex';
+    if(countdown) countdown.style.display = 'flex';
+    document.querySelectorAll('.page-section').forEach(function(s){
+      s.classList.remove('active'); s.style.display = 'none';
+    });
   }
 });
+
+/* 1. NO QUIZ - BACK TO ENTRANCE CLEAN */
 function backToEntrance(){
   var s = document.getElementById('splash');
   if(s){ s.classList.remove('hide'); s.style.display = 'flex'; s.style.opacity = '1'; s.style.visibility = 'visible'; }
-  var quiz = document.getElementById('quiz-box'); if(quiz) quiz.style.display = 'none';
   var btn = document.getElementById('enterBtn'); if(btn){ btn.style.display = ''; btn.textContent = 'ENTER'; }
-  var msg = document.getElementById('quiz-msg'); if(msg) msg.textContent = '';
-  document.querySelectorAll('.quiz-opt').forEach(function(o){ o.classList.remove('correct','wrong'); });
   document.body.style.overflow = 'hidden';
   window.scrollTo(0,0);
 }
@@ -150,51 +179,35 @@ function toggleFAQ(){
   if(b) b.style.display = isOpen ? 'none' : 'block';
 }
 function toggleAns(btn){ btn.classList.toggle('open'); }
+
+/* 1. NO QUESTION BEFORE ENTER - DIRECT ENTER */
 function handleEnter(){
-  var enterBtn = document.getElementById('enterBtn');
-  var quizBox = document.getElementById('quiz-box');
-  if(!quizBox) { enterSite(); return; }
-  if(quizBox.style.display === 'none' || quizBox.style.display === ''){
-    quizBox.style.display = 'block';
-    quizBox.style.opacity = '1';
-    if(enterBtn) enterBtn.textContent = 'ANSWER TO ENTER ↓';
-  }
+  enterSite();
 }
-function showQuiz(){
-  handleEnter();
-}
-function checkAnswer(btn, isCorrect){
-  var msg = document.getElementById('quiz-msg');
-  var quizBox = document.getElementById('quiz-box');
-  if(!msg || !quizBox){ return; }
-  document.querySelectorAll('.quiz-opt').forEach(function(o){
-    o.classList.remove('correct','wrong');
-  });
-  if(isCorrect){
-    btn.classList.add('correct');
-    msg.textContent = '✅ CORRECT! The fire never goes out! Entering... 🔥';
-    msg.className = 'ok';
-    setTimeout(function(){
-      var splash = document.getElementById('splash');
-      if(splash){
-        splash.classList.add('hide');
-        splash.style.opacity = '0';
-        splash.style.visibility = 'hidden';
-        splash.style.display = 'none';
-      }
-      document.body.style.overflow = 'auto';
-      document.body.style.overflowY = 'auto';
-      window.scrollTo(0,0);
-    }, 900);
-  } else {
-    btn.classList.add('wrong');
-    msg.textContent = '❌ Not quite... Try again! Hint: The fire never goes out.';
-    msg.className = 'bad';
-    quizBox.classList.remove('shake');
-    void quizBox.offsetWidth;
-    quizBox.classList.add('shake');
-  }
-}
+function showQuiz(){ handleEnter(); }
+function checkAnswer(){ handleEnter(); }
+
+/* 2. WORD ANIMATIONS - 2819.COM STYLE */
+var rotWords = ['Flame.','Light.','Fire.','Voice.'];
+var rotI = 0;
+setInterval(function(){
+  var el = document.getElementById('rotWord');
+  if(!el) return;
+  el.style.opacity = '0';
+  setTimeout(function(){
+    rotI = (rotI + 1) % rotWords.length;
+    el.textContent = rotWords[rotI];
+    el.style.opacity = '1';
+  }, 300);
+}, 2000);
+
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); });
+}, {threshold: 0.1});
+document.querySelectorAll('#home-sections section, #home-sections .card').forEach(function(el){
+  el.classList.add('reveal'); io.observe(el);
+});
+
 document.addEventListener('DOMContentLoaded', function(){
   var btn = document.getElementById('enterBtn');
   if(btn){ btn.addEventListener('click', handleEnter); }

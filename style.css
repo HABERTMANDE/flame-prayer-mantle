@@ -8,9 +8,9 @@ a{text-decoration:none;color:inherit}
 #splash.hide{opacity:0;visibility:hidden}
 .splash-inner{position:relative;z-index:2;padding:20px;width:100%;display:flex;flex-direction:column;align-items:center;gap:18px}
 
-/* === VERSE - WHITE - NO GOLD - FIXED === */
+/* VERSE - WHITE - NO GOLD */
 .splash-verse{position:static;width:88%;max-width:340px;font-family:'Playfair Display',serif;font-style:italic;color:#FFFFFF !important;font-size:19px;font-weight:600;line-height:1.6;text-align:center;text-shadow:0 2px 12px rgba(0,0,0,0.7) !important;background:linear-gradient(180deg,rgba(0,0,0,.65),rgba(0,0,0,.35));border:1px solid rgba(255,255,255,0.4) !important;padding:14px 18px;border-radius:16px;z-index:5;box-shadow:none !important;animation:none !important;order:3;margin-top:18px}
-.splash-verse *, .verse, .scripture p, .quiz-q em{color:#FFFFFF !important;text-shadow:0 2px 12px rgba(0,0,0,0.7) !important}
+.splash-verse *, .verse, .scripture p{color:#FFFFFF !important;text-shadow:0 2px 12px rgba(0,0,0,0.7) !important}
 #bg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;background:#000;z-index:0;opacity:1}
 #splash-img{position:absolute !important;inset:0 !important;width:100% !important;height:100% !important;object-fit:cover !important;object-position:center top !important;background:#000 !important;z-index:0 !important;opacity:1 !important;display:block !important}
 .splash-blue-overlay{position:absolute !important;inset:0 !important;z-index:1 !important;background:linear-gradient(180deg, rgba(37,99,235,0.85) 0%, rgba(37,99,235,0.65) 45%, rgba(0,0,0,0.85) 100%) !important;pointer-events:none !important}
@@ -98,26 +98,7 @@ footer b{color:#fff;letter-spacing:3px}
   .nav-links a{font-size:16px;padding:8px}
 }
 html{scroll-behavior:smooth}
-#quiz-box{background:linear-gradient(180deg,rgba(0,0,0,.78),rgba(0,0,0,.55));border:1px solid rgba(37,99,235,.6);border-radius:18px;padding:20px;width:92%;max-width:380px;text-align:center;box-shadow:0 0 30px rgba(37,99,235,.35);order:2}
-.quiz-tag{color:#93c5fd;font-size:11px;font-weight:800;letter-spacing:3px;margin-bottom:12px}
-.quiz-q{color:#fff;font-size:15px;line-height:1.6}
-.quiz-q em{font-family:'Playfair Display',serif;color:#FFFFFF !important;font-size:16px}
-.quiz-options{display:flex;flex-direction:column;gap:10px;margin-top:16px}
-.quiz-opt{background:#111;border:1px solid #333;color:#fff;padding:13px;border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;text-align:left}
-.quiz-opt:hover{border-color:#2563EB;background:#0a1a3a}
-.quiz-opt.correct{background:#0a7a2a;border-color:#2aff7a;color:#fff}
-.quiz-opt.wrong{background:#7a0a0a;border-color:#ff3b3b;color:#fff}
-#quiz-msg{font-size:13px;font-weight:800;margin-top:12px;min-height:18px}
-#quiz-msg.ok{color:#2aff7a}
-#quiz-msg.bad{color:#ff3b3b}
-.shake{animation:shake .4s}
-@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
-@media(max-width:600px){
-  #quiz-box{padding:16px}
-  .quiz-q{font-size:14px}
-  .quiz-opt{padding:11px;font-size:13px}
-  #splash{overflow-y:auto;justify-content:flex-start;padding-top:30px}
-}
+/* 1. QUIZ DELETED - NO MORE #quiz-box, .quiz-opt, #quiz-msg */
 .splash-brand{position:relative;z-index:2;font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(72px,22vw,140px);line-height:1;color:#fff;text-shadow:0 4px 30px rgba(0,0,0,.6);letter-spacing:2px;margin-top:-20px}
 .splash-sub{position:relative;z-index:2;letter-spacing:6px;font-size:11px;font-weight:800;color:#fff;opacity:.9;margin-bottom:22px}
 .help-wrap{position:absolute;bottom:28px;left:20px;right:20px;z-index:5;display:flex;align-items:center;gap:12px}
@@ -135,15 +116,12 @@ html{scroll-behavior:smooth}
 .faq-item .faq-ans{display:none;font-weight:400;color:#333;font-size:14px;line-height:1.6;margin-top:8px}
 .faq-item.open .faq-ans{display:block}
 .faq-close-bottom{width:64px;height:64px;border-radius:50%;background:#2563EB;color:#fff;border:none;font-size:26px;margin:16px auto 10px;cursor:pointer}
-.page-section{display:none !important}
+/* 3. NEXT STEPS - PAGE SECTION - JS FORCES display:block, CSS MUST NOT FIGHT IT */
+.page-section{display:none}
 .page-section.active{display:block !important}
 .menu-link{cursor:pointer}
 
-/* ========================================================= */
-/* ===== 3 ENQUIRIES - CLEAN - ONLY ONCE - VERY LAST ===== */
-/* ========================================================= */
-
-/* 1. KOINONIA POSTER + COUNTDOWN */
+/* KOINONIA POSTER + COUNTDOWN */
 .koinonia-poster{position:relative !important;width:100% !important;min-height:520px !important;max-width:1100px !important;margin:auto !important;overflow:hidden !important;background:#000 !important;display:flex !important;align-items:flex-end !important}
 .koinonia-poster img{position:absolute !important;inset:0 !important;width:100% !important;height:100% !important;object-fit:cover !important;object-position:center top !important}
 .koinonia-poster .k-overlay{position:absolute !important;inset:0 !important;background:linear-gradient(180deg, rgba(37,99,235,0.55) 0%, rgba(37,99,235,0.35) 40%, rgba(0,0,0,0.85) 100%) !important;z-index:1 !important}
@@ -157,10 +135,6 @@ html{scroll-behavior:smooth}
 .koinonia-countdown{background:#000 !important;color:#fff !important;display:flex !important;align-items:center !important;gap:14px !important;padding:18px 16px !important;border-top:1px solid #222 !important;border-bottom:1px solid #222 !important;max-width:1100px !important;margin:auto !important;flex-wrap:wrap !important}
 .koinonia-countdown .c-icon{font-size:36px !important}
 .koinonia-countdown h3{font-size:19px !important;letter-spacing:1px !important;margin:2px 0 !important}
-.koinonia-countdown .c-nums{margin-left:auto !important;text-align:center !important}
-.koinonia-countdown .c-nums b{display:block !important;font-size:22px !important;color:#fff !important}
-
-/* FULL COUNTDOWN - DAYS TO SECONDS - NEW */
 .c-timer{margin-left:auto !important;display:flex !important;gap:8px !important;text-align:center !important}
 .c-timer div{background:#111 !important;border:1px solid #2563EB !important;border-radius:10px !important;min-width:52px !important;padding:8px 6px !important}
 .c-timer b{display:block !important;font-size:20px !important;line-height:1 !important;color:#fff !important;font-family:'Anton',sans-serif !important}
@@ -168,7 +142,7 @@ html{scroll-behavior:smooth}
 body.light-mode .c-timer div{background:#eee !important;border-color:#ddd !important}
 body.light-mode .c-timer b{color:#000 !important}
 
-/* 2. SUN + LIGHT MODE */
+/* SUN + LIGHT MODE */
 .theme-btn{width:46px !important;height:46px !important;min-width:46px !important;border-radius:50% !important;background:#1a1a1a !important;color:#fff !important;border:none !important;font-size:22px !important;cursor:pointer !important;display:flex !important;align-items:center !important;justify-content:center !important}
 body.light-mode{background:#fff !important;color:#000 !important}
 body.light-mode nav,body.light-mode .hero,body.light-mode .koinonia-countdown,body.light-mode section,body.light-mode .card,body.light-mode .vision-box{background:#fff !important;color:#000 !important;border-color:#eee !important}
@@ -176,6 +150,27 @@ body.light-mode .koinonia-countdown h3,body.light-mode .koinonia-countdown p,bod
 body.light-mode .theme-btn{background:#eee !important;color:#000 !important}
 body.light-mode .hero p,body.light-mode .lead,body.light-mode .card p{color:#333 !important}
 
-/* 3. VERSE WHITE - FINAL OVERRIDE */
+/* VERSE WHITE - FINAL */
 .splash-verse{color:#FFFFFF !important;border:1px solid rgba(255,255,255,0.4) !important;background:linear-gradient(180deg,rgba(0,0,0,0.65),rgba(0,0,0,0.35)) !important;text-shadow:0 2px 12px rgba(0,0,0,0.7) !important;box-shadow:none !important;animation:none !important}
-.splash-verse *, .quiz-q em{color:#FFFFFF !important}
+.splash-verse *{color:#FFFFFF !important}
+
+/* ========================================================= */
+/* ===== 2. WORD ANIMATIONS - 2819.COM STYLE - VERY LAST ===== */
+/* ========================================================= */
+.hero h1, .hero .eyebrow, .hero p, .hero-btns{animation:wordUp .8s cubic-bezier(.2,.8,.2,1) both !important}
+.hero .eyebrow{animation-delay:.1s}
+.hero h1{animation-delay:.2s}
+.hero p{animation-delay:.4s}
+.hero-btns{animation-delay:.6s}
+@keyframes wordUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+.page-section{animation:pageIn .6s ease both}
+@keyframes pageIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.koinonia-content h1{animation:wordUp .8s .1s both !important}
+.koinonia-content .k-theme{animation:wordUp .8s .3s both !important}
+.koinonia-content .k-small{animation:wordUp .8s both !important}
+/* Scroll reveal - only home, JS will force visible on page-sections */
+.reveal{opacity:0;transform:translateY(30px);transition:all .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.rot-word{display:inline-block;color:#93c5fd;transition:opacity .3s}
+/* 3. SAFETY - If JS forces visible, never hide again */
+.page-section.active .card, .page-section.active .vision-box{opacity:1 !important;transform:none !important}
