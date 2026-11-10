@@ -57,15 +57,22 @@
   .k-bottom{display:flex !important;justify-content:space-between !important;align-items:flex-end !important;text-align:left !important;margin-top:12px !important;font-size:13px !important;line-height:1.5 !important}
   .k-date{text-align:right !important}
   .k-time-red{background:#E60000 !important;color:#fff !important;font-weight:900 !important;padding:4px 8px !important;margin-top:4px !important;font-size:13px !important;display:inline-block !important}
-  .koinonia-countdown{background:#000 !important;color:#fff !important;display:flex !important;align-items:center !important;gap:14px !important;padding:18px 16px !important;border-top:1px solid #222 !important;border-bottom:1px solid #222 !important}
+  .koinonia-countdown{background:#000 !important;color:#fff !important;display:flex !important;align-items:center !important;gap:14px !important;padding:18px 16px !important;border-top:1px solid #222 !important;border-bottom:1px solid #222 !important;flex-wrap:wrap !important}
   .koinonia-countdown .c-icon{font-size:36px !important}
   .koinonia-countdown h3{font-size:19px !important;letter-spacing:1px !important;margin:2px 0 !important}
   .koinonia-countdown .c-nums{margin-left:auto !important;text-align:center !important}
   .koinonia-countdown .c-nums b{display:block !important;font-size:22px !important;color:#fff !important}
+  /* FIXED - FULL TIMER BOXES */
+  .c-timer{margin-left:auto !important;display:flex !important;gap:8px !important;text-align:center !important}
+  .c-timer div{background:#111 !important;border:1px solid #2563EB !important;border-radius:10px !important;min-width:52px !important;padding:8px 6px !important}
+  .c-timer b{display:block !important;font-size:20px !important;line-height:1 !important;color:#fff !important;font-family:'Anton',sans-serif !important}
+  .c-timer span{font-size:9px !important;letter-spacing:1px !important;color:#93c5fd !important;font-weight:800 !important}
   body.light-mode{background:#fff !important;color:#000 !important}
   body.light-mode nav,body.light-mode .hero,body.light-mode .koinonia-countdown{background:#fff !important;color:#000 !important}
   body.light-mode .koinonia-countdown h3,body.light-mode .koinonia-countdown p{color:#000 !important}
   body.light-mode .theme-btn{background:#eee !important;color:#000 !important}
+  body.light-mode .c-timer div{background:#eee !important;border-color:#ddd !important}
+  body.light-mode .c-timer b{color:#000 !important}
   .verse,.scripture,.verse-text,blockquote{color:#FFFFFF !important}
 </style>
 </head>
@@ -133,9 +140,9 @@
   </div>
 </nav>
 
-<!-- ===== ONLY ONE POSTER + ONE COUNTDOWN - FIXED ===== -->
+<!-- ===== FIXED - SPLASH BG RETAINED + ONE COUNTDOWN - NO EXTRA </section> ===== -->
 <section class="koinonia-poster">
-  <img src="images/flame-nairobi-poster.jpeg" alt="FLAME Nairobi">
+  <img src="images/habert-singing.jpg" alt="FLAME Nairobi">
   <div class="k-overlay"></div>
   <div class="koinonia-content">
     <p class="k-small">THE</p>
@@ -159,10 +166,6 @@
     <div><b id="cd-top-mins">0</b><span>MINS</span></div>
     <div><b id="cd-top-secs">0</b><span>SECS</span></div>
   </div>
-</section>
-  <div class="c-icon">⏳</div>
-  <div><p style="font-size:11px;letter-spacing:2px;margin:0">THE</p><h3>FLAME MANTLE</h3><p style="font-size:11px;letter-spacing:2px;margin:0">BEGINS IN</p></div>
-  <div class="c-nums"><b id="cd-days-top">0</b><span style="font-size:10px">DAYS</span></div>
 </section>
 
 <header class="hero">
@@ -325,7 +328,7 @@ window.addEventListener('popstate',function(ev){
     document.querySelectorAll('.page-section').forEach(s=>s.classList.remove('active'));
     var el=document.getElementById(ev.state.page); if(el) el.classList.add('active');
   } else {
-    if(home) home.style.display='block'; if(hero) hero.style.display='block';
+    if(home) home.style.display='block'; if(hero) home.style.display='block';
     document.querySelectorAll('.page-section').forEach(s=>s.classList.remove('active'));
   }
 });
@@ -352,16 +355,21 @@ function sendPrayer(){
   var msg='Hello FLAME, I need prayer.%0AName: '+encodeURIComponent(n)+'%0APhone: '+encodeURIComponent(ph)+'%0ARequest: '+encodeURIComponent(r);
   window.open('https://wa.me/254795155158?text='+msg,'_blank');
 }
+/* FIXED - TIMER UPDATES BOTH TOP + NAIROBI */
 function startCountdown(){
   var target=new Date('2027-02-06T10:00:00+03:00').getTime();
   function tick(){
     var now=Date.now(); var d=target-now; if(d<0) d=0;
     var days=Math.floor(d/86400000); var hrs=Math.floor(d%86400000/3600000); var mins=Math.floor(d%3600000/60000); var secs=Math.floor(d%60000/1000);
+    var td=document.getElementById('cd-top-days'); if(td) td.textContent=days;
+    var th=document.getElementById('cd-top-hours'); if(th) th.textContent=hrs;
+    var tm=document.getElementById('cd-top-mins'); if(tm) tm.textContent=mins;
+    var ts=document.getElementById('cd-top-secs'); if(ts) ts.textContent=secs;
     var a=document.getElementById('cd-days'); if(a) a.textContent=days;
     var b=document.getElementById('cd-hours'); if(b) b.textContent=hrs;
     var c=document.getElementById('cd-mins'); if(c) c.textContent=mins;
     var e=document.getElementById('cd-secs'); if(e) e.textContent=secs;
-    var t=document.getElementById('cd-days-top'); if(t) t.textContent=days;
+    var old=document.getElementById('cd-days-top'); if(old) old.textContent=days;
   }
   tick(); setInterval(tick,1000);
 }
