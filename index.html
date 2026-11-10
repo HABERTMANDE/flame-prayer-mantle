@@ -22,7 +22,8 @@
   .splash-sub{position:relative !important;z-index:2 !important;letter-spacing:6px !important;font-size:11px !important;font-weight:800 !important;color:#fff !important;opacity:.9 !important;margin-bottom:22px !important}
   .splash-inner{position:relative !important;z-index:2 !important}
   .btn-enter{background:#1e3cff !important;background-color:#1e3cff !important;border:1px solid #fff !important;color:#fff !important;padding:16px 70px !important;letter-spacing:6px !important;font-size:15px !important;font-weight:800 !important;border-radius:2px !important;box-shadow:none !important;cursor:pointer !important}
-  .splash-verse{margin-top:18px !important}
+  /* === 3. YELLOW -> WHITE - VERSE === */
+  .splash-verse{margin-top:18px !important;color:#FFFFFF !important;font-family:'Playfair Display',serif !important;font-style:italic !important;font-size:19px !important;line-height:1.4 !important;text-shadow:0 2px 12px rgba(0,0,0,0.7) !important}
   .help-wrap{position:absolute !important;bottom:28px !important;left:20px !important;right:20px !important;z-index:5 !important;display:flex !important;align-items:center !important;gap:12px !important}
   .help-btn{position:static !important;width:64px !important;height:64px !important;min-width:64px !important;border-radius:50% !important;background:#2563EB !important;background-color:#2563EB !important;border:none !important;font-size:38px !important;box-shadow:0 0 25px rgba(37,99,235,.8) !important;display:flex !important;align-items:center !important;justify-content:center !important}
   .help-bubble{background:#fff !important;color:#000 !important;padding:14px 18px !important;border-radius:14px !important;font-size:17px !important;font-weight:500 !important;max-width:260px !important;text-align:center !important;cursor:pointer !important;box-shadow:0 8px 30px rgba(0,0,0,.4) !important}
@@ -50,6 +51,34 @@
   .menu-btn.open span:nth-child(2){opacity:0 !important;transform:scaleX(0) !important}
   .menu-btn.open span:nth-child(3){transform:translateY(-9px) rotate(-45deg) !important}
   @media(max-width:850px){.menu-btn{display:flex !important}}
+
+  /* ===== 1+2+3 COMBINED - KOINONIA ARRANGEMENT + SUN + WHITE ===== */
+  /* 2. SUN BUTTON LIKE KOINONIA */
+  .theme-btn{width:46px !important;height:46px !important;min-width:46px !important;border-radius:50% !important;background:#1a1a1a !important;color:#fff !important;border:none !important;font-size:22px !important;cursor:pointer !important;display:flex !important;align-items:center !important;justify-content:center !important}
+  /* 1. KOINONIA POSTER ARRANGEMENT */
+  .koinonia-poster{position:relative !important;width:100% !important;min-height:520px !important;overflow:hidden !important;background:#000 !important;display:flex !important;align-items:flex-end !important}
+  .koinonia-poster img{position:absolute !important;inset:0 !important;width:100% !important;height:100% !important;object-fit:cover !important;object-position:center top !important}
+  .koinonia-poster .k-overlay{position:absolute !important;inset:0 !important;background:linear-gradient(180deg, rgba(37,99,235,0.55) 0%, rgba(37,99,235,0.35) 40%, rgba(0,0,0,0.85) 100%) !important;z-index:1 !important}
+  .koinonia-content{position:relative !important;z-index:2 !important;width:100% !important;color:#fff !important;text-align:center !important;padding:20px 16px 16px !important}
+  .koinonia-content .k-small{letter-spacing:4px !important;font-size:11px !important;font-weight:800 !important}
+  .koinonia-content h1{font-family:'Playfair Display',serif !important;font-style:italic !important;font-size:34px !important;line-height:1 !important;margin:6px 0 !important}
+  .koinonia-content .k-theme{font-family:'Anton',sans-serif !important;font-size:46px !important;line-height:0.95 !important;letter-spacing:1px !important;margin:8px 0 !important;text-shadow:0 4px 20px rgba(0,0,0,0.8) !important}
+  .k-bottom{display:flex !important;justify-content:space-between !important;align-items:flex-end !important;text-align:left !important;margin-top:12px !important;font-size:13px !important;line-height:1.5 !important}
+  .k-date{text-align:right !important}
+  .k-time-red{background:#E60000 !important;color:#fff !important;font-weight:900 !important;padding:4px 8px !important;margin-top:4px !important;font-size:13px !important;display:inline-block !important}
+  /* 1. KOINONIA COUNTDOWN BAR */
+  .koinonia-countdown{background:#000 !important;color:#fff !important;display:flex !important;align-items:center !important;gap:14px !important;padding:18px 16px !important;border-top:1px solid #222 !important;border-bottom:1px solid #222 !important}
+  .koinonia-countdown .c-icon{font-size:36px !important}
+  .koinonia-countdown h3{font-size:19px !important;letter-spacing:1px !important;margin:2px 0 !important}
+  .koinonia-countdown .c-nums{margin-left:auto !important;text-align:center !important}
+  .koinonia-countdown .c-nums b{display:block !important;font-size:22px !important;color:#fff !important}
+  /* 2. LIGHT MODE */
+  body.light-mode{background:#fff !important;color:#000 !important}
+  body.light-mode nav,body.light-mode .hero,body.light-mode .koinonia-countdown{background:#fff !important;color:#000 !important}
+  body.light-mode .koinonia-countdown h3,body.light-mode .koinonia-countdown p{color:#000 !important}
+  body.light-mode .theme-btn{background:#eee !important;color:#000 !important}
+  /* 3. KILL ALL YELLOW/GOLD -> WHITE */
+  .verse,.scripture,.verse-text,blockquote{color:#FFFFFF !important}
 </style>
 </head>
 <body>
@@ -100,7 +129,7 @@
   </div>
 </div>
 
-<!-- NAV -->
+<!-- NAV - NOW WITH SUN BUTTON -->
 <nav>
   <a href="index.html" class="logo" onclick="showHome(event)">FLAME<span>PRAYER MANTLE</span></a>
   <div class="nav-links" id="navLinks">
@@ -113,9 +142,33 @@
   </div>
   <div style="display:flex;gap:10px;align-items:center">
     <a class="btn" href="#give" onclick="showHome(event)" style="background:#2563EB">GIVE</a>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" aria-label="Theme">☀️</button>
     <button class="menu-btn" id="menuBtn" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
+
+<!-- ===== 1. KOINONIA ARRANGEMENT - POSTER + COUNTDOWN ===== -->
+<section class="koinonia-poster">
+  <img src="images/habert-singing.jpg" alt="FLAME Nairobi">
+  <div class="k-overlay"></div>
+  <div class="koinonia-content">
+    <p class="k-small">THE</p>
+    <h1>FLAME PRAYER MANTLE</h1>
+    <p class="k-small">— THEME —</p>
+    <h2 class="k-theme">MORE THAN<br>CONQUERORS</h2>
+    <p class="k-small">— ROMANS 8:37 —</p>
+    <div class="k-bottom">
+      <div>📍 FLAME NAIROBI<br><span style="opacity:.8">Nairobi, Kenya</span></div>
+      <div class="k-date"><b>6TH SATURDAY<br>FEBRUARY</b><br>2027<br><span class="k-time-red">10:00AM - 3:00PM</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="koinonia-countdown">
+  <div class="c-icon">⏳</div>
+  <div><p style="font-size:11px;letter-spacing:2px;margin:0">THE</p><h3>FLAME MANTLE</h3><p style="font-size:11px;letter-spacing:2px;margin:0">BEGINS IN</p></div>
+  <div class="c-nums"><b id="cd-days-top">0</b><span style="font-size:10px">DAYS</span></div>
+</section>
 
 <!-- HERO - NO POSTER -->
 <header class="hero">
@@ -229,6 +282,11 @@
 
 <script>
 /* === ALL FUNCTIONS IN ONE PLACE - NO script.js NEEDED === */
+function toggleTheme(){
+  document.body.classList.toggle('light-mode');
+  var b=document.getElementById('themeBtn');
+  if(b) b.textContent=document.body.classList.contains('light-mode') ? '🌙' : '☀️';
+}
 function handleEnter(){
   var quiz=document.getElementById('quiz-box');
   var btn=document.getElementById('enterBtn');
@@ -310,6 +368,7 @@ function startCountdown(){
     var b=document.getElementById('cd-hours'); if(b) b.textContent=hrs;
     var c=document.getElementById('cd-mins'); if(c) c.textContent=mins;
     var e=document.getElementById('cd-secs'); if(e) e.textContent=secs;
+    var t=document.getElementById('cd-days-top'); if(t) t.textContent=days;
   }
   tick(); setInterval(tick,1000);
 }

@@ -188,3 +188,37 @@ html{scroll-behavior:smooth}
 /* === MODIFICATION ADDED - BACKGROUND PHOTO + BLUISH OPACITY - FRONT - MUST BE LAST === */
 #splash-img{position:absolute !important;inset:0 !important;width:100% !important;height:100% !important;object-fit:cover !important;object-position:center top !important;background:#000 !important;z-index:0 !important;opacity:1 !important;display:block !important}
 .splash-blue-overlay{position:absolute !important;inset:0 !important;z-index:1 !important;background:linear-gradient(180deg, rgba(37,99,235,0.85) 0%, rgba(37,99,235,0.65) 45%, rgba(0,0,0,0.85) 100%) !important;pointer-events:none !important}
+
+/* ========================================================= */
+/* ===== 3 ENQUIRIES TOGETHER - MUST BE VERY LAST ===== */
+/* ========================================================= */
+
+/* --- 1. KOINONIA ARRANGEMENT - POSTER + COUNTDOWN --- */
+.koinonia-poster{position:relative !important;width:100% !important;min-height:520px !important;max-width:1100px !important;margin:auto !important;overflow:hidden !important;background:#000 !important;display:flex !important;align-items:flex-end !important}
+.koinonia-poster img{position:absolute !important;inset:0 !important;width:100% !important;height:100% !important;object-fit:cover !important;object-position:center top !important}
+.koinonia-poster .k-overlay{position:absolute !important;inset:0 !important;background:linear-gradient(180deg, rgba(37,99,235,0.55) 0%, rgba(37,99,235,0.35) 40%, rgba(0,0,0,0.85) 100%) !important;z-index:1 !important}
+.koinonia-content{position:relative !important;z-index:2 !important;width:100% !important;color:#fff !important;text-align:center !important;padding:20px 16px 16px !important}
+.koinonia-content .k-small{letter-spacing:4px !important;font-size:11px !important;font-weight:800 !important}
+.koinonia-content h1{font-family:'Playfair Display',serif !important;font-style:italic !important;font-size:34px !important;line-height:1 !important;margin:6px 0 !important}
+.koinonia-content .k-theme{font-family:'Anton',sans-serif !important;font-size:46px !important;line-height:0.95 !important;letter-spacing:1px !important;margin:8px 0 !important;text-shadow:0 4px 20px rgba(0,0,0,0.8) !important}
+.k-bottom{display:flex !important;justify-content:space-between !important;align-items:flex-end !important;text-align:left !important;margin-top:12px !important;font-size:13px !important;line-height:1.5 !important}
+.k-date{text-align:right !important}
+.k-time-red{background:#E60000 !important;color:#fff !important;font-weight:900 !important;padding:4px 8px !important;margin-top:4px !important;font-size:13px !important;display:inline-block !important}
+.koinonia-countdown{background:#000 !important;color:#fff !important;display:flex !important;align-items:center !important;gap:14px !important;padding:18px 16px !important;border-top:1px solid #222 !important;border-bottom:1px solid #222 !important;max-width:1100px !important;margin:auto !important}
+.koinonia-countdown .c-icon{font-size:36px !important}
+.koinonia-countdown h3{font-size:19px !important;letter-spacing:1px !important;margin:2px 0 !important}
+.koinonia-countdown .c-nums{margin-left:auto !important;text-align:center !important}
+.koinonia-countdown .c-nums b{display:block !important;font-size:22px !important;color:#fff !important}
+
+/* --- 2. SUN + HAMBURGER LIKE KOINONIA --- */
+.theme-btn{width:46px !important;height:46px !important;min-width:46px !important;border-radius:50% !important;background:#1a1a1a !important;color:#fff !important;border:none !important;font-size:22px !important;cursor:pointer !important;display:flex !important;align-items:center !important;justify-content:center !important}
+body.light-mode{background:#fff !important;color:#000 !important}
+body.light-mode nav,body.light-mode .hero,body.light-mode .koinonia-countdown,body.light-mode section,body.light-mode .card,body.light-mode .vision-box{background:#fff !important;color:#000 !important;border-color:#eee !important}
+body.light-mode .koinonia-countdown h3,body.light-mode .koinonia-countdown p,body.light-mode h2,body.light-mode .hero h1{color:#000 !important}
+body.light-mode .theme-btn{background:#eee !important;color:#000 !important}
+body.light-mode .hero p,body.light-mode .lead,body.light-mode .card p{color:#333 !important}
+
+/* --- 3. YELLOW -> WHITE - VERSE - KILLS GOLD GLOW --- */
+.splash-verse{color:#FFFFFF !important;border:1px solid rgba(255,255,255,0.4) !important;background:linear-gradient(180deg,rgba(0,0,0,0.65),rgba(0,0,0,0.35)) !important;text-shadow:0 2px 12px rgba(0,0,0,0.7) !important;box-shadow:none !important;animation:none !important}
+.splash-verse *, .verse, .scripture p, .quiz-q em{color:#FFFFFF !important;text-shadow:0 2px 12px rgba(0,0,0,0.7) !important}
+.quiz-q em{color:#fff !important}
