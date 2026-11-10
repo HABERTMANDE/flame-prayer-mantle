@@ -17,15 +17,16 @@
 .checks{display:grid;gap:12px;text-align:left;margin:18px 0}
 .checks div{background:#111;border:1px solid #222;border-radius:12px;padding:14px;font-size:14px;line-height:1.6}
 @media(min-width:700px){.checks{grid-template-columns:1fr 1fr}}
-/* SCROLL BLUR - as you scroll it blurs + disappears in */
-.saved-hero, .saved-box{transition:filter .3s ease, opacity .3s ease, transform .3s ease;will-change:filter, opacity, transform}
+/* FIX - NO BLUR ON SAVED PAGE: box must stay sharp while user scrolls to fill form */
+.saved-hero, .saved-box{filter:none !important;opacity:1 !important;transform:none !important;transition:none !important}
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="index.html" class="logo">FLAME<span>PRAYER MANTLE</span></a>
-  <a class="btn" href="index.html">← BACK HOME</a>
+  <!-- FIX 3 - BOTH BUTTONS GO TO PAGE AFTER ENTER (#home), NOT SPLASH -->
+  <a href="index.html#home" class="logo">FLAME<span>PRAYER MANTLE</span></a>
+  <a class="btn" href="index.html#home">← BACK HOME</a>
 </nav>
 
 <header class="saved-hero">
@@ -75,19 +76,6 @@
 </footer>
 
 <script src="script.js"></script>
-<script>
-/* SCROLL BLUR - saved page - as you scroll it blurs + disappears in */
-(function(){
-  var box = document.querySelector('.saved-box');
-  if(!box) return;
-  window.addEventListener('scroll', function(){
-    var y = window.scrollY || 0;
-    var p = Math.min(y / 300, 1);
-    box.style.filter = 'blur(' + (p * 10) + 'px)';
-    box.style.opacity = String(1 - p * 0.85);
-    box.style.transform = 'translateY(' + (p * -20) + 'px) scale(' + (1 - p * 0.02) + ')';
-  }, {passive:true});
-})();
-</script>
+<!-- FIX: OLD SCROLL-BLUR SCRIPT DELETED - it was making the saved box disappear on scroll -->
 </body>
 </html>

@@ -61,6 +61,8 @@ input,textarea{width:100%;padding:14px;border-radius:12px;border:1px solid #333;
 label{font-size:12px;letter-spacing:2px;color:#93c5fd;font-weight:800}
 .event{display:block;gap:20px;align-items:center}
 .event img{width:100%;height:auto;object-fit:contain;object-position:center;display:block;border-radius:20px;border:1px solid #333;background:#000;max-height:none}
+/* FIX 1 - GIVE: scroll-margin so sticky nav doesn't cover it when GIVE is clicked */
+#give{scroll-margin-top:90px}
 .give{background:#2563EB;color:#fff;border-radius:24px;padding:36px;text-align:center}
 .give-box{background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.4);border-radius:16px;padding:20px;max-width:520px;margin:20px auto;text-align:left;line-height:1.95}
 footer{border-top:1px solid #222;padding:40px 20px;text-align:center;color:#777;font-size:13px;line-height:1.8}
@@ -83,6 +85,11 @@ footer b{color:#fff;letter-spacing:3px}
 .watch-card h3{font-size:17px;margin-bottom:6px}
 .watch-card p{color:#aaa;font-size:13px;line-height:1.6}
 .watch-card video{width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:#000;display:block}
+/* FIX 6 - VIDEO WRAP + AUDIO BUTTONS */
+.video-wrap{position:relative !important;background:#000 !important}
+.video-btns{display:flex !important;gap:8px !important;padding:10px !important;background:#000 !important}
+.video-btns button{flex:1 !important;background:#2563EB !important;color:#fff !important;border:none !important;padding:11px 6px !important;border-radius:8px !important;font-weight:800 !important;font-size:13px !important;cursor:pointer !important}
+.video-btns button.secondary{background:#222 !important;border:1px solid #333 !important}
 .event-row{display:flex;justify-content:space-between;align-items:center;gap:14px;background:#111;border:1px solid #222;border-radius:16px;padding:18px;margin-top:12px;flex-wrap:wrap}
 .event-row b{font-size:16px}
 .event-row span{color:#aaa;font-size:13px;display:block;margin-top:4px}
@@ -138,13 +145,19 @@ html{scroll-behavior:smooth}
 body.light-mode .c-timer div{background:#eee !important;border-color:#ddd !important}
 body.light-mode .c-timer b{color:#000 !important}
 
-/* SUN + LIGHT MODE */
+/* SUN + LIGHT MODE - FIX 5: ONLY body/nav/countdown/cards go white. Hero + Poster STAY DARK */
 .theme-btn{width:46px !important;height:46px !important;min-width:46px !important;border-radius:50% !important;background:#1a1a1a !important;color:#fff !important;border:none !important;font-size:22px !important;cursor:pointer !important;display:flex !important;align-items:center !important;justify-content:center !important}
 body.light-mode{background:#fff !important;color:#000 !important}
-body.light-mode nav,body.light-mode .hero,body.light-mode .koinonia-countdown,body.light-mode section,body.light-mode .card,body.light-mode .vision-box{background:#fff !important;color:#000 !important;border-color:#eee !important}
-body.light-mode .koinonia-countdown h3,body.light-mode .koinonia-countdown p,body.light-mode h2,body.light-mode .hero h1{color:#000 !important}
+body.light-mode nav,body.light-mode .koinonia-countdown,body.light-mode section,body.light-mode .card,body.light-mode .vision-box{background:#fff !important;color:#000 !important;border-color:#eee !important}
+body.light-mode .koinonia-countdown h3,body.light-mode .koinonia-countdown p,body.light-mode h2{color:#000 !important}
 body.light-mode .theme-btn{background:#eee !important;color:#000 !important}
-body.light-mode .hero p,body.light-mode .lead,body.light-mode .card p{color:#333 !important}
+body.light-mode .lead,body.light-mode .card p{color:#333 !important}
+/* FIX 5 - HERO + POSTER STAY DARK IN LIGHT MODE, TEXT STAYS WHITE */
+body.light-mode .hero, body.light-mode .koinonia-poster{background:#000 !important;color:#fff !important;border-color:#000 !important}
+body.light-mode .hero h1, body.light-mode .hero h1 em, body.light-mode .hero p, body.light-mode .hero .eyebrow{color:#fff !important}
+body.light-mode .hero h1 em, body.light-mode .hero .rot-word{color:#93c5fd !important}
+body.light-mode .koinonia-content, body.light-mode .koinonia-content h1, body.light-mode .koinonia-content h2, body.light-mode .koinonia-content p, body.light-mode .koinonia-content div{color:#fff !important}
+body.light-mode .hero .btn-outline{color:#fff !important;border-color:#fff !important}
 
 /* VERSE WHITE - FINAL */
 .splash-verse{color:#FFFFFF !important;border:1px solid rgba(255,255,255,0.4) !important;background:linear-gradient(180deg,rgba(0,0,0,0.65),rgba(0,0,0,0.35)) !important;text-shadow:0 2px 12px rgba(0,0,0,0.7) !important;box-shadow:none !important;animation:none !important}
@@ -160,7 +173,8 @@ body.light-mode .hero p,body.light-mode .lead,body.light-mode .card p{color:#333
 .koinonia-content h1{animation:wordUp .8s .1s both !important}
 .koinonia-content .k-theme{animation:wordUp .8s .3s both !important}
 .koinonia-content .k-small{animation:wordUp .8s both !important}
-.rot-word{display:inline-block;color:#93c5fd;transition:opacity .3s}
+/* FIX 2 - SLOW FADE 1s + FIXED WIDTH SO IT DOES NOT SHIFT */
+.rot-word{display:inline-block;color:#93c5fd;transition:opacity 1s ease, transform 1s ease;min-width:120px}
 .page-section.active .card, .page-section.active .vision-box{opacity:1 !important;transform:none !important}
 
 /* ========================================================= */

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FLAME | Catch Fire, Rise As A Flame</title>
-<link rel="stylesheet" href="style.css?v=6">
+<link rel="stylesheet" href="style.css?v=7">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600;800&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
 <style>
   .page-section{display:none !important}
@@ -63,12 +63,20 @@
   .c-timer div{background:#111 !important;border:1px solid #2563EB !important;border-radius:10px !important;min-width:52px !important;padding:8px 6px !important}
   .c-timer b{display:block !important;font-size:20px !important;line-height:1 !important;color:#fff !important;font-family:'Anton',sans-serif !important}
   .c-timer span{font-size:9px !important;letter-spacing:1px !important;color:#93c5fd !important;font-weight:800 !important}
+
+  /* FIX 5 - LIGHT MODE: ONLY body + countdown go white. Hero + Poster STAY DARK with WHITE text */
   body.light-mode{background:#fff !important;color:#000 !important}
-  body.light-mode nav,body.light-mode .hero,body.light-mode .koinonia-countdown{background:#fff !important;color:#000 !important}
+  body.light-mode nav{background:#fff !important;color:#000 !important}
+  body.light-mode .koinonia-countdown{background:#fff !important;color:#000 !important;border-color:#eee !important}
   body.light-mode .koinonia-countdown h3,body.light-mode .koinonia-countdown p{color:#000 !important}
   body.light-mode .theme-btn{background:#eee !important;color:#000 !important}
   body.light-mode .c-timer div{background:#eee !important;border-color:#ddd !important}
   body.light-mode .c-timer b{color:#000 !important}
+  body.light-mode .koinonia-poster, body.light-mode .hero{background:#000 !important;color:#fff !important}
+  body.light-mode .koinonia-content, body.light-mode .koinonia-content h1, body.light-mode .koinonia-content h2, body.light-mode .koinonia-content p, body.light-mode .koinonia-content div{color:#fff !important}
+  body.light-mode .hero h1, body.light-mode .hero h1 em, body.light-mode .hero p, body.light-mode .hero .eyebrow{color:#fff !important}
+  body.light-mode .hero .rot-word{color:#93c5fd !important}
+
   .verse,.scripture,.verse-text,blockquote{color:#FFFFFF !important}
   .hero h1, .hero .eyebrow, .hero p, .hero-btns{animation:wordUp .8s cubic-bezier(.2,.8,.2,1) both !important}
   .hero .eyebrow{animation-delay:.1s}
@@ -80,19 +88,20 @@
   @keyframes pageIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
   .koinonia-content h1{animation:wordUp .8s .1s both !important}
   .koinonia-content .k-theme{animation:wordUp .8s .3s both !important}
-  .rot-word{display:inline-block;color:#93c5fd;transition:opacity .3s}
-  /* MODIFIED: .hero REMOVED from blur group - hero never blurs */
+  /* FIX 2 - SLOW ROTATION: 1s fade, no jump */
+  .rot-word{display:inline-block;color:#93c5fd;transition:opacity 1s ease, transform 1s ease;min-width:120px}
   .koinonia-poster, .koinonia-countdown{ will-change:filter, opacity, transform !important; }
   .blur-reveal{ filter:blur(14px) !important; opacity:0 !important; transform:translateY(30px) scale(.98) !important; transition:filter .9s ease, opacity .9s ease, transform .9s ease !important; }
   .blur-reveal.visible{ filter:blur(0) !important; opacity:1 !important; transform:translateY(0) scale(1) !important; }
   .page-section.active{ filter:blur(0) !important; opacity:1 !important; visibility:visible !important; }
   @media (prefers-reduced-motion: reduce){ .blur-reveal, .page-section{ filter:none !important; opacity:1 !important; transform:none !important; visibility:visible !important; } }
-  /* MODIFIED: HERO NEVER BLURRY - MUST BE VERY LAST IN THIS <style> */
-  .hero, .hero-inner, .hero h1, .hero h1 em, .hero .eyebrow, .hero p, .hero-btns, .hero .rot-word{
-    filter:none !important; -webkit-filter:none !important; backdrop-filter:none !important;
-    opacity:1 !important; transform:none !important;
-  }
+  .hero, .hero-inner, .hero h1, .hero h1 em, .hero .eyebrow, .hero p, .hero-btns, .hero .rot-word{ filter:none !important; -webkit-filter:none !important; backdrop-filter:none !important; opacity:1 !important; transform:none !important; }
   .hero{ transition:none !important; will-change:auto !important; }
+  /* FIX 6 - VIDEO WRAP */
+  .video-wrap{position:relative !important;background:#000 !important}
+  .video-btns{display:flex !important;gap:8px !important;padding:10px !important;background:#000 !important}
+  .video-btns button{flex:1 !important;background:#2563EB !important;color:#fff !important;border:none !important;padding:11px 6px !important;border-radius:8px !important;font-weight:800 !important;font-size:13px !important;cursor:pointer !important}
+  .video-btns button.secondary{background:#222 !important;border:1px solid #333 !important}
 </style>
 </head>
 <body>
@@ -130,7 +139,7 @@
   </div>
 </div>
 <nav>
-  <a href="index.html" class="logo" onclick="showHome(event)">FLAME<span>PRAYER MANTLE</span></a>
+  <a href="index.html#home" class="logo" onclick="showHome(event)">FLAME<span>PRAYER MANTLE</span></a>
   <div class="nav-links" id="navLinks">
     <a class="menu-link" onclick="showPage('vision');closeMenu()">VISION</a>
     <a class="menu-link" onclick="showPage('steps');closeMenu()">NEXT STEPS</a>
@@ -140,7 +149,8 @@
     <a href="saved.html" style="color:#fff">I AM SAVED</a>
   </div>
   <div style="display:flex;gap:10px;align-items:center">
-    <a class="btn" href="#give" onclick="showHome(event)" style="background:#2563EB">GIVE</a>
+    <!-- FIX 1 - GIVE NOW WORKS -->
+    <a class="btn" href="#give" onclick="showGive(event)" style="background:#2563EB">GIVE</a>
     <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" aria-label="Theme">☀️</button>
     <button class="menu-btn" id="menuBtn" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
@@ -253,11 +263,17 @@
     <h2>CATCH THE FIRE<br>AGAIN.</h2>
     <div class="watch-grid">
       <div class="watch-card">
-        <video controls playsinline preload="metadata" poster="images/flame-splash.webp" style="width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;display:block;background:#000"><source src="images/flame-video.mp4" type="video/mp4"></video>
-        <div><h3>Be Of Good Cheer — I Have Overcome</h3><p>From a stand of victory. The things we proclaim in prayer tonight are from victory, not defeat.</p><br><a href="https://www.tiktok.com/@anazao_thefamilyofgraceglobal" target="_blank" style="color:#2563EB;font-weight:800">Watch on TikTok →</a></div>
+        <div class="video-wrap">
+          <video id="flameVideo" controls playsinline preload="metadata" poster="images/flame-splash.webp" style="width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;display:block;background:#000" muted><source src="images/flame-video.mp4" type="video/mp4">Your browser does not support video.</video>
+          <div class="video-btns">
+            <button onclick="playFlameVideo()">▶ PLAY VIDEO</button>
+            <button class="secondary" id="audioBtn" onclick="toggleFlameAudio()">🔊 PLAY AUDIO</button>
+          </div>
+        </div>
+        <div><h3>Be Of Good Cheer — I Have Overcome</h3><p>From a stand of victory. The things we proclaim in prayer tonight are from victory, not defeat.</p><br><a href="https://www.instagram.com/theflameprayermantle" target="_blank" style="color:#2563EB;font-weight:800">Watch on Instagram →</a></div>
       </div>
-      <div class="watch-card"><div class="watch-thumb">▶️</div><div><h3>The Call To Consecration</h3><p>Why purity is the fuel for revival.</p><br><a href="https://www.tiktok.com/@anazao_thefamilyofgraceglobal" target="_blank" style="color:#2563EB;font-weight:800">Watch on TikTok →</a></div></div>
-      <div class="watch-card"><div class="watch-thumb">🔥</div><div><h3>Catch Fire, Rise As A Flame</h3><p>From private encounter to public flame. Matthew 5:14 in action.</p><br><a href="https://www.tiktok.com/@anazao_thefamilyofgraceglobal" target="_blank" style="color:#2563EB;font-weight:800">Watch on TikTok →</a></div></div>
+      <div class="watch-card"><div class="watch-thumb">▶️</div><div><h3>The Call To Consecration</h3><p>Why purity is the fuel for revival.</p><br><a href="https://www.instagram.com/theflameprayermantle" target="_blank" style="color:#2563EB;font-weight:800">Watch on Instagram →</a></div></div>
+      <div class="watch-card"><div class="watch-thumb">🔥</div><div><h3>Catch Fire, Rise As A Flame</h3><p>From private encounter to public flame. Matthew 5:14 in action.</p><br><a href="https://www.instagram.com/theflameprayermantle" target="_blank" style="color:#2563EB;font-weight:800">Watch on Instagram →</a></div></div>
     </div>
     <p style="margin-top:20px"><a onclick="showHome(event)" style="color:#2563EB;font-weight:800;cursor:pointer">← Back To Home</a></p>
   </section>
@@ -282,6 +298,7 @@ function toggleTheme(){
   var b=document.getElementById('themeBtn');
   if(b) b.textContent=document.body.classList.contains('light-mode') ? '🌙' : '☀️';
 }
+/* FIX 4 - ENTER SCROLLS TO TOP */
 function handleEnter(){
   var s=document.getElementById('splash');
   if(!s) return;
@@ -291,7 +308,9 @@ function handleEnter(){
   s.style.setProperty('visibility','hidden','important');
   s.style.setProperty('pointer-events','none','important');
   document.body.style.setProperty('overflow','auto','important');
+  showHome(null);
   window.scrollTo(0,0);
+  setTimeout(function(){ window.scrollTo(0,0); },100);
 }
 function enterSite(){ handleEnter(); }
 function showQuiz(){ handleEnter(); }
@@ -302,9 +321,9 @@ function showPage(id){
   var home=document.getElementById('home-sections'); var hero=document.querySelector('.hero');
   var poster=document.querySelector('.koinonia-poster'); var countdown=document.querySelector('.koinonia-countdown');
   if(home) home.style.setProperty('display','none','important');
-  if(hero){ hero.style.setProperty('display','none','important'); hero.style.removeProperty('filter'); hero.style.removeProperty('opacity'); hero.style.removeProperty('transform'); hero.style.setProperty('filter','blur(0)','important'); hero.style.setProperty('opacity','1','important'); hero.style.setProperty('transform','none','important'); }
-  if(poster){ poster.style.setProperty('display','none','important'); poster.style.removeProperty('filter'); poster.style.removeProperty('opacity'); }
-  if(countdown){ countdown.style.setProperty('display','none','important'); countdown.style.removeProperty('filter'); countdown.style.removeProperty('opacity'); }
+  if(hero){ hero.style.setProperty('display','none','important'); }
+  if(poster){ poster.style.setProperty('display','none','important'); }
+  if(countdown){ countdown.style.setProperty('display','none','important'); }
   document.querySelectorAll('.page-section').forEach(function(s){ s.classList.remove('active'); s.style.setProperty('display','none','important'); });
   var el=document.getElementById(id);
   if(el){
@@ -320,12 +339,23 @@ function showHome(e){
   var home=document.getElementById('home-sections'); var hero=document.querySelector('.hero');
   var poster=document.querySelector('.koinonia-poster'); var countdown=document.querySelector('.koinonia-countdown');
   if(home) home.style.setProperty('display','block','important');
-  if(hero){ hero.style.setProperty('display','block','important'); hero.style.removeProperty('filter'); hero.style.removeProperty('opacity'); hero.style.removeProperty('transform'); hero.style.setProperty('filter','blur(0)','important'); hero.style.setProperty('opacity','1','important'); hero.style.setProperty('transform','none','important'); }
-  if(poster){ poster.style.setProperty('display','flex','important'); poster.style.removeProperty('filter'); poster.style.removeProperty('opacity'); }
-  if(countdown){ countdown.style.setProperty('display','flex','important'); countdown.style.removeProperty('filter'); countdown.style.removeProperty('opacity'); }
+  if(hero){ hero.style.setProperty('display','block','important'); }
+  if(poster){ poster.style.setProperty('display','flex','important'); }
+  if(countdown){ countdown.style.setProperty('display','flex','important'); }
   document.querySelectorAll('.page-section').forEach(function(s){ s.classList.remove('active'); s.style.setProperty('display','none','important'); });
   window.scrollTo({top:0,behavior:'smooth'});
   try{ history.pushState({page:'home'},'','#home'); }catch(e){}
+}
+/* FIX 1 - GIVE */
+function showGive(e){
+  if(e) e.preventDefault();
+  closeMenu();
+  showHome(null);
+  setTimeout(function(){
+    var g=document.getElementById('give');
+    if(g){ g.scrollIntoView({behavior:'smooth',block:'start'}); }
+    try{ history.pushState({page:'home'},'','#give'); }catch(err){}
+  },150);
 }
 window.addEventListener('popstate',function(ev){
   var home=document.getElementById('home-sections'); var hero=document.querySelector('.hero');
@@ -386,21 +416,36 @@ function startCountdown(){
   tick(); setInterval(tick,1000);
 }
 startCountdown();
+/* FIX 2 - SLOW ROTATION 4.5s */
 var rotWords=['Flame.','Light.','Fire.','Voice.'];
 var rotI=0;
 setInterval(function(){
   var el=document.getElementById('rotWord');
   if(!el) return;
   el.style.opacity='0';
-  setTimeout(function(){ rotI=(rotI+1)%rotWords.length; el.textContent=rotWords[rotI]; el.style.opacity='1'; },300);
-},2000);
-/* MODIFIED: .reveal REMOVED - only .blur-reveal now, no double-fight. Hero never gets blur-reveal. */
+  el.style.transform='translateY(10px)';
+  setTimeout(function(){ rotI=(rotI+1)%rotWords.length; el.textContent=rotWords[rotI]; el.style.opacity='1'; el.style.transform='translateY(0)'; },1000);
+},4500);
+/* FIX 6 - VIDEO + AUDIO */
+function playFlameVideo(){
+  var v=document.getElementById('flameVideo');
+  if(!v) return;
+  v.muted=false;
+  v.play().catch(function(){ v.muted=true; v.play(); });
+  var btn=document.getElementById('audioBtn'); if(btn) btn.textContent='🔊 PLAY AUDIO';
+}
+function toggleFlameAudio(){
+  var v=document.getElementById('flameVideo');
+  if(!v) return;
+  if(v.paused){ v.muted=false; v.play(); }
+  else { v.muted=!v.muted; }
+  var btn=document.getElementById('audioBtn'); if(btn) btn.textContent=v.muted ? '🔊 PLAY AUDIO' : '🔇 MUTE AUDIO';
+}
 var io=new IntersectionObserver(function(entries){
   entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); });
 },{threshold:0.1});
 document.querySelectorAll('#home-sections section, #home-sections .card').forEach(function(el){ el.classList.add('blur-reveal'); io.observe(el); });
-/* MODIFIED: DUPLICATE BLUR BLOCK DELETED - blur lives ONLY in script.js now. No second hero blur. */
 </script>
-<script src="script.js?v=6"></script>
+<script src="script.js?v=7"></script>
 </body>
 </html>

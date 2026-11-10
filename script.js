@@ -158,6 +158,19 @@ function showHome(e){
   window.scrollTo({top:0, behavior:'smooth'});
   try{ history.pushState({page:'home'}, '', '#home'); }catch(e){}
 }
+
+/* FIX 1 - GIVE BUTTON: go home then scroll to #give */
+function showGive(e){
+  if(e) e.preventDefault();
+  closeMenu();
+  showHome(null);
+  setTimeout(function(){
+    var g = document.getElementById('give');
+    if(g){ g.scrollIntoView({behavior:'smooth', block:'start'}); }
+    try{ history.pushState({page:'home'}, '', '#give'); }catch(err){}
+  }, 150);
+}
+
 window.addEventListener('popstate', function(ev){
   var home = document.getElementById('home-sections');
   var hero = document.querySelector('.hero');
@@ -211,25 +224,47 @@ function toggleFAQ(){
 }
 function toggleAns(btn){ btn.classList.toggle('open'); }
 
+/* FIX 4 - ENTER SCROLLS TO TOP + SHOWS HOME */
 function handleEnter(){
   enterSite();
+  showHome(null);
+  window.scrollTo(0,0);
+  setTimeout(function(){ window.scrollTo(0,0); }, 100);
 }
 function showQuiz(){ handleEnter(); }
 function checkAnswer(){ handleEnter(); }
 
-/* 2. WORD ANIMATIONS - 2819.COM STYLE */
+/* FIX 2 - WORD ANIMATIONS - SLOW: 4.5s, 1s fade */
 var rotWords = ['Flame.','Light.','Fire.','Voice.'];
 var rotI = 0;
 setInterval(function(){
   var el = document.getElementById('rotWord');
   if(!el) return;
   el.style.opacity = '0';
+  el.style.transform = 'translateY(10px)';
   setTimeout(function(){
     rotI = (rotI + 1) % rotWords.length;
     el.textContent = rotWords[rotI];
     el.style.opacity = '1';
-  }, 300);
-}, 2000);
+    el.style.transform = 'translateY(0)';
+  }, 1000);
+}, 4500);
+
+/* FIX 6 - VIDEO + AUDIO BUTTONS */
+function playFlameVideo(){
+  var v = document.getElementById('flameVideo');
+  if(!v) return;
+  v.muted = false;
+  v.play().catch(function(){ v.muted = true; v.play(); });
+  var btn = document.getElementById('audioBtn'); if(btn) btn.textContent = '🔊 PLAY AUDIO';
+}
+function toggleFlameAudio(){
+  var v = document.getElementById('flameVideo');
+  if(!v) return;
+  if(v.paused){ v.muted = false; v.play(); }
+  else { v.muted = !v.muted; }
+  var btn = document.getElementById('audioBtn'); if(btn) btn.textContent = v.muted ? '🔊 PLAY AUDIO' : '🔇 MUTE AUDIO';
+}
 
 /* ========================================================= */
 /* ===== MODIFICATION: BLUR - HERO NEVER BLURS ===== */
