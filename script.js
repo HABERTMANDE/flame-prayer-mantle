@@ -11,9 +11,15 @@ function enterSite(){
   window.scrollTo(0,0);
 }
 
-// Only lock scroll if splash exists (index.html only, not saved.html)
 if(document.getElementById('splash')){
   document.body.style.overflow = 'hidden';
+}
+
+// === NEW - SUN / MOON THEME TOGGLE ===
+function toggleTheme(){
+  document.body.classList.toggle('light-mode');
+  var b = document.getElementById('themeBtn');
+  if(b) b.textContent = document.body.classList.contains('light-mode') ? '🌙' : '☀️';
 }
 
 function sendPrayer(){
@@ -36,7 +42,7 @@ function sendSaved(){
   window.open("https://wa.me/254795155158?text=" + msg, "_blank");
 }
 
-// STEP 5 - COUNTDOWN TO NAIROBI - 6th Saturday 2027 = 6 Feb 2027, 10AM - 3PM
+// === FIXED - COUNTDOWN - UPDATES BOTH BARS - DAYS TO SECONDS ===
 function updateCountdown(){
   var target = new Date("2027-02-06T10:00:00+03:00").getTime();
   var now = new Date().getTime();
@@ -46,6 +52,8 @@ function updateCountdown(){
   var h = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
   var m = Math.floor((diff % (1000*60*60)) / (1000*60));
   var s = Math.floor((diff % (1000*60)) / 1000);
+
+  // Main countdown in NAIROBI page
   var elD = document.getElementById('cd-days');
   if(elD){
     elD.textContent = d;
@@ -53,11 +61,19 @@ function updateCountdown(){
     var mEl = document.getElementById('cd-mins'); if(mEl) mEl.textContent = m;
     var sEl = document.getElementById('cd-secs'); if(sEl) sEl.textContent = s;
   }
+
+  // Top Koinonia bar - NEW DAYS/HRS/MINS/SECS
+  var td = document.getElementById('cd-top-days'); if(td) td.textContent = d;
+  var th = document.getElementById('cd-top-hours'); if(th) th.textContent = h;
+  var tm = document.getElementById('cd-top-mins'); if(tm) tm.textContent = m;
+  var ts = document.getElementById('cd-top-secs'); if(ts) ts.textContent = s;
+
+  // Backwards compat - old single days id
+  var old = document.getElementById('cd-days-top'); if(old) old.textContent = d;
 }
 setInterval(updateCountdown, 1000);
 updateCountdown();
 
-// STEP 6 - MOBILE MENU - MODIFIED: HAMBURGER TO X + BACK
 function toggleMenu(){
   var nav = document.getElementById('navLinks');
   if(nav){ nav.classList.toggle('open'); }
@@ -70,7 +86,6 @@ function closeMenu(){
   var btn = document.getElementById('menuBtn');
   if(btn){ btn.classList.remove('open'); }
 }
-// LOGO = BACK TO HOME
 function goHome(e){
   if(e){ e.preventDefault(); }
   var splash = document.getElementById('splash');
@@ -81,8 +96,6 @@ function goHome(e){
   document.body.style.overflow = 'auto';
   window.scrollTo({top:0, behavior:'smooth'});
 }
-
-// === MODIFIED - PAGES + HOME + BACK - FIXES BACK BUTTON ===
 function showPage(id){
   var home = document.getElementById('home-sections');
   var hero = document.querySelector('.hero');
@@ -104,7 +117,6 @@ function showHome(e){
   window.scrollTo({top:0, behavior:'smooth'});
   try{ history.pushState({page:'home'}, '', '#home'); }catch(e){}
 }
-// PHONE BACK BUTTON
 window.addEventListener('popstate', function(ev){
   var home = document.getElementById('home-sections');
   var hero = document.querySelector('.hero');
@@ -120,7 +132,6 @@ window.addEventListener('popstate', function(ev){
     document.querySelectorAll('.page-section').forEach(function(s){ s.classList.remove('active'); });
   }
 });
-// BACK TO ENTRANCE - SPLASH
 function backToEntrance(){
   var s = document.getElementById('splash');
   if(s){ s.classList.remove('hide'); s.style.display = 'flex'; s.style.opacity = '1'; s.style.visibility = 'visible'; }
@@ -131,7 +142,6 @@ function backToEntrance(){
   document.body.style.overflow = 'hidden';
   window.scrollTo(0,0);
 }
-// FAQ - MODIFIED: NO AUTO-POP, ONLY ON ? TAP
 function toggleFAQ(){
   var p = document.getElementById('faq-popup');
   var b = document.getElementById('helpBubble');
@@ -140,8 +150,6 @@ function toggleFAQ(){
   if(b) b.style.display = isOpen ? 'none' : 'block';
 }
 function toggleAns(btn){ btn.classList.toggle('open'); }
-
-// === MODIFIED - QUIZ BEHIND ENTER - CORRECT = AUTO ENTER - Lev 6:13 ===
 function handleEnter(){
   var enterBtn = document.getElementById('enterBtn');
   var quizBox = document.getElementById('quiz-box');
@@ -155,7 +163,6 @@ function handleEnter(){
 function showQuiz(){
   handleEnter();
 }
-
 function checkAnswer(btn, isCorrect){
   var msg = document.getElementById('quiz-msg');
   var quizBox = document.getElementById('quiz-box');
@@ -188,7 +195,6 @@ function checkAnswer(btn, isCorrect){
     quizBox.classList.add('shake');
   }
 }
-// SAFETY: ENTER button also works via listener
 document.addEventListener('DOMContentLoaded', function(){
   var btn = document.getElementById('enterBtn');
   if(btn){ btn.addEventListener('click', handleEnter); }

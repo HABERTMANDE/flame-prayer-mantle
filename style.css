@@ -2,30 +2,26 @@
 body{background:#000;color:#fff;font-family:'Inter',sans-serif;overflow-x:hidden}
 a{text-decoration:none;color:inherit}
 
-/* SPLASH - MODIFIED: VIDEO ONLY, NO PICTURE */
-#splash{position:fixed;inset:0;z-index:100;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;text-align:center;transition:.8s;padding-bottom:80px;overflow:hidden}
-#splash::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.55))}
+/* SPLASH */
+#splash{position:fixed;inset:0;z-index:100;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transition:.8s;padding:0;overflow:hidden}
+#splash::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.55));z-index:1}
 #splash.hide{opacity:0;visibility:hidden}
 .splash-inner{position:relative;z-index:2;padding:20px;width:100%;display:flex;flex-direction:column;align-items:center;gap:18px}
 
-/* === VERSE BELOW ENTER === */
-.splash-verse{position:static;transform:none;left:auto;top:auto;width:88%;max-width:340px;font-family:'Playfair Display',serif;font-style:italic;color:#ffcf7d;font-size:19px;font-weight:600;line-height:1.6;text-align:center;text-shadow:0 0 8px rgba(255,180,0,.9),0 2px 12px #000;background:linear-gradient(180deg,rgba(0,0,0,.65),rgba(0,0,0,.35));border:1px solid rgba(255,180,0,.35);padding:14px 18px;border-radius:16px;z-index:5;box-shadow:0 0 30px rgba(255,140,0,.25);animation:verseGlow 3s ease-in-out infinite;order:3}
-@keyframes verseGlow{0%,100%{box-shadow:0 0 20px rgba(255,140,0,.2)}50%{box-shadow:0 0 40px rgba(255,180,0,.45)}}
-/* MODIFIED - VIDEO BACKGROUND - FULL, NOT ZOOMED */
+/* === VERSE - WHITE - NO GOLD - FIXED === */
+.splash-verse{position:static;width:88%;max-width:340px;font-family:'Playfair Display',serif;font-style:italic;color:#FFFFFF !important;font-size:19px;font-weight:600;line-height:1.6;text-align:center;text-shadow:0 2px 12px rgba(0,0,0,0.7) !important;background:linear-gradient(180deg,rgba(0,0,0,.65),rgba(0,0,0,.35));border:1px solid rgba(255,255,255,0.4) !important;padding:14px 18px;border-radius:16px;z-index:5;box-shadow:none !important;animation:none !important;order:3;margin-top:18px}
+.splash-verse *, .verse, .scripture p, .quiz-q em{color:#FFFFFF !important;text-shadow:0 2px 12px rgba(0,0,0,0.7) !important}
 #bg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;background:#000;z-index:0;opacity:1}
-#splash-img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;background:#000;z-index:0;display:block}
-
-/* === MODIFIED - ENTER BUTTON BLUE - ORDER 1 = FIRST === */
-.btn-enter{order:1;background:#2563EB;background-color:#2563EB;border:1px solid #2563EB;color:#fff;padding:16px 60px;letter-spacing:6px;font-weight:800;cursor:pointer;font-size:14px;box-shadow:0 10px 30px rgba(37,99,235,.5);text-shadow:0 1px 4px rgba(0,0,0,.4);border-radius:30px}
-.btn-enter:hover{background:#1d4ed8;color:#fff;box-shadow:0 0 35px rgba(37,99,235,.6)}
-/* === MODIFIED - ? BUTTON BLUE === */
+#splash-img{position:absolute !important;inset:0 !important;width:100% !important;height:100% !important;object-fit:cover !important;object-position:center top !important;background:#000 !important;z-index:0 !important;opacity:1 !important;display:block !important}
+.splash-blue-overlay{position:absolute !important;inset:0 !important;z-index:1 !important;background:linear-gradient(180deg, rgba(37,99,235,0.85) 0%, rgba(37,99,235,0.65) 45%, rgba(0,0,0,0.85) 100%) !important;pointer-events:none !important}
+.btn-enter{order:1;background:#2563EB !important;background-color:#1e3cff !important;border:1px solid #fff !important;color:#fff !important;padding:16px 70px !important;letter-spacing:6px !important;font-size:15px !important;font-weight:800 !important;border-radius:2px !important;box-shadow:none !important;cursor:pointer}
+.btn-enter:hover{background:#1d4ed8;color:#fff}
 .help-btn{position:absolute;bottom:22px;left:22px;width:52px;height:52px;border-radius:50%;background:#2563EB;background-color:#2563EB;border:2px solid #fff;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:800;z-index:3;cursor:pointer;box-shadow:0 0 20px rgba(37,99,235,.7);color:#fff}
 
 /* NAV */
 nav{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.95);display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-bottom:1px solid #222}
 .logo{font-family:'Anton',sans-serif;font-size:28px;letter-spacing:2px}
 .logo span{font-size:9px;display:block;font-family:'Inter';letter-spacing:5px;color:#2563EB;font-weight:800}
-/* === LOGO PRESSABLE BACK TO HOME === */
 a.logo{display:block;cursor:pointer;-webkit-tap-highlight-color:transparent}
 a.logo:hover{opacity:.8}
 a.logo:active{transform:scale(.97)}
@@ -33,7 +29,7 @@ a.logo:active{transform:scale(.97)}
 @media(min-width:851px){.nav-links{display:flex}}
 .btn{padding:10px 18px;background:#2563EB;background-color:#2563EB;color:#fff;border-radius:30px;font-weight:800;font-size:13px;border:1px solid #2563EB}
 
-/* HERO - MODIFIED: NO POSTER HERE - POSTER ONLY IN NAIROBI SECTION - CLEAN BLACK */
+/* HERO */
 .hero{min-height:auto;background:#000;background-image:none;display:block;padding:60px 20px 0 20px;overflow:hidden}
 .hero-inner{max-width:1100px;margin:auto;width:100%}
 .eyebrow{color:#2563EB;letter-spacing:4px;font-weight:800;font-size:12px}
@@ -49,49 +45,32 @@ section{padding:72px 20px;max-width:1100px;margin:auto;overflow:hidden}
 .tag{color:#2563EB;font-weight:800;letter-spacing:4px;font-size:12px}
 h2{font-family:'Anton',sans-serif;font-size:clamp(34px,7vw,58px);line-height:1;margin:12px 0 16px}
 .lead{color:#bbb;line-height:1.85;max-width:750px;font-size:16px}
-
-/* GRID + CARDS - FIX FOR THE CALL */
 .grid{display:grid;gap:16px;margin-top:28px;grid-template-columns:1fr}
 @media(min-width:750px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 .card{background:#111;border:1px solid #222;border-radius:18px;padding:26px;min-width:0;overflow-wrap:break-word;word-break:break-word}
 .card h3{font-size:20px;margin:12px 0 8px;overflow-wrap:break-word}
 .card p{color:#aaa;font-size:14px;line-height:1.75;overflow-wrap:break-word}
 .num{font-family:'Anton',sans-serif;font-size:42px;color:#2563EB}
-
-/* SCRIPTURE */
 .scripture{background:linear-gradient(135deg,#0a1a3a,#000);border:1px solid #2563EB;border-radius:22px;padding:36px;text-align:center}
 .scripture p{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(22px,5vw,32px);line-height:1.4}
 .scripture small{color:#93c5fd;letter-spacing:3px;font-weight:800}
-
-/* VISION BOX */
 .vision-box{background:#0a0a0a;border:1px solid #222;border-radius:22px;padding:28px;min-width:0;overflow-wrap:break-word}
 .vision-box b{color:#2563EB}
-
-/* PRAYER */
 .prayer-box{background:linear-gradient(135deg,#0a1a3a,#000);border:1px solid #2563EB;border-radius:20px;padding:28px}
 input,textarea{width:100%;padding:14px;border-radius:12px;border:1px solid #333;background:#0a0a0a;color:#fff;margin-bottom:12px;font-family:inherit}
 label{font-size:12px;letter-spacing:2px;color:#93c5fd;font-weight:800}
-
-/* EVENT - MODIFIED: POSTER SHOWS FULL, NOT ZOOMED - ONLY HERE */
 .event{display:block;gap:20px;align-items:center}
-@media(min-width:800px){.event{display:block}}
 .event img{width:100%;height:auto;object-fit:contain;object-position:center;display:block;border-radius:20px;border:1px solid #333;background:#000;max-height:none}
-
-/* GIVE - MODIFIED: BLUE */
 .give{background:#2563EB;color:#fff;border-radius:24px;padding:36px;text-align:center}
 .give-box{background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.4);border-radius:16px;padding:20px;max-width:520px;margin:20px auto;text-align:left;line-height:1.95}
-
 footer{border-top:1px solid #222;padding:40px 20px;text-align:center;color:#777;font-size:13px;line-height:1.8}
 footer b{color:#fff;letter-spacing:3px}
-
-/* MOBILE FIX */
 @media(max-width:600px){
   .splash-verse{font-size:16px;padding:12px 14px}
   #splash{padding-bottom:70px}
   .hero{padding:30px 16px 0 16px}
   section{padding:50px 16px}
 }
-/* STEP 5 - COUNTDOWN + WATCH */
 .countdown{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:22px 0}
 .count-box{background:#000;border:1px solid #2563EB;border-radius:16px;min-width:78px;padding:16px 10px;text-align:center}
 .count-box b{font-family:'Anton',sans-serif;font-size:32px;display:block;color:#fff;line-height:1}
@@ -107,26 +86,22 @@ footer b{color:#fff;letter-spacing:3px}
 .event-row{display:flex;justify-content:space-between;align-items:center;gap:14px;background:#111;border:1px solid #222;border-radius:16px;padding:18px;margin-top:12px;flex-wrap:wrap}
 .event-row b{font-size:16px}
 .event-row span{color:#aaa;font-size:13px;display:block;margin-top:4px}
-
-/* STEP 6 - MOBILE MENU - FIXED - BLUE + HAMBURGER TO X */
-.menu-btn{display:none;background:#2563EB;background-color:#2563EB;color:#fff;border:none;width:44px;height:44px;border-radius:50%;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0;position:relative;z-index:120}
-.menu-btn span{display:block;width:20px;height:2.5px;background:#fff;border-radius:2px;transition:all .3s ease;transform-origin:center}
-.menu-btn.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
-.menu-btn.open span:nth-child(2){opacity:0;transform:scaleX(0)}
-.menu-btn.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+.menu-btn{display:none !important;width:46px !important;height:46px !important;min-width:46px !important;border-radius:50% !important;background:#2563EB !important;background-color:#2563EB !important;border:none !important;cursor:pointer !important;flex-direction:column !important;align-items:center !important;justify-content:center !important;gap:6px !important;padding:0 !important;position:relative !important;z-index:120 !important;overflow:visible !important}
+.menu-btn span{display:block !important;visibility:visible !important;opacity:1 !important;width:22px !important;min-width:22px !important;height:3px !important;min-height:3px !important;background:#fff !important;background-color:#fff !important;border-radius:3px !important;transition:all .3s ease !important;transform-origin:center !important;flex-shrink:0 !important}
+.menu-btn.open span:nth-child(1){transform:translateY(9px) rotate(45deg) !important}
+.menu-btn.open span:nth-child(2){opacity:0 !important;transform:scaleX(0) !important}
+.menu-btn.open span:nth-child(3){transform:translateY(-9px) rotate(-45deg) !important}
 @media(max-width:850px){
-  .menu-btn{display:flex}
+  .menu-btn{display:flex !important}
   .nav-links{display:none;position:fixed;top:68px;left:0;right:0;background:#000;border-bottom:1px solid #222;flex-direction:column;padding:20px;gap:18px;text-align:center;z-index:99}
   .nav-links.open{display:flex !important}
   .nav-links a{font-size:16px;padding:8px}
 }
 html{scroll-behavior:smooth}
-
-/* === ADD MODIFICATION - SCRIPTURE QUIZ BEHIND ENTER === */
 #quiz-box{background:linear-gradient(180deg,rgba(0,0,0,.78),rgba(0,0,0,.55));border:1px solid rgba(37,99,235,.6);border-radius:18px;padding:20px;width:92%;max-width:380px;text-align:center;box-shadow:0 0 30px rgba(37,99,235,.35);order:2}
 .quiz-tag{color:#93c5fd;font-size:11px;font-weight:800;letter-spacing:3px;margin-bottom:12px}
 .quiz-q{color:#fff;font-size:15px;line-height:1.6}
-.quiz-q em{font-family:'Playfair Display',serif;color:#ffcf7d;font-size:16px}
+.quiz-q em{font-family:'Playfair Display',serif;color:#FFFFFF !important;font-size:16px}
 .quiz-options{display:flex;flex-direction:column;gap:10px;margin-top:16px}
 .quiz-opt{background:#111;border:1px solid #333;color:#fff;padding:13px;border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;text-align:left}
 .quiz-opt:hover{border-color:#2563EB;background:#0a1a3a}
@@ -137,27 +112,17 @@ html{scroll-behavior:smooth}
 #quiz-msg.bad{color:#ff3b3b}
 .shake{animation:shake .4s}
 @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
-/* Quiz on small phones - keep splash scrollable */
 @media(max-width:600px){
   #quiz-box{padding:16px}
   .quiz-q{font-size:14px}
   .quiz-opt{padding:11px;font-size:13px}
   #splash{overflow-y:auto;justify-content:flex-start;padding-top:30px}
 }
-/* === ACCESS STYLE ENTRANCE === */
-#splash{position:fixed;inset:0;z-index:100;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0;overflow:hidden}
-#bg-video,#splash-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0}
-#splash::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.55));z-index:1}
 .splash-brand{position:relative;z-index:2;font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(72px,22vw,140px);line-height:1;color:#fff;text-shadow:0 4px 30px rgba(0,0,0,.6);letter-spacing:2px;margin-top:-20px}
 .splash-sub{position:relative;z-index:2;letter-spacing:6px;font-size:11px;font-weight:800;color:#fff;opacity:.9;margin-bottom:22px}
-.splash-inner{position:relative;z-index:2}
-.btn-enter{background:#1e3cff !important;background-color:#1e3cff !important;border:1px solid #fff !important;color:#fff !important;padding:16px 70px !important;letter-spacing:6px !important;font-size:15px !important;font-weight:800 !important;border-radius:2px !important;box-shadow:none !important;cursor:pointer}
-.splash-verse{margin-top:18px}
-/* ? + BUBBLE */
 .help-wrap{position:absolute;bottom:28px;left:20px;right:20px;z-index:5;display:flex;align-items:center;gap:12px}
 .help-btn{position:static !important;width:64px;height:64px;min-width:64px;border-radius:50%;background:#2563EB !important;background-color:#2563EB !important;border:none !important;font-size:38px !important;box-shadow:0 0 25px rgba(37,99,235,.8) !important}
 .help-bubble{background:#fff;color:#000;padding:14px 18px;border-radius:14px;font-size:17px;font-weight:500;max-width:260px;text-align:center;cursor:pointer;box-shadow:0 8px 30px rgba(0,0,0,.4)}
-/* FAQ POPUP - MODIFIED: HIDDEN UNTIL ? TAPPED - FIXES AUTO-POP */
 .faq-popup{position:absolute;inset:0;z-index:10;display:none;flex-direction:column;justify-content:flex-end;padding:12px}
 .faq-popup.open{display:flex}
 .faq-card{background:#fff;border-radius:18px;overflow:hidden;color:#000;text-align:left;max-height:78vh;overflow-y:auto}
@@ -170,30 +135,15 @@ html{scroll-behavior:smooth}
 .faq-item .faq-ans{display:none;font-weight:400;color:#333;font-size:14px;line-height:1.6;margin-top:8px}
 .faq-item.open .faq-ans{display:block}
 .faq-close-bottom{width:64px;height:64px;border-radius:50%;background:#2563EB;color:#fff;border:none;font-size:26px;margin:16px auto 10px;cursor:pointer}
-/* HOME SHORT - MENU PAGES HIDDEN */
 .page-section{display:none !important}
 .page-section.active{display:block !important}
 .menu-link{cursor:pointer}
 
-/* === MODIFICATION ADDED - HAMBURGER LINES FIX - MUST BE LAST - FIXES ALL BLUE === */
-.menu-btn{display:none !important;width:46px !important;height:46px !important;min-width:46px !important;border-radius:50% !important;background:#2563EB !important;background-color:#2563EB !important;border:none !important;cursor:pointer !important;flex-direction:column !important;align-items:center !important;justify-content:center !important;gap:6px !important;padding:0 !important;position:relative !important;z-index:120 !important;overflow:visible !important}
-.menu-btn span{display:block !important;visibility:visible !important;opacity:1 !important;width:22px !important;min-width:22px !important;height:3px !important;min-height:3px !important;background:#fff !important;background-color:#fff !important;border-radius:3px !important;transition:all .3s ease !important;transform-origin:center !important;flex-shrink:0 !important}
-.menu-btn.open span:nth-child(1){transform:translateY(9px) rotate(45deg) !important}
-.menu-btn.open span:nth-child(2){opacity:0 !important;transform:scaleX(0) !important}
-.menu-btn.open span:nth-child(3){transform:translateY(-9px) rotate(-45deg) !important}
-@media(max-width:850px){
-  .menu-btn{display:flex !important}
-}
-
-/* === MODIFICATION ADDED - BACKGROUND PHOTO + BLUISH OPACITY - FRONT - MUST BE LAST === */
-#splash-img{position:absolute !important;inset:0 !important;width:100% !important;height:100% !important;object-fit:cover !important;object-position:center top !important;background:#000 !important;z-index:0 !important;opacity:1 !important;display:block !important}
-.splash-blue-overlay{position:absolute !important;inset:0 !important;z-index:1 !important;background:linear-gradient(180deg, rgba(37,99,235,0.85) 0%, rgba(37,99,235,0.65) 45%, rgba(0,0,0,0.85) 100%) !important;pointer-events:none !important}
-
 /* ========================================================= */
-/* ===== 3 ENQUIRIES TOGETHER - MUST BE VERY LAST ===== */
+/* ===== 3 ENQUIRIES - CLEAN - ONLY ONCE - VERY LAST ===== */
 /* ========================================================= */
 
-/* --- 1. KOINONIA ARRANGEMENT - POSTER + COUNTDOWN --- */
+/* 1. KOINONIA POSTER + COUNTDOWN */
 .koinonia-poster{position:relative !important;width:100% !important;min-height:520px !important;max-width:1100px !important;margin:auto !important;overflow:hidden !important;background:#000 !important;display:flex !important;align-items:flex-end !important}
 .koinonia-poster img{position:absolute !important;inset:0 !important;width:100% !important;height:100% !important;object-fit:cover !important;object-position:center top !important}
 .koinonia-poster .k-overlay{position:absolute !important;inset:0 !important;background:linear-gradient(180deg, rgba(37,99,235,0.55) 0%, rgba(37,99,235,0.35) 40%, rgba(0,0,0,0.85) 100%) !important;z-index:1 !important}
@@ -204,13 +154,21 @@ html{scroll-behavior:smooth}
 .k-bottom{display:flex !important;justify-content:space-between !important;align-items:flex-end !important;text-align:left !important;margin-top:12px !important;font-size:13px !important;line-height:1.5 !important}
 .k-date{text-align:right !important}
 .k-time-red{background:#E60000 !important;color:#fff !important;font-weight:900 !important;padding:4px 8px !important;margin-top:4px !important;font-size:13px !important;display:inline-block !important}
-.koinonia-countdown{background:#000 !important;color:#fff !important;display:flex !important;align-items:center !important;gap:14px !important;padding:18px 16px !important;border-top:1px solid #222 !important;border-bottom:1px solid #222 !important;max-width:1100px !important;margin:auto !important}
+.koinonia-countdown{background:#000 !important;color:#fff !important;display:flex !important;align-items:center !important;gap:14px !important;padding:18px 16px !important;border-top:1px solid #222 !important;border-bottom:1px solid #222 !important;max-width:1100px !important;margin:auto !important;flex-wrap:wrap !important}
 .koinonia-countdown .c-icon{font-size:36px !important}
 .koinonia-countdown h3{font-size:19px !important;letter-spacing:1px !important;margin:2px 0 !important}
 .koinonia-countdown .c-nums{margin-left:auto !important;text-align:center !important}
 .koinonia-countdown .c-nums b{display:block !important;font-size:22px !important;color:#fff !important}
 
-/* --- 2. SUN + HAMBURGER LIKE KOINONIA --- */
+/* FULL COUNTDOWN - DAYS TO SECONDS - NEW */
+.c-timer{margin-left:auto !important;display:flex !important;gap:8px !important;text-align:center !important}
+.c-timer div{background:#111 !important;border:1px solid #2563EB !important;border-radius:10px !important;min-width:52px !important;padding:8px 6px !important}
+.c-timer b{display:block !important;font-size:20px !important;line-height:1 !important;color:#fff !important;font-family:'Anton',sans-serif !important}
+.c-timer span{font-size:9px !important;letter-spacing:1px !important;color:#93c5fd !important;font-weight:800 !important}
+body.light-mode .c-timer div{background:#eee !important;border-color:#ddd !important}
+body.light-mode .c-timer b{color:#000 !important}
+
+/* 2. SUN + LIGHT MODE */
 .theme-btn{width:46px !important;height:46px !important;min-width:46px !important;border-radius:50% !important;background:#1a1a1a !important;color:#fff !important;border:none !important;font-size:22px !important;cursor:pointer !important;display:flex !important;align-items:center !important;justify-content:center !important}
 body.light-mode{background:#fff !important;color:#000 !important}
 body.light-mode nav,body.light-mode .hero,body.light-mode .koinonia-countdown,body.light-mode section,body.light-mode .card,body.light-mode .vision-box{background:#fff !important;color:#000 !important;border-color:#eee !important}
@@ -218,33 +176,6 @@ body.light-mode .koinonia-countdown h3,body.light-mode .koinonia-countdown p,bod
 body.light-mode .theme-btn{background:#eee !important;color:#000 !important}
 body.light-mode .hero p,body.light-mode .lead,body.light-mode .card p{color:#333 !important}
 
-/* --- 3. YELLOW -> WHITE - VERSE - KILLS GOLD GLOW --- */
+/* 3. VERSE WHITE - FINAL OVERRIDE */
 .splash-verse{color:#FFFFFF !important;border:1px solid rgba(255,255,255,0.4) !important;background:linear-gradient(180deg,rgba(0,0,0,0.65),rgba(0,0,0,0.35)) !important;text-shadow:0 2px 12px rgba(0,0,0,0.7) !important;box-shadow:none !important;animation:none !important}
-.splash-verse *, .verse, .scripture p, .quiz-q em{color:#FFFFFF !important;text-shadow:0 2px 12px rgba(0,0,0,0.7) !important}
-.quiz-q em{color:#fff !important}
-
-/* 3 ENQUIRIES */
-.theme-btn{width:46px !important;height:46px !important;border-radius:50% !important;background:#1a1a1a !important;color:#fff !important;border:none !important;font-size:22px !important;cursor:pointer !important}
-.koinonia-poster{position:relative !important;width:100% !important;min-height:520px !important;overflow:hidden !important;background:#000 !important;display:flex !important;align-items:flex-end !important}
-.koinonia-poster img{position:absolute !important;inset:0 !important;width:100% !important;height:100% !important;object-fit:cover !important}
-.koinonia-poster .k-overlay{position:absolute !important;inset:0 !important;background:linear-gradient(180deg, rgba(37,99,235,0.55) 0%, rgba(37,99,235,0.35) 40%, rgba(0,0,0,0.85) 100%) !important;z-index:1 !important}
-.koinonia-content{position:relative !important;z-index:2 !important;width:100% !important;color:#fff !important;text-align:center !important;padding:20px 16px !important}
-.koinonia-content .k-theme{font-family:'Anton',sans-serif !important;font-size:46px !important;line-height:0.95 !important}
-.koinonia-countdown{background:#000 !important;color:#fff !important;display:flex !important;align-items:center !important;gap:14px !important;padding:18px 16px !important}
-body.light-mode{background:#fff !important;color:#000 !important}
-body.light-mode nav,body.light-mode .hero,body.light-mode .koinonia-countdown{background:#fff !important;color:#000 !important}
-.splash-verse{color:#FFFFFF !important;border:1px solid rgba(255,255,255,0.4) !important;box-shadow:none !important;animation:none !important;text-shadow:0 2px 12px rgba(0,0,0,0.7) !important}
-.splash-verse *, .quiz-q em{color:#FFFFFF !important}
-
-/* 3 ENQUIRIES */
-.theme-btn{width:46px !important;height:46px !important;border-radius:50% !important;background:#1a1a1a !important;color:#fff !important;border:none !important;font-size:22px !important;cursor:pointer !important}
-.koinonia-poster{position:relative !important;width:100% !important;min-height:520px !important;overflow:hidden !important;background:#000 !important;display:flex !important;align-items:flex-end !important}
-.koinonia-poster img{position:absolute !important;inset:0 !important;width:100% !important;height:100% !important;object-fit:cover !important}
-.koinonia-poster .k-overlay{position:absolute !important;inset:0 !important;background:linear-gradient(180deg, rgba(37,99,235,0.55) 0%, rgba(37,99,235,0.35) 40%, rgba(0,0,0,0.85) 100%) !important;z-index:1 !important}
-.koinonia-content{position:relative !important;z-index:2 !important;width:100% !important;color:#fff !important;text-align:center !important;padding:20px 16px !important}
-.koinonia-content .k-theme{font-family:'Anton',sans-serif !important;font-size:46px !important;line-height:0.95 !important}
-.koinonia-countdown{background:#000 !important;color:#fff !important;display:flex !important;align-items:center !important;gap:14px !important;padding:18px 16px !important}
-body.light-mode{background:#fff !important;color:#000 !important}
-body.light-mode nav,body.light-mode .hero,body.light-mode .koinonia-countdown{background:#fff !important;color:#000 !important}
-.splash-verse{color:#FFFFFF !important;border:1px solid rgba(255,255,255,0.4) !important;box-shadow:none !important;animation:none !important;text-shadow:0 2px 12px rgba(0,0,0,0.7) !important}
 .splash-verse *, .quiz-q em{color:#FFFFFF !important}
