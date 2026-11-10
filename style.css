@@ -98,7 +98,6 @@ footer b{color:#fff;letter-spacing:3px}
   .nav-links a{font-size:16px;padding:8px}
 }
 html{scroll-behavior:smooth}
-/* 1. QUIZ DELETED - NO MORE #quiz-box, .quiz-opt, #quiz-msg */
 .splash-brand{position:relative;z-index:2;font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(72px,22vw,140px);line-height:1;color:#fff;text-shadow:0 4px 30px rgba(0,0,0,.6);letter-spacing:2px;margin-top:-20px}
 .splash-sub{position:relative;z-index:2;letter-spacing:6px;font-size:11px;font-weight:800;color:#fff;opacity:.9;margin-bottom:22px}
 .help-wrap{position:absolute;bottom:28px;left:20px;right:20px;z-index:5;display:flex;align-items:center;gap:12px}
@@ -116,7 +115,6 @@ html{scroll-behavior:smooth}
 .faq-item .faq-ans{display:none;font-weight:400;color:#333;font-size:14px;line-height:1.6;margin-top:8px}
 .faq-item.open .faq-ans{display:block}
 .faq-close-bottom{width:64px;height:64px;border-radius:50%;background:#2563EB;color:#fff;border:none;font-size:26px;margin:16px auto 10px;cursor:pointer}
-/* 3. NEXT STEPS - PAGE SECTION - JS FORCES display:block, CSS MUST NOT FIGHT IT */
 .page-section{display:none}
 .page-section.active{display:block !important}
 .menu-link{cursor:pointer}
@@ -131,7 +129,8 @@ html{scroll-behavior:smooth}
 .koinonia-content .k-theme{font-family:'Anton',sans-serif !important;font-size:46px !important;line-height:0.95 !important;letter-spacing:1px !important;margin:8px 0 !important;text-shadow:0 4px 20px rgba(0,0,0,0.8) !important}
 .k-bottom{display:flex !important;justify-content:space-between !important;align-items:flex-end !important;text-align:left !important;margin-top:12px !important;font-size:13px !important;line-height:1.5 !important}
 .k-date{text-align:right !important}
-.k-time-red{background:#E60000 !important;color:#fff !important;font-weight:900 !important;padding:4px 8px !important;margin-top:4px !important;font-size:13px !important;display:inline-block !important}
+/* MODIFIED: was #E60000 red - now blue to match theme */
+.k-time-red{background:#2563EB !important;background-color:#2563EB !important;color:#fff !important;font-weight:900 !important;padding:4px 8px !important;margin-top:4px !important;font-size:13px !important;display:inline-block !important}
 .koinonia-countdown{background:#000 !important;color:#fff !important;display:flex !important;align-items:center !important;gap:14px !important;padding:18px 16px !important;border-top:1px solid #222 !important;border-bottom:1px solid #222 !important;max-width:1100px !important;margin:auto !important;flex-wrap:wrap !important}
 .koinonia-countdown .c-icon{font-size:36px !important}
 .koinonia-countdown h3{font-size:19px !important;letter-spacing:1px !important;margin:2px 0 !important}
@@ -154,9 +153,7 @@ body.light-mode .hero p,body.light-mode .lead,body.light-mode .card p{color:#333
 .splash-verse{color:#FFFFFF !important;border:1px solid rgba(255,255,255,0.4) !important;background:linear-gradient(180deg,rgba(0,0,0,0.65),rgba(0,0,0,0.35)) !important;text-shadow:0 2px 12px rgba(0,0,0,0.7) !important;box-shadow:none !important;animation:none !important}
 .splash-verse *{color:#FFFFFF !important}
 
-/* ========================================================= */
-/* ===== 2. WORD ANIMATIONS - 2819.COM STYLE ===== */
-/* ========================================================= */
+/* WORD ANIMATIONS */
 .hero h1, .hero .eyebrow, .hero p, .hero-btns{animation:wordUp .8s cubic-bezier(.2,.8,.2,1) both !important}
 .hero .eyebrow{animation-delay:.1s}
 .hero h1{animation-delay:.2s}
@@ -173,9 +170,7 @@ body.light-mode .hero p,body.light-mode .lead,body.light-mode .card p{color:#333
 .rot-word{display:inline-block;color:#93c5fd;transition:opacity .3s}
 .page-section.active .card, .page-section.active .vision-box{opacity:1 !important;transform:none !important}
 
-/* ========================================================= */
-/* ===== FULL MODIFICATION: SCROLL BLUR - AS YOU SCROLL IT BLURS + DISAPPEARS IN ===== */
-/* ========================================================= */
+/* SCROLL BLUR */
 .hero, .koinonia-poster, .koinonia-countdown{
   transition: filter .3s ease, opacity .3s ease, transform .3s ease !important;
   will-change: filter, opacity, transform;
@@ -223,3 +218,58 @@ body.light-mode .hero p,body.light-mode .lead,body.light-mode .card p{color:#333
   }
 }
 html{scroll-behavior:smooth}
+
+/* ========================================================= */
+/* ===== MODIFIED: REMOVE REDDISH LINE + BLUE THEME - REAL CLASSES ONLY ===== */
+/* ========================================================= */
+
+/* 1. The reddish line in screenshot = the border around the saved / page-section card */
+/* Force it blue - targets your REAL classes, not guessed .saved-card */
+.page-section, .page-section.active, section, .card, .vision-box, .prayer-box, .scripture, .give-box{
+  border-color: #2563EB !important;
+  outline: none !important;
+}
+/* If the card had a reddish glow / shadow, kill it and use blue glow */
+.page-section.active, section, .card, .vision-box{
+  box-shadow: 0 0 0 1px rgba(37,99,235,.35), 0 20px 50px rgba(0,0,0,.5) !important;
+}
+
+/* 2. Kill ANY inline red / orange / gold - works even if saved.html uses inline style="" */
+[style*="red"], [style*="orange"], [style*="gold"], [style*="#E60000"], [style*="#FFA500"], [style*="#FFD700"], [style*="#FF7A00"], [style*="#FF0000"], [style*="255,0,0"]{
+  border-color: #2563EB !important;
+  background-color: #2563EB !important;
+  box-shadow: 0 0 0 1px rgba(37,99,235,.35) !important;
+  outline-color: #2563EB !important;
+}
+/* If that inline style was text color, make it soft blue not red */
+[style*="color:orange"], [style*="color: red"], [style*="color:red"], [style*="color:gold"], [style*="color:#E60000"], [style*="color:#FF"]{
+  color: #93c5fd !important;
+}
+
+/* 3. Headings on saved page - I GIVE MY LIFE = white, To Jesus. = soft blue, not gold/orange */
+.page-section h1, .page-section h2, .page-section h3{ color:#fff !important; }
+.page-section h1 em, .page-section h1 i, .page-section h1 span, .page-section h2 em{
+  color:#93c5fd !important;
+  font-style:italic !important;
+}
+
+/* 4. Small labels - JOHN 3 • PRAY THIS OUT LOUD - blue, not orange */
+.page-section small, .page-section .tag, .page-section .eyebrow, .page-section .k-small, .page-section label{
+  color:#93c5fd !important;
+  letter-spacing:4px !important;
+}
+
+/* 5. Dividers / hr - blue */
+.page-section hr, .page-section .divider, hr{
+  background:#2563EB !important;
+  border-color:#2563EB !important;
+  height:1px !important;
+}
+
+/* 6. Buttons stay blue */
+.page-section .btn, .page-section button, .btn, .btn-white{
+  background:#2563EB !important;
+  background-color:#2563EB !important;
+  border-color:#2563EB !important;
+  color:#fff !important;
+}
