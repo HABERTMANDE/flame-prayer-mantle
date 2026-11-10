@@ -12,6 +12,7 @@
   #home-sections.active{display:block !important}
   .menu-link{cursor:pointer}
   #splash{position:fixed !important;inset:0 !important;z-index:100 !important;background:#000 !important;display:flex !important;flex-direction:column !important;align-items:center !important;justify-content:center !important;text-align:center !important;padding:0 !important;overflow:hidden !important}
+  #splash.hide{display:none !important;opacity:0 !important;visibility:hidden !important;pointer-events:none !important}
   #bg-video,#splash-img{position:absolute !important;inset:0 !important;width:100% !important;height:100% !important;object-fit:cover !important;object-position:center top !important;z-index:0 !important}
   #splash-img{object-position:center top !important}
   .splash-blue-overlay{position:absolute !important;inset:0 !important;z-index:1 !important;background:linear-gradient(180deg, rgba(37,99,235,0.55) 0%, rgba(37,99,235,0.35) 40%, rgba(0,0,0,0.75) 100%) !important;pointer-events:none !important}
@@ -69,7 +70,6 @@
   body.light-mode .c-timer div{background:#eee !important;border-color:#ddd !important}
   body.light-mode .c-timer b{color:#000 !important}
   .verse,.scripture,.verse-text,blockquote{color:#FFFFFF !important}
-  /* ===== 2. WORD ANIMATIONS - 2819.COM STYLE ===== */
   .hero h1, .hero .eyebrow, .hero p, .hero-btns{animation:wordUp .8s cubic-bezier(.2,.8,.2,1) both !important}
   .hero .eyebrow{animation-delay:.1s}
   .hero h1{animation-delay:.2s}
@@ -86,14 +86,12 @@
 </style>
 </head>
 <body>
-
 <div id="splash">
   <img id="splash-img" src="images/habert-singing.jpg" alt="FLAME">
   <div class="splash-blue-overlay"></div>
   <div class="splash-brand">FLAME</div>
   <div class="splash-sub">PRAYER MANTLE • NAIROBI</div>
   <div class="splash-inner">
-    <!-- 1. NO QUIZ ANYMORE - ENTER GOES STRAIGHT IN -->
     <button class="btn-enter" id="enterBtn" onclick="handleEnter()">ENTER</button>
     <div class="splash-verse">"The fire shall ever be burning upon the altar" — Lev 6:13</div>
   </div>
@@ -121,7 +119,6 @@
     <button class="faq-close-bottom" onclick="toggleFAQ()">✕</button>
   </div>
 </div>
-
 <nav>
   <a href="index.html" class="logo" onclick="showHome(event)">FLAME<span>PRAYER MANTLE</span></a>
   <div class="nav-links" id="navLinks">
@@ -138,7 +135,6 @@
     <button class="menu-btn" id="menuBtn" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
-
 <section class="koinonia-poster">
   <img src="images/habert-singing.jpg" alt="FLAME Nairobi">
   <div class="k-overlay"></div>
@@ -154,7 +150,6 @@
     </div>
   </div>
 </section>
-
 <section class="koinonia-countdown">
   <div class="c-icon">⏳</div>
   <div><p style="font-size:11px;letter-spacing:2px;margin:0">THE</p><h3>FLAME MANTLE</h3><p style="font-size:11px;letter-spacing:2px;margin:0">BEGINS IN</p></div>
@@ -165,7 +160,6 @@
     <div><b id="cd-top-secs">0</b><span>SECS</span></div>
   </div>
 </section>
-
 <header class="hero">
   <div class="hero-inner">
     <div class="eyebrow">THE CALL TO CONSECRATION • NAIROBI, KENYA • GLOBAL</div>
@@ -177,7 +171,6 @@
     </div>
   </div>
 </header>
-
 <main id="content">
   <div id="home-sections">
     <section id="call">
@@ -266,7 +259,6 @@
     <p style="margin-top:20px"><a onclick="showHome(event)" style="color:#2563EB;font-weight:800;cursor:pointer">← Back To Home</a></p>
   </section>
 </main>
-
 <footer>
   <button onclick="backToEntrance()" style="background:#2563EB;color:#fff;border:none;padding:12px 24px;border-radius:30px;font-weight:800;cursor:pointer;margin-bottom:16px">↩ Back To Entrance</button><br>
   <b>FLAME — PRAYER MANTLE</b><br>
@@ -274,38 +266,43 @@
   WhatsApp: +254795155158 | Instagram: theflameprayermantle<br><br>
   © 2026 FLAME Prayer Mantle. We catch fire in His presence, we rise as a flame in the world.
 </footer>
-
 <script>
 function toggleTheme(){
   document.body.classList.toggle('light-mode');
   var b=document.getElementById('themeBtn');
   if(b) b.textContent=document.body.classList.contains('light-mode') ? '🌙' : '☀️';
 }
-/* 1. NO QUESTION - DIRECT ENTER */
+/* 1. NO QUESTION - DIRECT ENTER - FIXED */
 function handleEnter(){
   var s=document.getElementById('splash');
-  if(s){ s.classList.add('hide'); s.style.display='none'; s.style.opacity='0'; s.style.visibility='hidden'; }
-  document.body.style.overflow='auto';
+  if(!s) return;
+  s.classList.add('hide');
+  s.style.setProperty('display','none','important');
+  s.style.setProperty('opacity','0','important');
+  s.style.setProperty('visibility','hidden','important');
+  s.style.setProperty('pointer-events','none','important');
+  document.body.style.setProperty('overflow','auto','important');
   window.scrollTo(0,0);
 }
+function enterSite(){ handleEnter(); }
 function showQuiz(){ handleEnter(); }
 function checkAnswer(){ handleEnter(); }
 function closeMenu(){ var n=document.getElementById('navLinks'); if(n) n.classList.remove('open'); var b=document.getElementById('menuBtn'); if(b) b.classList.remove('open'); }
 function toggleMenu(){ var n=document.getElementById('navLinks'); if(n) n.classList.toggle('open'); var b=document.getElementById('menuBtn'); if(b) b.classList.toggle('open'); }
-/* 3. FIXED - MAIN MENU -> NEXT STEPS - FORCES DISPLAY + UNHIDES CARDS */
+/* 3. FIXED - MAIN MENU -> NEXT STEPS */
 function showPage(id){
   var home=document.getElementById('home-sections'); var hero=document.querySelector('.hero');
   var poster=document.querySelector('.koinonia-poster'); var countdown=document.querySelector('.koinonia-countdown');
-  if(home) home.style.display='none';
-  if(hero) hero.style.display='none';
-  if(poster) poster.style.display='none';
-  if(countdown) countdown.style.display='none';
-  document.querySelectorAll('.page-section').forEach(function(s){ s.classList.remove('active'); s.style.display='none'; });
+  if(home) home.style.setProperty('display','none','important');
+  if(hero) hero.style.setProperty('display','none','important');
+  if(poster) poster.style.setProperty('display','none','important');
+  if(countdown) countdown.style.setProperty('display','none','important');
+  document.querySelectorAll('.page-section').forEach(function(s){ s.classList.remove('active'); s.style.setProperty('display','none','important'); });
   var el=document.getElementById(id);
   if(el){
     el.classList.add('active');
-    el.style.display='block';
-    el.querySelectorAll('.reveal, .card, .vision-box').forEach(function(c){ c.classList.add('visible'); c.style.opacity='1'; c.style.transform='none'; });
+    el.style.setProperty('display','block','important');
+    el.querySelectorAll('.reveal, .card, .vision-box').forEach(function(c){ c.classList.add('visible'); c.style.setProperty('opacity','1','important'); c.style.setProperty('transform','none','important'); });
   }
   window.scrollTo({top:0,behavior:'smooth'});
   try{ history.pushState({page:id},'','#'+id); }catch(e){}
@@ -314,11 +311,11 @@ function showHome(e){
   if(e) e.preventDefault();
   var home=document.getElementById('home-sections'); var hero=document.querySelector('.hero');
   var poster=document.querySelector('.koinonia-poster'); var countdown=document.querySelector('.koinonia-countdown');
-  if(home) home.style.display='block';
-  if(hero) hero.style.display='block';
-  if(poster) poster.style.display='flex';
-  if(countdown) countdown.style.display='flex';
-  document.querySelectorAll('.page-section').forEach(function(s){ s.classList.remove('active'); s.style.display='none'; });
+  if(home) home.style.setProperty('display','block','important');
+  if(hero) hero.style.setProperty('display','block','important');
+  if(poster) poster.style.setProperty('display','flex','important');
+  if(countdown) countdown.style.setProperty('display','flex','important');
+  document.querySelectorAll('.page-section').forEach(function(s){ s.classList.remove('active'); s.style.setProperty('display','none','important'); });
   window.scrollTo({top:0,behavior:'smooth'});
   try{ history.pushState({page:'home'},'','#home'); }catch(e){}
 }
@@ -326,22 +323,28 @@ window.addEventListener('popstate',function(ev){
   var home=document.getElementById('home-sections'); var hero=document.querySelector('.hero');
   var poster=document.querySelector('.koinonia-poster'); var countdown=document.querySelector('.koinonia-countdown');
   if(ev.state&&ev.state.page&&ev.state.page!=='home'){
-    if(home) home.style.display='none'; if(hero) hero.style.display='none';
-    if(poster) poster.style.display='none'; if(countdown) countdown.style.display='none';
-    document.querySelectorAll('.page-section').forEach(function(s){ s.classList.remove('active'); s.style.display='none'; });
+    if(home) home.style.setProperty('display','none','important'); if(hero) hero.style.setProperty('display','none','important');
+    if(poster) poster.style.setProperty('display','none','important'); if(countdown) countdown.style.setProperty('display','none','important');
+    document.querySelectorAll('.page-section').forEach(function(s){ s.classList.remove('active'); s.style.setProperty('display','none','important'); });
     var el=document.getElementById(ev.state.page);
-    if(el){ el.classList.add('active'); el.style.display='block'; el.querySelectorAll('.reveal, .card').forEach(function(c){ c.classList.add('visible'); c.style.opacity='1'; c.style.transform='none'; }); }
+    if(el){ el.classList.add('active'); el.style.setProperty('display','block','important'); el.querySelectorAll('.reveal, .card').forEach(function(c){ c.classList.add('visible'); c.style.setProperty('opacity','1','important'); c.style.setProperty('transform','none','important'); }); }
   } else {
-    if(home) home.style.display='block'; if(hero) hero.style.display='block';
-    if(poster) poster.style.display='flex'; if(countdown) countdown.style.display='flex';
-    document.querySelectorAll('.page-section').forEach(function(s){ s.classList.remove('active'); s.style.display='none'; });
+    if(home) home.style.setProperty('display','block','important'); if(hero) hero.style.setProperty('display','block','important');
+    if(poster) poster.style.setProperty('display','flex','important'); if(countdown) countdown.style.setProperty('display','flex','important');
+    document.querySelectorAll('.page-section').forEach(function(s){ s.classList.remove('active'); s.style.setProperty('display','none','important'); });
   }
 });
 function backToEntrance(){
   var s=document.getElementById('splash');
-  if(s){ s.classList.remove('hide'); s.style.display='flex'; s.style.opacity='1'; s.style.visibility='visible'; }
+  if(s){
+    s.classList.remove('hide');
+    s.style.setProperty('display','flex','important');
+    s.style.setProperty('opacity','1','important');
+    s.style.setProperty('visibility','visible','important');
+    s.style.setProperty('pointer-events','auto','important');
+  }
   var btn=document.getElementById('enterBtn'); if(btn) btn.textContent='ENTER';
-  document.body.style.overflow='hidden';
+  document.body.style.setProperty('overflow','hidden','important');
   window.scrollTo({top:0});
 }
 function toggleFAQ(){
@@ -375,7 +378,7 @@ function startCountdown(){
   tick(); setInterval(tick,1000);
 }
 startCountdown();
-/* 2. 2819 WORD ANIMATIONS + ROTATING WORD + SCROLL REVEAL */
+/* 2. 2819 WORD ANIMATIONS */
 var rotWords=['Flame.','Light.','Fire.','Voice.'];
 var rotI=0;
 setInterval(function(){
@@ -388,6 +391,6 @@ var io=new IntersectionObserver(function(entries){
   entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); });
 },{threshold:0.1});
 document.querySelectorAll('#home-sections section, #home-sections .card').forEach(function(el){ el.classList.add('reveal'); io.observe(el); });
-document.addEventListener('DOMContentLoaded',function(){
-  var btn=document.getElementById('enterBtn'); if(btn) btn.addEventListener('click',handleEnter);
-});
+</script>
+</body>
+</html>
