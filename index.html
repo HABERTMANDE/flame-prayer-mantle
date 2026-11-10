@@ -142,6 +142,7 @@
   </div>
   <div style="display:flex;gap:10px;align-items:center">
     <a class="btn" href="#give" onclick="showHome(event)" style="background:#2563EB">GIVE</a>
+<button class="theme-btn" id="themeBtn" onclick="toggleTheme()">☀️</button>
     <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" aria-label="Theme">☀️</button>
     <button class="menu-btn" id="menuBtn" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
@@ -170,6 +171,8 @@
   <div class="c-nums"><b id="cd-days-top">0</b><span style="font-size:10px">DAYS</span></div>
 </section>
 
+<section class="koinonia-poster"><img src="images/flame-nairobi-poster.jpeg" alt="FLAME"><div class="k-overlay"></div><div class="koinonia-content"><p>THE</p><h1>FLAME PRAYER MANTLE</h1><p>— THEME —</p><h2 class="k-theme">MORE THAN<br>CONQUERORS</h2><p>— ROMANS 8:37 —</p></div></section>
+<section class="koinonia-countdown"><div>⏳</div><div><p>THE</p><h3>FLAME MANTLE</h3><p>BEGINS IN</p></div><div style="margin-left:auto"><b id="cd-days-top">0</b><br><span>DAYS</span></div></section>
 <!-- HERO - NO POSTER -->
 <header class="hero">
   <div class="hero-inner">
@@ -287,6 +290,7 @@ function toggleTheme(){
   var b=document.getElementById('themeBtn');
   if(b) b.textContent=document.body.classList.contains('light-mode') ? '🌙' : '☀️';
 }
+function toggleTheme(){document.body.classList.toggle('light-mode');document.getElementById('themeBtn').textContent=document.body.classList.contains('light-mode')?'🌙':'☀️';}
 function handleEnter(){
   var quiz=document.getElementById('quiz-box');
   var btn=document.getElementById('enterBtn');

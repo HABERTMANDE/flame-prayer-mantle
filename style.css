@@ -222,3 +222,16 @@ body.light-mode .hero p,body.light-mode .lead,body.light-mode .card p{color:#333
 .splash-verse{color:#FFFFFF !important;border:1px solid rgba(255,255,255,0.4) !important;background:linear-gradient(180deg,rgba(0,0,0,0.65),rgba(0,0,0,0.35)) !important;text-shadow:0 2px 12px rgba(0,0,0,0.7) !important;box-shadow:none !important;animation:none !important}
 .splash-verse *, .verse, .scripture p, .quiz-q em{color:#FFFFFF !important;text-shadow:0 2px 12px rgba(0,0,0,0.7) !important}
 .quiz-q em{color:#fff !important}
+
+/* 3 ENQUIRIES */
+.theme-btn{width:46px !important;height:46px !important;border-radius:50% !important;background:#1a1a1a !important;color:#fff !important;border:none !important;font-size:22px !important;cursor:pointer !important}
+.koinonia-poster{position:relative !important;width:100% !important;min-height:520px !important;overflow:hidden !important;background:#000 !important;display:flex !important;align-items:flex-end !important}
+.koinonia-poster img{position:absolute !important;inset:0 !important;width:100% !important;height:100% !important;object-fit:cover !important}
+.koinonia-poster .k-overlay{position:absolute !important;inset:0 !important;background:linear-gradient(180deg, rgba(37,99,235,0.55) 0%, rgba(37,99,235,0.35) 40%, rgba(0,0,0,0.85) 100%) !important;z-index:1 !important}
+.koinonia-content{position:relative !important;z-index:2 !important;width:100% !important;color:#fff !important;text-align:center !important;padding:20px 16px !important}
+.koinonia-content .k-theme{font-family:'Anton',sans-serif !important;font-size:46px !important;line-height:0.95 !important}
+.koinonia-countdown{background:#000 !important;color:#fff !important;display:flex !important;align-items:center !important;gap:14px !important;padding:18px 16px !important}
+body.light-mode{background:#fff !important;color:#000 !important}
+body.light-mode nav,body.light-mode .hero,body.light-mode .koinonia-countdown{background:#fff !important;color:#000 !important}
+.splash-verse{color:#FFFFFF !important;border:1px solid rgba(255,255,255,0.4) !important;box-shadow:none !important;animation:none !important;text-shadow:0 2px 12px rgba(0,0,0,0.7) !important}
+.splash-verse *, .quiz-q em{color:#FFFFFF !important}
