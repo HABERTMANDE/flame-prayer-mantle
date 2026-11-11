@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FLAME | Catch Fire, Rise As A Flame</title>
-<link rel="stylesheet" href="style.css?v=7">
+<link rel="stylesheet" href="style.css?v=8">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600;800&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
 <style>
   .page-section{display:none !important}
@@ -63,8 +63,6 @@
   .c-timer div{background:#111 !important;border:1px solid #2563EB !important;border-radius:10px !important;min-width:52px !important;padding:8px 6px !important}
   .c-timer b{display:block !important;font-size:20px !important;line-height:1 !important;color:#fff !important;font-family:'Anton',sans-serif !important}
   .c-timer span{font-size:9px !important;letter-spacing:1px !important;color:#93c5fd !important;font-weight:800 !important}
-
-  /* FIX 5 - LIGHT MODE: ONLY body + countdown go white. Hero + Poster STAY DARK with WHITE text */
   body.light-mode{background:#fff !important;color:#000 !important}
   body.light-mode nav{background:#fff !important;color:#000 !important}
   body.light-mode .koinonia-countdown{background:#fff !important;color:#000 !important;border-color:#eee !important}
@@ -76,7 +74,6 @@
   body.light-mode .koinonia-content, body.light-mode .koinonia-content h1, body.light-mode .koinonia-content h2, body.light-mode .koinonia-content p, body.light-mode .koinonia-content div{color:#fff !important}
   body.light-mode .hero h1, body.light-mode .hero h1 em, body.light-mode .hero p, body.light-mode .hero .eyebrow{color:#fff !important}
   body.light-mode .hero .rot-word{color:#93c5fd !important}
-
   .verse,.scripture,.verse-text,blockquote{color:#FFFFFF !important}
   .hero h1, .hero .eyebrow, .hero p, .hero-btns{animation:wordUp .8s cubic-bezier(.2,.8,.2,1) both !important}
   .hero .eyebrow{animation-delay:.1s}
@@ -88,7 +85,6 @@
   @keyframes pageIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
   .koinonia-content h1{animation:wordUp .8s .1s both !important}
   .koinonia-content .k-theme{animation:wordUp .8s .3s both !important}
-  /* FIX 2 - SLOW ROTATION: 1s fade, no jump */
   .rot-word{display:inline-block;color:#93c5fd;transition:opacity 1s ease, transform 1s ease;min-width:120px}
   .koinonia-poster, .koinonia-countdown{ will-change:filter, opacity, transform !important; }
   .blur-reveal{ filter:blur(14px) !important; opacity:0 !important; transform:translateY(30px) scale(.98) !important; transition:filter .9s ease, opacity .9s ease, transform .9s ease !important; }
@@ -97,11 +93,50 @@
   @media (prefers-reduced-motion: reduce){ .blur-reveal, .page-section{ filter:none !important; opacity:1 !important; transform:none !important; visibility:visible !important; } }
   .hero, .hero-inner, .hero h1, .hero h1 em, .hero .eyebrow, .hero p, .hero-btns, .hero .rot-word{ filter:none !important; -webkit-filter:none !important; backdrop-filter:none !important; opacity:1 !important; transform:none !important; }
   .hero{ transition:none !important; will-change:auto !important; }
-  /* FIX 6 - VIDEO WRAP */
   .video-wrap{position:relative !important;background:#000 !important}
   .video-btns{display:flex !important;gap:8px !important;padding:10px !important;background:#000 !important}
   .video-btns button{flex:1 !important;background:#2563EB !important;color:#fff !important;border:none !important;padding:11px 6px !important;border-radius:8px !important;font-weight:800 !important;font-size:13px !important;cursor:pointer !important}
   .video-btns button.secondary{background:#222 !important;border:1px solid #333 !important}
+
+  /* ===== NEW: ALL UPDATES TOGETHER ===== */
+  .invert-window{background:#fff !important;color:#000 !important;border:2px solid #000 !important;margin:40px 16px !important}
+  .invert-top,.invert-bottom{display:flex !important;justify-content:space-between !important;padding:12px 16px !important;font-size:11px !important;letter-spacing:2px !important;border-bottom:1px solid #000 !important}
+  .invert-bottom{border-bottom:0 !important;border-top:1px solid #000 !important}
+  .invert-main{padding:24px 16px !important}
+  .invert-main h2{font-family:'Anton',sans-serif !important;font-size:42px !important;line-height:.95 !important;margin:0 0 12px !important;color:#000 !important}
+  .invert-main p{color:#333 !important;line-height:1.7 !important}
+  .invert-media{margin-top:18px !important;border:2px solid #000 !important;background:#000 !important;padding:8px !important}
+  .invert-media img{width:100% !important;display:block !important}
+  .author-window{background:#fff !important;color:#000 !important;border:2px solid #000 !important;margin:40px 16px !important}
+  .author-top{display:flex !important;justify-content:space-between !important;padding:12px 16px !important;font-size:11px !important;letter-spacing:2px !important;border-bottom:1px solid #000 !important}
+  .author-main{display:grid !important;gap:20px !important;padding:24px 16px !important}
+  @media(min-width:768px){.author-main{grid-template-columns:1fr 1.4fr !important}}
+  .author-main h2{font-family:'Anton',sans-serif !important;font-size:42px !important;line-height:.95 !important;margin:0 0 12px !important;color:#000 !important}
+  .author-main p{color:#333 !important;line-height:1.7 !important}
+  .author-btn{display:inline-block !important;margin-top:14px !important;background:#000 !important;color:#fff !important;padding:12px 18px !important;text-decoration:none !important;font-weight:800 !important}
+  .books-grid{display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important}
+  .book-card{border:1px solid #000 !important;padding:16px !important;background:#f5f5f5 !important}
+  .book-card span{font-size:11px !important;letter-spacing:2px !important;color:#666 !important}
+  .book-card h3{margin:8px 0 !important;font-size:19px !important;line-height:1.1 !important;color:#000 !important}
+  .book-card p{font-size:13px !important;margin:0 !important;color:#333 !important}
+  .book-card a{display:inline-block !important;margin-top:10px !important;background:#000 !important;color:#fff !important;padding:8px 12px !important;text-decoration:none !important;font-size:12px !important;font-weight:800 !important}
+  .merch-window{background:#000 !important;color:#fff !important;border:2px solid #fff !important;margin:40px 16px !important}
+  .merch-top{display:flex !important;justify-content:space-between !important;padding:12px 16px !important;font-size:11px !important;letter-spacing:2px !important;color:#bbb !important;border-bottom:1px solid #333 !important}
+  .merch-title{font-family:'Anton',sans-serif !important;font-size:42px !important;padding:20px 16px 0 !important;margin:0 !important;color:#fff !important}
+  .merch-sub{padding:0 16px !important;color:#aaa !important}
+  .shirts-grid{display:grid !important;grid-template-columns:1fr 1fr !important;gap:14px !important;padding:16px !important}
+  @media(min-width:768px){.shirts-grid{grid-template-columns:repeat(5,1fr) !important}.shirts-grid.extra{grid-template-columns:repeat(3,1fr) !important}}
+  .shirt-card{border:1px solid #555 !important;padding:12px !important;text-align:center !important;background:#111 !important}
+  .shirt{background:#222 !important;color:#fff !important;border:1px solid #fff !important;padding:28px 8px !important;font-weight:900 !important;font-size:20px !important;line-height:1.1 !important;min-height:150px !important;display:flex !important;flex-direction:column !important;justify-content:center !important}
+  .shirt small{font-size:9px !important;letter-spacing:1px !important;color:#bbb !important;margin-top:8px !important}
+  .shirt-card h3{margin:10px 0 2px !important;font-size:15px !important;color:#fff !important}
+  .shirt-card p{margin:0 !important;color:#aaa !important;font-size:12px !important}
+  .shirt-card strong{display:block !important;margin:8px 0 !important;color:#fff !important}
+  .shirt-card a{display:inline-block !important;background:#fff !important;color:#000 !important;padding:8px 14px !important;text-decoration:none !important;font-weight:800 !important;font-size:12px !important}
+  body.light-mode .invert-window, body.light-mode .author-window{background:#fff !important;color:#000 !important}
+  body.light-mode .merch-window{background:#000 !important;color:#fff !important}
+  body.light-mode .merch-window h2, body.light-mode .merch-window h3, body.light-mode .merch-window strong{color:#fff !important}
+  body.light-mode .invert-main h2, body.light-mode .author-main h2, body.light-mode .book-card h3{color:#000 !important}
 </style>
 </head>
 <body>
@@ -146,10 +181,12 @@
     <a class="menu-link" onclick="showPage('prayer');closeMenu()">PRAYER</a>
     <a class="menu-link" onclick="showPage('watch');closeMenu()">WATCH</a>
     <a class="menu-link" onclick="showPage('event');closeMenu()">NAIROBI</a>
+    <a class="menu-link" onclick="goToSection('portfolio');closeMenu()">PORTFOLIO</a>
+    <a class="menu-link" onclick="goToSection('author');closeMenu()">AUTHOR</a>
+    <a class="menu-link" onclick="goToSection('merch');closeMenu()">MERCH</a>
     <a href="saved.html" style="color:#fff">I AM SAVED</a>
   </div>
   <div style="display:flex;gap:10px;align-items:center">
-    <!-- FIX 1 - GIVE NOW WORKS -->
     <a class="btn" href="#give" onclick="showGive(event)" style="background:#2563EB">GIVE</a>
     <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" aria-label="Theme">☀️</button>
     <button class="menu-btn" id="menuBtn" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -216,6 +253,56 @@
         </div>
       </div>
     </section>
+
+    <!-- ===== NEW: INVERTED PORTFOLIO WINDOW ===== -->
+    <section id="portfolio" class="invert-window">
+      <div class="invert-top"><span>FLAME • PORTFOLIO</span><span>INVERTED • 2026</span></div>
+      <div class="invert-main">
+        <h2>THE MANTLE<br>INVERTED.</h2>
+        <p>Black becomes white. White becomes black.<br>We catch fire, we rise as a flame.</p>
+        <div class="invert-media"><img src="images/flame-nairobi-poster.jpeg" alt="Flame Poster"></div>
+      </div>
+      <div class="invert-bottom"><span>NAIROBI</span><span>GLOBAL</span><span>CONSECRATION</span></div>
+    </section>
+
+    <!-- ===== NEW: AUTHOR WINDOW ===== -->
+    <section id="author" class="author-window">
+      <div class="author-top"><span>AUTHOR • HABERT MURUNGA</span><span>4 BOOKS • 6 FEB 2027</span></div>
+      <div class="author-main">
+        <div>
+          <h2>FROM THE<br>AUTHOR.</h2>
+          <p>Four books. One mantle. One call to rise.</p>
+          <p><strong>LAUNCH:</strong> 6th February 2027<br><strong>SOFT COPY:</strong> KSh 1,000<br><strong>PHYSICAL DELIVERED:</strong> KSh 2,500</p>
+          <a class="author-btn" href="https://wa.me/254795155158?text=I%20want%20to%20pre-order%20the%204%20books">PRE-ORDER ALL 4 BOOKS →</a>
+        </div>
+        <div class="books-grid">
+          <div class="book-card"><span>01</span><h3>Disconnected from the Head</h3><p>Soft KSh 1,000 • Physical KSh 2,500<br>6 Feb 2027</p><a href="https://wa.me/254795155158?text=I%20want%20Disconnected%20from%20the%20Head">ORDER →</a></div>
+          <div class="book-card"><span>02</span><h3>Pioneers Brace Up</h3><p>Soft KSh 1,000 • Physical KSh 2,500<br>6 Feb 2027</p><a href="https://wa.me/254795155158?text=I%20want%20Pioneers%20Brace%20Up">ORDER →</a></div>
+          <div class="book-card"><span>03</span><h3>You can only Go Up</h3><p>Soft KSh 1,000 • Physical KSh 2,500<br>6 Feb 2027</p><a href="https://wa.me/254795155158?text=I%20want%20You%20can%20only%20Go%20Up">ORDER →</a></div>
+          <div class="book-card"><span>04</span><h3>The price of Freedom</h3><p>Soft KSh 1,000 • Physical KSh 2,500<br>6 Feb 2027</p><a href="https://wa.me/254795155158?text=I%20want%20The%20price%20of%20Freedom">ORDER →</a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== NEW: MERCH WINDOW ===== -->
+    <section id="merch" class="merch-window">
+      <div class="merch-top"><span>FLAME MERCH • SHOP</span><span>LIKE 2819STORE</span></div>
+      <h2 class="merch-title">WEAR THE WORD.</h2>
+      <p class="merch-sub">T-Shirts KSh 1,500 • Hoodies KSh 3,000 • Sweatshirts KSh 2,500 • Caps KSh 1,000</p>
+      <div class="shirts-grid">
+        <div class="shirt-card"><div class="shirt">MATTHEW<br>25:14-30<br><small>USE WHAT GOD GAVE YOU</small></div><h3>TALENTS TEE</h3><p>Matthew 25:14-30</p><strong>KSh 1,500</strong><a href="https://wa.me/254795155158?text=I%20want%20TALENTS%20TEE%20Matthew%2025">ORDER →</a></div>
+        <div class="shirt-card"><div class="shirt">MATTHEW<br>13<br><small>THE KINGDOM PARABLES</small></div><h3>SOWER TEE</h3><p>Matthew 13</p><strong>KSh 1,500</strong><a href="https://wa.me/254795155158?text=I%20want%20SOWER%20TEE%20Matthew%2013">ORDER →</a></div>
+        <div class="shirt-card"><div class="shirt">MATTHEW<br>3:10<br><small>BEAR FRUIT</small></div><h3>AXE TEE</h3><p>Matthew 3:10</p><strong>KSh 1,500</strong><a href="https://wa.me/254795155158?text=I%20want%20AXE%20TEE%20Matthew%203:10">ORDER →</a></div>
+        <div class="shirt-card"><div class="shirt">MATTHEW<br>5:14<br><small>YOU ARE THE LIGHT</small></div><h3>LIGHT TEE</h3><p>Matthew 5:14</p><strong>KSh 1,500</strong><a href="https://wa.me/254795155158?text=I%20want%20LIGHT%20TEE%20Matthew%205:14">ORDER →</a></div>
+        <div class="shirt-card"><div class="shirt">MATTHEW<br>6:33<br><small>SEEK FIRST</small></div><h3>KINGDOM TEE</h3><p>Matthew 6:33</p><strong>KSh 1,500</strong><a href="https://wa.me/254795155158?text=I%20want%20KINGDOM%20TEE%20Matthew%206:33">ORDER →</a></div>
+      </div>
+      <div class="shirts-grid extra">
+        <div class="shirt-card"><div class="shirt">FLAME<br>HOODIE<br><small>ANY VERSE • BLACK</small></div><h3>FLAME HOODIE</h3><p>Choose any of the 5 verses</p><strong>KSh 3,000</strong><a href="https://wa.me/254795155158?text=I%20want%20FLAME%20HOODIE">ORDER →</a></div>
+        <div class="shirt-card"><div class="shirt">FLAME<br>SWEATSHIRT<br><small>ANY VERSE • GREY</small></div><h3>FLAME SWEATSHIRT</h3><p>Choose any of the 5 verses</p><strong>KSh 2,500</strong><a href="https://wa.me/254795155158?text=I%20want%20FLAME%20SWEATSHIRT">ORDER →</a></div>
+        <div class="shirt-card"><div class="shirt">FLAME<br>CAP<br><small>FLAME LOGO</small></div><h3>FLAME CAP</h3><p>Black / White</p><strong>KSh 1,000</strong><a href="https://wa.me/254795155158?text=I%20want%20FLAME%20CAP">ORDER →</a></div>
+      </div>
+    </section>
+
     <section id="give">
       <div class="give">
         <div style="letter-spacing:4px;font-weight:800;font-size:12px">GIVE</div>
@@ -298,7 +385,6 @@ function toggleTheme(){
   var b=document.getElementById('themeBtn');
   if(b) b.textContent=document.body.classList.contains('light-mode') ? '🌙' : '☀️';
 }
-/* FIX 4 - ENTER SCROLLS TO TOP */
 function handleEnter(){
   var s=document.getElementById('splash');
   if(!s) return;
@@ -317,6 +403,7 @@ function showQuiz(){ handleEnter(); }
 function checkAnswer(){ handleEnter(); }
 function closeMenu(){ var n=document.getElementById('navLinks'); if(n) n.classList.remove('open'); var b=document.getElementById('menuBtn'); if(b) b.classList.remove('open'); }
 function toggleMenu(){ var n=document.getElementById('navLinks'); if(n) n.classList.toggle('open'); var b=document.getElementById('menuBtn'); if(b) b.classList.toggle('open'); }
+function goToSection(id){ showHome(null); setTimeout(function(){ var el=document.getElementById(id); if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); },200); }
 function showPage(id){
   var home=document.getElementById('home-sections'); var hero=document.querySelector('.hero');
   var poster=document.querySelector('.koinonia-poster'); var countdown=document.querySelector('.koinonia-countdown');
@@ -346,7 +433,6 @@ function showHome(e){
   window.scrollTo({top:0,behavior:'smooth'});
   try{ history.pushState({page:'home'},'','#home'); }catch(e){}
 }
-/* FIX 1 - GIVE */
 function showGive(e){
   if(e) e.preventDefault();
   closeMenu();
@@ -416,7 +502,6 @@ function startCountdown(){
   tick(); setInterval(tick,1000);
 }
 startCountdown();
-/* FIX 2 - SLOW ROTATION 4.5s */
 var rotWords=['Flame.','Light.','Fire.','Voice.'];
 var rotI=0;
 setInterval(function(){
@@ -426,7 +511,6 @@ setInterval(function(){
   el.style.transform='translateY(10px)';
   setTimeout(function(){ rotI=(rotI+1)%rotWords.length; el.textContent=rotWords[rotI]; el.style.opacity='1'; el.style.transform='translateY(0)'; },1000);
 },4500);
-/* FIX 6 - VIDEO + AUDIO */
 function playFlameVideo(){
   var v=document.getElementById('flameVideo');
   if(!v) return;

@@ -61,7 +61,6 @@ input,textarea{width:100%;padding:14px;border-radius:12px;border:1px solid #333;
 label{font-size:12px;letter-spacing:2px;color:#93c5fd;font-weight:800}
 .event{display:block;gap:20px;align-items:center}
 .event img{width:100%;height:auto;object-fit:contain;object-position:center;display:block;border-radius:20px;border:1px solid #333;background:#000;max-height:none}
-/* FIX 1 - GIVE: scroll-margin so sticky nav doesn't cover it when GIVE is clicked */
 #give{scroll-margin-top:90px}
 .give{background:#2563EB;color:#fff;border-radius:24px;padding:36px;text-align:center}
 .give-box{background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.4);border-radius:16px;padding:20px;max-width:520px;margin:20px auto;text-align:left;line-height:1.95}
@@ -87,7 +86,6 @@ footer b{color:#fff;letter-spacing:3px}
 .watch-card video{width:100% !important;height:auto !important;min-height:340px !important;aspect-ratio:auto !important;object-fit:cover !important;background:#000;display:block}
 .video-wrap{width:100% !important}
 .watch-card{width:100% !important}
-/* FIX 6 - VIDEO WRAP + AUDIO BUTTONS */
 .video-wrap{position:relative !important;background:#000 !important}
 .video-btns{display:flex !important;gap:8px !important;padding:10px !important;background:#000 !important}
 .video-btns button{flex:1 !important;background:#2563EB !important;color:#fff !important;border:none !important;padding:11px 6px !important;border-radius:8px !important;font-weight:800 !important;font-size:13px !important;cursor:pointer !important}
@@ -125,8 +123,6 @@ html{scroll-behavior:smooth}
 .faq-item.open .faq-ans{display:block}
 .faq-close-bottom{width:64px;height:64px;border-radius:50%;background:#2563EB;color:#fff;border:none;font-size:26px;margin:16px auto 10px;cursor:pointer}
 .menu-link{cursor:pointer}
-
-/* KOINONIA POSTER + COUNTDOWN */
 .koinonia-poster{position:relative !important;width:100% !important;min-height:520px !important;max-width:1100px !important;margin:auto !important;overflow:hidden !important;background:#000 !important;display:flex !important;align-items:flex-end !important}
 .koinonia-poster img{position:absolute !important;inset:0 !important;width:100% !important;height:100% !important;object-fit:cover !important;object-position:center top !important}
 .koinonia-poster .k-overlay{position:absolute !important;inset:0 !important;background:linear-gradient(180deg, rgba(37,99,235,0.55) 0%, rgba(37,99,235,0.35) 40%, rgba(0,0,0,0.85) 100%) !important;z-index:1 !important}
@@ -146,26 +142,19 @@ html{scroll-behavior:smooth}
 .c-timer span{font-size:9px !important;letter-spacing:1px !important;color:#93c5fd !important;font-weight:800 !important}
 body.light-mode .c-timer div{background:#eee !important;border-color:#ddd !important}
 body.light-mode .c-timer b{color:#000 !important}
-
-/* SUN + LIGHT MODE - FIX 5: ONLY body/nav/countdown/cards go white. Hero + Poster STAY DARK */
 .theme-btn{width:46px !important;height:46px !important;min-width:46px !important;border-radius:50% !important;background:#1a1a1a !important;color:#fff !important;border:none !important;font-size:22px !important;cursor:pointer !important;display:flex !important;align-items:center !important;justify-content:center !important}
 body.light-mode{background:#fff !important;color:#000 !important}
 body.light-mode nav,body.light-mode .koinonia-countdown,body.light-mode section,body.light-mode .card,body.light-mode .vision-box{background:#fff !important;color:#000 !important;border-color:#eee !important}
 body.light-mode .koinonia-countdown h3,body.light-mode .koinonia-countdown p,body.light-mode h2{color:#000 !important}
 body.light-mode .theme-btn{background:#eee !important;color:#000 !important}
 body.light-mode .lead,body.light-mode .card p{color:#333 !important}
-/* FIX 5 - HERO + POSTER STAY DARK IN LIGHT MODE, TEXT STAYS WHITE */
 body.light-mode .hero, body.light-mode .koinonia-poster{background:#000 !important;color:#fff !important;border-color:#000 !important}
 body.light-mode .hero h1, body.light-mode .hero h1 em, body.light-mode .hero p, body.light-mode .hero .eyebrow{color:#fff !important}
 body.light-mode .hero h1 em, body.light-mode .hero .rot-word{color:#93c5fd !important}
 body.light-mode .koinonia-content, body.light-mode .koinonia-content h1, body.light-mode .koinonia-content h2, body.light-mode .koinonia-content p, body.light-mode .koinonia-content div{color:#fff !important}
 body.light-mode .hero .btn-outline{color:#fff !important;border-color:#fff !important}
-
-/* VERSE WHITE - FINAL */
 .splash-verse{color:#FFFFFF !important;border:1px solid rgba(255,255,255,0.4) !important;background:linear-gradient(180deg,rgba(0,0,0,0.65),rgba(0,0,0,0.35)) !important;text-shadow:0 2px 12px rgba(0,0,0,0.7) !important;box-shadow:none !important;animation:none !important}
 .splash-verse *{color:#FFFFFF !important}
-
-/* WORD ANIMATIONS - children only, hero container stays free for scroll blur */
 .hero h1, .hero .eyebrow, .hero p, .hero-btns{animation:wordUp .8s cubic-bezier(.2,.8,.2,1) both !important}
 .hero .eyebrow{animation-delay:.1s}
 .hero h1{animation-delay:.2s}
@@ -175,77 +164,67 @@ body.light-mode .hero .btn-outline{color:#fff !important;border-color:#fff !impo
 .koinonia-content h1{animation:wordUp .8s .1s both !important}
 .koinonia-content .k-theme{animation:wordUp .8s .3s both !important}
 .koinonia-content .k-small{animation:wordUp .8s both !important}
-/* FIX 2 - SLOW FADE 1s + FIXED WIDTH SO IT DOES NOT SHIFT */
 .rot-word{display:inline-block;color:#93c5fd;transition:opacity 1s ease, transform 1s ease;min-width:120px}
 .page-section.active .card, .page-section.active .vision-box{opacity:1 !important;transform:none !important}
-
-/* ========================================================= */
-/* ===== BLUE THEME - SAVED PAGE - SPECIFIC, NOT GLOBAL ===== */
-/* ========================================================= */
 .saved-box{border-color:#2563EB !important;box-shadow:0 0 0 1px rgba(37,99,235,.35), 0 20px 50px rgba(0,0,0,.5) !important}
 .saved-box h1 em{color:#93c5fd !important}
 .saved-box .verse{color:#93c5fd !important}
 .saved-box .prayer{border-color:#2563EB !important}
-[style*="#E60000"], [style*="#FFA500"], [style*="#FFD700"], [style*="#FF7A00"], [style*="#ff5a00"], [style*="#ffb347"], [style*="#ff6a00"]{
-  border-color:#2563EB !important;
-}
-[style*="color:#E60000"], [style*="color:#ffb347"], [style*="color:#ff6a00"]{
-  color:#93c5fd !important;
-}
-
-/* ========================================================= */
-/* ===== SCROLL BLUR - SINGLE SOURCE OF TRUTH - MUST BE LAST ===== */
-/* ========================================================= */
-/* MODIFIED: .hero REMOVED from this group - hero must never get filter/transform from scroll */
-.koinonia-poster, .koinonia-countdown{
-  transition:filter .3s ease, opacity .3s ease, transform .3s ease !important;
-  will-change:filter, opacity, transform;
-}
-/* ONE class only - .blur-reveal */
-.blur-reveal{
-  filter:blur(14px) !important;
-  opacity:0 !important;
-  transform:translateY(30px) scale(.98) !important;
-  transition:filter .9s ease, opacity .9s ease, transform .9s ease !important;
-}
-.blur-reveal.visible{
-  filter:blur(0) !important;
-  opacity:1 !important;
-  transform:translateY(0) scale(1) !important;
-}
+[style*="#E60000"], [style*="#FFA500"], [style*="#FFD700"], [style*="#FF7A00"], [style*="#ff5a00"], [style*="#ffb347"], [style*="#ff6a00"]{border-color:#2563EB !important}
+[style*="color:#E60000"], [style*="color:#ffb347"], [style*="color:#ff6a00"]{color:#93c5fd !important}
+.koinonia-poster, .koinonia-countdown{transition:filter .3s ease, opacity .3s ease, transform .3s ease !important;will-change:filter, opacity, transform}
+.blur-reveal{filter:blur(14px) !important;opacity:0 !important;transform:translateY(30px) scale(.98) !important;transition:filter .9s ease, opacity .9s ease, transform .9s ease !important}
+.blur-reveal.visible{filter:blur(0) !important;opacity:1 !important;transform:translateY(0) scale(1) !important}
 .page-section{display:none}
 .page-section.active{display:block !important;filter:blur(0) !important;opacity:1 !important;visibility:visible !important;animation:none !important}
-.page-section.active .card,
-.page-section.active .vision-box,
-.page-section.active .blur-reveal.visible{
-  filter:blur(0) !important;
-  opacity:1 !important;
-  transform:none !important;
-  visibility:visible !important;
-}
-@media (prefers-reduced-motion: reduce){
-  .blur-reveal, .page-section{
-    filter:none !important;
-    opacity:1 !important;
-    transform:none !important;
-    visibility:visible !important;
-    transition:none !important;
-    animation:none !important;
-  }
-}
+.page-section.active .card,.page-section.active .vision-box,.page-section.active .blur-reveal.visible{filter:blur(0) !important;opacity:1 !important;transform:none !important;visibility:visible !important}
+@media (prefers-reduced-motion: reduce){.blur-reveal, .page-section{filter:none !important;opacity:1 !important;transform:none !important;visibility:visible !important;transition:none !important;animation:none !important}}
+.hero, .hero-inner, .hero h1, .hero h1 em, .hero .eyebrow, .hero p, .hero-btns, .hero .rot-word{filter:none !important;-webkit-filter:none !important;backdrop-filter:none !important;opacity:1 !important;transform:none !important}
+.hero{transition:none !important;will-change:auto !important}
 
 /* ========================================================= */
-/* ===== MODIFICATION: HERO NEVER BLURRY - MUST BE VERY LAST ===== */
-/* This beats index.html inline <style> + script.js inline filter */
+/* ===== NEW: ALL UPDATES TOGETHER - MUST BE VERY LAST ===== */
 /* ========================================================= */
-.hero, .hero-inner, .hero h1, .hero h1 em, .hero .eyebrow, .hero p, .hero-btns, .hero .rot-word{
-  filter:none !important;
-  -webkit-filter:none !important;
-  backdrop-filter:none !important;
-  opacity:1 !important;
-  transform:none !important;
-}
-.hero{
-  transition:none !important;
-  will-change:auto !important;
-}
+#portfolio,#author,#merch{scroll-margin-top:90px !important}
+.invert-window,.author-window,.merch-window{padding:0 !important;max-width:1100px !important;margin:40px auto !important;overflow:hidden !important}
+.invert-window{background:#fff !important;color:#000 !important;border:2px solid #000 !important}
+.invert-top,.invert-bottom{display:flex !important;justify-content:space-between !important;padding:12px 16px !important;font-size:11px !important;letter-spacing:2px !important;border-bottom:1px solid #000 !important;color:#000 !important}
+.invert-bottom{border-bottom:0 !important;border-top:1px solid #000 !important}
+.invert-main{padding:24px 16px !important}
+.invert-main h2{font-family:'Anton',sans-serif !important;font-size:42px !important;line-height:.95 !important;margin:0 0 12px !important;color:#000 !important}
+.invert-main p{color:#333 !important;line-height:1.7 !important}
+.invert-media{margin-top:18px !important;border:2px solid #000 !important;background:#000 !important;padding:8px !important}
+.invert-media img{width:100% !important;display:block !important;border:none !important;border-radius:0 !important}
+.author-window{background:#fff !important;color:#000 !important;border:2px solid #000 !important}
+.author-top{display:flex !important;justify-content:space-between !important;padding:12px 16px !important;font-size:11px !important;letter-spacing:2px !important;border-bottom:1px solid #000 !important;color:#000 !important}
+.author-main{display:grid !important;gap:20px !important;padding:24px 16px !important}
+@media(min-width:768px){.author-main{grid-template-columns:1fr 1.4fr !important}}
+.author-main h2{font-family:'Anton',sans-serif !important;font-size:42px !important;line-height:.95 !important;margin:0 0 12px !important;color:#000 !important}
+.author-main p{color:#333 !important;line-height:1.7 !important}
+.author-btn{display:inline-block !important;margin-top:14px !important;background:#000 !important;color:#fff !important;padding:12px 18px !important;text-decoration:none !important;font-weight:800 !important}
+.books-grid{display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;margin-top:0 !important}
+.book-card{border:1px solid #000 !important;padding:16px !important;background:#f5f5f5 !important;border-radius:0 !important}
+.book-card span{font-size:11px !important;letter-spacing:2px !important;color:#666 !important}
+.book-card h3{margin:8px 0 !important;font-size:19px !important;line-height:1.1 !important;color:#000 !important}
+.book-card p{font-size:13px !important;margin:0 !important;color:#333 !important}
+.book-card a{display:inline-block !important;margin-top:10px !important;background:#000 !important;color:#fff !important;padding:8px 12px !important;text-decoration:none !important;font-size:12px !important;font-weight:800 !important}
+.merch-window{background:#000 !important;color:#fff !important;border:2px solid #fff !important}
+.merch-top{display:flex !important;justify-content:space-between !important;padding:12px 16px !important;font-size:11px !important;letter-spacing:2px !important;color:#bbb !important;border-bottom:1px solid #333 !important}
+.merch-title{font-family:'Anton',sans-serif !important;font-size:42px !important;padding:20px 16px 0 !important;margin:0 !important;color:#fff !important}
+.merch-sub{padding:0 16px !important;color:#aaa !important}
+.shirts-grid{display:grid !important;grid-template-columns:1fr 1fr !important;gap:14px !important;padding:16px !important;margin-top:0 !important}
+@media(min-width:768px){.shirts-grid{grid-template-columns:repeat(5,1fr) !important}.shirts-grid.extra{grid-template-columns:repeat(3,1fr) !important}}
+.shirt-card{border:1px solid #555 !important;padding:12px !important;text-align:center !important;background:#111 !important;border-radius:0 !important}
+.shirt{background:#222 !important;color:#fff !important;border:1px solid #fff !important;padding:28px 8px !important;font-weight:900 !important;font-size:20px !important;line-height:1.1 !important;min-height:150px !important;display:flex !important;flex-direction:column !important;justify-content:center !important}
+.shirt small{font-size:9px !important;letter-spacing:1px !important;color:#bbb !important;margin-top:8px !important}
+.shirt-card h3{margin:10px 0 2px !important;font-size:15px !important;color:#fff !important}
+.shirt-card p{margin:0 !important;color:#aaa !important;font-size:12px !important}
+.shirt-card strong{display:block !important;margin:8px 0 !important;color:#fff !important}
+.shirt-card a{display:inline-block !important;background:#fff !important;color:#000 !important;padding:8px 14px !important;text-decoration:none !important;font-weight:800 !important;font-size:12px !important}
+/* LIGHT MODE - NEW WINDOWS STAY READABLE */
+body.light-mode .invert-window,body.light-mode .author-window{background:#fff !important;color:#000 !important;border-color:#000 !important}
+body.light-mode .invert-main h2,body.light-mode .author-main h2,body.light-mode .book-card h3{color:#000 !important}
+body.light-mode .book-card{background:#f5f5f5 !important}
+body.light-mode .merch-window{background:#000 !important;color:#fff !important;border-color:#fff !important}
+body.light-mode .merch-title,body.light-mode .merch-window h3,body.light-mode .merch-window strong,body.light-mode .shirt{color:#fff !important}
+body.light-mode .merch-window .shirt-card{background:#111 !important}
