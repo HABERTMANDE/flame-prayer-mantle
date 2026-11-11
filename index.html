@@ -166,6 +166,8 @@
   .embers{position:fixed !important;inset:0 !important;pointer-events:none !important;z-index:1 !important;overflow:hidden !important}
   .ember{position:absolute !important;bottom:-20px !important;border-radius:50% !important;background:#2563EB !important;opacity:.7 !important;animation:emberUp linear infinite !important}
   @keyframes emberUp{from{transform:translateY(0) translateX(0);opacity:0}10%{opacity:.8}to{transform:translateY(-110vh) translateX(30px);opacity:0}}
+  /* ONE TAP WORD - make it look tappable */
+  #rotWord{cursor:pointer !important}
 </style>
 </head>
 <body>
@@ -261,8 +263,7 @@
 <header class="hero">
   <div class="hero-inner">
     <div class="eyebrow">THE CALL TO CONSECRATION • NAIROBI, KENYA • GLOBAL</div>
-    <h1 onclick="changeRotWord()" style="cursor:pointer">CATCH FIRE.<br><em>Rise As A <span class="rot-word" id="rotWord">Flame.</span></em></h1>
-<p style="font-size:11px;letter-spacing:2px;color:#93c5fd;font-weight:800;margin-top:-8px;cursor:pointer" onclick="changeRotWord()">👆 TAP THE WORD ABOVE TO CHANGE • FLAME / LIGHT / FIRE / VOICE</p>
+    <h1>CATCH FIRE.<br><em>Rise As A <span class="rot-word" id="rotWord" onclick="changeRotWord()">Flame.</span></em></h1>
     <p>We catch fire in the presence of God, but we rise as a flame in the world. The fire we receive in communion must become the light through which our generation encounters Christ.</p>
     <div class="hero-btns">
       <a class="btn-white" href="https://wa.me/254795155158?text=Hello%20FLAME%2C%20I%20want%20to%20catch%20fire" style="background:#2563EB;color:#fff"> Join The Mantle</a>
@@ -306,7 +307,6 @@
       </div>
     </section>
   </div>
-  <!-- ===== MOVED OUT OF HOME: PORTFOLIO / AUTHOR / MERCH — NOW MENU PAGES ONLY ===== -->
   <section id="portfolio" class="invert-window page-section">
     <div class="invert-top"><span>FLAME • PORTFOLIO</span><span>INVERTED • 2026</span></div>
     <div class="invert-main">
@@ -554,15 +554,16 @@ function startCountdown(){
   tick(); setInterval(tick,1000);
 }
 startCountdown();
+/* ===== MODIFICATION: ONE TAP TO CHANGE - NO AUTO RUN ===== */
 var rotWords=['Flame.','Light.','Fire.','Voice.'];
 var rotI=0;
-setInterval(function(){
+function changeRotWord(){
   var el=document.getElementById('rotWord');
   if(!el) return;
   el.style.opacity='0';
   el.style.transform='translateY(10px)';
-  setTimeout(function(){ rotI=(rotI+1)%rotWords.length; el.textContent=rotWords[rotI]; el.style.opacity='1'; el.style.transform='translateY(0)'; },1000);
-},4500);
+  setTimeout(function(){ rotI=(rotI+1)%rotWords.length; el.textContent=rotWords[rotI]; el.style.opacity='1'; el.style.transform='translateY(0)'; },250);
+}
 function playFlameVideo(){
   var v=document.getElementById('flameVideo');
   if(!v) return;
