@@ -228,3 +228,10 @@ body.light-mode .book-card{background:#f5f5f5 !important}
 body.light-mode .merch-window{background:#000 !important;color:#fff !important;border-color:#fff !important}
 body.light-mode .merch-title,body.light-mode .merch-window h3,body.light-mode .merch-window strong,body.light-mode .shirt{color:#fff !important}
 body.light-mode .merch-window .shirt-card{background:#111 !important}
+
+/* ===== FIX: PORTFOLIO / AUTHOR / MERCH AS MENU PAGES ONLY ===== */
+#portfolio.page-section,#author.page-section,#merch.page-section{display:none !important}
+#portfolio.page-section.active,#author.page-section.active,#merch.page-section.active{display:block !important;filter:blur(0) !important;opacity:1 !important;visibility:visible !important;transform:none !important}
+#portfolio.page-section.active *,#author.page-section.active *,#merch.page-section.active *{filter:blur(0) !important;opacity:1 !important;transform:none !important}
+#portfolio.page-section,#author.page-section,#merch.page-section{padding:0 !important}
+#portfolio p a,#author p a,#merch p a{cursor:pointer !important}
