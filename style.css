@@ -179,7 +179,7 @@ body.light-mode .hero .btn-outline{color:#fff !important;border-color:#fff !impo
 .page-section.active{display:block !important;filter:blur(0) !important;opacity:1 !important;visibility:visible !important;animation:none !important}
 .page-section.active .card,.page-section.active .vision-box,.page-section.active .blur-reveal.visible{filter:blur(0) !important;opacity:1 !important;transform:none !important;visibility:visible !important}
 @media (prefers-reduced-motion: reduce){.blur-reveal, .page-section{filter:none !important;opacity:1 !important;transform:none !important;visibility:visible !important;transition:none !important;animation:none !important}}
-.hero, .hero-inner, .hero h1, .hero h1 em, .hero .eyebrow, .hero p, .hero-btns, .hero .rot-word{filter:none !important;-webkit-filter:none !important;backdrop-filter:none !important;opacity:1 !important;transform:none !important}
+.hero, .hero-inner, .hero h1, .hero h1 em, .hero .eyebrow, .hero p, .hero-btns{ filter:none !important; -webkit-filter:none !important; backdrop-filter:none !important; opacity:1 !important; transform:none !important; }
 .hero{transition:none !important;will-change:auto !important}
 
 /* ========================================================= */
