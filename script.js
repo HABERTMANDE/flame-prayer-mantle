@@ -98,12 +98,27 @@ function clearBlur(el){
   el.style.removeProperty('filter');
   el.style.removeProperty('opacity');
   el.style.removeProperty('transform');
-  /* MOD: hero must stay sharp - force it explicitly */
   if(el.classList && el.classList.contains('hero')){
     el.style.setProperty('filter','blur(0)','important');
     el.style.setProperty('opacity','1','important');
     el.style.setProperty('transform','none','important');
   }
+}
+
+/* ===== NEW: REPLAY HOME ANIMATION ===== */
+function replayHomeAnim(){
+  var home = document.getElementById('home-sections');
+  if(!home) return;
+  home.style.setProperty('animation','none','important');
+  void home.offsetWidth;
+  home.style.removeProperty('animation');
+  var cards = home.querySelectorAll('.card');
+  cards.forEach(function(c,i){
+    c.style.setProperty('animation','none','important');
+    void c.offsetWidth;
+    c.style.removeProperty('animation');
+    c.style.setProperty('animation-delay',(i*0.15)+'s','important');
+  });
 }
 
 function showPage(id){
@@ -155,6 +170,7 @@ function showHome(e){
   document.querySelectorAll('.page-section').forEach(function(s){
     s.classList.remove('active'); s.style.setProperty('display','none','important');
   });
+  replayHomeAnim();
   window.scrollTo({top:0, behavior:'smooth'});
   try{ history.pushState({page:'home'}, '', '#home'); }catch(e){}
 }
@@ -199,6 +215,7 @@ window.addEventListener('popstate', function(ev){
     document.querySelectorAll('.page-section').forEach(function(s){
       s.classList.remove('active'); s.style.setProperty('display','none','important');
     });
+    replayHomeAnim();
   }
 });
 
@@ -224,12 +241,34 @@ function toggleFAQ(){
 }
 function toggleAns(btn){ btn.classList.toggle('open'); }
 
-/* FIX 4 - ENTER SCROLLS TO TOP + SHOWS HOME */
+/* ===== NEW: SCRIPTURE-OPEN ENTRANCE - FIXED ===== */
 function handleEnter(){
-  enterSite();
-  showHome(null);
-  window.scrollTo(0,0);
-  setTimeout(function(){ window.scrollTo(0,0); }, 100);
+  var splash = document.getElementById('splash');
+  if(splash){
+    splash.classList.add('hide');
+    splash.style.setProperty('opacity','0','important');
+    splash.style.setProperty('visibility','hidden','important');
+    splash.style.setProperty('display','none','important');
+    splash.style.setProperty('pointer-events','none','important');
+  }
+  var ov = document.getElementById('entranceOverlay');
+  if(ov){
+    ov.classList.add('show');
+    setTimeout(function(){ ov.classList.add('open'); }, 350);
+    setTimeout(function(){
+      ov.classList.remove('show','open');
+      document.body.style.setProperty('overflow','auto','important');
+      document.body.style.setProperty('overflow-y','auto','important');
+      showHome(null);
+      window.scrollTo(0,0);
+      setTimeout(function(){ window.scrollTo(0,0); }, 100);
+    }, 1900);
+  } else {
+    enterSite();
+    showHome(null);
+    window.scrollTo(0,0);
+    setTimeout(function(){ window.scrollTo(0,0); }, 100);
+  }
 }
 function showQuiz(){ handleEnter(); }
 function checkAnswer(){ handleEnter(); }
@@ -266,10 +305,28 @@ function toggleFlameAudio(){
   var btn = document.getElementById('audioBtn'); if(btn) btn.textContent = v.muted ? '🔊 PLAY AUDIO' : '🔇 MUTE AUDIO';
 }
 
+/* ===== NEW: EMBERS - FLOATING FIRE PARTICLES ===== */
+function startEmbers(){
+  var wrap = document.getElementById('embers');
+  if(!wrap || wrap.children.length) return;
+  for(var i=0;i<18;i++){
+    var e = document.createElement('div');
+    e.className = 'ember';
+    var s = 3 + Math.random()*5;
+    e.style.width = s+'px';
+    e.style.height = s+'px';
+    e.style.left = (Math.random()*100)+'%';
+    e.style.animationDuration = (6+Math.random()*7)+'s';
+    e.style.animationDelay = (Math.random()*6)+'s';
+    wrap.appendChild(e);
+  }
+}
+
 /* ========================================================= */
 /* ===== MODIFICATION: BLUR - HERO NEVER BLURS ===== */
 /* ========================================================= */
 document.addEventListener('DOMContentLoaded', function(){
+  startEmbers();
   var btn = document.getElementById('enterBtn');
   if(btn){
     btn.addEventListener('click', handleEnter);
@@ -282,7 +339,6 @@ document.addEventListener('DOMContentLoaded', function(){
   var countEl = document.querySelector('.koinonia-countdown');
   console.log('BLUR CHECK - hero:', !!heroEl, 'poster:', !!posterEl, 'count:', !!countEl);
 
-  // MOD: Hero forced sharp on load - clears any old stuck blur from previous version
   if(heroEl){
     heroEl.style.setProperty('filter','blur(0)','important');
     heroEl.style.setProperty('opacity','1','important');
@@ -295,13 +351,11 @@ document.addEventListener('DOMContentLoaded', function(){
     var splash = document.getElementById('splash');
     var splashOpen = splash && getComputedStyle(splash).display !== 'none' && !splash.classList.contains('hide');
     if(splashOpen){ ticking = false; return; }
-    /* MOD: HERO - NEVER BLUR - always sharp, no matter scroll */
     if(heroEl){
       heroEl.style.setProperty('filter','blur(0)','important');
       heroEl.style.setProperty('opacity','1','important');
       heroEl.style.setProperty('transform','none','important');
     }
-    /* MOD: Poster + countdown - much lighter, never fully blurry */
     if(posterEl){
       var p2 = Math.min(y / 800, 1);
       posterEl.style.setProperty('filter','blur(' + (p2 * 4) + 'px)','important');
@@ -322,7 +376,6 @@ document.addEventListener('DOMContentLoaded', function(){
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); });
   }, {threshold: 0.1});
-  /* MOD: Never add blur-reveal to .hero - hero is not in this list */
   document.querySelectorAll('#home-sections section, #home-sections .card, #home-sections .give, #event-home .event').forEach(function(el){
     el.classList.add('blur-reveal');
     io.observe(el);
