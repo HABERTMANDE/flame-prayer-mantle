@@ -273,10 +273,10 @@ function handleEnter(){
 function showQuiz(){ handleEnter(); }
 function checkAnswer(){ handleEnter(); }
 
-/* FIX 2 - WORD ANIMATIONS - SLOW: 4.5s, 1s fade */
+/* ===== MODIFICATION: ONE TAP TO CHANGE - NO AUTO RUN ===== */
 var rotWords = ['Flame.','Light.','Fire.','Voice.'];
 var rotI = 0;
-setInterval(function(){
+function changeRotWord(){
   var el = document.getElementById('rotWord');
   if(!el) return;
   el.style.opacity = '0';
@@ -286,8 +286,8 @@ setInterval(function(){
     el.textContent = rotWords[rotI];
     el.style.opacity = '1';
     el.style.transform = 'translateY(0)';
-  }, 1000);
-}, 4500);
+  }, 250);
+}
 
 /* FIX 6 - VIDEO + AUDIO BUTTONS */
 function playFlameVideo(){
@@ -330,6 +330,13 @@ document.addEventListener('DOMContentLoaded', function(){
   var btn = document.getElementById('enterBtn');
   if(btn){
     btn.addEventListener('click', handleEnter);
+  }
+  // ONE TAP: bind tap on the rotating word - no setInterval anymore
+  var rotEl = document.getElementById('rotWord');
+  if(rotEl){
+    rotEl.style.cursor = 'pointer';
+    rotEl.title = 'Tap to change';
+    rotEl.addEventListener('click', changeRotWord);
   }
   var v = document.getElementById('bg-video');
   if(v){ v.muted = true; v.play().catch(function(){}); }
