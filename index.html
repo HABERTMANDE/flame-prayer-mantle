@@ -135,9 +135,41 @@
   body.light-mode .merch-window{background:#000 !important;color:#fff !important}
   body.light-mode .merch-window h2, body.light-mode .merch-window h3, body.light-mode .merch-window strong{color:#fff !important}
   body.light-mode .invert-main h2, body.light-mode .author-main h2, body.light-mode .book-card h3{color:#000 !important}
+  /* ===== NEW: ANIMATED HOME + SCRIPTURE-OPEN ENTRANCE ===== */
+  .scripture-ticker{background:#000 !important;border-bottom:1px solid #222 !important;overflow:hidden !important;white-space:nowrap !important;padding:10px 0 !important;position:relative !important;z-index:5 !important}
+  .ticker-track{display:inline-block !important;animation:tickMove 28s linear infinite !important;font-size:11px !important;letter-spacing:2px !important;font-weight:800 !important;color:#93c5fd !important;white-space:nowrap !important}
+  @keyframes tickMove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  #home-sections .card{animation:cardUpAnim .8s ease both !important}
+  #home-sections .grid .card:nth-child(2){animation-delay:.15s !important}
+  #home-sections .grid .card:nth-child(3){animation-delay:.3s !important}
+  @keyframes cardUpAnim{from{opacity:0;transform:translateY(30px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+  #event-home .event img{animation:posterZoom 8s ease-in-out infinite alternate !important}
+  @keyframes posterZoom{from{transform:scale(1)}to{transform:scale(1.04)}}
+  #give .give{animation:glowPulse 3s ease-in-out infinite !important}
+  @keyframes glowPulse{0%,100%{box-shadow:0 0 0 rgba(37,99,235,0)}50%{box-shadow:0 0 42px rgba(37,99,235,.65)}}
+  .koinonia-poster img{animation:posterSlow 12s ease-in-out infinite alternate !important}
+  @keyframes posterSlow{from{transform:scale(1)}to{transform:scale(1.06)}}
+  #entranceOverlay{position:fixed !important;inset:0 !important;z-index:200 !important;background:#000 !important;display:none !important;align-items:center !important;justify-content:center !important;overflow:hidden !important}
+  #entranceOverlay.show{display:flex !important}
+  .bible-left,.bible-right{position:absolute !important;top:0 !important;bottom:0 !important;width:50.5% !important;background:#0a0a0a !important;border:1px solid #222 !important;transition:transform 1.1s ease !important;z-index:2 !important}
+  .bible-left{left:0 !important}
+  .bible-right{right:0 !important}
+  #entranceOverlay.open .bible-left{transform:perspective(900px) rotateY(-72deg) translateX(-100%) !important}
+  #entranceOverlay.open .bible-right{transform:perspective(900px) rotateY(72deg) translateX(100%) !important}
+  .entrance-verse{position:relative !important;z-index:3 !important;text-align:center !important;padding:20px !important;animation:verseIn .8s ease both !important}
+  .entrance-verse small{letter-spacing:4px !important;color:#93c5fd !important;font-weight:800 !important;font-size:11px !important}
+  .entrance-verse h2{font-family:'Anton',sans-serif !important;font-size:58px !important;line-height:.95 !important;color:#fff !important;margin:12px 0 !important}
+  .entrance-verse p{font-family:'Playfair Display',serif !important;font-style:italic !important;color:#fff !important;font-size:18px !important}
+  .entrance-flame{font-size:54px !important;margin-top:14px !important;animation:flameFlick .55s infinite alternate !important}
+  @keyframes flameFlick{from{transform:scale(1)}to{transform:scale(1.22)}}
+  @keyframes verseIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+  .embers{position:fixed !important;inset:0 !important;pointer-events:none !important;z-index:1 !important;overflow:hidden !important}
+  .ember{position:absolute !important;bottom:-20px !important;border-radius:50% !important;background:#2563EB !important;opacity:.7 !important;animation:emberUp linear infinite !important}
+  @keyframes emberUp{from{transform:translateY(0) translateX(0);opacity:0}10%{opacity:.8}to{transform:translateY(-110vh) translateX(30px);opacity:0}}
 </style>
 </head>
 <body>
+<div class="embers" id="embers"></div>
 <div id="splash">
   <img id="splash-img" src="images/habert-singing.jpg" alt="FLAME">
   <div class="splash-blue-overlay"></div>
@@ -169,6 +201,17 @@
       </div>
     </div>
     <button class="faq-close-bottom" onclick="toggleFAQ()">✕</button>
+  </div>
+</div>
+<!-- SCRIPTURE-OPEN ENTRANCE -->
+<div id="entranceOverlay">
+  <div class="bible-left"></div>
+  <div class="bible-right"></div>
+  <div class="entrance-verse">
+    <small>THE FIRE SHALL EVER BE BURNING</small>
+    <h2>CATCH FIRE.</h2>
+    <p>— Lev 6:13 —</p>
+    <div class="entrance-flame">🔥</div>
   </div>
 </div>
 <nav>
@@ -227,6 +270,7 @@
   </div>
 </header>
 <main id="content">
+  <div class="scripture-ticker"><div class="ticker-track"><span>🔥 MATTHEW 5:14 — YOU ARE THE LIGHT OF THE WORLD •&nbsp;</span><span>LEV 6:13 — THE FIRE SHALL EVER BE BURNING •&nbsp;</span><span>MATTHEW 3:10 — BEAR FRUIT •&nbsp;</span><span>MATTHEW 6:33 — SEEK FIRST THE KINGDOM •&nbsp;</span><span>🔥 MATTHEW 5:14 — YOU ARE THE LIGHT OF THE WORLD •&nbsp;</span><span>LEV 6:13 — THE FIRE SHALL EVER BE BURNING •&nbsp;</span><span>MATTHEW 3:10 — BEAR FRUIT •&nbsp;</span><span>MATTHEW 6:33 — SEEK FIRST THE KINGDOM •&nbsp;</span></div></div>
   <div id="home-sections">
     <section id="call">
       <div class="tag">01 — THE CENTRAL MESSAGE</div>
@@ -388,10 +432,22 @@ function handleEnter(){
   s.style.setProperty('opacity','0','important');
   s.style.setProperty('visibility','hidden','important');
   s.style.setProperty('pointer-events','none','important');
-  document.body.style.setProperty('overflow','auto','important');
-  showHome(null);
-  window.scrollTo(0,0);
-  setTimeout(function(){ window.scrollTo(0,0); },100);
+  var ov=document.getElementById('entranceOverlay');
+  if(ov){
+    ov.classList.add('show');
+    setTimeout(function(){ ov.classList.add('open'); }, 350);
+    setTimeout(function(){
+      ov.classList.remove('show','open');
+      document.body.style.setProperty('overflow','auto','important');
+      showHome(null);
+      window.scrollTo(0,0);
+      setTimeout(function(){ window.scrollTo(0,0); },100);
+    }, 1900);
+  } else {
+    document.body.style.setProperty('overflow','auto','important');
+    showHome(null);
+    window.scrollTo(0,0);
+  }
 }
 function enterSite(){ handleEnter(); }
 function showQuiz(){ handleEnter(); }
@@ -524,6 +580,10 @@ var io=new IntersectionObserver(function(entries){
   entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); });
 },{threshold:0.1});
 document.querySelectorAll('#home-sections section, #home-sections .card').forEach(function(el){ el.classList.add('blur-reveal'); io.observe(el); });
+(function(){
+  var wrap=document.getElementById('embers'); if(!wrap) return;
+  for(var i=0;i<18;i++){ var e=document.createElement('div'); e.className='ember'; var s=3+Math.random()*5; e.style.width=s+'px'; e.style.height=s+'px'; e.style.left=(Math.random()*100)+'%'; e.style.animationDuration=(6+Math.random()*7)+'s'; e.style.animationDelay=(Math.random()*6)+'s'; wrap.appendChild(e); }
+})();
 </script>
 <script src="script.js?v=7"></script>
 </body>
