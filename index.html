@@ -108,6 +108,7 @@
   @media (prefers-reduced-motion: reduce){ .blur-reveal, .page-section{ filter:none !important; opacity:1 !important; transform:none !important; visibility:visible !important; } }
   .hero, .hero-inner, .hero h1, .hero h1 em, .hero .eyebrow, .hero p, .hero-btns, .hero .rot-word{ filter:none !important; -webkit-filter:none !important; backdrop-filter:none !important; opacity:1 !important; transform:none !important; }
   .hero{ transition:none !important; will-change:auto !important; }
+  .koinonia-poster, .koinonia-countdown, nav{ filter:none !important; opacity:1 !important; transform:none !important; }
   .video-wrap{position:relative !important;background:#000 !important}
   .video-btns{display:flex !important;gap:8px !important;padding:10px !important;background:#000 !important}
   .video-btns button{flex:1 !important;background:#2563EB !important;color:#fff !important;border:none !important;padding:11px 6px !important;border-radius:8px !important;font-weight:800 !important;font-size:13px !important;cursor:pointer !important}
@@ -189,7 +190,7 @@
   .page-cover-text h2{font-size:34px !important;line-height:.95 !important;margin:4px 0 0 !important;color:#fff !important}
   .page-cover-text p{font-size:14px !important;margin:4px 0 0 !important;color:#fff !important;opacity:.9 !important}
   .book-cover-img{width:100% !important;display:block !important;object-fit:contain !important;background:#000 !important}
-  .badge-available{background:#DC2626 !important;color:#fff !important;padding:5px 10px !important;font-size:10px !important;font-weight:800 !important;letter-spacing:1px !important;border-radius:20px !important;display:inline-block !important;margin-bottom:10px !important;box-shadow:0 2px 8px rgba(0,0,0,.3) !important}
+  .badge-available{background:#fff !important;color:#000 !important;border:2px solid #DC2626 !important;padding:6px 14px !important;font-size:11px !important;font-weight:800 !important;letter-spacing:1px !important;border-radius:20px !important;display:inline-block !important;margin-bottom:10px !important;box-shadow:0 2px 8px rgba(0,0,0,.2) !important}
   .badge-coming{background:#000 !important;color:#fff !important;padding:5px 10px !important;font-size:10px !important;font-weight:800 !important;letter-spacing:1px !important;border-radius:20px !important;display:inline-block !important;margin-bottom:10px !important}
   main#content{padding:0 !important;margin:0 !important;width:100% !important;max-width:100% !important;overflow:hidden !important}
   section#author.author-window,section#portfolio.invert-window,section#merch.merch-window{margin:0 auto !important;width:100% !important;max-width:1180px !important;border-radius:0 !important;box-sizing:border-box !important}
@@ -222,7 +223,17 @@
   button[style*="background:#DC2626"],button[style*="background:#B91C1C"],#supportFloat{color:#fff !important}
   div[style*="background:#000;color:#fff"] p{color:#fff !important;opacity:1 !important}
   div[style*="background:#000;color:#fff"] p:nth-child(2){color:#E5E5E5 !important}
-  body.light-mode .badge-available,body.light-mode #supportFloat{color:#fff !important}
+  body.light-mode .badge-available{color:#000 !important}
+  body.light-mode #supportFloat{color:#fff !important}
+  .featured-book{background:#fff !important;color:#000 !important;margin:0 !important;padding:40px 16px !important}
+  .featured-inner{max-width:1100px !important;margin:0 auto !important;display:grid !important;gap:24px !important;align-items:start !important}
+  @media(min-width:768px){.featured-inner{grid-template-columns:1fr 1.2fr !important}}
+  .featured-cover{background:#000 !important;padding:10px !important;border:2px solid #000 !important}
+  .featured-cover img{width:100% !important;display:block !important;object-fit:contain !important}
+  .featured-book h2{color:#000 !important;font-size:38px !important;line-height:.95 !important;margin:8px 0 12px !important}
+  .featured-book p{color:#333 !important;line-height:1.75 !important}
+  .featured-points{margin:16px 0 !important;padding:0 !important;list-style:none !important}
+  .featured-points li{padding:8px 0 !important;border-bottom:1px solid #eee !important;color:#111 !important;font-size:14px !important;line-height:1.6 !important}
 </style>
 </head>
 <body class="on-splash">
@@ -355,13 +366,45 @@
         </div>
       </div>
     </section>
+    <section id="featured-book" class="featured-book">
+      <div class="featured-inner">
+        <div class="featured-cover">
+          <img src="images/book-disconnected.png" alt="Disconnected from the Head">
+          <div style="text-align:center;padding:10px 0 2px">
+            <span class="badge-available">AVAILABLE NOW</span>
+            <p style="margin:4px 0 0;font-weight:800;color:#000 !important">Digital KSh 1,000 - Physical KSh 2,500</p>
+          </div>
+        </div>
+        <div>
+          <div class="tag" style="color:#DC2626">FEATURED BOOK - FROM THE AUTHOR</div>
+          <h2>DISCONNECTED<br>FROM THE HEAD</h2>
+          <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:18px;color:#111 !important;margin:0 0 12px">The Doctrine of Religiosity - By Habert Mande Murunga</p>
+          <p><b>What if the greatest danger to the Church is not abandoning religion, but practising it while becoming disconnected from Christ?</b></p>
+          <p>Discover the truth behind Disconnected from the Head, and why returning to Christ is the beginning of genuine transformation.</p>
+          <p>What happens when we retain the language, practices, and appearance of Christianity, but lose sight of the life and purpose behind them?</p>
+          <p>In Disconnected from the Head, Habert Mande Murunga confronts one of the most subtle dangers in the Christian faith: the rise of religious activity without genuine spiritual formation.</p>
+          <ul class="featured-points">
+            <li><b>What it breaks:</b> Empty religion, performance, and tradition without life.</li>
+            <li><b>What it restores:</b> Connection to Christ, purity, and true communion.</li>
+            <li><b>Who it is for:</b> Believers, ministers, and church leaders who want truth to become life.</li>
+          </ul>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
+            <button onclick="openBookDetail()" style="background:#000;color:#fff;border:none;padding:14px 22px;font-weight:800;cursor:pointer;border-radius:30px">READ MORE TO HAVE</button>
+            <button onclick="openBuyModal('Disconnected from the Head')" style="background:#DC2626;color:#fff;border:none;padding:14px 22px;font-weight:800;cursor:pointer;border-radius:30px">ORDER THIS BOOK</button>
+            <button onclick="showPage('author')" style="background:#fff;color:#000;border:2px solid #000;padding:14px 22px;font-weight:800;cursor:pointer;border-radius:30px">VIEW MORE BOOKS</button>
+          </div>
+          <p style="font-size:12px;color:#666 !important;margin-top:10px">4 books total. 2 available now, 2 coming 6 Feb 2027.</p>
+        </div>
+      </div>
+    </section>
     <section id="give">
       <div class="give">
         <div style="letter-spacing:4px;font-weight:800;font-size:12px">GIVE</div>
-        <h2>SOW INTO THE FIRE</h2>
-        <p style="max-width:600px;margin:10px auto;line-height:1.7">Your giving keeps the work going.</p>
+        <h2>GIVE THROUGH PRAYER,<br>RESOURCES AND FINANCES</h2>
+        <p style="max-width:600px;margin:10px auto;line-height:1.7">You can give through prayer, through resources, and through finances. Every seed, seen or unseen, matters before God. Thank you for standing with this vision.</p>
         <div class="give-box"><b>M-PESA TILL:</b> 8192090<br><b>BANK:</b> KCB Kencom<br><b>ACC NAME:</b> HABERT MURUNGA<br><b>ACCOUNT:</b> 1318238013</div>
-        <a class="btn-white" href="https://wa.me/254795155158?text=I%20want%20to%20give%20to%20FLAME" style="background:#2563EB;color:#fff">CONFIRM MY GIVING →</a>
+        <button onclick="openGiveThanks()" style="background:#2563EB;color:#fff;border:none;padding:14px 28px;font-weight:800;cursor:pointer;border-radius:30px">CONFIRM MY GIVING</button>
+        <p style="font-size:12px;color:#ccc;margin-top:10px">Tap to confirm after you have given. No need to send a message.</p>
       </div>
     </section>
   </div>
@@ -390,7 +433,7 @@
       <div>
         <h3 style="font-size:20px;margin:0 0 12px;color:#000">AVAILABLE NOW</h3>
         <div class="books-grid">
-          <div class="book-card" style="padding:0;overflow:hidden;background:#fff"><div style="background:#000;padding:8px"><img src="images/book-disconnected.png" style="width:100%;display:block;object-fit:contain;background:#000" alt="Disconnected"></div><div style="padding:14px"><span class="badge-available">AVAILABLE NOW</span><h3 style="margin:12px 0 6px;line-height:1.25">Disconnected from the Head: The Doctrine of Religiosity</h3><p>Digital KSh 1,000 • Physical KSh 2,500</p><button onclick="openBuyModal('Disconnected from the Head')" style="margin-top:10px;background:#000;color:#fff;padding:9px 14px;border:none;font-weight:800;font-size:12px;cursor:pointer;width:100%">ORDER NOW →</button></div></div>
+          <div class="book-card" style="padding:0;overflow:hidden;background:#fff"><div style="background:#000;padding:8px"><img src="images/book-disconnected.png" style="width:100%;display:block;object-fit:contain;background:#000" alt="Disconnected"></div><div style="padding:14px"><span class="badge-available">AVAILABLE NOW</span><h3 style="margin:12px 0 6px;line-height:1.25">Disconnected from the Head: The Doctrine of Religiosity</h3><p>Digital KSh 1,000 • Physical KSh 2,500</p><button onclick="openBookDetail()" style="margin-top:10px;background:#fff;color:#000;border:2px solid #000;padding:9px 14px;font-weight:800;font-size:12px;cursor:pointer;width:100%">READ MORE</button><button onclick="openBuyModal('Disconnected from the Head')" style="margin-top:8px;background:#000;color:#fff;padding:9px 14px;border:none;font-weight:800;font-size:12px;cursor:pointer;width:100%">ORDER NOW →</button></div></div>
           <div class="book-card" style="padding:0;overflow:hidden;background:#fff"><div style="background:#000;padding:8px"><img src="images/book-pioneers.jpeg" style="width:100%;display:block;object-fit:contain;background:#000" alt="Pioneers"></div><div style="padding:14px"><span class="badge-available">AVAILABLE NOW</span><h3 style="margin:12px 0 6px;line-height:1.25">Pioneers Breakthrough</h3><p>Digital KSh 1,000 • Physical KSh 2,500</p><button onclick="openBuyModal('Pioneers Breakthrough')" style="margin-top:10px;background:#000;color:#fff;padding:9px 14px;border:none;font-weight:800;font-size:12px;cursor:pointer;width:100%">ORDER NOW →</button></div></div>
         </div>
         <h3 style="font-size:20px;margin:24px 0 6px;color:#000">UPCOMING - 6TH FEBRUARY 2027</h3>
@@ -495,6 +538,31 @@
   WhatsApp: +254795155158 | Instagram: theflameprayermantle<br><br>
   © 2026 FLAME Prayer Mantle. We catch fire in His presence, we rise as a flame in the world.
 </footer>
+<div id="giveThanksModal" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.85);padding:20px;overflow-y:auto" onclick="if(event.target===this)closeGiveThanks()">
+<div style="background:#fff;max-width:480px;margin:30px auto;border-radius:18px;overflow:hidden;color:#111;text-align:center">
+<div style="background:#000;color:#fff;padding:28px 22px"><div style="font-size:52px">🔥</div><h2 style="font-size:30px;margin:10px 0 0;color:#fff;line-height:1">THANK YOU,<br>FROM OUR HEARTS</h2><p style="font-family:'Playfair Display',serif;font-style:italic;color:#ddd;margin:10px 0 0">You gave. Heaven saw it.</p></div>
+<div style="padding:22px"><p style="line-height:1.8;color:#333;font-size:15px;margin:0">Thank you so much for giving through prayer, resources, and finances.<br><br>We do not take this lightly. Your seed is received with honour, with humility, and with prayer.<br><br>May the Lord who sees in secret reward you openly. May He increase you, keep you, and let your own fire keep burning.<br><br><b>With gratitude,<br>FLAME Prayer Mantle</b></p><p style="font-family:'Playfair Display',serif;font-style:italic;color:#666;margin:16px 0 0">"God loves a cheerful giver" - 2 Cor 9:7</p><button onclick="closeGiveThanks()" style="margin-top:18px;background:#000;color:#fff;border:none;padding:13px 24px;font-weight:800;cursor:pointer;border-radius:30px;width:100%">AMEN, THANK YOU</button></div>
+</div>
+</div>
+<div id="bookDetailModal" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.9);padding:14px;overflow-y:auto" onclick="if(event.target===this)closeBookDetail()">
+<div style="background:#fff;max-width:620px;margin:20px auto;border-radius:16px;overflow:hidden;color:#111">
+<div style="background:#000;color:#fff;padding:22px;display:flex;justify-content:space-between;gap:12px"><div><small style="letter-spacing:3px;color:#FCA5A5;font-weight:800">READ MORE TO HAVE</small><h2 style="font-size:28px;margin:6px 0 0;color:#fff;line-height:1">DISCONNECTED<br>FROM THE HEAD</h2><p style="font-family:'Playfair Display',serif;font-style:italic;color:#ddd;margin:8px 0 0">The Doctrine of Religiosity - By Habert Mande Murunga</p></div><button onclick="closeBookDetail()" style="background:none;border:none;color:#fff;font-size:24px;cursor:pointer">✕</button></div>
+<div style="padding:20px">
+<img src="images/book-disconnected.png" style="width:100%;border-radius:10px;background:#000;margin-bottom:14px">
+<p style="font-size:17px;line-height:1.8;color:#111"><b>What if the greatest danger to the Church is not abandoning religion, but practising it while becoming disconnected from Christ?</b></p>
+<p style="line-height:1.8;color:#333">Discover the truth behind Disconnected from the Head, and why returning to Christ is the beginning of genuine transformation.</p>
+<p style="line-height:1.8;color:#333">What happens when we retain the language, practices, and appearance of Christianity, but lose sight of the life and purpose behind them?</p>
+<p style="line-height:1.8;color:#333">In Disconnected from the Head, Habert Mande Murunga confronts one of the most subtle dangers in the Christian faith: the rise of religious activity without genuine spiritual formation.</p>
+<p style="line-height:1.8;color:#333">Through biblical teaching and practical examination, this book challenges us to reconsider the relationship between doctrine and character, faith and conduct, prayer and obedience, spiritual authority and accountability. It explores how good practices can become empty routines, how religious identity can overshadow Christlike character, and how familiar explanations can sometimes keep us from taking responsibility.</p>
+<p style="line-height:1.8;color:#333">Moving from God's original design, through the emergence and consequences of religiosity, to the call for restoration, this book invites believers, ministers, and church leaders to examine what they have normalized and return to the truth of Scripture.</p>
+<div style="background:#FEF2F2;border-left:4px solid #DC2626;padding:14px;margin:16px 0"><p style="margin:0;line-height:1.8;color:#111"><b>This is not a call to abandon the Church, doctrine, or spiritual disciplines. It is a call to restore them to their rightful place under Christ.</b></p></div>
+<p style="line-height:1.8;color:#333">Because the body was never designed to function independently of its Head.</p>
+<p style="line-height:1.8;color:#111"><b>The call is simple: Return to Christ. Let the truth we preach become the life we live.</b></p>
+<button onclick="closeBookDetail();openBuyModal('Disconnected from the Head')" style="background:#DC2626;color:#fff;border:none;padding:14px;width:100%;font-weight:800;cursor:pointer;border-radius:10px;margin-top:12px">ORDER THIS BOOK - DIGITAL KSh 1,000 / PHYSICAL KSh 2,500</button>
+<button onclick="closeBookDetail();showPage('author')" style="background:#fff;color:#000;border:2px solid #000;padding:13px;width:100%;font-weight:800;cursor:pointer;border-radius:10px;margin-top:10px">VIEW MORE BOOKS</button>
+</div>
+</div>
+</div>
 <div id="buyModal" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.85);padding:14px;overflow-y:auto" onclick="if(event.target===this)closeBuyModal()">
 <div style="background:#fff;max-width:520px;margin:20px auto;border-radius:14px;overflow:hidden;color:#000">
 <div style="background:#DC2626;color:#fff;padding:20px;display:flex;justify-content:space-between;align-items:center"><div><small style="letter-spacing:3px;font-weight:800">STEP 1 - PAY FIRST</small><h2 style="font-size:28px;margin:4px 0 0;color:#fff">BUY A BOOK</h2></div><button onclick="closeBuyModal()" style="background:none;border:none;color:#fff;font-size:22px;cursor:pointer">✕</button></div>
@@ -714,6 +782,10 @@ function toggleFlameAudio(){
   else { v.muted=!v.muted; }
   var btn=document.getElementById('audioBtn'); if(btn) btn.textContent=v.muted ? '🔊 PLAY AUDIO' : '🔇 MUTE AUDIO';
 }
+function openGiveThanks(){ var m=document.getElementById('giveThanksModal'); if(m) m.style.display='block'; }
+function closeGiveThanks(){ var m=document.getElementById('giveThanksModal'); if(m) m.style.display='none'; }
+function openBookDetail(){ var m=document.getElementById('bookDetailModal'); if(m) m.style.display='block'; }
+function closeBookDetail(){ var m=document.getElementById('bookDetailModal'); if(m) m.style.display='none'; }
 var io=new IntersectionObserver(function(entries){
   entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); });
 },{threshold:0.1});
