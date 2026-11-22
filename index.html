@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FLAME | Catch Fire, Rise As A Flame</title>
-<link rel="stylesheet" href="style.css?v=14">
+<link rel="stylesheet" href="style.css?v=16">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Oswald:wght@400;500;600;700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
 <style>
   body{font-family:'Plus Jakarta Sans',sans-serif !important;font-size:16px !important;line-height:1.65 !important;letter-spacing:-0.1px !important}
@@ -190,7 +190,7 @@
   .page-cover-text h2{font-size:34px !important;line-height:.95 !important;margin:4px 0 0 !important;color:#fff !important}
   .page-cover-text p{font-size:14px !important;margin:4px 0 0 !important;color:#fff !important;opacity:.9 !important}
   .book-cover-img{width:100% !important;display:block !important;object-fit:contain !important;background:#000 !important}
-  .badge-available{background:#fff !important;color:#000 !important;border:2px solid #DC2626 !important;padding:6px 14px !important;font-size:11px !important;font-weight:800 !important;letter-spacing:1px !important;border-radius:20px !important;display:inline-block !important;margin-bottom:10px !important;box-shadow:0 2px 8px rgba(0,0,0,.2) !important}
+  .badge-available{background:#fff !important;color:#000 !important;border:2px solid #C9A227 !important;padding:6px 14px !important;font-size:11px !important;font-weight:800 !important;letter-spacing:1px !important;border-radius:20px !important;display:inline-block !important;margin-bottom:10px !important;box-shadow:0 2px 8px rgba(0,0,0,.2) !important}
   .badge-coming{background:#000 !important;color:#fff !important;padding:5px 10px !important;font-size:10px !important;font-weight:800 !important;letter-spacing:1px !important;border-radius:20px !important;display:inline-block !important;margin-bottom:10px !important}
   main#content{padding:0 !important;margin:0 !important;width:100% !important;max-width:100% !important;overflow:hidden !important}
   section#author.author-window,section#portfolio.invert-window,section#merch.merch-window{margin:0 auto !important;width:100% !important;max-width:1180px !important;border-radius:0 !important;box-sizing:border-box !important}
@@ -198,8 +198,8 @@
   .author-main p,.book-card p{color:#333 !important}
   body.on-splash #supportFloat{display:none !important}
   body.on-splash #welcomeSupport{display:none !important}
-  #supportFloat{position:fixed !important;right:16px !important;bottom:20px !important;z-index:998 !important;background:#B91C1C !important;color:#fff !important;border:none !important;padding:14px 18px !important;border-radius:30px !important;font-weight:800 !important;font-size:13px !important;letter-spacing:1px !important;cursor:pointer !important;box-shadow:0 10px 30px rgba(185,28,28,.4) !important;display:flex !important;align-items:center !important;gap:8px !important}
-  #supportFloat:hover{background:#991B1B !important;transform:translateY(-2px) !important}
+  #supportFloat{position:fixed !important;right:16px !important;bottom:20px !important;z-index:998 !important;background:#C9A227 !important;color:#000 !important;border:none !important;padding:14px 18px !important;border-radius:30px !important;font-weight:800 !important;font-size:13px !important;letter-spacing:1px !important;cursor:pointer !important;box-shadow:0 10px 30px rgba(201,162,39,.4) !important;display:flex !important;align-items:center !important;gap:8px !important}
+  #supportFloat:hover{background:#B8911F !important;transform:translateY(-2px) !important}
   @media(max-width:850px){#supportFloat{bottom:20px !important;right:12px !important;padding:12px 14px !important;font-size:12px !important}}
   .support-overlay{display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.85);padding:14px;overflow-y:auto}
   .support-card{background:#fff;max-width:560px;margin:20px auto;border-radius:16px;overflow:hidden;color:#111}
@@ -208,32 +208,34 @@
   .support-head p{color:#ddd;line-height:1.6;font-size:14px;margin:8px 0 0}
   .support-body{padding:18px}
   .initiative{border:2px solid #eee;border-radius:12px;padding:16px;margin-bottom:12px;cursor:pointer}
-  .initiative.selected{border-color:#B91C1C;background:#FEF2F2}
+  .initiative.selected{border-color:#C9A227;background:#FEF9E7}
   .initiative h3{margin:0 0 6px;font-size:20px}
   .initiative p{margin:0;color:#444;line-height:1.6;font-size:14px}
   .amount-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:14px 0}
   .amount-btn{background:#fff;border:2px solid #e5e5e5;border-radius:10px;padding:13px 6px;font-weight:800;cursor:pointer;font-size:14px;color:#111}
-  .amount-btn.selected{background:#B91C1C;color:#fff;border-color:#B91C1C}
+  .amount-btn.selected{background:#C9A227;color:#000;border-color:#C9A227}
   .pay-box{background:#F9FAFB;border:1px solid #e5e5e5;border-radius:12px;padding:14px;line-height:1.8;font-size:14px;color:#111}
   .copy-btn{background:#111;color:#fff;border:none;padding:4px 10px;border-radius:6px;font-size:11px;font-weight:800;cursor:pointer;margin-left:8px}
   .wa-confirm{display:block;background:#16a34a;color:#fff;text-align:center;padding:14px;text-decoration:none;font-weight:800;border-radius:10px;margin-top:12px}
   .support-input{width:100%;padding:12px;border:2px solid #e5e5e5;border-radius:10px;margin:6px 0;font-size:14px;color:#111;background:#fff;box-sizing:border-box}
   #welcomeSupport{display:none;position:fixed;left:16px;right:16px;bottom:90px;z-index:997;max-width:420px;margin:0 auto;background:#fff;color:#111;border-radius:14px;box-shadow:0 16px 40px rgba(0,0,0,.35);padding:18px}
   @media(min-width:850px){#welcomeSupport{left:auto;right:20px;bottom:90px}}
-  button[style*="background:#DC2626"],button[style*="background:#B91C1C"],#supportFloat{color:#fff !important}
+  button[style*="background:#DC2626"],button[style*="background:#B91C1C"],#supportFloat{color:#000 !important}
   div[style*="background:#000;color:#fff"] p{color:#fff !important;opacity:1 !important}
   div[style*="background:#000;color:#fff"] p:nth-child(2){color:#E5E5E5 !important}
   body.light-mode .badge-available{color:#000 !important}
-  body.light-mode #supportFloat{color:#fff !important}
-  .featured-book{background:#fff !important;color:#000 !important;margin:0 !important;padding:40px 16px !important}
-  .featured-inner{max-width:1100px !important;margin:0 auto !important;display:grid !important;gap:24px !important;align-items:start !important}
-  @media(min-width:768px){.featured-inner{grid-template-columns:1fr 1.2fr !important}}
+  body.light-mode #supportFloat{color:#000 !important}
+  .featured-book{background:#fff !important;color:#000 !important;margin:0 !important;padding:40px 16px !important;width:100% !important;max-width:100% !important;box-sizing:border-box !important;display:block !important}
+  .featured-inner{max-width:1180px !important;width:100% !important;margin:0 auto !important;display:grid !important;gap:24px !important;align-items:start !important;grid-template-columns:380px 1fr !important}
+  @media(max-width:768px){.featured-inner{grid-template-columns:1fr !important}}
   .featured-cover{background:#000 !important;padding:10px !important;border:2px solid #000 !important}
   .featured-cover img{width:100% !important;display:block !important;object-fit:contain !important}
   .featured-book h2{color:#000 !important;font-size:38px !important;line-height:.95 !important;margin:8px 0 12px !important}
   .featured-book p{color:#333 !important;line-height:1.75 !important}
   .featured-points{margin:16px 0 !important;padding:0 !important;list-style:none !important}
   .featured-points li{padding:8px 0 !important;border-bottom:1px solid #eee !important;color:#111 !important;font-size:14px !important;line-height:1.6 !important}
+  #home-sections{background:#000 !important;width:100% !important}
+  .gold-btn{background:#C9A227 !important;color:#000 !important;border:none !important}
 </style>
 </head>
 <body class="on-splash">
@@ -282,7 +284,7 @@
     <p>- Lev 6:13 -</p>
     <div class="entrance-flame">🔥</div>
     <p style="font-family:'Plus Jakarta Sans',sans-serif !important;font-style:normal !important;font-size:13px !important;letter-spacing:3px !important;font-weight:800 !important;color:#FCA5A5 !important;margin-top:12px">TAP TO ENTER - THE FIRE IS ALREADY BURNING</p>
-    <button onclick="document.getElementById('entranceOverlay').classList.remove('show','open')" style="margin-top:16px;background:#DC2626;color:#fff;border:none;padding:14px 32px;font-weight:800;letter-spacing:3px;border-radius:30px;cursor:pointer;box-shadow:0 0 30px rgba(220,38,38,.7)">ENTER THE FIRE →</button>
+    <button onclick="document.getElementById('entranceOverlay').classList.remove('show','open')" style="margin-top:16px;background:#C9A227;color:#000;border:none;padding:14px 32px;font-weight:800;letter-spacing:3px;border-radius:30px;cursor:pointer;box-shadow:0 0 30px rgba(201,162,39,.7)">ENTER THE FIRE →</button>
   </div>
 </div>
 <nav>
@@ -376,7 +378,7 @@
           </div>
         </div>
         <div>
-          <div class="tag" style="color:#DC2626">FEATURED BOOK - FROM THE AUTHOR</div>
+          <div class="tag" style="color:#C9A227">FEATURED BOOK - FROM THE AUTHOR</div>
           <h2>DISCONNECTED<br>FROM THE HEAD</h2>
           <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:18px;color:#111 !important;margin:0 0 12px">The Doctrine of Religiosity - By Habert Mande Murunga</p>
           <p><b>What if the greatest danger to the Church is not abandoning religion, but practising it while becoming disconnected from Christ?</b></p>
@@ -390,7 +392,7 @@
           </ul>
           <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
             <button onclick="openBookDetail()" style="background:#000;color:#fff;border:none;padding:14px 22px;font-weight:800;cursor:pointer;border-radius:30px">READ MORE TO HAVE</button>
-            <button onclick="openBuyModal('Disconnected from the Head')" style="background:#DC2626;color:#fff;border:none;padding:14px 22px;font-weight:800;cursor:pointer;border-radius:30px">ORDER THIS BOOK</button>
+            <button onclick="openBuyModal('Disconnected from the Head')" style="background:#C9A227;color:#000;border:none;padding:14px 22px;font-weight:800;cursor:pointer;border-radius:30px">ORDER THIS BOOK</button>
             <button onclick="showPage('author')" style="background:#fff;color:#000;border:2px solid #000;padding:14px 22px;font-weight:800;cursor:pointer;border-radius:30px">VIEW MORE BOOKS</button>
           </div>
           <p style="font-size:12px;color:#666 !important;margin-top:10px">4 books total. 2 available now, 2 coming 6 Feb 2027.</p>
@@ -427,7 +429,7 @@
         <h2>BOOKS NOW<br>AVAILABLE &<br>UPCOMING RELEASES.</h2>
         <p>We are pleased to announce that two of our books are now available for purchase:</p>
         <p><strong>HOW TO ACCESS THE BOOKS</strong><br>• Digital Edition (eBook): <strong>KSh 1,000</strong> per book.<br>• Physical Copy: <strong>KSh 2,500</strong> per book. Delivery nationwide across Kenya.</p>
-        <button onclick="openBuyModal()" style="background:#DC2626;color:#fff;border:none;padding:14px 20px;font-weight:800;cursor:pointer;width:100%;font-size:15px;border-radius:8px">BUY AVAILABLE BOOKS →</button>
+        <button onclick="openBuyModal()" style="background:#C9A227;color:#000;border:none;padding:14px 20px;font-weight:800;cursor:pointer;width:100%;font-size:15px;border-radius:8px">BUY AVAILABLE BOOKS →</button>
         <p style="font-size:12px;color:#666;margin-top:8px;text-align:center">Tap to see payment details first, then choose a book & pay.</p>
       </div>
       <div>
@@ -442,7 +444,7 @@
           <div class="book-card" style="padding:0;overflow:hidden;background:#fff"><div style="background:#000;padding:8px"><img src="images/book-go-up.jpeg" style="width:100%;display:block;object-fit:contain;background:#000" alt="Go Up"></div><div style="padding:14px"><span class="badge-coming">COMING 6 FEB 2027</span><h3 style="margin:12px 0 6px;line-height:1.25">YOU CAN ONLY GO UP</h3><p>Book Launch • Film Premiere</p><button onclick="openHistory('goup')" style="margin-top:10px;background:#fff;color:#000;border:2px solid #000;padding:8px 14px;font-weight:800;font-size:12px;cursor:pointer;width:100%">PRE-ORDER → SEE HISTORY</button></div></div>
           <div class="book-card" style="padding:0;overflow:hidden;background:#fff"><div style="background:#000;padding:8px"><img src="images/book-freedom.jpeg" style="width:100%;display:block;object-fit:contain;background:#000" alt="Freedom"></div><div style="padding:14px"><span class="badge-coming">COMING 6 FEB 2027</span><h3 style="margin:12px 0 6px;line-height:1.25">THE PRICE OF FREEDOM</h3><p>Book Launch • Film Premiere</p><button onclick="openHistory('freedom')" style="margin-top:10px;background:#fff;color:#000;border:2px solid #000;padding:8px 14px;font-weight:800;font-size:12px;cursor:pointer;width:100%">PRE-ORDER → SEE HISTORY</button></div></div>
         </div>
-        <div style="background:#000;color:#fff;padding:20px 16px;margin-top:20px"><h3 style="font-size:22px;margin:0 0 8px;color:#fff">SUPPORT THE UPCOMING BOOK RELEASE</h3><p style="color:#fff;line-height:1.7">Every purchase contributes towards the upcoming releases, film premiere, and broader vision.</p><button onclick="openSupport()" style="display:inline-block;background:#B91C1C;color:#fff;padding:12px 18px;border:none;font-weight:800;cursor:pointer">SUPPORT THE VISION →</button></div>
+        <div style="background:#000;color:#fff;padding:20px 16px;margin-top:20px"><h3 style="font-size:22px;margin:0 0 8px;color:#fff">SUPPORT THE UPCOMING BOOK RELEASE</h3><p style="color:#fff;line-height:1.7">Every purchase contributes towards the upcoming releases, film premiere, and broader vision.</p><button onclick="openSupport()" style="display:inline-block;background:#C9A227;color:#000;padding:12px 18px;border:none;font-weight:800;cursor:pointer">SUPPORT THE VISION →</button></div>
         <p style="text-align:center;font-family:'Playfair Display',serif;font-style:italic;font-size:18px;margin:20px 0 0;color:#000">Read. Be Transformed. Become Part of the Story.</p>
       </div>
     </div>
@@ -555,21 +557,21 @@
 <p style="line-height:1.8;color:#333">In Disconnected from the Head, Habert Mande Murunga confronts one of the most subtle dangers in the Christian faith: the rise of religious activity without genuine spiritual formation.</p>
 <p style="line-height:1.8;color:#333">Through biblical teaching and practical examination, this book challenges us to reconsider the relationship between doctrine and character, faith and conduct, prayer and obedience, spiritual authority and accountability. It explores how good practices can become empty routines, how religious identity can overshadow Christlike character, and how familiar explanations can sometimes keep us from taking responsibility.</p>
 <p style="line-height:1.8;color:#333">Moving from God's original design, through the emergence and consequences of religiosity, to the call for restoration, this book invites believers, ministers, and church leaders to examine what they have normalized and return to the truth of Scripture.</p>
-<div style="background:#FEF2F2;border-left:4px solid #DC2626;padding:14px;margin:16px 0"><p style="margin:0;line-height:1.8;color:#111"><b>This is not a call to abandon the Church, doctrine, or spiritual disciplines. It is a call to restore them to their rightful place under Christ.</b></p></div>
+<div style="background:#FEF9E7;border-left:4px solid #C9A227;padding:14px;margin:16px 0"><p style="margin:0;line-height:1.8;color:#111"><b>This is not a call to abandon the Church, doctrine, or spiritual disciplines. It is a call to restore them to their rightful place under Christ.</b></p></div>
 <p style="line-height:1.8;color:#333">Because the body was never designed to function independently of its Head.</p>
 <p style="line-height:1.8;color:#111"><b>The call is simple: Return to Christ. Let the truth we preach become the life we live.</b></p>
-<button onclick="closeBookDetail();openBuyModal('Disconnected from the Head')" style="background:#DC2626;color:#fff;border:none;padding:14px;width:100%;font-weight:800;cursor:pointer;border-radius:10px;margin-top:12px">ORDER THIS BOOK - DIGITAL KSh 1,000 / PHYSICAL KSh 2,500</button>
+<button onclick="closeBookDetail();openBuyModal('Disconnected from the Head')" style="background:#C9A227;color:#000;border:none;padding:14px;width:100%;font-weight:800;cursor:pointer;border-radius:10px;margin-top:12px">ORDER THIS BOOK - DIGITAL KSh 1,000 / PHYSICAL KSh 2,500</button>
 <button onclick="closeBookDetail();showPage('author')" style="background:#fff;color:#000;border:2px solid #000;padding:13px;width:100%;font-weight:800;cursor:pointer;border-radius:10px;margin-top:10px">VIEW MORE BOOKS</button>
 </div>
 </div>
 </div>
 <div id="buyModal" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.85);padding:14px;overflow-y:auto" onclick="if(event.target===this)closeBuyModal()">
 <div style="background:#fff;max-width:520px;margin:20px auto;border-radius:14px;overflow:hidden;color:#000">
-<div style="background:#DC2626;color:#fff;padding:20px;display:flex;justify-content:space-between;align-items:center"><div><small style="letter-spacing:3px;font-weight:800">STEP 1 - PAY FIRST</small><h2 style="font-size:28px;margin:4px 0 0;color:#fff">BUY A BOOK</h2></div><button onclick="closeBuyModal()" style="background:none;border:none;color:#fff;font-size:22px;cursor:pointer">✕</button></div>
+<div style="background:#C9A227;color:#000;padding:20px;display:flex;justify-content:space-between;align-items:center"><div><small style="letter-spacing:3px;font-weight:800">STEP 1 - PAY FIRST</small><h2 style="font-size:28px;margin:4px 0 0;color:#000">BUY A BOOK</h2></div><button onclick="closeBuyModal()" style="background:none;border:none;color:#000;font-size:22px;cursor:pointer">✕</button></div>
 <div style="padding:18px">
 <p style="line-height:1.7;margin:0 0 12px;color:#333"><strong>HOW TO PAY:</strong><br>1. Choose a book below<br>2. Choose Digital or Physical<br>3. Pay via M-Pesa or Bank<br>4. Tap <strong>I HAVE PAID</strong> to send your M-Pesa code on WhatsApp</p>
-<div style="background:#FEF2F2;border:1px solid #FECACA;padding:14px;border-radius:10px;line-height:1.8;color:#111"><strong>M-PESA TILL:</strong> 8192090<br><strong>NAME:</strong> HABERT MURUNGA<br><strong>BANK:</strong> KCB Kencom - 1318238013<br><strong>DIGITAL (eBook):</strong> KSh 1,000 per book<br><strong>PHYSICAL COPY:</strong> KSh 2,500 per book<br><span style="font-size:12px;color:#666">Delivery: Nationwide - Tell us your location for delivery cost</span></div>
-<div style="margin-top:14px"><p style="font-weight:800;font-size:12px;letter-spacing:1px;margin:0 0 8px;color:#111">CHOOSE FORMAT:</p><div style="display:flex;gap:10px"><button id="fmtDigital" onclick="selectFormat('Digital',1000)" style="flex:1;background:#B91C1C;color:#fff;border:none;padding:12px;font-weight:800;cursor:pointer;border-radius:8px">📱 DIGITAL<br><span style="font-weight:400;font-size:12px">KSh 1,000</span></button><button id="fmtPhysical" onclick="selectFormat('Physical',2500)" style="flex:1;background:#fff;color:#111;border:2px solid #111;padding:12px;font-weight:800;cursor:pointer;border-radius:8px">📕 PHYSICAL<br><span style="font-weight:400;font-size:12px">KSh 2,500</span></button></div></div>
+<div style="background:#FEF9E7;border:1px solid #C9A227;padding:14px;border-radius:10px;line-height:1.8;color:#111"><strong>M-PESA TILL:</strong> 8192090<br><strong>NAME:</strong> HABERT MURUNGA<br><strong>BANK:</strong> KCB Kencom - 1318238013<br><strong>DIGITAL (eBook):</strong> KSh 1,000 per book<br><strong>PHYSICAL COPY:</strong> KSh 2,500 per book<br><span style="font-size:12px;color:#666">Delivery: Nationwide - Tell us your location for delivery cost</span></div>
+<div style="margin-top:14px"><p style="font-weight:800;font-size:12px;letter-spacing:1px;margin:0 0 8px;color:#111">CHOOSE FORMAT:</p><div style="display:flex;gap:10px"><button id="fmtDigital" onclick="selectFormat('Digital',1000)" style="flex:1;background:#C9A227;color:#000;border:none;padding:12px;font-weight:800;cursor:pointer;border-radius:8px">📱 DIGITAL<br><span style="font-weight:400;font-size:12px">KSh 1,000</span></button><button id="fmtPhysical" onclick="selectFormat('Physical',2500)" style="flex:1;background:#fff;color:#111;border:2px solid #111;padding:12px;font-weight:800;cursor:pointer;border-radius:8px">📕 PHYSICAL<br><span style="font-weight:400;font-size:12px">KSh 2,500</span></button></div></div>
 <div style="margin-top:14px;display:flex;flex-direction:column;gap:10px">
 <button onclick="selectBook('Disconnected from the Head: The Doctrine of Religiosity')" style="text-align:left;background:#fff;border:2px solid #000;padding:12px;cursor:pointer;color:#111"><strong>📕 Disconnected from the Head</strong><br><span style="font-size:12px;color:#666">Digital KSh 1,000 • Physical KSh 2,500</span></button>
 <button onclick="selectBook('Pioneers Breakthrough')" style="text-align:left;background:#fff;border:2px solid #000;padding:12px;cursor:pointer;color:#111"><strong>📕 Pioneers Breakthrough</strong><br><span style="font-size:12px;color:#666">Digital KSh 1,000 • Physical KSh 2,500</span></button>
@@ -583,14 +585,14 @@
 <div id="historyModal" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.85);padding:14px;overflow-y:auto" onclick="if(event.target===this)closeHistory()">
 <div style="background:#fff;max-width:520px;margin:20px auto;border-radius:14px;overflow:hidden;color:#000">
 <div style="background:#000;color:#fff;padding:20px;display:flex;justify-content:space-between"><div><small style="letter-spacing:3px;color:#93c5fd;font-weight:800">BOOK HISTORY</small><h2 id="historyTitle" style="font-size:26px;margin:4px 0 0;color:#fff">BOOK HISTORY</h2></div><button onclick="closeHistory()" style="background:none;border:none;color:#fff;font-size:22px;cursor:pointer">✕</button></div>
-<div style="padding:18px"><img id="historyImg" src="" style="width:100%;border-radius:10px;margin-bottom:12px;background:#000"><p id="historyText" style="line-height:1.8;color:#333">History coming soon. Habert is preparing the full story behind this book.</p><button onclick="closeHistory();openBuyModal(document.getElementById('historyTitle').textContent)" style="background:#DC2626;color:#fff;border:none;padding:13px;width:100%;font-weight:800;cursor:pointer;margin-top:12px">PRE-ORDER THIS BOOK →</button></div>
+<div style="padding:18px"><img id="historyImg" src="" style="width:100%;border-radius:10px;margin-bottom:12px;background:#000"><p id="historyText" style="line-height:1.8;color:#333">History coming soon. Habert is preparing the full story behind this book.</p><button onclick="closeHistory();openBuyModal(document.getElementById('historyTitle').textContent)" style="background:#C9A227;color:#000;border:none;padding:13px;width:100%;font-weight:800;cursor:pointer;margin-top:12px">PRE-ORDER THIS BOOK →</button></div>
 </div>
 </div>
 <button id="supportFloat" onclick="openSupport()">❤️ SUPPORT THE VISION</button>
 <div id="welcomeSupport">
 <div style="display:flex;justify-content:space-between;gap:10px"><strong style="font-size:18px;line-height:1.1">BE PART OF THE VISION 🔥</strong><button onclick="closeWelcomeSupport()" style="background:none;border:none;font-size:20px;cursor:pointer">✕</button></div>
 <p style="line-height:1.7;color:#444;font-size:14px;margin:8px 0 12px">You can help advance the vision through upcoming book releases and FLAME Ministration. Partnership, not just giving.</p>
-<button onclick="closeWelcomeSupport();openSupport()" style="background:#B91C1C;color:#fff;border:none;padding:12px;width:100%;font-weight:800;border-radius:10px;cursor:pointer">SUPPORT THE VISION →</button>
+<button onclick="closeWelcomeSupport();openSupport()" style="background:#C9A227;color:#000;border:none;padding:12px;width:100%;font-weight:800;border-radius:10px;cursor:pointer">SUPPORT THE VISION →</button>
 </div>
 <div id="supportOverlay" class="support-overlay" onclick="if(event.target===this)closeSupport()">
 <div class="support-card">
@@ -623,182 +625,40 @@
 </div>
 </div>
 <script>
-function toggleTheme(){
-  document.body.classList.toggle('light-mode');
-  var b=document.getElementById('themeBtn');
-  if(b) b.textContent=document.body.classList.contains('light-mode') ? '🌙' : '☀️';
-}
-function handleEnter(){
-  document.body.classList.remove('on-splash');
-  var s=document.getElementById('splash');
-  if(!s) return;
-  s.classList.add('hide');
-  s.style.setProperty('display','none','important');
-  s.style.setProperty('opacity','0','important');
-  s.style.setProperty('visibility','hidden','important');
-  s.style.setProperty('pointer-events','none','important');
-  var ov=document.getElementById('entranceOverlay');
-  if(ov){
-    ov.classList.add('show');
-    setTimeout(function(){ ov.classList.add('open'); }, 350);
-    setTimeout(function(){
-      ov.classList.remove('show','open');
-      document.body.style.setProperty('overflow','auto','important');
-      showHome(null);
-      window.scrollTo(0,0);
-      setTimeout(function(){ window.scrollTo(0,0); },100);
-    }, 1900);
-  } else {
-    document.body.style.setProperty('overflow','auto','important');
-    showHome(null);
-    window.scrollTo(0,0);
-  }
-}
-function enterSite(){ handleEnter(); }
-function showQuiz(){ handleEnter(); }
-function checkAnswer(){ handleEnter(); }
-function closeMenu(){ var n=document.getElementById('navLinks'); if(n) n.classList.remove('open'); var b=document.getElementById('menuBtn'); if(b) b.classList.remove('open'); }
-function toggleMenu(){ var n=document.getElementById('navLinks'); if(n) n.classList.toggle('open'); var b=document.getElementById('menuBtn'); if(b) b.classList.toggle('open'); }
-function goToSection(id){ showHome(null); setTimeout(function(){ var el=document.getElementById(id); if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); },200); }
-function showPage(id){
-  var home=document.getElementById('home-sections'); var hero=document.querySelector('.hero');
-  var poster=document.querySelector('.koinonia-poster'); var countdown=document.querySelector('.koinonia-countdown');
-  if(home) home.style.setProperty('display','none','important');
-  if(hero){ hero.style.setProperty('display','none','important'); }
-  if(poster){ poster.style.setProperty('display','none','important'); }
-  if(countdown){ countdown.style.setProperty('display','none','important'); }
-  document.querySelectorAll('.page-section').forEach(function(s){ s.classList.remove('active'); s.style.setProperty('display','none','important'); });
-  var el=document.getElementById(id);
-  if(el){
-    el.classList.add('active');
-    el.style.setProperty('display','block','important');
-    el.querySelectorAll('.reveal, .card, .vision-box, .blur-reveal').forEach(function(c){ c.classList.add('visible'); c.style.setProperty('opacity','1','important'); c.style.setProperty('transform','none','important'); c.style.setProperty('filter','blur(0)','important'); });
-  }
-  window.scrollTo({top:0,behavior:'smooth'});
-  try{ history.pushState({page:id},'','#'+id); }catch(e){}
-}
-function showHome(e){
-  if(e) e.preventDefault();
-  var home=document.getElementById('home-sections'); var hero=document.querySelector('.hero');
-  var poster=document.querySelector('.koinonia-poster'); var countdown=document.querySelector('.koinonia-countdown');
-  if(home) home.style.setProperty('display','block','important');
-  if(hero){ hero.style.setProperty('display','block','important'); }
-  if(poster){ poster.style.setProperty('display','flex','important'); }
-  if(countdown){ countdown.style.setProperty('display','flex','important'); }
-  document.querySelectorAll('.page-section').forEach(function(s){ s.classList.remove('active'); s.style.setProperty('display','none','important'); });
-  window.scrollTo({top:0,behavior:'smooth'});
-  try{ history.pushState({page:'home'},'','#home'); }catch(e){}
-}
-function showGive(e){
-  if(e) e.preventDefault();
-  closeMenu();
-  showHome(null);
-  setTimeout(function(){
-    var g=document.getElementById('give');
-    if(g){ g.scrollIntoView({behavior:'smooth',block:'start'}); }
-    try{ history.pushState({page:'home'},'','#give'); }catch(err){}
-  },150);
-}
-window.addEventListener('popstate',function(ev){
-  var home=document.getElementById('home-sections'); var hero=document.querySelector('.hero');
-  var poster=document.querySelector('.koinonia-poster'); var countdown=document.querySelector('.koinonia-countdown');
-  if(ev.state&&ev.state.page&&ev.state.page!=='home'){
-    if(home) home.style.setProperty('display','none','important'); if(hero) hero.style.setProperty('display','none','important');
-    if(poster) poster.style.setProperty('display','none','important'); if(countdown) countdown.style.setProperty('display','none','important');
-    document.querySelectorAll('.page-section').forEach(function(s){ s.classList.remove('active'); s.style.setProperty('display','none','important'); });
-    var el=document.getElementById(ev.state.page);
-    if(el){ el.classList.add('active'); el.style.setProperty('display','block','important'); el.querySelectorAll('.reveal, .card').forEach(function(c){ c.classList.add('visible'); c.style.setProperty('opacity','1','important'); c.style.setProperty('transform','none','important'); }); }
-  } else {
-    if(home) home.style.setProperty('display','block','important'); if(hero) hero.style.setProperty('display','block','important');
-    if(poster) poster.style.setProperty('display','flex','important'); if(countdown) countdown.style.setProperty('display','flex','important');
-    document.querySelectorAll('.page-section').forEach(function(s){ s.classList.remove('active'); s.style.setProperty('display','none','important'); });
-  }
-});
-function backToEntrance(){
-  document.body.classList.add('on-splash');
-  var s=document.getElementById('splash');
-  if(s){
-    s.classList.remove('hide');
-    s.style.setProperty('display','flex','important');
-    s.style.setProperty('opacity','1','important');
-    s.style.setProperty('visibility','visible','important');
-    s.style.setProperty('pointer-events','auto','important');
-  }
-  var btn=document.getElementById('enterBtn'); if(btn) btn.textContent='ENTER';
-  document.body.style.setProperty('overflow','hidden','important');
-  window.scrollTo({top:0});
-}
-function toggleFAQ(){
-  var p=document.getElementById('faq-popup'); var b=document.getElementById('helpBubble');
-  if(!p) return;
-  var isOpen=p.classList.toggle('open');
-  if(b) b.style.display=isOpen?'none':'block';
-}
-function toggleAns(btn){ btn.classList.toggle('open'); }
-function sendPrayer(){
-  var n=document.getElementById('pname')?document.getElementById('pname').value:'';
-  var ph=document.getElementById('pphone')?document.getElementById('pphone').value:'';
-  var r=document.getElementById('prequest')?document.getElementById('prequest').value:'';
-  var msg='Hello FLAME, I need prayer.%0AName: '+encodeURIComponent(n)+'%0APhone: '+encodeURIComponent(ph)+'%0ARequest: '+encodeURIComponent(r);
-  window.open('https://wa.me/254795155158?text='+msg,'_blank');
-}
-function startCountdown(){
-  var target=new Date('2027-02-06T10:00:00+03:00').getTime();
-  function tick(){
-    var now=Date.now(); var d=target-now; if(d<0) d=0;
-    var days=Math.floor(d/86400000); var hrs=Math.floor(d%86400000/3600000); var mins=Math.floor(d%3600000/60000); var secs=Math.floor(d%60000/1000);
-    var td=document.getElementById('cd-top-days'); if(td) td.textContent=days;
-    var th=document.getElementById('cd-top-hours'); if(th) th.textContent=hrs;
-    var tm=document.getElementById('cd-top-mins'); if(tm) tm.textContent=mins;
-    var ts=document.getElementById('cd-top-secs'); if(ts) ts.textContent=secs;
-    var a=document.getElementById('cd-days'); if(a) a.textContent=days;
-    var b=document.getElementById('cd-hours'); if(b) b.textContent=hrs;
-    var c=document.getElementById('cd-mins'); if(c) c.textContent=mins;
-    var e=document.getElementById('cd-secs'); if(e) e.textContent=secs;
-  }
-  tick(); setInterval(tick,1000);
-}
+function toggleTheme(){document.body.classList.toggle('light-mode');var b=document.getElementById('themeBtn');if(b)b.textContent=document.body.classList.contains('light-mode')?'🌙':'☀️';}
+function handleEnter(){document.body.classList.remove('on-splash');var s=document.getElementById('splash');if(!s)return;s.classList.add('hide');s.style.setProperty('display','none','important');s.style.setProperty('opacity','0','important');s.style.setProperty('visibility','hidden','important');s.style.setProperty('pointer-events','none','important');var ov=document.getElementById('entranceOverlay');if(ov){ov.classList.add('show');setTimeout(function(){ov.classList.add('open');},350);setTimeout(function(){ov.classList.remove('show','open');document.body.style.setProperty('overflow','auto','important');showHome(null);window.scrollTo(0,0);setTimeout(function(){window.scrollTo(0,0);},100);},1900);}else{document.body.style.setProperty('overflow','auto','important');showHome(null);window.scrollTo(0,0);}}
+function enterSite(){handleEnter();}
+function showQuiz(){handleEnter();}
+function checkAnswer(){handleEnter();}
+function closeMenu(){var n=document.getElementById('navLinks');if(n)n.classList.remove('open');var b=document.getElementById('menuBtn');if(b)b.classList.remove('open');}
+function toggleMenu(){var n=document.getElementById('navLinks');if(n)n.classList.toggle('open');var b=document.getElementById('menuBtn');if(b)b.classList.toggle('open');}
+function goToSection(id){showHome(null);setTimeout(function(){var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},200);}
+function showPage(id){var home=document.getElementById('home-sections');var hero=document.querySelector('.hero');var poster=document.querySelector('.koinonia-poster');var countdown=document.querySelector('.koinonia-countdown');if(home)home.style.setProperty('display','none','important');if(hero)hero.style.setProperty('display','none','important');if(poster)poster.style.setProperty('display','none','important');if(countdown)countdown.style.setProperty('display','none','important');document.querySelectorAll('.page-section').forEach(function(s){s.classList.remove('active');s.style.setProperty('display','none','important');});var el=document.getElementById(id);if(el){el.classList.add('active');el.style.setProperty('display','block','important');el.querySelectorAll('.reveal, .card, .vision-box, .blur-reveal').forEach(function(c){c.classList.add('visible');c.style.setProperty('opacity','1','important');c.style.setProperty('transform','none','important');c.style.setProperty('filter','blur(0)','important');});}window.scrollTo({top:0,behavior:'smooth'});try{history.pushState({page:id},'','#'+id);}catch(e){}}
+function showHome(e){if(e)e.preventDefault();var home=document.getElementById('home-sections');var hero=document.querySelector('.hero');var poster=document.querySelector('.koinonia-poster');var countdown=document.querySelector('.koinonia-countdown');if(home)home.style.setProperty('display','block','important');if(hero)hero.style.setProperty('display','block','important');if(poster)poster.style.setProperty('display','flex','important');if(countdown)countdown.style.setProperty('display','flex','important');document.querySelectorAll('.page-section').forEach(function(s){s.classList.remove('active');s.style.setProperty('display','none','important');});window.scrollTo({top:0,behavior:'smooth'});try{history.pushState({page:'home'},'','#home');}catch(e){}}
+function showGive(e){if(e)e.preventDefault();closeMenu();showHome(null);setTimeout(function(){var g=document.getElementById('give');if(g)g.scrollIntoView({behavior:'smooth',block:'start'});},150);}
+window.addEventListener('popstate',function(ev){var home=document.getElementById('home-sections');var hero=document.querySelector('.hero');var poster=document.querySelector('.koinonia-poster');var countdown=document.querySelector('.koinonia-countdown');if(ev.state&&ev.state.page&&ev.state.page!=='home'){if(home)home.style.setProperty('display','none','important');if(hero)hero.style.setProperty('display','none','important');if(poster)poster.style.setProperty('display','none','important');if(countdown)countdown.style.setProperty('display','none','important');document.querySelectorAll('.page-section').forEach(function(s){s.classList.remove('active');s.style.setProperty('display','none','important');});var el=document.getElementById(ev.state.page);if(el){el.classList.add('active');el.style.setProperty('display','block','important');el.querySelectorAll('.reveal, .card').forEach(function(c){c.classList.add('visible');c.style.setProperty('opacity','1','important');c.style.setProperty('transform','none','important');});}}else{if(home)home.style.setProperty('display','block','important');if(hero)hero.style.setProperty('display','block','important');if(poster)poster.style.setProperty('display','flex','important');if(countdown)countdown.style.setProperty('display','flex','important');document.querySelectorAll('.page-section').forEach(function(s){s.classList.remove('active');s.style.setProperty('display','none','important');});}});
+function backToEntrance(){document.body.classList.add('on-splash');var s=document.getElementById('splash');if(s){s.classList.remove('hide');s.style.setProperty('display','flex','important');s.style.setProperty('opacity','1','important');s.style.setProperty('visibility','visible','important');s.style.setProperty('pointer-events','auto','important');}var btn=document.getElementById('enterBtn');if(btn)btn.textContent='ENTER';document.body.style.setProperty('overflow','hidden','important');window.scrollTo({top:0});}
+function toggleFAQ(){var p=document.getElementById('faq-popup');var b=document.getElementById('helpBubble');if(!p)return;var isOpen=p.classList.toggle('open');if(b)b.style.display=isOpen?'none':'block';}
+function toggleAns(btn){btn.classList.toggle('open');}
+function sendPrayer(){var n=document.getElementById('pname')?document.getElementById('pname').value:'';var ph=document.getElementById('pphone')?document.getElementById('pphone').value:'';var r=document.getElementById('prequest')?document.getElementById('prequest').value:'';var msg='Hello FLAME, I need prayer.%0AName: '+encodeURIComponent(n)+'%0APhone: '+encodeURIComponent(ph)+'%0ARequest: '+encodeURIComponent(r);window.open('https://wa.me/254795155158?text='+msg,'_blank');}
+function startCountdown(){var target=new Date('2027-02-06T10:00:00+03:00').getTime();function tick(){var now=Date.now();var d=target-now;if(d<0)d=0;var days=Math.floor(d/86400000);var hrs=Math.floor(d%86400000/3600000);var mins=Math.floor(d%3600000/60000);var secs=Math.floor(d%60000/1000);var td=document.getElementById('cd-top-days');if(td)td.textContent=days;var th=document.getElementById('cd-top-hours');if(th)th.textContent=hrs;var tm=document.getElementById('cd-top-mins');if(tm)tm.textContent=mins;var ts=document.getElementById('cd-top-secs');if(ts)ts.textContent=secs;var a=document.getElementById('cd-days');if(a)a.textContent=days;var b=document.getElementById('cd-hours');if(b)b.textContent=hrs;var c=document.getElementById('cd-mins');if(c)c.textContent=mins;var e=document.getElementById('cd-secs');if(e)e.textContent=secs;}tick();setInterval(tick,1000);}
 startCountdown();
-var rotWords=['Flame.','Light.','Fire.','Voice.'];
-var rotI=0;
-function changeRotWord(){
-  var el=document.getElementById('rotWord');
-  if(!el) return;
-  el.style.opacity='0';
-  el.style.transform='translateY(10px)';
-  setTimeout(function(){ rotI=(rotI+1)%rotWords.length; el.textContent=rotWords[rotI]; el.style.opacity='1'; el.style.transform='translateY(0)'; },250);
-}
-function playFlameVideo(){
-  var v=document.getElementById('flameVideo');
-  if(!v) return;
-  v.muted=false;
-  v.play().catch(function(){ v.muted=true; v.play(); });
-  var btn=document.getElementById('audioBtn'); if(btn) btn.textContent='🔊 PLAY AUDIO';
-}
-function toggleFlameAudio(){
-  var v=document.getElementById('flameVideo');
-  if(!v) return;
-  if(v.paused){ v.muted=false; v.play(); }
-  else { v.muted=!v.muted; }
-  var btn=document.getElementById('audioBtn'); if(btn) btn.textContent=v.muted ? '🔊 PLAY AUDIO' : '🔇 MUTE AUDIO';
-}
-function openGiveThanks(){ var m=document.getElementById('giveThanksModal'); if(m) m.style.display='block'; }
-function closeGiveThanks(){ var m=document.getElementById('giveThanksModal'); if(m) m.style.display='none'; }
-function openBookDetail(){ var m=document.getElementById('bookDetailModal'); if(m) m.style.display='block'; }
-function closeBookDetail(){ var m=document.getElementById('bookDetailModal'); if(m) m.style.display='none'; }
-var io=new IntersectionObserver(function(entries){
-  entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); });
-},{threshold:0.1});
-document.querySelectorAll('#home-sections section, #home-sections .card').forEach(function(el){ el.classList.add('blur-reveal'); io.observe(el); });
-(function(){
-  var wrap=document.getElementById('embers'); if(!wrap) return;
-  for(var i=0;i<18;i++){ var e=document.createElement('div'); e.className='ember'; var s=3+Math.random()*5; e.style.width=s+'px'; e.style.height=s+'px'; e.style.left=(Math.random()*100)+'%'; e.style.animationDuration=(6+Math.random()*7)+'s'; e.style.animationDelay=(Math.random()*6)+'s'; wrap.appendChild(e); }
-})();
-var selectedBookNameGlobal=''; var selectedFormatGlobal='Digital'; var selectedPriceGlobal=1000;
+var rotWords=['Flame.','Light.','Fire.','Voice.'];var rotI=0;
+function changeRotWord(){var el=document.getElementById('rotWord');if(!el)return;el.style.opacity='0';el.style.transform='translateY(10px)';setTimeout(function(){rotI=(rotI+1)%rotWords.length;el.textContent=rotWords[rotI];el.style.opacity='1';el.style.transform='translateY(0)';},250);}
+function playFlameVideo(){var v=document.getElementById('flameVideo');if(!v)return;v.muted=false;v.play().catch(function(){v.muted=true;v.play();});var btn=document.getElementById('audioBtn');if(btn)btn.textContent='🔊 PLAY AUDIO';}
+function toggleFlameAudio(){var v=document.getElementById('flameVideo');if(!v)return;if(v.paused){v.muted=false;v.play();}else{v.muted=!v.muted;}var btn=document.getElementById('audioBtn');if(btn)btn.textContent=v.muted?'🔊 PLAY AUDIO':'🔇 MUTE AUDIO';}
+function openGiveThanks(){var m=document.getElementById('giveThanksModal');if(m)m.style.display='block';}
+function closeGiveThanks(){var m=document.getElementById('giveThanksModal');if(m)m.style.display='none';}
+function openBookDetail(){var m=document.getElementById('bookDetailModal');if(m)m.style.display='block';}
+function closeBookDetail(){var m=document.getElementById('bookDetailModal');if(m)m.style.display='none';}
+var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});
+document.querySelectorAll('#home-sections section, #home-sections .card').forEach(function(el){el.classList.add('blur-reveal');io.observe(el);});
+(function(){var wrap=document.getElementById('embers');if(!wrap)return;for(var i=0;i<18;i++){var e=document.createElement('div');e.className='ember';var s=3+Math.random()*5;e.style.width=s+'px';e.style.height=s+'px';e.style.left=(Math.random()*100)+'%';e.style.animationDuration=(6+Math.random()*7)+'s';e.style.animationDelay=(Math.random()*6)+'s';wrap.appendChild(e);}})();
+var selectedBookNameGlobal='';var selectedFormatGlobal='Digital';var selectedPriceGlobal=1000;
 function openBuyModal(book){var m=document.getElementById('buyModal');if(m)m.style.display='block';if(book)selectBook(book);}
 function closeBuyModal(){var m=document.getElementById('buyModal');if(m)m.style.display='none';}
 function selectBook(name){selectedBookNameGlobal=name;var b=document.getElementById('selectedBookBox');var n=document.getElementById('selectedBookName');if(b)b.style.display='block';if(n)n.textContent=name;updatePaidButton();if(b)b.scrollIntoView({behavior:'smooth',block:'nearest'});}
-function selectFormat(fmt,price){selectedFormatGlobal=fmt;selectedPriceGlobal=price;var d=document.getElementById('fmtDigital');var p=document.getElementById('fmtPhysical');if(d){d.style.background=fmt==='Digital'?'#B91C1C':'#fff';d.style.color=fmt==='Digital'?'#fff':'#111';d.style.border=fmt==='Digital'?'none':'2px solid #111';}if(p){p.style.background=fmt==='Physical'?'#B91C1C':'#fff';p.style.color=fmt==='Physical'?'#fff':'#111';p.style.border=fmt==='Physical'?'none':'2px solid #111';}updatePaidButton();}
+function selectFormat(fmt,price){selectedFormatGlobal=fmt;selectedPriceGlobal=price;var d=document.getElementById('fmtDigital');var p=document.getElementById('fmtPhysical');if(d){d.style.background=fmt==='Digital'?'#C9A227':'#fff';d.style.color=fmt==='Digital'?'#000':'#111';d.style.border=fmt==='Digital'?'none':'2px solid #111';}if(p){p.style.background=fmt==='Physical'?'#C9A227':'#fff';p.style.color=fmt==='Physical'?'#000':'#111';p.style.border=fmt==='Physical'?'none':'2px solid #111';}updatePaidButton();}
 function updatePaidButton(){var f=document.getElementById('selectedFormat');var btn=document.getElementById('paidBtn');if(f)f.textContent=selectedFormatGlobal+' • KSh '+selectedPriceGlobal;if(btn&&selectedBookNameGlobal)btn.href='https://wa.me/254795155158?text='+encodeURIComponent('Hello FLAME, I have paid for: '+selectedBookNameGlobal+'\nFormat: '+selectedFormatGlobal+'\nPrice: KSh '+selectedPriceGlobal+'\nM-Pesa Code: \nName: \nDelivery Location (if Physical): ');}
 function openHistory(which){var t=document.getElementById('historyTitle');var txt=document.getElementById('historyText');var img=document.getElementById('historyImg');var m=document.getElementById('historyModal');if(which==='freedom'){if(t)t.textContent='THE PRICE OF FREEDOM';if(img)img.src='images/book-freedom.jpeg';if(txt)txt.textContent='History coming soon. Habert is preparing the full story behind THE PRICE OF FREEDOM - what it cost, why it was written, and what it will unlock for this generation.';}else{if(t)t.textContent='YOU CAN ONLY GO UP';if(img)img.src='images/book-go-up.jpeg';if(txt)txt.textContent='History coming soon. Habert is preparing the full story behind YOU CAN ONLY GO UP - the journey, the breaking, and the rising.';}if(m)m.style.display='block';}
 function closeHistory(){var m=document.getElementById('historyModal');if(m)m.style.display='none';}
