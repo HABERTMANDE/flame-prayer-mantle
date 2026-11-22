@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FLAME | Catch Fire, Rise As A Flame</title>
-<link rel="stylesheet" href="style.css?v=9">
+<link rel="stylesheet" href="style.css?v=10">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600;800&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
 <style>
   .page-section{display:none !important}
@@ -166,7 +166,6 @@
   .ember{position:absolute !important;bottom:-20px !important;border-radius:50% !important;background:#2563EB !important;opacity:.7 !important;animation:emberUp linear infinite !important}
   @keyframes emberUp{from{transform:translateY(0) translateX(0);opacity:0}10%{opacity:.8}to{transform:translateY(-110vh) translateX(30px);opacity:0}}
   #rotWord{cursor:pointer !important}
-  /* ===== PAGE COVERS - ADDED ===== */
   .page-cover{position:relative !important;width:100% !important;height:220px !important;overflow:hidden !important;border-radius:14px !important;margin:0 0 20px !important;background:#000 !important}
   .page-cover img{position:absolute !important;inset:0 !important;width:100% !important;height:100% !important;object-fit:cover !important;object-position:center !important}
   .page-cover::after{content:'' !important;position:absolute !important;inset:0 !important;background:linear-gradient(180deg, rgba(0,0,0,.1) 0%, rgba(37,99,235,.35) 50%, rgba(0,0,0,.85) 100%) !important}
@@ -315,7 +314,6 @@
       </div>
     </section>
   </div>
-  <!-- PORTFOLIO WITH PAGE COVER -->
   <section id="portfolio" class="invert-window page-section">
     <div class="page-cover"><img src="images/flame-nairobi-poster.jpeg" alt="Portfolio"><div class="page-cover-text"><small>FLAME • PORTFOLIO</small><h2>THE MANTLE INVERTED.</h2><p>Black becomes white. White becomes black.</p></div></div>
     <div class="invert-top"><span>FLAME • PORTFOLIO</span><span>INVERTED • 2026</span></div>
@@ -327,7 +325,6 @@
     <div class="invert-bottom"><span>NAIROBI</span><span>GLOBAL</span><span>CONSECRATION</span></div>
     <p style="margin:20px 16px"><a onclick="showHome(event)" style="color:#2563EB;font-weight:800;cursor:pointer">← Back To Home</a></p>
   </section>
-  <!-- AUTHOR - REPLACED WITH NEW BOOKS SEGMENT -->
   <section id="author" class="author-window page-section">
     <div class="page-cover"><img src="images/habert-singing.jpg" alt="Author"><div class="page-cover-text"><small>AUTHOR • HABERT MURUNGA</small><h2>FROM THE AUTHOR.</h2><p>Four books. One mantle. One call to rise.</p></div></div>
     <div class="author-top"><span>AUTHOR • HABERT MURUNGA</span><span>2 AVAILABLE NOW • 2 COMING 6 FEB 2027</span></div>
@@ -342,39 +339,21 @@
       <div>
         <h3 style="font-family:'Anton',sans-serif;font-size:22px;margin:0 0 12px;color:#000">✅ AVAILABLE NOW</h3>
         <div class="books-grid">
-          <div class="book-card" style="padding:0;overflow:hidden">
-            <img class="book-cover-img" src="images/book-disconnected.png" alt="Disconnected from the Head">
-            <div style="padding:16px"><span class="badge-available">AVAILABLE NOW</span><h3 style="margin:10px 0 6px">Disconnected from the Head: The Doctrine of Religiosity</h3><p>Digital KSh 1,000 • Physical + Delivery Nationwide</p><a href="https://wa.me/254795155158?text=I%20want%20Disconnected%20from%20the%20Head%20The%20Doctrine%20of%20Religiosity">ORDER NOW →</a></div>
-          </div>
-          <div class="book-card" style="padding:0;overflow:hidden">
-            <img class="book-cover-img" src="images/book-pioneers.jpeg" alt="Pioneers Breakthrough">
-            <div style="padding:16px"><span class="badge-available">AVAILABLE NOW</span><h3 style="margin:10px 0 6px">Pioneers Breakthrough</h3><p>Digital KSh 1,000 • Physical + Delivery Nationwide</p><a href="https://wa.me/254795155158?text=I%20want%20Pioneers%20Breakthrough">ORDER NOW →</a></div>
-          </div>
+          <div class="book-card" style="padding:0;overflow:hidden"><img class="book-cover-img" src="images/book-disconnected.png" alt="Disconnected from the Head"><div style="padding:16px"><span class="badge-available">AVAILABLE NOW</span><h3 style="margin:10px 0 6px">Disconnected from the Head: The Doctrine of Religiosity</h3><p>Digital KSh 1,000 • Physical + Delivery Nationwide</p><a href="https://wa.me/254795155158?text=I%20want%20Disconnected%20from%20the%20Head%20The%20Doctrine%20of%20Religiosity">ORDER NOW →</a></div></div>
+          <div class="book-card" style="padding:0;overflow:hidden"><img class="book-cover-img" src="images/book-pioneers.jpeg" alt="Pioneers Breakthrough"><div style="padding:16px"><span class="badge-available">AVAILABLE NOW</span><h3 style="margin:10px 0 6px">Pioneers Breakthrough</h3><p>Digital KSh 1,000 • Physical + Delivery Nationwide</p><a href="https://wa.me/254795155158?text=I%20want%20Pioneers%20Breakthrough">ORDER NOW →</a></div></div>
         </div>
         <h3 style="font-family:'Anton',sans-serif;font-size:22px;margin:24px 0 6px;color:#000">📚 UPCOMING — 6TH FEBRUARY 2027</h3>
         <p style="color:#333;line-height:1.7;margin:0 0 12px">The following two books are scheduled for release on <strong>6th February 2027</strong>. These releases will form part of a special book launch event, which will also feature a film premiere and the first ministry ministration.</p>
         <div class="books-grid">
-          <div class="book-card" style="padding:0;overflow:hidden">
-            <img class="book-cover-img" src="images/book-go-up.jpeg" alt="You Can Only Go Up">
-            <div style="padding:16px"><span class="badge-coming">COMING 6 FEB 2027</span><h3 style="margin:10px 0 6px">YOU CAN ONLY GO UP</h3><p>Book Launch • Film Premiere • First Ministry Ministration</p><a href="https://wa.me/254795155158?text=I%20want%20to%20pre-order%20YOU%20CAN%20ONLY%20GO%20UP">PRE-ORDER →</a></div>
-          </div>
-          <div class="book-card" style="padding:0;overflow:hidden">
-            <img class="book-cover-img" src="images/book-freedom.jpeg" alt="The Price of Freedom">
-            <div style="padding:16px"><span class="badge-coming">COMING 6 FEB 2027</span><h3 style="margin:10px 0 6px">THE PRICE OF FREEDOM</h3><p>Book Launch • Film Premiere • First Ministry Ministration</p><a href="https://wa.me/254795155158?text=I%20want%20to%20pre-order%20THE%20PRICE%20OF%20FREEDOM">PRE-ORDER →</a></div>
-          </div>
+          <div class="book-card" style="padding:0;overflow:hidden"><img class="book-cover-img" src="images/book-go-up.jpeg" alt="You Can Only Go Up"><div style="padding:16px"><span class="badge-coming">COMING 6 FEB 2027</span><h3 style="margin:10px 0 6px">YOU CAN ONLY GO UP</h3><p>Book Launch • Film Premiere • First Ministry Ministration</p><a href="https://wa.me/254795155158?text=I%20want%20to%20pre-order%20YOU%20CAN%20ONLY%20GO%20UP">PRE-ORDER →</a></div></div>
+          <div class="book-card" style="padding:0;overflow:hidden"><img class="book-cover-img" src="images/book-freedom.jpeg" alt="The Price of Freedom"><div style="padding:16px"><span class="badge-coming">COMING 6 FEB 2027</span><h3 style="margin:10px 0 6px">THE PRICE OF FREEDOM</h3><p>Book Launch • Film Premiere • First Ministry Ministration</p><a href="https://wa.me/254795155158?text=I%20want%20to%20pre-order%20THE%20PRICE%20OF%20FREEDOM">PRE-ORDER →</a></div></div>
         </div>
-        <div style="background:#000;color:#fff;padding:20px 16px;margin-top:20px">
-          <h3 style="font-family:'Anton',sans-serif;font-size:24px;margin:0 0 8px;color:#fff">SUPPORT THE UPCOMING BOOK RELEASE</h3>
-          <p style="color:#ddd;line-height:1.7;margin:0 0 12px">You can become part of this vision by supporting the upcoming book launch and associated projects. One of the ways to participate is by purchasing the currently available books. Every purchase contributes towards supporting the upcoming releases, the film premiere, and the broader vision.</p>
-          <p style="color:#ddd;line-height:1.7;margin:0 0 14px">Those who desire to support the initiative through additional funding are also welcome to participate.</p>
-          <a href="https://wa.me/254795155158?text=I%20want%20to%20support%20the%20upcoming%20book%20launch" style="display:inline-block;background:#2563EB;color:#fff;padding:12px 18px;text-decoration:none;font-weight:800">SUPPORT THE VISION →</a>
-        </div>
+        <div style="background:#000;color:#fff;padding:20px 16px;margin-top:20px"><h3 style="font-family:'Anton',sans-serif;font-size:24px;margin:0 0 8px;color:#fff">SUPPORT THE UPCOMING BOOK RELEASE</h3><p style="color:#ddd;line-height:1.7;margin:0 0 12px">You can become part of this vision by supporting the upcoming book launch and associated projects. One of the ways to participate is by purchasing the currently available books. Every purchase contributes towards supporting the upcoming releases, the film premiere, and the broader vision.</p><p style="color:#ddd;line-height:1.7;margin:0 0 14px">Those who desire to support the initiative through additional funding are also welcome to participate.</p><a href="https://wa.me/254795155158?text=I%20want%20to%20support%20the%20upcoming%20book%20launch" style="display:inline-block;background:#2563EB;color:#fff;padding:12px 18px;text-decoration:none;font-weight:800">SUPPORT THE VISION →</a></div>
         <p style="text-align:center;font-family:'Playfair Display',serif;font-style:italic;font-size:18px;margin:20px 0 0;color:#000">Read. Be Transformed. Become Part of the Story.</p>
       </div>
     </div>
     <p style="margin:0 16px 20px"><a onclick="showHome(event)" style="color:#2563EB;font-weight:800;cursor:pointer">← Back To Home</a></p>
   </section>
-  <!-- MERCH WITH PAGE COVER -->
   <section id="merch" class="merch-window page-section">
     <div class="page-cover"><img src="images/flame-splash.webp" alt="Merch"><div class="page-cover-text"><small>FLAME MERCH • SHOP</small><h2>WEAR THE WORD.</h2><p>T-Shirts • Hoodies • Caps</p></div></div>
     <div class="merch-top"><span>FLAME MERCH • SHOP</span><span>FLAME.CO.KE</span></div>
@@ -394,7 +373,6 @@
     </div>
     <p style="margin:0 16px 20px"><a onclick="showHome(event)" style="color:#2563EB;font-weight:800;cursor:pointer">← Back To Home</a></p>
   </section>
-  <!-- VISION WITH PAGE COVER -->
   <section id="vision" class="page-section">
     <div class="page-cover"><img src="images/habert-singing.jpg" alt="Vision"><div class="page-cover-text"><small>03 — THE VISION</small><h2>REVIVAL BEGINS WITHIN.</h2><p>It begins within before it becomes visible without.</p></div></div>
     <div class="tag">03 — THE VISION OF AN AWAKENING</div>
@@ -406,7 +384,6 @@
     </div>
     <p style="margin-top:20px"><a onclick="showHome(event)" style="color:#2563EB;font-weight:800;cursor:pointer">← Back To Home</a></p>
   </section>
-  <!-- STEPS WITH PAGE COVER -->
   <section id="steps" class="page-section">
     <div class="page-cover"><img src="images/flame-nairobi-poster.jpeg" alt="Next Steps"><div class="page-cover-text"><small>05 — NEXT STEPS</small><h2>YOUR NEXT STEP STARTS HERE.</h2><p>Saved • Baptized • Join The Mantle</p></div></div>
     <div class="tag">05 — NEXT STEPS</div>
@@ -418,7 +395,6 @@
     </div>
     <p style="margin-top:20px"><a onclick="showHome(event)" style="color:#2563EB;font-weight:800;cursor:pointer">← Back To Home</a></p>
   </section>
-  <!-- PRAYER WITH PAGE COVER -->
   <section id="prayer" class="page-section">
     <div class="page-cover"><img src="images/habert-singing.jpg" alt="Prayer"><div class="page-cover-text"><small>06 — PRAYER ALTAR</small><h2>NEED PRAYER?</h2><p>We will stand with you.</p></div></div>
     <div class="tag">06 — PRAYER ALTAR</div>
@@ -432,7 +408,6 @@
     </div>
     <p style="margin-top:20px"><a onclick="showHome(event)" style="color:#2563EB;font-weight:800;cursor:pointer">← Back To Home</a></p>
   </section>
-  <!-- WATCH WITH PAGE COVER -->
   <section id="watch" class="page-section">
     <div class="page-cover"><img src="images/flame-splash.webp" alt="Watch"><div class="page-cover-text"><small>08 — WATCH</small><h2>CATCH THE FIRE AGAIN.</h2><p>Be Of Good Cheer — I Have Overcome</p></div></div>
     <div class="tag">08 — WATCH</div>
@@ -453,7 +428,6 @@
     </div>
     <p style="margin-top:20px"><a onclick="showHome(event)" style="color:#2563EB;font-weight:800;cursor:pointer">← Back To Home</a></p>
   </section>
-  <!-- EVENT WITH PAGE COVER -->
   <section id="event" class="page-section">
     <div class="page-cover"><img src="images/flame-nairobi-poster.jpeg" alt="Nairobi"><div class="page-cover-text"><small>07 — NAIROBI GATHERING</small><h2>FLAME NAIROBI. BE THERE.</h2><p>6 Feb 2027 • 10AM - 3PM</p></div></div>
     <div class="tag">07 — NAIROBI GATHERING</div>
@@ -637,6 +611,6 @@ document.querySelectorAll('#home-sections section, #home-sections .card').forEac
   for(var i=0;i<18;i++){ var e=document.createElement('div'); e.className='ember'; var s=3+Math.random()*5; e.style.width=s+'px'; e.style.height=s+'px'; e.style.left=(Math.random()*100)+'%'; e.style.animationDuration=(6+Math.random()*7)+'s'; e.style.animationDelay=(Math.random()*6)+'s'; wrap.appendChild(e); }
 })();
 </script>
-<script src="script.js?v=8"></script>
+<script src="script.js?v=9"></script>
 </body>
 </html>
