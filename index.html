@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FLAME | Catch Fire, Rise As A Flame</title>
-<link rel="stylesheet" href="style.css?v=10">
+<link rel="stylesheet" href="style.css?v=11">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600;800&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
 <style>
   .page-section{display:none !important}
@@ -173,9 +173,38 @@
   .page-cover-text small{letter-spacing:4px !important;font-size:10px !important;font-weight:800 !important;color:#93c5fd !important}
   .page-cover-text h2{font-family:'Anton',sans-serif !important;font-size:34px !important;line-height:.95 !important;margin:4px 0 0 !important;color:#fff !important}
   .page-cover-text p{font-family:'Playfair Display',serif !important;font-style:italic !important;font-size:14px !important;margin:4px 0 0 !important;color:#fff !important;opacity:.9 !important}
-  .book-cover-img{width:100% !important;display:block !important;aspect-ratio:3/4 !important;object-fit:cover !important;background:#000 !important}
-  .badge-available{background:#16a34a !important;color:#fff !important;padding:3px 8px !important;font-size:10px !important;font-weight:800 !important;letter-spacing:1px !important}
-  .badge-coming{background:#000 !important;color:#fff !important;padding:3px 8px !important;font-size:10px !important;font-weight:800 !important;letter-spacing:1px !important}
+  .book-cover-img{width:100% !important;display:block !important;object-fit:contain !important;background:#000 !important}
+  .badge-available{background:#DC2626 !important;color:#fff !important;padding:5px 10px !important;font-size:10px !important;font-weight:800 !important;letter-spacing:1px !important;border-radius:20px !important}
+  .badge-coming{background:#000 !important;color:#fff !important;padding:5px 10px !important;font-size:10px !important;font-weight:800 !important;letter-spacing:1px !important;border-radius:20px !important}
+  /* FIX BLACK SIDE SPACE + READABILITY */
+  main#content{padding:0 !important;margin:0 !important;width:100% !important;max-width:100% !important;overflow:hidden !important}
+  section#author.author-window,section#portfolio.invert-window,section#merch.merch-window{margin:0 auto !important;width:100% !important;max-width:1180px !important;border-radius:0 !important;box-sizing:border-box !important}
+  section#author .page-cover,section#portfolio .page-cover,section#merch .page-cover{margin:0 !important;border-radius:0 !important;width:100% !important;height:260px !important}
+  .merch-sub,.shirt-card p{color:#ddd !important}
+  .author-main p,.book-card p{color:#333 !important}
+  /* SUPPORT PORTAL */
+  #supportFloat{position:fixed !important;right:16px !important;bottom:20px !important;z-index:998 !important;background:#B91C1C !important;color:#fff !important;border:none !important;padding:14px 18px !important;border-radius:30px !important;font-weight:800 !important;font-size:13px !important;letter-spacing:1px !important;cursor:pointer !important;box-shadow:0 10px 30px rgba(185,28,28,.4) !important;display:flex !important;align-items:center !important;gap:8px !important}
+  #supportFloat:hover{background:#991B1B !important;transform:translateY(-2px) !important}
+  @media(max-width:850px){#supportFloat{bottom:76px !important;right:12px !important;padding:12px 14px !important;font-size:12px !important}}
+  .support-overlay{display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.85);padding:14px;overflow-y:auto}
+  .support-card{background:#fff;max-width:560px;margin:20px auto;border-radius:16px;overflow:hidden;color:#111}
+  .support-head{background:#000;color:#fff;padding:22px;display:flex;justify-content:space-between;align-items:start}
+  .support-head h2{font-family:'Anton',sans-serif;font-size:30px;line-height:.95;margin:6px 0 0;color:#fff}
+  .support-head p{color:#ddd;line-height:1.6;font-size:14px;margin:8px 0 0}
+  .support-body{padding:18px}
+  .initiative{border:2px solid #eee;border-radius:12px;padding:16px;margin-bottom:12px;cursor:pointer}
+  .initiative.selected{border-color:#B91C1C;background:#FEF2F2}
+  .initiative h3{margin:0 0 6px;font-family:'Anton',sans-serif;font-size:20px}
+  .initiative p{margin:0;color:#444;line-height:1.6;font-size:14px}
+  .amount-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:14px 0}
+  .amount-btn{background:#fff;border:2px solid #e5e5e5;border-radius:10px;padding:13px 6px;font-weight:800;cursor:pointer;font-size:14px;color:#111}
+  .amount-btn.selected{background:#B91C1C;color:#fff;border-color:#B91C1C}
+  .pay-box{background:#F9FAFB;border:1px solid #e5e5e5;border-radius:12px;padding:14px;line-height:1.8;font-size:14px;color:#111}
+  .copy-btn{background:#111;color:#fff;border:none;padding:4px 10px;border-radius:6px;font-size:11px;font-weight:800;cursor:pointer;margin-left:8px}
+  .wa-confirm{display:block;background:#16a34a;color:#fff;text-align:center;padding:14px;text-decoration:none;font-weight:800;border-radius:10px;margin-top:12px}
+  .support-input{width:100%;padding:12px;border:2px solid #e5e5e5;border-radius:10px;margin:6px 0;font-size:14px;color:#111;background:#fff;box-sizing:border-box}
+  #welcomeSupport{display:none;position:fixed;left:16px;right:16px;bottom:90px;z-index:997;max-width:420px;margin:0 auto;background:#fff;color:#111;border-radius:14px;box-shadow:0 16px 40px rgba(0,0,0,.35);padding:18px}
+  @media(min-width:850px){#welcomeSupport{left:auto;right:20px;bottom:90px}}
 </style>
 </head>
 <body>
@@ -332,23 +361,23 @@
       <div>
         <h2>BOOKS NOW<br>AVAILABLE &<br>UPCOMING RELEASES.</h2>
         <p>We are pleased to announce that two of our books are now available for purchase:</p>
-        <p><strong>HOW TO ACCESS THE BOOKS</strong><br>• Digital Edition (eBook): <strong>KSh 1,000</strong> per book.<br>• Physical Copies: Available for purchase, with delivery and shipping available nationwide across Kenya.</p>
-        <p>Readers can choose their preferred format and have the books shared with them accordingly.</p>
-        <a class="author-btn" href="https://wa.me/254795155158?text=I%20want%20to%20buy%20a%20FLAME%20book">BUY AVAILABLE BOOKS →</a>
+        <p><strong>HOW TO ACCESS THE BOOKS</strong><br>• Digital Edition (eBook): <strong>KSh 1,000</strong> per book.<br>• Physical Copies: Available, delivery nationwide across Kenya.</p>
+        <button onclick="openBuyModal()" style="background:#DC2626;color:#fff;border:none;padding:14px 20px;font-weight:800;cursor:pointer;width:100%;font-size:15px;border-radius:8px">BUY AVAILABLE BOOKS →</button>
+        <p style="font-size:12px;color:#666;margin-top:8px;text-align:center">Tap to see payment details first, then choose a book & pay.</p>
       </div>
       <div>
-        <h3 style="font-family:'Anton',sans-serif;font-size:22px;margin:0 0 12px;color:#000">✅ AVAILABLE NOW</h3>
+        <h3 style="font-family:'Anton',sans-serif;font-size:20px;margin:0 0 12px;color:#000">AVAILABLE NOW</h3>
         <div class="books-grid">
-          <div class="book-card" style="padding:0;overflow:hidden"><img class="book-cover-img" src="images/book-disconnected.png" alt="Disconnected from the Head"><div style="padding:16px"><span class="badge-available">AVAILABLE NOW</span><h3 style="margin:10px 0 6px">Disconnected from the Head: The Doctrine of Religiosity</h3><p>Digital KSh 1,000 • Physical + Delivery Nationwide</p><a href="https://wa.me/254795155158?text=I%20want%20Disconnected%20from%20the%20Head%20The%20Doctrine%20of%20Religiosity">ORDER NOW →</a></div></div>
-          <div class="book-card" style="padding:0;overflow:hidden"><img class="book-cover-img" src="images/book-pioneers.jpeg" alt="Pioneers Breakthrough"><div style="padding:16px"><span class="badge-available">AVAILABLE NOW</span><h3 style="margin:10px 0 6px">Pioneers Breakthrough</h3><p>Digital KSh 1,000 • Physical + Delivery Nationwide</p><a href="https://wa.me/254795155158?text=I%20want%20Pioneers%20Breakthrough">ORDER NOW →</a></div></div>
+          <div class="book-card" style="padding:0;overflow:hidden;background:#fff"><div style="background:#000;padding:8px"><img src="images/book-disconnected.png" style="width:100%;display:block;object-fit:contain;background:#000" alt="Disconnected"></div><div style="padding:14px"><span class="badge-available">AVAILABLE NOW</span><h3 style="margin:12px 0 6px;line-height:1.25">Disconnected from the Head: The Doctrine of Religiosity</h3><p>Digital KSh 1,000 • Physical + Delivery</p><button onclick="openBuyModal('Disconnected from the Head')" style="margin-top:10px;background:#000;color:#fff;padding:9px 14px;border:none;font-weight:800;font-size:12px;cursor:pointer;width:100%">ORDER NOW →</button></div></div>
+          <div class="book-card" style="padding:0;overflow:hidden;background:#fff"><div style="background:#000;padding:8px"><img src="images/book-pioneers.jpeg" style="width:100%;display:block;object-fit:contain;background:#000" alt="Pioneers"></div><div style="padding:14px"><span class="badge-available">AVAILABLE NOW</span><h3 style="margin:12px 0 6px;line-height:1.25">Pioneers Breakthrough</h3><p>Digital KSh 1,000 • Physical + Delivery</p><button onclick="openBuyModal('Pioneers Breakthrough')" style="margin-top:10px;background:#000;color:#fff;padding:9px 14px;border:none;font-weight:800;font-size:12px;cursor:pointer;width:100%">ORDER NOW →</button></div></div>
         </div>
-        <h3 style="font-family:'Anton',sans-serif;font-size:22px;margin:24px 0 6px;color:#000">📚 UPCOMING — 6TH FEBRUARY 2027</h3>
-        <p style="color:#333;line-height:1.7;margin:0 0 12px">The following two books are scheduled for release on <strong>6th February 2027</strong>. These releases will form part of a special book launch event, which will also feature a film premiere and the first ministry ministration.</p>
+        <h3 style="font-family:'Anton',sans-serif;font-size:20px;margin:24px 0 6px;color:#000">UPCOMING — 6TH FEBRUARY 2027</h3>
+        <p style="color:#333;line-height:1.7;margin:0 0 12px">Two books for release on <strong>6th February 2027</strong>. Book launch + film premiere + first ministry ministration.</p>
         <div class="books-grid">
-          <div class="book-card" style="padding:0;overflow:hidden"><img class="book-cover-img" src="images/book-go-up.jpeg" alt="You Can Only Go Up"><div style="padding:16px"><span class="badge-coming">COMING 6 FEB 2027</span><h3 style="margin:10px 0 6px">YOU CAN ONLY GO UP</h3><p>Book Launch • Film Premiere • First Ministry Ministration</p><a href="https://wa.me/254795155158?text=I%20want%20to%20pre-order%20YOU%20CAN%20ONLY%20GO%20UP">PRE-ORDER →</a></div></div>
-          <div class="book-card" style="padding:0;overflow:hidden"><img class="book-cover-img" src="images/book-freedom.jpeg" alt="The Price of Freedom"><div style="padding:16px"><span class="badge-coming">COMING 6 FEB 2027</span><h3 style="margin:10px 0 6px">THE PRICE OF FREEDOM</h3><p>Book Launch • Film Premiere • First Ministry Ministration</p><a href="https://wa.me/254795155158?text=I%20want%20to%20pre-order%20THE%20PRICE%20OF%20FREEDOM">PRE-ORDER →</a></div></div>
+          <div class="book-card" style="padding:0;overflow:hidden;background:#fff"><div style="background:#000;padding:8px"><img src="images/book-go-up.jpeg" style="width:100%;display:block;object-fit:contain;background:#000" alt="Go Up"></div><div style="padding:14px"><span class="badge-coming">COMING 6 FEB 2027</span><h3 style="margin:12px 0 6px;line-height:1.25">YOU CAN ONLY GO UP</h3><p>Book Launch • Film Premiere</p><button onclick="openHistory('goup')" style="margin-top:10px;background:#fff;color:#000;border:2px solid #000;padding:8px 14px;font-weight:800;font-size:12px;cursor:pointer;width:100%">PRE-ORDER → SEE HISTORY</button></div></div>
+          <div class="book-card" style="padding:0;overflow:hidden;background:#fff"><div style="background:#000;padding:8px"><img src="images/book-freedom.jpeg" style="width:100%;display:block;object-fit:contain;background:#000" alt="Freedom"></div><div style="padding:14px"><span class="badge-coming">COMING 6 FEB 2027</span><h3 style="margin:12px 0 6px;line-height:1.25">THE PRICE OF FREEDOM</h3><p>Book Launch • Film Premiere</p><button onclick="openHistory('freedom')" style="margin-top:10px;background:#fff;color:#000;border:2px solid #000;padding:8px 14px;font-weight:800;font-size:12px;cursor:pointer;width:100%">PRE-ORDER → SEE HISTORY</button></div></div>
         </div>
-        <div style="background:#000;color:#fff;padding:20px 16px;margin-top:20px"><h3 style="font-family:'Anton',sans-serif;font-size:24px;margin:0 0 8px;color:#fff">SUPPORT THE UPCOMING BOOK RELEASE</h3><p style="color:#ddd;line-height:1.7;margin:0 0 12px">You can become part of this vision by supporting the upcoming book launch and associated projects. One of the ways to participate is by purchasing the currently available books. Every purchase contributes towards supporting the upcoming releases, the film premiere, and the broader vision.</p><p style="color:#ddd;line-height:1.7;margin:0 0 14px">Those who desire to support the initiative through additional funding are also welcome to participate.</p><a href="https://wa.me/254795155158?text=I%20want%20to%20support%20the%20upcoming%20book%20launch" style="display:inline-block;background:#2563EB;color:#fff;padding:12px 18px;text-decoration:none;font-weight:800">SUPPORT THE VISION →</a></div>
+        <div style="background:#000;color:#fff;padding:20px 16px;margin-top:20px"><h3 style="font-family:'Anton',sans-serif;font-size:22px;margin:0 0 8px;color:#fff">SUPPORT THE UPCOMING BOOK RELEASE</h3><p style="color:#ddd;line-height:1.7">Every purchase contributes towards the upcoming releases, film premiere, and broader vision.</p><button onclick="openSupport()" style="display:inline-block;background:#B91C1C;color:#fff;padding:12px 18px;border:none;font-weight:800;cursor:pointer">SUPPORT THE VISION →</button></div>
         <p style="text-align:center;font-family:'Playfair Display',serif;font-style:italic;font-size:18px;margin:20px 0 0;color:#000">Read. Be Transformed. Become Part of the Story.</p>
       </div>
     </div>
@@ -378,9 +407,9 @@
     <div class="tag">03 — THE VISION OF AN AWAKENING</div>
     <h2>REVIVAL BEGINS<br>WITHIN.</h2>
     <div class="grid">
-      <div class="vision-box"><h3>🔥 First In Hearts</h3><p style="color:#bbb;line-height:1.8;margin-top:8px">We carry a greater expectation that the Lord Jesus Christ will release a divine decree, and in His appointed time, revival will erupt. It will first take place in the hearts of men and women who burn with genuine burden, hunger, and thirst for God and His Word. <b>It begins within before it becomes visible without.</b></p></div>
-      <div class="vision-box"><h3>✨ Then In The World</h3><p style="color:#bbb;line-height:1.8;margin-top:8px">As believers become filled with the Word and the Spirit, they will rise beyond personal experiences to become visible expressions of His light. Revival is not merely an atmosphere — it is a transformation that produces people who carry His presence, reflect His nature, proclaim His Word, and illuminate their generation.</p></div>
-      <div class="vision-box"><h3>📖 Hunger For The Word</h3><p style="color:#bbb;line-height:1.8;margin-top:8px">Hunger and passion for God's Word. Being filled with the Holy Spirit. Raising a generation that becomes the light of the world.</p></div>
+      <div class="vision-box"><h3>🔥 First In Hearts</h3><p style="color:#ddd;line-height:1.8;margin-top:8px">We carry a greater expectation that the Lord Jesus Christ will release a divine decree, and in His appointed time, revival will erupt. It will first take place in the hearts of men and women who burn with genuine burden, hunger, and thirst for God and His Word. <b>It begins within before it becomes visible without.</b></p></div>
+      <div class="vision-box"><h3>✨ Then In The World</h3><p style="color:#ddd;line-height:1.8;margin-top:8px">As believers become filled with the Word and the Spirit, they will rise beyond personal experiences to become visible expressions of His light. Revival is not merely an atmosphere — it is a transformation that produces people who carry His presence, reflect His nature, proclaim His Word, and illuminate their generation.</p></div>
+      <div class="vision-box"><h3>📖 Hunger For The Word</h3><p style="color:#ddd;line-height:1.8;margin-top:8px">Hunger and passion for God's Word. Being filled with the Holy Spirit. Raising a generation that becomes the light of the world.</p></div>
     </div>
     <p style="margin-top:20px"><a onclick="showHome(event)" style="color:#2563EB;font-weight:800;cursor:pointer">← Back To Home</a></p>
   </section>
@@ -404,7 +433,7 @@
       <label>WHATSAPP NUMBER</label><input id="pphone" placeholder="+254...">
       <label>PRAYER REQUEST</label><textarea id="prequest" rows="4" placeholder="Healing, Family, Business, Salvation..."></textarea>
       <button class="btn" style="width:100%;padding:16px;cursor:pointer;background:#2563EB" onclick="sendPrayer()">🔥 SEND PRAYER REQUEST VIA WHATSAPP</button>
-      <p style="text-align:center;color:#888;font-size:12px;margin-top:12px">This opens WhatsApp to +254795155158. Your request is private.</p>
+      <p style="text-align:center;color:#ccc;font-size:12px;margin-top:12px">This opens WhatsApp to +254795155158. Your request is private.</p>
     </div>
     <p style="margin-top:20px"><a onclick="showHome(event)" style="color:#2563EB;font-weight:800;cursor:pointer">← Back To Home</a></p>
   </section>
@@ -432,7 +461,7 @@
     <div class="page-cover"><img src="images/flame-nairobi-poster.jpeg" alt="Nairobi"><div class="page-cover-text"><small>07 — NAIROBI GATHERING</small><h2>FLAME NAIROBI. BE THERE.</h2><p>6 Feb 2027 • 10AM - 3PM</p></div></div>
     <div class="tag">07 — NAIROBI GATHERING</div>
     <h2>FLAME NAIROBI.<br>BE THERE.</h2>
-    <div style="text-align:center;margin-top:20px"><div class="tag">COUNTDOWN</div><div class="countdown"><div class="count-box"><b id="cd-days">0</b><span>DAYS</span></div><div class="count-box"><b id="cd-hours">0</b><span>HOURS</span></div><div class="count-box"><b id="cd-mins">0</b><span>MINS</span></div><div class="count-box"><b id="cd-secs">0</b><span>SECS</span></div></div><p style="color:#aaa;font-size:13px">6th Saturday • February 6, 2027 • 10:00 AM - 3:00 PM EAT</p></div>
+    <div style="text-align:center;margin-top:20px"><div class="tag">COUNTDOWN</div><div class="countdown"><div class="count-box"><b id="cd-days">0</b><span>DAYS</span></div><div class="count-box"><b id="cd-hours">0</b><span>HOURS</span></div><div class="count-box"><b id="cd-mins">0</b><span>MINS</span></div><div class="count-box"><b id="cd-secs">0</b><span>SECS</span></div></div><p style="color:#ddd;font-size:13px">6th Saturday • February 6, 2027 • 10:00 AM - 3:00 PM EAT</p></div>
     <div style="margin-top:24px"><div class="tag">WEEKLY RHYTHM</div><div class="event-row"><div><b>🔥 Monday — Friday • Morning Altar</b><span>Daily Prayer & Word • Online • 3:00 AM - 5:00 AM</span></div><a class="btn" href="https://wa.me/254795155158?text=I%20want%20to%20join%20Morning%20Altar" style="background:#2563EB">Join →</a></div><div class="event-row"><div><b>🙏 Wednesday • Midweek Fire</b><span>Prayer & Teaching • Online • Midnight - 4:00 AM</span></div><a class="btn" href="https://wa.me/254795155158?text=I%20want%20to%20join%20Midweek%20Fire" style="background:#2563EB">Join →</a></div><div class="event-row"><div><b>✨ Saturday • FLAME Gathering</b><span>Main Gathering • 10:00 AM - 3:00 PM</span></div><a class="btn" href="https://wa.me/254795155158?text=I%20want%20to%20attend%20Saturday%20Gathering" style="background:#2563EB">Join →</a></div></div>
     <p style="margin-top:20px"><a onclick="showHome(event)" style="color:#2563EB;font-weight:800;cursor:pointer">← Back To Home</a></p>
   </section>
@@ -444,6 +473,71 @@
   WhatsApp: +254795155158 | Instagram: theflameprayermantle<br><br>
   © 2026 FLAME Prayer Mantle. We catch fire in His presence, we rise as a flame in the world.
 </footer>
+
+<!-- BUY MODAL -->
+<div id="buyModal" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.85);padding:14px;overflow-y:auto" onclick="if(event.target===this)closeBuyModal()">
+<div style="background:#fff;max-width:520px;margin:20px auto;border-radius:14px;overflow:hidden;color:#000">
+<div style="background:#DC2626;color:#fff;padding:20px;display:flex;justify-content:space-between;align-items:center"><div><small style="letter-spacing:3px;font-weight:800">STEP 1 • PAY FIRST</small><h2 style="font-family:'Anton',sans-serif;font-size:28px;margin:4px 0 0;color:#fff">BUY A BOOK</h2></div><button onclick="closeBuyModal()" style="background:none;border:none;color:#fff;font-size:22px;cursor:pointer">✕</button></div>
+<div style="padding:18px">
+<p style="line-height:1.7;margin:0 0 12px;color:#333"><strong>HOW TO PAY:</strong><br>1. Choose a book below<br>2. Pay via M-Pesa or Bank<br>3. Tap <strong>I HAVE PAID</strong> to send your M-Pesa code on WhatsApp</p>
+<div style="background:#FEF2F2;border:1px solid #FECACA;padding:14px;border-radius:10px;line-height:1.8;color:#111"><strong>M-PESA TILL:</strong> 8192090<br><strong>NAME:</strong> HABERT MURUNGA<br><strong>BANK:</strong> KCB Kencom • 1318238013<br><strong>DIGITAL:</strong> KSh 1,000 per book<br><strong>PHYSICAL:</strong> + Delivery Nationwide</div>
+<div style="margin-top:14px;display:flex;flex-direction:column;gap:10px">
+<button onclick="selectBook('Disconnected from the Head: The Doctrine of Religiosity')" style="text-align:left;background:#fff;border:2px solid #000;padding:12px;cursor:pointer;color:#111"><strong>📕 Disconnected from the Head</strong><br><span style="font-size:12px;color:#666">KSh 1,000 • AVAILABLE NOW</span></button>
+<button onclick="selectBook('Pioneers Breakthrough')" style="text-align:left;background:#fff;border:2px solid #000;padding:12px;cursor:pointer;color:#111"><strong>📕 Pioneers Breakthrough</strong><br><span style="font-size:12px;color:#666">KSh 1,000 • AVAILABLE NOW</span></button>
+<button onclick="selectBook('YOU CAN ONLY GO UP - PRE-ORDER')" style="text-align:left;background:#fff;border:2px solid #ddd;padding:12px;cursor:pointer;color:#111"><strong>📗 YOU CAN ONLY GO UP</strong><br><span style="font-size:12px;color:#666">PRE-ORDER • 6 Feb 2027</span></button>
+<button onclick="selectBook('THE PRICE OF FREEDOM - PRE-ORDER')" style="text-align:left;background:#fff;border:2px solid #ddd;padding:12px;cursor:pointer;color:#111"><strong>📗 THE PRICE OF FREEDOM</strong><br><span style="font-size:12px;color:#666">PRE-ORDER • 6 Feb 2027</span></button>
+</div>
+<div id="selectedBookBox" style="display:none;background:#000;color:#fff;padding:14px;border-radius:10px;margin-top:14px"><small>SELECTED:</small><div id="selectedBookName" style="font-weight:800;margin:4px 0 10px">—</div><a id="paidBtn" href="#" target="_blank" style="display:block;background:#16a34a;color:#fff;text-align:center;padding:13px;text-decoration:none;font-weight:800">✅ I HAVE PAID → SEND M-PESA MESSAGE ON WHATSAPP</a><p style="font-size:12px;color:#bbb;margin:8px 0 0;line-height:1.6">After paying, tap above. WhatsApp will open with your book + space to paste your M-Pesa code.</p></div>
+</div>
+</div>
+</div>
+
+<!-- HISTORY MODAL -->
+<div id="historyModal" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.85);padding:14px;overflow-y:auto" onclick="if(event.target===this)closeHistory()">
+<div style="background:#fff;max-width:520px;margin:20px auto;border-radius:14px;overflow:hidden;color:#000">
+<div style="background:#000;color:#fff;padding:20px;display:flex;justify-content:space-between"><div><small style="letter-spacing:3px;color:#93c5fd;font-weight:800">BOOK HISTORY</small><h2 id="historyTitle" style="font-family:'Anton',sans-serif;font-size:26px;margin:4px 0 0;color:#fff">BOOK HISTORY</h2></div><button onclick="closeHistory()" style="background:none;border:none;color:#fff;font-size:22px;cursor:pointer">✕</button></div>
+<div style="padding:18px"><img id="historyImg" src="" style="width:100%;border-radius:10px;margin-bottom:12px;background:#000"><p id="historyText" style="line-height:1.8;color:#333">History coming soon. Habert is preparing the full story behind this book.</p><button onclick="closeHistory();openBuyModal(document.getElementById('historyTitle').textContent)" style="background:#DC2626;color:#fff;border:none;padding:13px;width:100%;font-weight:800;cursor:pointer;margin-top:12px">PRE-ORDER THIS BOOK →</button></div>
+</div>
+</div>
+
+<!-- SUPPORT FLOAT + WELCOME + PORTAL -->
+<button id="supportFloat" onclick="openSupport()">❤️ SUPPORT THE VISION</button>
+<div id="welcomeSupport">
+<div style="display:flex;justify-content:space-between;gap:10px"><strong style="font-family:'Anton',sans-serif;font-size:18px;line-height:1.1">BE PART OF THE VISION 🔥</strong><button onclick="closeWelcomeSupport()" style="background:none;border:none;font-size:20px;cursor:pointer">✕</button></div>
+<p style="line-height:1.7;color:#444;font-size:14px;margin:8px 0 12px">You can help advance the vision through upcoming book releases and FLAME Ministration. Partnership, not just giving.</p>
+<button onclick="closeWelcomeSupport();openSupport()" style="background:#B91C1C;color:#fff;border:none;padding:12px;width:100%;font-weight:800;border-radius:10px;cursor:pointer">SUPPORT THE VISION →</button>
+</div>
+<div id="supportOverlay" class="support-overlay" onclick="if(event.target===this)closeSupport()">
+<div class="support-card">
+<div class="support-head"><div><small style="letter-spacing:3px;color:#FCA5A5;font-weight:800">PARTNERSHIP • PARTICIPATION</small><h2>SUPPORT<br>THE VISION.</h2><p>Choose an initiative. Choose an amount. Pay via M-Pesa. Confirm on WhatsApp for verification.</p></div><button onclick="closeSupport()" style="background:none;border:none;color:#fff;font-size:24px;cursor:pointer">✕</button></div>
+<div class="support-body">
+<p style="font-weight:800;font-size:12px;letter-spacing:2px;margin:0 0 10px;color:#111">1 • CHOOSE AN INITIATIVE</p>
+<div id="initBooks" class="initiative selected" onclick="selectInitiative('books')"><h3>📚 A • UPCOMING BOOK RELEASES</h3><p>Support production, publication, printing and distribution of upcoming books — including YOU CAN ONLY GO UP and THE PRICE OF FREEDOM.</p></div>
+<div id="initMinistry" class="initiative" onclick="selectInitiative('ministry')"><h3>🔥 B • FLAME MINISTRATION</h3><p>Support FLAME Ministration — ministry activities, outreach, programmes and advancement of the mantle.</p></div>
+<p style="font-weight:800;font-size:12px;letter-spacing:2px;margin:18px 0 0;color:#111">2 • CHOOSE AN AMOUNT</p>
+<div class="amount-grid">
+<button class="amount-btn" onclick="selectAmount(500,this)">KSh 500</button>
+<button class="amount-btn" onclick="selectAmount(1000,this)">KSh 1,000</button>
+<button class="amount-btn" onclick="selectAmount(2000,this)">KSh 2,000</button>
+<button class="amount-btn" onclick="selectAmount(5000,this)">KSh 5,000</button>
+<button class="amount-btn" onclick="selectAmount(10000,this)">KSh 10,000</button>
+<button class="amount-btn" onclick="selectAmount('other',this)">Other</button>
+</div>
+<input id="customAmount" class="support-input" type="number" placeholder="Enter custom amount e.g. 1500" style="display:none" oninput="setCustomAmount(this.value)">
+<input id="supporterName" class="support-input" placeholder="Your full name (optional)">
+<p style="font-weight:800;font-size:12px;letter-spacing:2px;margin:14px 0 8px;color:#111">3 • PAY VIA M-PESA</p>
+<div class="pay-box">
+<strong>Selected:</strong> <span id="supportSummary" style="color:#B91C1C">Upcoming Book Releases • KSh 1,000</span><br><br>
+<strong>Option 1 — M-Pesa Till</strong><br>Till Number: <strong>8192090</strong> <button class="copy-btn" onclick="copyText('8192090')">COPY</button><br>Name: HABERT MURUNGA<br><br>
+<strong>Option 2 — M-Pesa Paybill</strong><br>Paybill: <strong>[ TO BE CONFIRMED ]</strong><br>Account: <strong>[ TO BE CONFIRMED ]</strong><br><span style="font-size:12px;color:#666">Tell us your real Paybill and we will fill it here.</span><br><br>
+<strong>Steps:</strong><br>1. Go to M-Pesa → Send Money / Paybill<br>2. Enter Till 8192090 or Paybill above<br>3. Enter amount<br>4. Confirm & save your M-Pesa code
+</div>
+<a id="supportWhatsAppBtn" class="wa-confirm" href="https://wa.me/254795155158?text=Hello%20FLAME%2C%20I%20want%20to%20confirm%20my%20support" target="_blank">✅ I HAVE PAID → CONFIRM ON WHATSAPP</a>
+<p style="font-size:12px;color:#666;line-height:1.6;text-align:center;margin:10px 0 0">WhatsApp opens with your initiative + amount + name. Payment is verified manually after you send your M-Pesa code. No automatic verification.</p>
+</div>
+</div>
+</div>
+
 <script>
 function toggleTheme(){
   document.body.classList.toggle('light-mode');
@@ -610,7 +704,23 @@ document.querySelectorAll('#home-sections section, #home-sections .card').forEac
   var wrap=document.getElementById('embers'); if(!wrap) return;
   for(var i=0;i<18;i++){ var e=document.createElement('div'); e.className='ember'; var s=3+Math.random()*5; e.style.width=s+'px'; e.style.height=s+'px'; e.style.left=(Math.random()*100)+'%'; e.style.animationDuration=(6+Math.random()*7)+'s'; e.style.animationDelay=(Math.random()*6)+'s'; wrap.appendChild(e); }
 })();
+function openBuyModal(book){var m=document.getElementById('buyModal');if(m)m.style.display='block';if(book)selectBook(book);}
+function closeBuyModal(){var m=document.getElementById('buyModal');if(m)m.style.display='none';}
+function selectBook(name){var b=document.getElementById('selectedBookBox');var n=document.getElementById('selectedBookName');var btn=document.getElementById('paidBtn');if(b)b.style.display='block';if(n)n.textContent=name;if(btn)btn.href='https://wa.me/254795155158?text='+encodeURIComponent('Hello FLAME, I have paid for: '+name+'\nM-Pesa Code: \nFormat (Digital/Physical): \nName: \nDelivery Location: ');if(b)b.scrollIntoView({behavior:'smooth',block:'nearest'});}
+function openHistory(which){var t=document.getElementById('historyTitle');var txt=document.getElementById('historyText');var img=document.getElementById('historyImg');var m=document.getElementById('historyModal');if(which==='freedom'){if(t)t.textContent='THE PRICE OF FREEDOM';if(img)img.src='images/book-freedom.jpeg';if(txt)txt.textContent='History coming soon. Habert is preparing the full story behind THE PRICE OF FREEDOM — what it cost, why it was written, and what it will unlock for this generation.';}else{if(t)t.textContent='YOU CAN ONLY GO UP';if(img)img.src='images/book-go-up.jpeg';if(txt)txt.textContent='History coming soon. Habert is preparing the full story behind YOU CAN ONLY GO UP — the journey, the breaking, and the rising.';}if(m)m.style.display='block';}
+function closeHistory(){var m=document.getElementById('historyModal');if(m)m.style.display='none';}
+var supportInitiative='Upcoming Book Releases';var supportAmount=1000;
+function openSupport(){var o=document.getElementById('supportOverlay');if(o)o.style.display='block';updateSupportSummary();}
+function closeSupport(){var o=document.getElementById('supportOverlay');if(o)o.style.display='none';}
+function selectInitiative(which){var b=document.getElementById('initBooks');var m=document.getElementById('initMinistry');if(b)b.classList.remove('selected');if(m)m.classList.remove('selected');if(which==='books'){if(b)b.classList.add('selected');supportInitiative='Upcoming Book Releases';}else{if(m)m.classList.add('selected');supportInitiative='FLAME Ministration';}updateSupportSummary();}
+function selectAmount(val,btn){document.querySelectorAll('.amount-btn').forEach(function(x){x.classList.remove('selected')});if(btn)btn.classList.add('selected');var c=document.getElementById('customAmount');if(val==='other'){if(c){c.style.display='block';c.focus();}supportAmount='';}else{if(c)c.style.display='none';supportAmount=val;}updateSupportSummary();}
+function setCustomAmount(v){supportAmount=v;updateSupportSummary();}
+function updateSupportSummary(){var s=document.getElementById('supportSummary');var amt=supportAmount?('KSh '+Number(supportAmount).toLocaleString()):'Custom Amount';if(s)s.textContent=supportInitiative+' • '+amt;var name=document.getElementById('supporterName')?document.getElementById('supporterName').value:'';var btn=document.getElementById('supportWhatsAppBtn');if(btn){var msg='Hello FLAME, I want to confirm my support.\nInitiative: '+supportInitiative+'\nAmount: '+amt+'\nName: '+(name||'[Not provided]')+'\nM-Pesa Code: \nPlease verify. Thank you!';btn.href='https://wa.me/254795155158?text='+encodeURIComponent(msg);}}
+document.getElementById('supporterName')?.addEventListener('input',updateSupportSummary);
+function copyText(t){if(navigator.clipboard)navigator.clipboard.writeText(t).then(function(){alert('Copied: '+t)});else{var i=document.createElement('input');i.value=t;document.body.appendChild(i);i.select();document.execCommand('copy');document.body.removeChild(i);alert('Copied: '+t);}}
+function closeWelcomeSupport(){var w=document.getElementById('welcomeSupport');if(w)w.style.display='none';}
+setTimeout(function(){var w=document.getElementById('welcomeSupport');if(w&&!sessionStorage.getItem('flameWelcomeShown')){w.style.display='block';sessionStorage.setItem('flameWelcomeShown','1');}},4000);
 </script>
-<script src="script.js?v=9"></script>
+<script src="script.js?v=10"></script>
 </body>
 </html>
