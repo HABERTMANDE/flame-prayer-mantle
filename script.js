@@ -243,14 +243,13 @@ function toggleAns(btn){ btn.classList.toggle('open'); }
 
 /* ===== NEW: SCRIPTURE-OPEN ENTRANCE - FIXED ===== */
 function handleEnter(){
-  var splash = document.getElementById('splash');
-  if(splash){
-    splash.classList.add('hide');
-    splash.style.setProperty('opacity','0','important');
-    splash.style.setProperty('visibility','hidden','important');
-    splash.style.setProperty('display','none','important');
-    splash.style.setProperty('pointer-events','none','important');
-  }
+  document.body.classList.remove('on-splash');
+  var s=document.getElementById('splash');
+  if(s){s.classList.add('hide');s.style.setProperty('display','none','important');}
+  document.body.style.setProperty('overflow','auto','important');
+  showHome(null);
+  window.scrollTo(0,0);
+}
   var ov = document.getElementById('entranceOverlay');
   if(ov){
     ov.classList.add('show');
